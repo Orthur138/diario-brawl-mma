@@ -27,19 +27,13 @@
     background-image: radial-gradient(ellipse at top center, #1a0000 0%, #0a0a0a 55%);
   }
 
-  .container {
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 24px 16px 60px;
-  }
+  .container { max-width: 540px; margin: 0 auto; padding: 24px 16px 60px; }
 
-  /* HEADER */
   .header { text-align: center; margin-bottom: 28px; }
   .header h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.6rem, 9vw, 3.4rem);
-    letter-spacing: 2px;
-    line-height: 1;
+    letter-spacing: 2px; line-height: 1;
     background: linear-gradient(135deg, #ff2222, #cc0000, #888888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -47,233 +41,107 @@
   }
   .header .emoji-fire { font-size: 2rem; display: block; margin-bottom: 4px; }
   .pix-box {
-    background: #161616;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin: 12px auto 0;
-    display: inline-block;
-    font-size: 0.85rem;
-    color: var(--muted);
+    background: #161616; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 10px 16px; margin: 12px auto 0; display: inline-block;
+    font-size: 0.85rem; color: var(--muted);
   }
   .pix-box strong { color: #cc3333; }
 
-  /* VAGAS */
   .vagas-bar {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 20px; display: flex;
+    align-items: center; justify-content: space-between;
   }
   .vagas-bar .label { font-size: 0.9rem; color: var(--muted); }
   .vagas-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red-bright); }
 
-  /* SYNC STATUS */
   .sync-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    color: #444;
-    margin-bottom: 16px;
-    padding-left: 2px;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; color: #444; margin-bottom: 16px; padding-left: 2px;
   }
-  .sync-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #333;
-    transition: background 0.3s;
-  }
+  .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: #333; transition: background 0.3s; }
   .sync-dot.online { background: #2ecc71; box-shadow: 0 0 6px #2ecc7166; }
   .sync-dot.syncing { background: #f39c12; animation: blink 0.8s infinite; }
   .sync-dot.error { background: #cc1111; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* CARDS */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 20px;
-    margin-bottom: 20px;
-  }
-  .card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    color: #cc2222;
-    margin-bottom: 16px;
-  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 20px; margin-bottom: 20px; }
+  .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: #cc2222; margin-bottom: 16px; }
 
-  /* FORM */
   .field { margin-bottom: 14px; }
-  .field label {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 6px;
-  }
+  .field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
   .field input {
-    width: 100%;
-    background: #141414;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 11px 14px;
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.2s;
-    outline: none;
+    width: 100%; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 11px 14px; color: var(--text); font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem; transition: border-color 0.2s; outline: none;
   }
   .field input:focus { border-color: var(--red); }
   .field input::placeholder { color: #3a3a3a; }
   .field input:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .btn-submit {
-    width: 100%;
-    background: linear-gradient(135deg, #cc1111, #8a0a0a);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    margin-top: 4px;
-    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+    width: 100%; background: linear-gradient(135deg, #cc1111, #8a0a0a);
+    color: #fff; border: none; border-radius: 8px; padding: 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px;
+    cursor: pointer; margin-top: 4px; transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
     box-shadow: 0 4px 16px rgba(180,0,0,0.35);
   }
   .btn-submit:hover:not(:disabled) { transform: translateY(-2px); }
   .btn-submit:active:not(:disabled) { transform: translateY(0); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* AVISO */
   .aviso-importante {
-    display: none;
-    background: linear-gradient(135deg, #140000, #1a0000);
-    border: 2px solid #cc1111;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-    animation: pulseRed 2.5s ease-in-out infinite;
+    display: none; background: linear-gradient(135deg, #140000, #1a0000);
+    border: 2px solid #cc1111; border-radius: 12px; padding: 18px;
+    margin-bottom: 20px; animation: pulseRed 2.5s ease-in-out infinite;
   }
   @keyframes pulseRed {
     0%,100% { box-shadow: 0 0 0 0 rgba(200,0,0,0.2); }
     50% { box-shadow: 0 0 0 8px rgba(200,0,0,0); }
   }
   .aviso-importante .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
-  .aviso-importante h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #dd3333;
-    margin-bottom: 6px;
-  }
+  .aviso-importante h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #dd3333; margin-bottom: 6px; }
   .aviso-importante p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
   .aviso-importante p strong { color: #ff4444; }
 
-  /* INSCRITO BOX */
-  .inscrito-box {
-    display: none;
-    background: #141414;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-  }
+  .inscrito-box { display: none; background: #141414; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 20px; }
   .inscrito-box .check { font-size: 1.6rem; margin-bottom: 6px; display: block; }
-  .inscrito-box h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: #aaaaaa;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
+  .inscrito-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #aaaaaa; letter-spacing: 1px; margin-bottom: 4px; }
   .inscrito-box p { font-size: 0.9rem; color: #666; }
 
-  /* SALA — sempre visível para todos */
   .sala-section {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-bottom: 20px;
-    text-align: center;
+    display: block; background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; text-align: center;
   }
-  .sala-section h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    color: #cc2222;
-  }
-  .sala-bloqueada-box {
-    background: #111;
-    border: 2px solid #3a1010;
-    border-radius: 8px;
-    padding: 22px 18px;
-    color: #993333;
-    animation: pulseRed 2.5s ease-in-out infinite;
-  }
+  .sala-section h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; margin-bottom: 14px; color: #cc2222; }
+  .sala-bloqueada-box { background: #111; border: 2px solid #3a1010; border-radius: 8px; padding: 22px 18px; color: #993333; animation: pulseRed 2.5s ease-in-out infinite; }
   .sala-bloqueada-box .lock-icon { font-size: 2.5rem; display: block; margin-bottom: 8px; }
   .sala-bloqueada-box .titulo { font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; }
   .sala-bloqueada-box .sub { font-size: 0.82rem; color: #663333; margin-top: 6px; }
 
-  .sala-liberada-box {
-    display: none;
-    background: #0d1a0d;
-    border: 2px solid #2ecc71;
-    border-radius: 8px;
-    padding: 22px 18px;
-    animation: pulseGreen 2.5s ease-in-out infinite;
-  }
+  .sala-liberada-box { display: none; background: #0d1a0d; border: 2px solid #2ecc71; border-radius: 8px; padding: 22px 18px; animation: pulseGreen 2.5s ease-in-out infinite; }
   @keyframes pulseGreen {
     0%,100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.2); }
     50% { box-shadow: 0 0 0 8px rgba(46,204,113,0); }
   }
   .sala-liberada-box .unlock-icon { font-size: 2.5rem; display: block; margin-bottom: 8px; }
-  .sala-liberada-box .titulo-lib {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: #2ecc71;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
+  .sala-liberada-box .titulo-lib { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #2ecc71; letter-spacing: 1px; margin-bottom: 4px; }
   .sala-liberada-box p { font-size: 0.9rem; color: #888; margin-bottom: 14px; }
   .btn-sala {
-    display: inline-block;
-    background: linear-gradient(135deg, #bb1111, #7a0808);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    padding: 12px 28px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.25rem;
-    letter-spacing: 1px;
-    transition: transform 0.15s;
-    box-shadow: 0 4px 14px rgba(180,0,0,0.35);
+    display: inline-block; background: linear-gradient(135deg, #1a8a3a, #0d5c22);
+    color: #fff; text-decoration: none; border-radius: 8px; padding: 14px 32px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 1.5px;
+    transition: transform 0.15s; box-shadow: 0 4px 20px rgba(46,204,113,0.4);
+    animation: pulseBtn 1.8s ease-in-out infinite;
+  }
+  @keyframes pulseBtn {
+    0%,100% { box-shadow: 0 4px 20px rgba(46,204,113,0.4); }
+    50% { box-shadow: 0 4px 36px rgba(46,204,113,0.85); }
   }
   .btn-sala:hover { transform: translateY(-2px); }
 
-  /* LISTA */
   hr.divider { border: none; border-top: 1px solid #1a1a1a; margin: 6px 0 16px; }
-  .participante-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 12px 0;
-    border-bottom: 1px solid #1a1a1a;
-    animation: fadeIn 0.3s ease;
-  }
+  .participante-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #1a1a1a; animation: fadeIn 0.3s ease; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
   .participante-item:last-child { border-bottom: none; }
   .part-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #bb1111; min-width: 28px; }
@@ -282,157 +150,56 @@
   .part-info .phone { font-size: 0.78rem; color: #555; margin-top: 2px; }
   .lista-loading { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
-  /* ADMIN */
-  .admin-login-toggle {
-    text-align: center;
-    margin-bottom: 12px;
-  }
+  .admin-login-toggle { text-align: center; margin-bottom: 12px; }
   .admin-login-toggle button {
-    background: none;
-    border: 1px solid #1a1a1a;
-    color: #2a2a2a;
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
+    background: none; border: 1px solid #1a1a1a; color: #2a2a2a; font-size: 0.7rem;
+    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Barlow', sans-serif;
     transition: color 0.2s, border-color 0.2s;
   }
   .admin-login-toggle button:hover { color: #444; border-color: #333; }
 
-  .admin-login-box {
-    display: none;
-    background: #0e0e0e;
-    border: 1px solid #1e1e1e;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-  }
+  .admin-login-box { display: none; background: #0e0e0e; border: 1px solid #1e1e1e; border-radius: 12px; padding: 18px; margin-bottom: 20px; }
   .btn-entrar-admin {
-    width: 100%;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #888;
-    border-radius: 8px;
-    padding: 11px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 4px;
+    width: 100%; background: #1a1a1a; border: 1px solid #333; color: #888;
+    border-radius: 8px; padding: 11px; font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; letter-spacing: 1px; cursor: pointer; margin-top: 4px;
   }
   .btn-entrar-admin:hover { background: #222; color: #aaa; }
 
-  .admin-panel {
-    display: none;
-    background: #0e0e0e;
-    border: 1px solid #cc1111;
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-bottom: 20px;
-  }
-  .admin-panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  .admin-panel-header h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #cc2222;
-  }
-  .btn-sair-admin {
-    background: none;
-    border: 1px solid #333;
-    color: #555;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-  }
+  .admin-panel { display: none; background: #0e0e0e; border: 1px solid #cc1111; border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; }
+  .admin-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .admin-panel-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #cc2222; }
+  .btn-sair-admin { background: none; border: 1px solid #333; color: #555; font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Barlow', sans-serif; }
   .btn-sair-admin:hover { color: #888; }
 
-  .status-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 16px;
-  }
+  .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
   .status-bloqueada { background: #2a0a0a; color: #cc3333; border: 1px solid #4a1010; }
   .status-liberada  { background: #1e1e1e; color: #888; border: 1px solid #333; }
-
   .admin-panel .field input { background: #141414; border-color: #2a2a2a; }
 
-  .btn-admin {
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    padding: 13px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: transform 0.15s, opacity 0.2s;
-  }
+  .btn-admin { width: 100%; border: none; border-radius: 8px; padding: 13px; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; cursor: pointer; margin-top: 8px; transition: transform 0.15s, opacity 0.2s; }
   .btn-admin:hover:not(:disabled) { transform: translateY(-1px); }
   .btn-admin:active:not(:disabled) { transform: translateY(0); }
   .btn-admin:disabled { opacity: 0.5; cursor: not-allowed; }
   .btn-liberar { background: linear-gradient(135deg, #3a3a3a, #222); color: #ccc; }
   .btn-bloquear { background: linear-gradient(135deg, #7a1a1a, #5a0d0d); color: #ffaaaa; }
-  .btn-reset {
-    background: #111;
-    color: #555;
-    border: 1px solid #2a2a2a;
-    margin-top: 18px;
-  }
+  .btn-reset { background: #111; color: #555; border: 1px solid #2a2a2a; margin-top: 18px; }
   .btn-reset:hover:not(:disabled) { color: #cc3333 !important; border-color: #cc3333 !important; }
-
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
-  /* LISTA ADMIN DE PARTICIPANTES NO PAINEL */
   .admin-part-list { margin-top: 16px; }
-  .admin-part-list h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    color: #666;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  .admin-part-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #1a1a1a;
-    font-size: 0.82rem;
-  }
+  .admin-part-list h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
+  .admin-part-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.82rem; }
   .admin-part-item:last-child { border-bottom: none; }
   .admin-part-item .api { color: #555; }
   .admin-part-item .anome { color: #aaa; font-weight: 600; }
 
-  /* TOAST */
   .toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
+    position: fixed; bottom: 24px; left: 50%;
     transform: translateX(-50%) translateY(80px);
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #ccc;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 0.88rem;
-    z-index: 999;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
+    background: #1a1a1a; border: 1px solid #333; color: #ccc;
+    padding: 12px 20px; border-radius: 8px; font-size: 0.88rem;
+    z-index: 999; transition: transform 0.3s ease; white-space: nowrap;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.success { border-color: #2ecc71; color: #2ecc71; }
@@ -471,7 +238,7 @@
   </div>
 
   <div class="sala-section" id="salaSection">
-    <h3>🚪 Sala Privada</h3>
+    <h3>🏆 Acesso ao Campeonato</h3>
     <div id="salaBloqueadaDiv">
       <div class="sala-bloqueada-box">
         <span class="lock-icon">🔒</span>
@@ -529,24 +296,18 @@
       <h3>⚙️ Painel Admin</h3>
       <button class="btn-sair-admin" id="btnSairAdmin">Sair</button>
     </div>
-
     <span class="status-badge status-bloqueada" id="statusBadge">🔒 Sala Bloqueada</span>
-
     <div class="field">
       <label>Link da Sala Privada</label>
       <input type="url" id="adminLinkSala" placeholder="https://link-da-sala.com">
     </div>
-
     <button class="btn-admin btn-liberar" id="btnLiberar">🔓 Liberar Sala para Participantes</button>
     <button class="btn-admin btn-bloquear" id="btnBloquear">🔒 Bloquear Sala</button>
-
     <hr class="admin-sep">
-
     <div class="admin-part-list">
       <h4>📋 Inscritos</h4>
       <div id="adminListaParticipantes"></div>
     </div>
-
     <hr class="admin-sep">
     <button class="btn-admin btn-reset" id="btnReset">🗑️ Resetar Todos os Inscritos</button>
   </div>
@@ -566,7 +327,6 @@
   var ultimaSala = null;
   var ultimosPartic = {};
 
-  // ── Firebase ──────────────────────────────────────────────────
   firebase.initializeApp({
     apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
     authDomain: "diario-brawl-mma.firebaseapp.com",
@@ -580,7 +340,6 @@
   var refPartic = db.ref('participantes');
   var refSala   = db.ref('sala');
 
-  // ── Toast ─────────────────────────────────────────────────────
   var toastTimer;
   function toast(msg, type) {
     var t = document.getElementById('toast');
@@ -590,13 +349,11 @@
     toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3000);
   }
 
-  // ── Sync dot ──────────────────────────────────────────────────
   function setSync(state, label) {
     document.getElementById('syncDot').className = 'sync-dot ' + state;
     document.getElementById('syncLabel').textContent = label;
   }
 
-  // ── Render ────────────────────────────────────────────────────
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
@@ -625,15 +382,16 @@
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
-    // Mostra a seção da sala para todos sempre
+    var bloqueada = document.getElementById('salaBloqueadaDiv');
+    var liberada  = document.getElementById('salaLiberadaDiv');
     document.getElementById('salaSection').style.display = 'block';
     if (aberta && link !== '#') {
-      document.getElementById('salaBloqueadaDiv').style.display = 'none';
-      document.getElementById('salaLiberadaDiv').style.display = 'block';
+      bloqueada.style.display = 'none';
+      liberada.style.display  = 'block';
       document.getElementById('btnEntrarSala').href = link;
     } else {
-      document.getElementById('salaBloqueadaDiv').style.display = 'block';
-      document.getElementById('salaLiberadaDiv').style.display = 'none';
+      bloqueada.style.display = 'block';
+      liberada.style.display  = 'none';
     }
     if (isAdmin) renderBadge(salaData);
   }
@@ -688,6 +446,7 @@
     if (!nome)  { toast('Insira seu nome!', 'error'); return; }
     if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
     if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
+
     refPartic.once('value', function(snap) {
       var atual = snap.val() ? Object.keys(snap.val()).length : 0;
       if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
@@ -778,5 +537,3 @@
 </script>
 </body>
 </html>
-      
-      
