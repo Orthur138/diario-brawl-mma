@@ -625,6 +625,8 @@
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
+    // Mostra a seção da sala para todos sempre
+    document.getElementById('salaSection').style.display = 'block';
     if (aberta && link !== '#') {
       document.getElementById('salaBloqueadaDiv').style.display = 'none';
       document.getElementById('salaLiberadaDiv').style.display = 'block';
@@ -776,3 +778,5 @@
 </script>
 </body>
 </html>
+      
+      
