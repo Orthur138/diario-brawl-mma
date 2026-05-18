@@ -199,7 +199,7 @@
   }
   .inscrito-box p { font-size: 0.9rem; color: #666; }
 
-  /* SALA — sempre visível para todos */
+  /* SALA */
   .sala-section {
     display: block;
     background: var(--card);
@@ -229,11 +229,11 @@
   .sala-bloqueada-box .sub { font-size: 0.82rem; color: #663333; margin-top: 6px; }
 
   .sala-liberada-box {
-    display: none;
     background: #0d1a0d;
     border: 2px solid #2ecc71;
     border-radius: 8px;
     padding: 22px 18px;
+    text-align: center;
     animation: pulseGreen 2.5s ease-in-out infinite;
   }
   @keyframes pulseGreen {
@@ -402,7 +402,6 @@
 
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
-  /* LISTA ADMIN DE PARTICIPANTES NO PAINEL */
   .admin-part-list { margin-top: 16px; }
   .admin-part-list h4 {
     font-family: 'Bebas Neue', sans-serif;
@@ -485,10 +484,10 @@
       </div>
     </div>
     <div id="salaLiberadaDiv" style="display:none;">
-      <div class="sala-liberada-box sala-aberta-box" id="salaAbertaInner">
+      <div class="sala-liberada-box">
         <span class="unlock-icon">🔓</span>
-        <p class="titulo-lib" id="tituloSalaLib">SALA ABERTA</p>
-        <p id="subSalaLib">ADM liberou a sala</p>
+        <p class="titulo-lib">SALA ABERTA</p>
+        <p>ADM liberou a sala</p>
         <a href="#" class="btn-sala" id="btnEntrarSala" target="_blank" style="margin-top:14px;display:inline-block;">🤝 Entrar na Sala</a>
       </div>
     </div>
@@ -571,7 +570,6 @@
   var ultimaSala = null;
   var ultimosPartic = {};
 
-  // ── Firebase ──────────────────────────────────────────────────
   firebase.initializeApp({
     apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
     authDomain: "diario-brawl-mma.firebaseapp.com",
@@ -585,7 +583,6 @@
   var refPartic = db.ref('participantes');
   var refSala   = db.ref('sala');
 
-  // ── Toast ─────────────────────────────────────────────────────
   var toastTimer;
   function toast(msg, type) {
     var t = document.getElementById('toast');
@@ -595,13 +592,11 @@
     toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3000);
   }
 
-  // ── Sync dot ──────────────────────────────────────────────────
   function setSync(state, label) {
     document.getElementById('syncDot').className = 'sync-dot ' + state;
     document.getElementById('syncLabel').textContent = label;
   }
 
-  // ── Render ────────────────────────────────────────────────────
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
@@ -672,7 +667,6 @@
     document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
   }
 
-  // ── Listeners Firebase ────────────────────────────────────────
   refPartic.on('value', function(snap) {
     ultimosPartic = snap.val() || {};
     renderLista(ultimosPartic);
@@ -689,7 +683,6 @@
     else setSync('error', 'Sem conexão...');
   });
 
-  // ── Inscrever ─────────────────────────────────────────────────
   document.getElementById('btnInscrever').addEventListener('click', function() {
     var nome  = document.getElementById('inputNome').value.trim();
     var brawl = document.getElementById('inputBrawl').value.trim();
@@ -722,7 +715,6 @@
     });
   });
 
-  // ── Admin toggle ──────────────────────────────────────────────
   document.getElementById('btnToggleLogin').addEventListener('click', function() {
     var box = document.getElementById('adminLoginBox');
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
@@ -752,7 +744,6 @@
     document.getElementById('adminPanel').style.display = 'none';
   });
 
-  // ── Liberar sala ──────────────────────────────────────────────
   document.getElementById('btnLiberar').addEventListener('click', function() {
     var link = document.getElementById('adminLinkSala').value.trim();
     if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
@@ -762,7 +753,6 @@
     });
   });
 
-  // ── Bloquear sala ─────────────────────────────────────────────
   document.getElementById('btnBloquear').addEventListener('click', function() {
     refSala.update({ aberta: false }, function(err) {
       if (err) toast('Erro!', 'error');
@@ -770,7 +760,6 @@
     });
   });
 
-  // ── Resetar ───────────────────────────────────────────────────
   document.getElementById('btnReset').addEventListener('click', function() {
     if (!confirm('Apagar todos os inscritos?')) return;
     refPartic.remove(function(err) {
