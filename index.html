@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -555,15 +555,12 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
 <script>
 (function () {
   var TOTAL_VAGAS = 9;
   var SENHA = "818181";
-
   var usuarioInscrito = false;
   var isAdmin = false;
   var ultimaSala = null;
@@ -571,7 +568,13 @@
 
   // ── Firebase ──────────────────────────────────────────────────
   firebase.initializeApp({
-    databaseURL: "https://diario-brawl-mma-default-rtdb.firebaseio.com"
+    apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
+    authDomain: "diario-brawl-mma.firebaseapp.com",
+    databaseURL: "https://diario-brawl-mma-default-rtdb.firebaseio.com",
+    projectId: "diario-brawl-mma",
+    storageBucket: "diario-brawl-mma.firebasestorage.app",
+    messagingSenderId: "156307889943",
+    appId: "1:156307889943:web:1d8b2b37ed08387af1a152"
   });
   var db = firebase.database();
   var refPartic = db.ref('participantes');
@@ -651,4 +654,125 @@
     el.innerHTML = html;
   }
 
-  funct
+  function renderBadge(salaData) {
+    var badge = document.getElementById('statusBadge');
+    if (!badge) return;
+    var aberta = salaData && salaData.aberta;
+    badge.textContent = aberta ? '🔓 Sala Liberada' : '🔒 Sala Fechada';
+    badge.className = 'status-badge ' + (aberta ? 'status-liberada' : 'status-bloqueada');
+    document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
+  }
+
+  refPartic.on('value', function(snap) {
+    ultimosPartic = snap.val() || {};
+    renderLista(ultimosPartic);
+    setSync('online', 'Atualizado');
+  });
+
+  refSala.on('value', function(snap) {
+    ultimaSala = snap.val();
+    renderSala(ultimaSala);
+  });
+
+  db.ref('.info/connected').on('value', function(snap) {
+    if (snap.val()) setSync('online', 'Online');
+    else setSync('error', 'Sem conexão...');
+  });
+
+  document.getElementById('btnInscrever').addEventListener('click', function() {
+    var nome  = document.getElementById('inputNome').value.trim();
+    var brawl = document.getElementById('inputBrawl').value.trim();
+    var tel   = document.getElementById('inputTelefone').value.trim();
+    if (!nome)  { toast('Insira seu nome!', 'error'); return; }
+    if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
+    if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
+    refPartic.once('value', function(snap) {
+      var atual = snap.val() ? Object.keys(snap.val()).length : 0;
+      if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
+      var btn = document.getElementById('btnInscrever');
+      btn.disabled = true;
+      btn.textContent = 'Inscrevendo...';
+      refPartic.push({ nome: nome, brawl: brawl, telefone: tel }, function(err) {
+        if (err) {
+          toast('Erro ao inscrever. Tente novamente.', 'error');
+          btn.disabled = false;
+          btn.textContent = 'Entrar no Diário';
+        } else {
+          document.getElementById('formCard').style.display = 'none';
+          document.getElementById('avisoImportante').style.display = 'block';
+          document.getElementById('inscritoBox').style.display = 'block';
+          usuarioInscrito = true;
+          toast('Inscrição confirmada! ✅', 'success');
+        }
+      });
+    });
+  });
+
+  document.getElementById('btnToggleLogin').addEventListener('click', function() {
+    var box = document.getElementById('adminLoginBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
+    var s = document.getElementById('inputSenha').value;
+    if (s === SENHA) {
+      isAdmin = true;
+      document.getElementById('adminLoginBox').style.display = 'none';
+      document.getElementById('adminPanel').style.display = 'block';
+      document.getElementById('inputSenha').value = '';
+      renderBadge(ultimaSala);
+      renderAdminLista(Object.values(ultimosPartic));
+    } else {
+      toast('Senha incorreta!', 'error');
+      document.getElementById('inputSenha').value = '';
+    }
+  });
+
+  document.getElementById('inputSenha').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click();
+  });
+
+  document.getElementById('btnSairAdmin').addEventListener('click', function() {
+    isAdmin = false;
+    document.getElementById('adminPanel').style.display = 'none';
+  });
+
+  document.getElementById('btnLiberar').addEventListener('click', function() {
+    var link = document.getElementById('adminLinkSala').value.trim();
+    if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
+    refSala.set({ aberta: true, link: link }, function(err) {
+      if (err) toast('Erro ao liberar sala!', 'error');
+      else toast('✅ Sala liberada para todos!', 'success');
+    });
+  });
+
+  document.getElementById('btnBloquear').addEventListener('click', function() {
+    refSala.update({ aberta: false }, function(err) {
+      if (err) toast('Erro!', 'error');
+      else toast('🔒 Sala fechada!');
+    });
+  });
+
+  document.getElementById('btnReset').addEventListener('click', function() {
+    if (!confirm('Apagar todos os inscritos?')) return;
+    refPartic.remove(function(err) {
+      if (err) { toast('Erro ao resetar!', 'error'); return; }
+      refSala.set({ aberta: false, link: '' }, function(err2) {
+        if (err2) { toast('Erro ao fechar sala!', 'error'); return; }
+        usuarioInscrito = false;
+        document.getElementById('avisoImportante').style.display = 'none';
+        document.getElementById('inscritoBox').style.display = 'none';
+        document.getElementById('formCard').style.display = 'block';
+        document.getElementById('inputNome').value = '';
+        document.getElementById('inputBrawl').value = '';
+        document.getElementById('inputTelefone').value = '';
+        toast('🗑️ Todos os inscritos removidos!');
+      });
+    });
+  });
+
+  setSync('syncing', 'Conectando...');
+})();
+</script>
+</body>
+</html>
