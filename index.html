@@ -33,7 +33,6 @@
     padding: 24px 16px 60px;
   }
 
-  /* HEADER */
   .header { text-align: center; margin-bottom: 28px; }
   .header h1 {
     font-family: 'Bebas Neue', sans-serif;
@@ -58,7 +57,6 @@
   }
   .pix-box strong { color: #cc3333; }
 
-  /* VAGAS */
   .vagas-bar {
     background: var(--card);
     border: 1px solid var(--border);
@@ -72,7 +70,6 @@
   .vagas-bar .label { font-size: 0.9rem; color: var(--muted); }
   .vagas-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red-bright); }
 
-  /* SYNC STATUS */
   .sync-status {
     display: flex;
     align-items: center;
@@ -93,7 +90,6 @@
   .sync-dot.error { background: #cc1111; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* CARDS */
   .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -109,7 +105,6 @@
     margin-bottom: 16px;
   }
 
-  /* FORM */
   .field { margin-bottom: 14px; }
   .field label {
     display: block;
@@ -155,7 +150,6 @@
   .btn-submit:active:not(:disabled) { transform: translateY(0); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* AVISO */
   .aviso-importante {
     display: none;
     background: linear-gradient(135deg, #140000, #1a0000);
@@ -180,7 +174,6 @@
   .aviso-importante p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
   .aviso-importante p strong { color: #ff4444; }
 
-  /* INSCRITO BOX */
   .inscrito-box {
     display: none;
     background: #141414;
@@ -199,7 +192,6 @@
   }
   .inscrito-box p { font-size: 0.9rem; color: #666; }
 
-  /* SALA */
   .sala-section {
     display: block;
     background: var(--card);
@@ -269,7 +261,6 @@
   }
   .btn-sala:hover { transform: translateY(-2px); }
 
-  /* LISTA */
   hr.divider { border: none; border-top: 1px solid #1a1a1a; margin: 6px 0 16px; }
   .participante-item {
     display: flex;
@@ -287,11 +278,7 @@
   .part-info .phone { font-size: 0.78rem; color: #555; margin-top: 2px; }
   .lista-loading { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
-  /* ADMIN */
-  .admin-login-toggle {
-    text-align: center;
-    margin-bottom: 12px;
-  }
+  .admin-login-toggle { text-align: center; margin-bottom: 12px; }
   .admin-login-toggle button {
     background: none;
     border: 1px solid #1a1a1a;
@@ -399,6 +386,25 @@
     margin-top: 18px;
   }
   .btn-reset:hover:not(:disabled) { color: #cc3333 !important; border-color: #cc3333 !important; }
+  .btn-bloquear-inscricoes { background: linear-gradient(135deg, #4a2a00, #2a1500); color: #ffbb66; margin-top: 8px; }
+  .btn-liberar-inscricoes  { background: linear-gradient(135deg, #1a4a1a, #0d2a0d); color: #66ff99; margin-top: 8px; }
+  .aviso-bloqueado {
+    display: none;
+    background: linear-gradient(135deg, #1a0a00, #200d00);
+    border: 2px solid #cc6600;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: pulseOrange 2.5s ease-in-out infinite;
+  }
+  @keyframes pulseOrange {
+    0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); }
+  }
+  .aviso-bloqueado .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
+  .aviso-bloqueado h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #cc6600; letter-spacing: 1px; margin-bottom: 6px; }
+  .aviso-bloqueado p  { font-size: 0.92rem; color: #aa8844; }
 
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
@@ -422,7 +428,6 @@
   .admin-part-item .api { color: #555; }
   .admin-part-item .anome { color: #aaa; font-weight: 600; }
 
-  /* TOAST */
   .toast {
     position: fixed;
     bottom: 24px;
@@ -493,6 +498,12 @@
     </div>
   </div>
 
+  <div class="aviso-bloqueado" id="avisoBloqueado" style="display:none;">
+    <span class="aviso-icon">🚫</span>
+    <h3>Inscrições Bloqueadas</h3>
+    <p>O admin bloqueou as inscrições no momento.</p>
+  </div>
+
   <div class="card" id="formCard">
     <div class="card-title">Preencha para garantir sua vaga</div>
     <div class="field">
@@ -538,11 +549,16 @@
 
     <div class="field">
       <label>Link da Sala Privada</label>
-      <input type="url" id="adminLinkSala" placeholder="https://link-da-sala.com">
+      <input type="text" id="adminLinkSala" placeholder="brawlstars://...">
     </div>
 
     <button class="btn-admin btn-liberar" id="btnLiberar">🔓 Liberar Sala para Participantes</button>
     <button class="btn-admin btn-bloquear" id="btnBloquear">🔒 Bloquear Sala</button>
+
+    <hr class="admin-sep">
+
+    <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
+    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
 
     <hr class="admin-sep">
 
@@ -580,8 +596,9 @@
     appId: "1:156307889943:web:1d8b2b37ed08387af1a152"
   });
   var db = firebase.database();
-  var refPartic = db.ref('participantes');
-  var refSala   = db.ref('sala');
+  var refPartic     = db.ref('participantes');
+  var refSala       = db.ref('sala');
+  var refInscricoes = db.ref('inscricoes');
 
   var toastTimer;
   function toast(msg, type) {
@@ -625,7 +642,7 @@
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
-    var section = document.getElementById('salaSection');
+    var section   = document.getElementById('salaSection');
     var bloqueada = document.getElementById('salaBloqueadaDiv');
     var liberada  = document.getElementById('salaLiberadaDiv');
     section.style.display = 'block';
@@ -691,14 +708,16 @@
     if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
     if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
 
+    refInscricoes.once('value', function(snapInsc) {
+      if (snapInsc.val() === false) { toast('Inscrições bloqueadas pelo admin!', 'error'); return; }
+    });
+
     refPartic.once('value', function(snap) {
       var atual = snap.val() ? Object.keys(snap.val()).length : 0;
       if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
-
       var btn = document.getElementById('btnInscrever');
       btn.disabled = true;
       btn.textContent = 'Inscrevendo...';
-
       refPartic.push({ nome: nome, brawl: brawl, telefone: tel }, function(err) {
         if (err) {
           toast('Erro ao inscrever. Tente novamente.', 'error');
@@ -775,6 +794,36 @@
         document.getElementById('inputTelefone').value = '';
         toast('🗑️ Todos os inscritos removidos!');
       });
+    });
+  });
+
+  refInscricoes.on('value', function(snap) {
+    var abertas = snap.val() !== false;
+    var aviso = document.getElementById('avisoBloqueado');
+    var form  = document.getElementById('formCard');
+    if (!usuarioInscrito) {
+      if (aviso) aviso.style.display = abertas ? 'none' : 'block';
+      if (form)  form.style.display  = abertas ? 'block' : 'none';
+    }
+    if (isAdmin) {
+      var btnBloq = document.getElementById('btnBloquearInscricoes');
+      var btnLib  = document.getElementById('btnLiberarInscricoes');
+      if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
+      if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
+    }
+  });
+
+  document.getElementById('btnBloquearInscricoes').addEventListener('click', function() {
+    refInscricoes.set(false, function(err) {
+      if (err) toast('Erro!', 'error');
+      else toast('🚫 Inscrições bloqueadas!');
+    });
+  });
+
+  document.getElementById('btnLiberarInscricoes').addEventListener('click', function() {
+    refInscricoes.set(true, function(err) {
+      if (err) toast('Erro!', 'error');
+      else toast('✅ Inscrições liberadas!', 'success');
     });
   });
 
