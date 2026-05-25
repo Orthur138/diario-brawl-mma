@@ -417,7 +417,7 @@
     margin-bottom: 10px;
   }
   .admin-part-item {
-    display: flex;
+  display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
@@ -557,17 +557,14 @@
 
     <hr class="admin-sep">
 
-    <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
-    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
-
-    <hr class="admin-sep">
-
     <div class="admin-part-list">
       <h4>📋 Inscritos</h4>
       <div id="adminListaParticipantes"></div>
     </div>
 
     <hr class="admin-sep">
+    <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
+    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
     <button class="btn-admin btn-reset" id="btnReset">🗑️ Resetar Todos os Inscritos</button>
   </div>
 
@@ -748,6 +745,13 @@
       document.getElementById('inputSenha').value = '';
       renderBadge(ultimaSala);
       renderAdminLista(Object.values(ultimosPartic));
+      refInscricoes.once('value', function(snap) {
+        var abertas = snap.val() !== false;
+        var btnBloq = document.getElementById('btnBloquearInscricoes');
+        var btnLib  = document.getElementById('btnLiberarInscricoes');
+        if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
+        if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
+      });
     } else {
       toast('Senha incorreta!', 'error');
       document.getElementById('inputSenha').value = '';
