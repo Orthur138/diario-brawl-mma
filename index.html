@@ -19,6 +19,10 @@
     --gold-dark: #B8860B;
     --gold-bg: #1a1500;
     --gold-border: #8B6914;
+    --orange: #FF8C00;
+    --orange-dark: #cc6600;
+    --orange-bg: #1a0e00;
+    --orange-border: #7a4400;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -101,6 +105,18 @@
     padding: 14px 16px; margin-bottom: 16px; text-align: center;
     animation: pulseGold 2.5s ease-in-out infinite;
   }
+  /* Aviso desconto no form */
+  .aviso-desconto-form {
+    display: none;
+    background: linear-gradient(135deg, var(--orange-bg), #1f1200);
+    border: 2px solid var(--orange-border); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 16px; text-align: center;
+    animation: pulseOrange 2.5s ease-in-out infinite;
+  }
+  .aviso-desconto-form .icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .aviso-desconto-form p { font-size: 0.9rem; color: var(--orange); font-weight: 700; }
+  .aviso-desconto-form span { font-size: 0.8rem; color: #aa6600; }
+
   @keyframes pulseGold {
     0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.15); }
     50% { box-shadow: 0 0 0 8px rgba(255,215,0,0); }
@@ -109,25 +125,59 @@
   .aviso-gratis-form p { font-size: 0.9rem; color: var(--gold); font-weight: 700; }
   .aviso-gratis-form span { font-size: 0.8rem; color: #aa9900; }
 
-  /* Aviso importante pós-inscrição */
-  .aviso-importante {
+  /* Botão cancelar pós-inscrição */
+  .btn-cancelar-inscricao {
     display: none;
-    background: linear-gradient(135deg, #140000, #1a0000);
-    border: 2px solid #cc1111; border-radius: 12px;
-    padding: 18px; margin-bottom: 20px;
-    animation: pulseRed 2.5s ease-in-out infinite;
+    width: 100%; background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffaaaa;
+    border: 2px solid #cc1111; border-radius: 8px; padding: 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px;
+    cursor: pointer; margin-bottom: 16px;
+    transition: transform 0.15s, opacity 0.2s;
+    box-shadow: 0 4px 16px rgba(180,0,0,0.3);
   }
-  @keyframes pulseRed {
-    0%,100% { box-shadow: 0 0 0 0 rgba(200,0,0,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(200,0,0,0); }
+  .btn-cancelar-inscricao:hover { transform: translateY(-2px); opacity: 0.9; }
+
+  /* Inscrição confirmada */
+  .inscrito-box {
+    display: none; background: #141414; border: 1px solid #333;
+    border-radius: 12px; padding: 18px; margin-bottom: 20px;
   }
-  .aviso-importante .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
-  .aviso-importante h3 {
+  .inscrito-box .check { font-size: 1.6rem; margin-bottom: 6px; display: block; }
+  .inscrito-box h3 {
     font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    letter-spacing: 1px; color: #dd3333; margin-bottom: 6px;
+    color: #aaaaaa; letter-spacing: 1px; margin-bottom: 4px;
   }
-  .aviso-importante p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
-  .aviso-importante p strong { color: #ff4444; }
+  .inscrito-box p { font-size: 0.9rem; color: #666; }
+
+  /* Aviso inscrição grátis pós-inscrição */
+  .aviso-gratis-pos {
+    display: none;
+    background: linear-gradient(135deg, var(--gold-bg), #1f1a00);
+    border: 2px solid var(--gold-border); border-radius: 12px;
+    padding: 16px 18px; margin-bottom: 16px; text-align: center;
+    animation: pulseGold 2.5s ease-in-out infinite;
+  }
+  .aviso-gratis-pos .icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .aviso-gratis-pos h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 1px; color: var(--gold); margin-bottom: 4px;
+  }
+  .aviso-gratis-pos p { font-size: 0.88rem; color: #aa9900; }
+
+  /* Aviso inscrição desconto pós-inscrição */
+  .aviso-desconto-pos {
+    display: none;
+    background: linear-gradient(135deg, var(--orange-bg), #1f1200);
+    border: 2px solid var(--orange-border); border-radius: 12px;
+    padding: 16px 18px; margin-bottom: 16px; text-align: center;
+    animation: pulseOrange 2.5s ease-in-out infinite;
+  }
+  .aviso-desconto-pos .icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .aviso-desconto-pos h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 1px; color: var(--orange); margin-bottom: 4px;
+  }
+  .aviso-desconto-pos p { font-size: 0.88rem; color: #aa6600; }
 
   /* Aviso PIX pós-inscrição */
   .aviso-pix-pos {
@@ -143,8 +193,14 @@
     color: var(--gold); margin-bottom: 4px;
   }
   .aviso-pix-pos .pix-sub {
-    font-size: 0.88rem; color: #aa9900; margin-bottom: 14px;
+    font-size: 0.88rem; color: #aa9900; margin-bottom: 8px;
   }
+  .aviso-pix-pos .pix-alerta {
+    background: #1a0000; border: 1px solid #4a1010; border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 14px; text-align: left;
+    font-size: 0.82rem; color: #ff6666; line-height: 1.5;
+  }
+  .aviso-pix-pos .pix-alerta strong { color: #ff4444; }
   .pix-entry {
     background: #0d0b00; border: 1px solid #3a2e00;
     border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; text-align: left;
@@ -157,26 +213,6 @@
   .pix-entry .pix-key {
     font-size: 0.88rem; color: #cc9900; word-break: break-all;
   }
-
-  /* Botão voltar */
-  .btn-voltar-form {
-    width: 100%; background: #141414; border: 1px solid #333; color: #888;
-    border-radius: 8px; padding: 11px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px;
-    cursor: pointer; margin-top: 10px; transition: color 0.2s, border-color 0.2s;
-  }
-  .btn-voltar-form:hover { color: #cc3333; border-color: #cc3333; }
-
-  .inscrito-box {
-    display: none; background: #141414; border: 1px solid #333;
-    border-radius: 12px; padding: 18px; margin-bottom: 20px;
-  }
-  .inscrito-box .check { font-size: 1.6rem; margin-bottom: 6px; display: block; }
-  .inscrito-box h3 {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    color: #aaaaaa; letter-spacing: 1px; margin-bottom: 4px;
-  }
-  .inscrito-box p { font-size: 0.9rem; color: #666; }
 
   /* Sala — só aparece pós-inscrição */
   .sala-section {
@@ -233,6 +269,10 @@
     0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); }
     50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); }
   }
+  @keyframes pulseRed {
+    0%,100% { box-shadow: 0 0 0 0 rgba(200,0,0,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(200,0,0,0); }
+  }
   .aviso-bloqueado .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
   .aviso-bloqueado h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #cc6600; letter-spacing: 1px; margin-bottom: 6px; }
   .aviso-bloqueado p  { font-size: 0.92rem; color: #aa8844; }
@@ -251,7 +291,7 @@
   .part-info .brawl { font-size: 0.82rem; color: var(--muted); }
   .part-info .phone { font-size: 0.78rem; color: #555; margin-top: 2px; }
 
-  /* Participante dourado */
+  /* Participante dourado (grátis) */
   .participante-item.gratis {
     background: linear-gradient(90deg, rgba(26,21,0,0.7) 0%, rgba(10,8,0,0.3) 100%);
     border-radius: 8px; padding: 12px 10px; border-bottom: 1px solid #3a2e00;
@@ -266,6 +306,23 @@
     padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle;
     text-transform: uppercase; border: 1px solid #aa8800;
   }
+
+  /* Participante laranja (desconto) */
+  .participante-item.desconto {
+    background: linear-gradient(90deg, rgba(26,14,0,0.7) 0%, rgba(10,5,0,0.3) 100%);
+    border-radius: 8px; padding: 12px 10px; border-bottom: 1px solid #5a3000;
+  }
+  .participante-item.desconto .part-num { color: var(--orange); text-shadow: 0 0 8px rgba(255,140,0,0.5); }
+  .participante-item.desconto .part-info .name { color: var(--orange); }
+  .participante-item.desconto .part-info .brawl { color: #cc7700; }
+  .participante-item.desconto .part-info .phone { color: #7a4a00; }
+  .desconto-tag {
+    display: inline-block; background: linear-gradient(135deg, #7a4400, #4a2800);
+    color: var(--orange); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.8px;
+    padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle;
+    text-transform: uppercase; border: 1px solid #cc6600;
+  }
+
   .lista-loading { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
   /* Ranking público */
@@ -297,11 +354,18 @@
   .rank-pos.bronze{ color: #cd7f32; }
   .rank-nome { flex: 1; font-weight: 700; font-size: 0.92rem; color: var(--text); }
   .rank-nome.gratis-nome { color: var(--gold); }
+  .rank-nome.desconto-nome { color: var(--orange); }
   .rank-vitorias { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #cc2222; min-width: 36px; text-align: right; }
   .rank-gratis-tag {
     display: inline-block; background: linear-gradient(135deg, #8B6914, #5a4200);
     color: var(--gold); font-size: 0.6rem; font-weight: 700;
     padding: 2px 6px; border-radius: 8px; border: 1px solid #aa8800;
+    text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .rank-desconto-tag {
+    display: inline-block; background: linear-gradient(135deg, #7a4400, #4a2800);
+    color: var(--orange); font-size: 0.6rem; font-weight: 700;
+    padding: 2px 6px; border-radius: 8px; border: 1px solid #cc6600;
     text-transform: uppercase; letter-spacing: 0.6px;
   }
   .ranking-vazio { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
@@ -361,19 +425,39 @@
   .btn-liberar-inscricoes  { background: linear-gradient(135deg, #1a4a1a, #0d2a0d); color: #66ff99; margin-top: 8px; }
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
-  /* Admin lista inscritos */
-  .admin-part-list { margin-top: 16px; }
-  .admin-part-list h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
-  .admin-part-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.82rem;
+  /* ===== ADMIN INSCRITOS — novo layout ===== */
+  .admin-inscritos-header {
+    display: flex; gap: 10px; margin-bottom: 14px;
   }
-  .admin-part-item:last-child { border-bottom: none; }
-  .admin-part-item .api { color: #555; }
-  .admin-part-item .anome { color: #aaa; font-weight: 600; }
-  .admin-part-item.gratis-admin .anome { color: var(--gold); }
+  .admin-stat-box {
+    flex: 1; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 10px 12px;
+  }
+  .admin-stat-box .stat-label { font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
+  .admin-stat-box .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #cc2222; }
+  .admin-stat-box.gold-stat .stat-val { color: var(--gold); }
 
-  /* Admin vitórias — nova interface */
+  .admin-part-item-new {
+    display: flex; align-items: center; gap: 10px;
+    background: #131313; border: 1px solid #222; border-radius: 8px;
+    padding: 10px 12px; margin-bottom: 6px; cursor: default;
+    transition: border-color 0.2s;
+  }
+  .admin-part-item-new:hover { border-color: #333; }
+  .admin-part-item-new.gratis-admin { border-color: #3a2e00; background: linear-gradient(90deg, #1a1500 0%, #131313 100%); }
+  .admin-part-item-new.desconto-admin { border-color: #3a2200; background: linear-gradient(90deg, #1a0e00 0%, #131313 100%); }
+  .admin-part-num { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #cc1111; min-width: 26px; }
+  .admin-part-item-new.gratis-admin .admin-part-num { color: var(--gold); }
+  .admin-part-item-new.desconto-admin .admin-part-num { color: var(--orange); }
+  .admin-part-body { flex: 1; min-width: 0; }
+  .admin-part-row1 { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
+  .admin-part-nome { font-weight: 700; font-size: 0.88rem; color: #ccc; }
+  .admin-part-item-new.gratis-admin .admin-part-nome { color: var(--gold); }
+  .admin-part-item-new.desconto-admin .admin-part-nome { color: var(--orange); }
+  .admin-part-row2 { display: flex; gap: 12px; flex-wrap: wrap; }
+  .admin-part-detail { font-size: 0.75rem; color: #555; }
+  .admin-part-detail span { color: #888; }
+
+  /* Admin vitórias */
   .admin-vitorias-section { margin-top: 4px; }
   .admin-vitorias-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
   .diario-toggle-admin {
@@ -387,7 +471,6 @@
   }
   .diario-toggle-admin button.active { background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff; }
 
-  /* Adicionar jogador */
   .add-jogador-row {
     display: flex; gap: 8px; align-items: center; margin-bottom: 12px;
   }
@@ -406,7 +489,6 @@
   }
   .btn-add-jogador:hover { transform: translateY(-1px); }
 
-  /* Lista de jogadores com + e - */
   .vit-item-admin {
     display: flex; justify-content: space-between; align-items: center;
     padding: 9px 0; border-bottom: 1px solid #1a1a1a;
@@ -415,6 +497,7 @@
   .vit-info { flex: 1; }
   .vit-nome-admin { color: #aaa; font-weight: 600; font-size: 0.88rem; }
   .vit-nome-admin.gold { color: var(--gold); }
+  .vit-nome-admin.orange { color: var(--orange); }
   .vit-controls { display: flex; align-items: center; gap: 8px; }
   .vit-count-admin { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #cc2222; min-width: 30px; text-align: center; }
   .btn-vit {
@@ -435,6 +518,66 @@
   .btn-vit-del:hover { color: #cc3333; border-color: #cc3333; }
   .vitorias-lista-admin-empty { color: #444; font-size: 0.82rem; padding: 8px 0; }
 
+  /* ===== LUCRO ADMIN ===== */
+  .lucro-section { margin-top: 4px; }
+  .lucro-section > h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
+  .lucro-toggle {
+    display: flex; background: #0d0d0d; border: 1px solid #2a2a2a;
+    border-radius: 8px; padding: 3px; margin-bottom: 14px; gap: 3px;
+  }
+  .lucro-toggle button {
+    flex: 1; background: none; border: none; color: #555;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.8px;
+    padding: 8px 4px; border-radius: 6px; cursor: pointer; transition: background 0.2s, color 0.2s;
+  }
+  .lucro-toggle button.active { background: linear-gradient(135deg, #1a5c1a, #0d3a0d); color: #66ff99; }
+  .lucro-toggle button.active-total { background: linear-gradient(135deg, #1a1a5c, #0d0d3a); color: #66aaff; }
+
+  /* Cards de ADM */
+  .adm-card {
+    background: #131313; border: 1px solid #222; border-radius: 10px;
+    padding: 14px; margin-bottom: 10px;
+  }
+  .adm-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .adm-card-nome { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #ccc; letter-spacing: 1px; }
+  .adm-card-diarios { font-size: 0.75rem; color: #555; }
+  .adm-card-diarios strong { color: #888; }
+  .adm-display {
+    background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .adm-display-label { font-size: 0.72rem; color: #555; text-transform: uppercase; letter-spacing: 0.8px; }
+  .adm-display-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #2ecc71; }
+  .adm-input-row { display: flex; gap: 8px; }
+  .adm-input-row input {
+    flex: 1; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 9px 12px; color: var(--text); font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+  }
+  .adm-input-row input:focus { border-color: #2ecc71; }
+  .adm-input-row input::placeholder { color: #3a3a3a; }
+  .btn-add-lucro {
+    background: linear-gradient(135deg, #1a6a2a, #0d4a1a); color: #66ff99;
+    border: none; border-radius: 8px; padding: 9px 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 1px;
+    cursor: pointer; white-space: nowrap; transition: transform 0.1s;
+  }
+  .btn-add-lucro:hover { transform: translateY(-1px); }
+
+  /* Card total */
+  .lucro-total-card {
+    background: linear-gradient(135deg, #0d1a0d, #0a1400);
+    border: 1px solid #1a4a1a; border-radius: 10px; padding: 16px; margin-top: 4px;
+  }
+  .lucro-total-title { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #2ecc71; letter-spacing: 1px; margin-bottom: 12px; }
+  .lucro-total-grid { display: flex; gap: 10px; }
+  .lucro-total-box {
+    flex: 1; background: #0a0a0a; border: 1px solid #1a3a1a; border-radius: 8px; padding: 10px 12px; text-align: center;
+  }
+  .lucro-total-box .tbox-label { font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 4px; }
+  .lucro-total-box .tbox-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #2ecc71; }
+  .lucro-total-box .tbox-sub { font-size: 0.72rem; color: #444; margin-top: 2px; }
+
   /* Toast */
   .toast {
     position: fixed; bottom: 24px; left: 50%;
@@ -447,6 +590,7 @@
   .toast.success { border-color: #2ecc71; color: #2ecc71; }
   .toast.error { border-color: #cc1111; color: #ff4444; }
   .toast.gold { border-color: var(--gold); color: var(--gold); }
+  .toast.orange { border-color: var(--orange); color: var(--orange); }
 </style>
 </head>
 <body>
@@ -475,13 +619,15 @@
     <span>Sua inscrição neste diário é gratuita.</span>
   </div>
 
-  <!-- Aviso pós-inscrição -->
-  <div class="aviso-importante" id="avisoImportante">
-    <span class="aviso-icon">⚠️</span>
-    <h3>Aviso Importante!</h3>
-    <p><strong>NÃO recarregue esta página!</strong> Se você atualizar ou fechar o navegador, perderá sua inscrição e precisará se inscrever novamente.</p>
-    <button class="btn-voltar-form" id="btnVoltarForm">↩ Cancelar inscrição e voltar</button>
+  <!-- Aviso desconto no form -->
+  <div class="aviso-desconto-form" id="avisoDescontoForm">
+    <span class="icon">🔥</span>
+    <p>Você tem R$ 2 de desconto!</p>
+    <span>Sua inscrição neste diário é R$ 2 (metade do valor).</span>
   </div>
+
+  <!-- Botão cancelar inscrição (pós-inscrição) -->
+  <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">↩ CANCELAR INSCRIÇÃO E VOLTAR</button>
 
   <!-- Inscrição confirmada -->
   <div class="inscrito-box" id="inscritoBox">
@@ -490,10 +636,27 @@
     <p>Fique nesta página e aguarde a sala ser liberada abaixo.</p>
   </div>
 
+  <!-- Aviso pós-inscrição grátis -->
+  <div class="aviso-gratis-pos" id="avisoGratisPos">
+    <span class="icon">🏆</span>
+    <h3>Entrada Grátis!</h3>
+    <p>Parabéns! Você ganhou entrada grátis por suas vitórias. Não precisa pagar nada desta vez!</p>
+  </div>
+
+  <!-- Aviso pós-inscrição desconto -->
+  <div class="aviso-desconto-pos" id="avisoDescontoPos">
+    <span class="icon">🔥</span>
+    <h3>Desconto de 50%!</h3>
+    <p>Você ganhou meia entrada (R$ 2) pelas suas vitórias no Diário Mini!</p>
+  </div>
+
   <!-- Aviso PIX pós-inscrição -->
   <div class="aviso-pix-pos" id="aviso-pix-pos">
     <div class="pix-title">📣 Envie o PIX para o ADM!</div>
     <div class="pix-sub">Envie o pagamento para garantir sua vaga no diário</div>
+    <div class="pix-alerta">
+      ⚠️ <strong>Atenção!</strong> Envie o PIX apenas para o ADM que está <strong>fazendo a sala no momento</strong>. Confira quem é o responsável antes de pagar para não errar!
+    </div>
     <div class="pix-entry">
       <div class="pix-person">ARTHUR</div>
       <div class="pix-key">arthursant792@gmail.com</div>
@@ -616,8 +779,19 @@
 
     <hr class="admin-sep">
 
+    <!-- Lista inscritos admin -->
     <div class="admin-part-list">
-      <h4>📋 Inscritos</h4>
+      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#666;letter-spacing:1px;margin-bottom:10px;">📋 Inscritos</h4>
+      <div class="admin-inscritos-header">
+        <div class="admin-stat-box">
+          <div class="stat-label">Total Inscritos</div>
+          <div class="stat-val" id="adminTotalInscritos">0</div>
+        </div>
+        <div class="admin-stat-box gold-stat">
+          <div class="stat-label">Vagas Disponíveis</div>
+          <div class="stat-val" id="adminVagasDisp">9</div>
+        </div>
+      </div>
       <div id="adminListaParticipantes"></div>
     </div>
 
@@ -625,6 +799,20 @@
     <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
     <button class="btn-admin btn-liberar-inscricoes"  id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
     <button class="btn-admin btn-reset" id="btnReset">🗑️ Resetar Todos os Inscritos</button>
+
+    <hr class="admin-sep">
+
+    <!-- Lucro admin -->
+    <div class="lucro-section">
+      <h4>💰 Controle de Lucro</h4>
+      <div class="lucro-toggle">
+        <button id="btnLucroNormal" class="active" onclick="setLucroTab('normal')">🎯 Normal</button>
+        <button id="btnLucroMini"   onclick="setLucroTab('mini')">⚡ Mini</button>
+        <button id="btnLucroTotal"  onclick="setLucroTab('total')">📊 Total</button>
+      </div>
+      <div id="lucroConteudo"></div>
+    </div>
+
   </div>
 
 </div>
@@ -634,8 +822,9 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 (function () {
-  var TOTAL_VAGAS     = 9;
-  var VITORIAS_GRATIS = 5; // a cada múltiplo de 5 ganha entrada grátis
+  var TOTAL_VAGAS      = 9;
+  var VITORIAS_GRATIS  = 10; // a cada 10 vitórias no mini = grátis
+  var VITORIAS_DESCONTO = 5; // a cada 5 vitórias no mini (não múltiplo de 10) = R$2
 
   var usuarioInscrito  = false;
   var isAdmin          = false;
@@ -645,6 +834,7 @@
   var vitoriasMini     = {};
   var diarioAtivo      = 'normal';
   var adminDiarioAtivo = 'normal';
+  var lucroTab         = 'normal';
 
   var SESSION_KEY_NOME  = 'dbrawl_nome';
   var SESSION_KEY_BRAWL = 'dbrawl_brawl';
@@ -667,6 +857,7 @@
   var refSenha      = db.ref('senha-admin');
   var refVitNormal  = db.ref('vitorias-normal');
   var refVitMini    = db.ref('vitorias-mini');
+  var refLucro      = db.ref('lucro-adm');
 
   /* ===== TOAST ===== */
   var toastTimer;
@@ -698,11 +889,23 @@
     return 0;
   }
 
-  // Entrada grátis a cada múltiplo de 5 vitórias
+  // No diário normal: múltiplo de 5 = grátis
+  // No diário mini: múltiplo de 10 = grátis, múltiplo de 5 (não 10) = R$2
   function temGratis(nome) {
     var vn = getVit(nome, 'normal');
     var vm = getVit(nome, 'mini');
-    return (vn > 0 && vn % VITORIAS_GRATIS === 0) || (vm > 0 && vm % VITORIAS_GRATIS === 0);
+    // Normal: 5, 10, 15... = grátis
+    if (vn > 0 && vn % 5 === 0) return true;
+    // Mini: 10, 20, 30... = grátis
+    if (vm > 0 && vm % VITORIAS_GRATIS === 0) return true;
+    return false;
+  }
+
+  function temDesconto(nome) {
+    // Só mini: 5, 15, 25... (múltiplo de 5 mas NÃO de 10)
+    var vm = getVit(nome, 'mini');
+    if (vm > 0 && vm % VITORIAS_DESCONTO === 0 && vm % VITORIAS_GRATIS !== 0) return true;
+    return false;
   }
 
   /* ===== RENDERIZAR PARTICIPANTES ===== */
@@ -712,10 +915,15 @@
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
       var g = temGratis(p.nome);
-      html += '<div class="participante-item' + (g ? ' gratis' : '') + '">';
+      var d = !g && temDesconto(p.nome);
+      var cls = g ? ' gratis' : (d ? ' desconto' : '');
+      html += '<div class="participante-item' + cls + '">';
       html += '<div class="part-num">#'+(i+1)+'</div>';
       html += '<div class="part-info">';
-      html += '<div class="name">'+esc(p.nome)+(g ? '<span class="gratis-tag">🏆 Entrada Grátis</span>' : '')+'</div>';
+      html += '<div class="name">'+esc(p.nome);
+      if (g) html += '<span class="gratis-tag">🏆 Entrada Grátis</span>';
+      else if (d) html += '<span class="desconto-tag">🔥 R$ 2</span>';
+      html += '</div>';
       html += '<div class="brawl">🎮 '+esc(p.brawl)+'</div>';
       if (p.telefone) html += '<div class="phone">📱 '+esc(p.telefone)+'</div>';
       html += '</div></div>';
@@ -736,6 +944,14 @@
     renderRanking();
   };
 
+  function getMiniStatus(v) {
+    // v = vitórias no mini
+    if (v <= 0) return null;
+    if (v % VITORIAS_GRATIS === 0) return 'gratis';
+    if (v % VITORIAS_DESCONTO === 0) return 'desconto';
+    return null;
+  }
+
   function renderRanking() {
     var obj = diarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var lista = document.getElementById('rankingLista');
@@ -749,12 +965,17 @@
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       var posClass = i === 0 ? 'ouro' : i === 1 ? 'prata' : i === 2 ? 'bronze' : '';
-      var g = item.v > 0 && item.v % VITORIAS_GRATIS === 0;
+      var statusMini = diarioAtivo === 'mini' ? getMiniStatus(item.v) : null;
+      var isGratis  = diarioAtivo === 'normal' ? (item.v > 0 && item.v % 5 === 0) : (statusMini === 'gratis');
+      var isDesc    = statusMini === 'desconto';
       var estrelas = '';
       for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '⭐';
       html += '<div class="ranking-item">';
       html += '<div class="rank-pos '+posClass+'">'+(i+1)+'°</div>';
-      html += '<div class="rank-nome'+(g?' gratis-nome':'')+'">'+esc(item.nome)+(g?' <span class="rank-gratis-tag">🏆 Grátis</span>':'')+'</div>';
+      html += '<div class="rank-nome'+(isGratis?' gratis-nome':(isDesc?' desconto-nome':''))+'">'+esc(item.nome);
+      if (isGratis)  html += ' <span class="rank-gratis-tag">🏆 Grátis</span>';
+      if (isDesc)    html += ' <span class="rank-desconto-tag">🔥 R$2</span>';
+      html += '</div>';
       html += '<div class="rank-vitorias">'+estrelas+' '+item.v+'v</div>';
       html += '</div>';
     }
@@ -764,6 +985,10 @@
   /* ===== ADMIN LISTA INSCRITOS ===== */
   function renderAdminLista(arr) {
     var el = document.getElementById('adminListaParticipantes');
+    var elTotal = document.getElementById('adminTotalInscritos');
+    var elVagas = document.getElementById('adminVagasDisp');
+    if (elTotal) elTotal.textContent = arr ? arr.length : 0;
+    if (elVagas) elVagas.textContent = arr ? Math.max(0, TOTAL_VAGAS - arr.length) : TOTAL_VAGAS;
     if (!el) return;
     if (!arr || !arr.length) {
       el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>';
@@ -773,15 +998,25 @@
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
       var g = temGratis(p.nome);
-      html += '<div class="admin-part-item'+(g?' gratis-admin':'')+'">';
-      html += '<span class="anome">'+esc(p.nome)+(g?'<span class="gratis-tag" style="margin-left:4px;">🏆</span>':'')+'</span>';
-      html += '<span class="api">🎮 '+esc(p.brawl)+' &nbsp;📱 '+(p.telefone||'—')+'</span>';
+      var d = !g && temDesconto(p.nome);
+      var cls = g ? ' gratis-admin' : (d ? ' desconto-admin' : '');
+      html += '<div class="admin-part-item-new'+cls+'">';
+      html += '<div class="admin-part-num">'+(i+1<10?'0':'')+(i+1)+'</div>';
+      html += '<div class="admin-part-body">';
+      html += '<div class="admin-part-row1">';
+      html += '<span class="admin-part-nome">'+esc(p.nome)+'</span>';
+      if (g) html += '<span class="gratis-tag">🏆 Grátis</span>';
+      else if (d) html += '<span class="desconto-tag">🔥 R$2</span>';
       html += '</div>';
+      html += '<div class="admin-part-row2">';
+      html += '<span class="admin-part-detail">🎮 <span>'+esc(p.brawl)+'</span></span>';
+      html += '<span class="admin-part-detail">📱 <span>'+(p.telefone||'—')+'</span></span>';
+      html += '</div></div></div>';
     }
     el.innerHTML = html;
   }
 
-  /* ===== ADMIN VITÓRIAS — nova interface ===== */
+  /* ===== ADMIN VITÓRIAS ===== */
   window.setAdminDiario = function(tipo) {
     adminDiarioAtivo = tipo;
     document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
@@ -802,10 +1037,16 @@
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
-      var g = item.v > 0 && item.v % VITORIAS_GRATIS === 0;
+      var statusMini = adminDiarioAtivo === 'mini' ? getMiniStatus(item.v) : null;
+      var g = adminDiarioAtivo === 'normal' ? (item.v > 0 && item.v % 5 === 0) : (statusMini === 'gratis');
+      var d = adminDiarioAtivo === 'mini' && statusMini === 'desconto';
+      var nomeCls = g ? 'gold' : (d ? 'orange' : '');
       var nomeEsc = esc(item.nome).replace(/'/g,"&#39;");
       html += '<div class="vit-item-admin">';
-      html += '<div class="vit-info"><span class="vit-nome-admin'+(g?' gold':'')+'">'+esc(item.nome)+(g?' 🏆':'')+'</span></div>';
+      html += '<div class="vit-info"><span class="vit-nome-admin '+nomeCls+'">'+esc(item.nome);
+      if (g) html += ' 🏆';
+      if (d) html += ' 🔥';
+      html += '</span></div>';
       html += '<div class="vit-controls">';
       html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+nomeEsc+'\')">−</button>';
       html += '<span class="vit-count-admin">'+item.v+'</span>';
@@ -825,10 +1066,14 @@
     var upd = {}; upd[chave] = novo;
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
-      if (novo > 0 && novo % VITORIAS_GRATIS === 0) {
-        toast('🏆 ' + chave + ' chegou a ' + novo + 'v — ENTRADA GRÁTIS!', 'gold');
+      if (adminDiarioAtivo === 'mini') {
+        var st = getMiniStatus(novo);
+        if (st === 'gratis') toast('🏆 ' + chave + ' chegou a ' + novo + 'v — ENTRADA GRÁTIS!', 'gold');
+        else if (st === 'desconto') toast('🔥 ' + chave + ' chegou a ' + novo + 'v — MEIA ENTRADA (R$2)!', 'orange');
+        else toast('+1 vitória para ' + chave + ' ('+novo+'v)', 'success');
       } else {
-        toast('+1 vitória para ' + chave + ' ('+novo+'v)', 'success');
+        if (novo > 0 && novo % 5 === 0) toast('🏆 ' + chave + ' chegou a ' + novo + 'v — ENTRADA GRÁTIS!', 'gold');
+        else toast('+1 vitória para ' + chave + ' ('+novo+'v)', 'success');
       }
     });
   };
@@ -866,6 +1111,108 @@
     return null;
   }
 
+  /* ===== LUCRO ADMIN ===== */
+  var lucroData = {};
+  var ADMS = ['Arthur', 'João', 'Arturo'];
+
+  refLucro.on('value', function(snap) {
+    lucroData = snap.val() || {};
+    if (isAdmin) renderLucro();
+  });
+
+  window.setLucroTab = function(tab) {
+    lucroTab = tab;
+    document.getElementById('btnLucroNormal').className = tab === 'normal' ? 'active' : '';
+    document.getElementById('btnLucroMini').className   = tab === 'mini'   ? 'active' : '';
+    document.getElementById('btnLucroTotal').className  = tab === 'total'  ? 'active-total' : '';
+    renderLucro();
+  };
+
+  function getLucroAdm(adm, tipo) {
+    if (!lucroData[adm]) return { valor: 0, diarios: 0 };
+    var t = lucroData[adm][tipo] || {};
+    return { valor: Number(t.valor) || 0, diarios: Number(t.diarios) || 0 };
+  }
+
+  function renderLucro() {
+    var el = document.getElementById('lucroConteudo');
+    if (!el) return;
+
+    if (lucroTab === 'total') {
+      var html = '<div class="lucro-total-card"><div class="lucro-total-title">📊 Resumo Geral</div>';
+      // por adm total
+      for (var a = 0; a < ADMS.length; a++) {
+        var adm = ADMS[a];
+        var ln = getLucroAdm(adm, 'normal');
+        var lm = getLucroAdm(adm, 'mini');
+        var vTotal = ln.valor + lm.valor;
+        var dTotal = ln.diarios + lm.diarios;
+        html += '<div class="adm-card" style="margin-bottom:8px;">';
+        html += '<div class="adm-card-header"><span class="adm-card-nome">'+esc(adm)+'</span>';
+        html += '<span class="adm-card-diarios">Total: <strong>'+dTotal+' diários</strong></span></div>';
+        html += '<div class="lucro-total-grid">';
+        html += '<div class="lucro-total-box"><div class="tbox-label">Normal</div><div class="tbox-val" style="font-size:1.1rem;">R$'+ln.valor.toFixed(2)+'</div><div class="tbox-sub">'+ln.diarios+'d</div></div>';
+        html += '<div class="lucro-total-box"><div class="tbox-label">Mini</div><div class="tbox-val" style="font-size:1.1rem;">R$'+lm.valor.toFixed(2)+'</div><div class="tbox-sub">'+lm.diarios+'d</div></div>';
+        html += '<div class="lucro-total-box"><div class="tbox-label">Total</div><div class="tbox-val" style="font-size:1.1rem;color:#FFD700;">R$'+vTotal.toFixed(2)+'</div><div class="tbox-sub">'+dTotal+'d</div></div>';
+        html += '</div></div>';
+      }
+      // totais gerais
+      var totalGeral = 0, diariosGeral = 0;
+      for (var a2 = 0; a2 < ADMS.length; a2++) {
+        var ln2 = getLucroAdm(ADMS[a2], 'normal');
+        var lm2 = getLucroAdm(ADMS[a2], 'mini');
+        totalGeral += ln2.valor + lm2.valor;
+        diariosGeral += ln2.diarios + lm2.diarios;
+      }
+      html += '<div class="lucro-total-grid" style="margin-top:10px;">';
+      html += '<div class="lucro-total-box"><div class="tbox-label">💰 Lucro Total</div><div class="tbox-val">R$'+totalGeral.toFixed(2)+'</div></div>';
+      html += '<div class="lucro-total-box"><div class="tbox-label">📅 Total Diários</div><div class="tbox-val">'+diariosGeral+'</div></div>';
+      html += '</div></div>';
+      el.innerHTML = html;
+      return;
+    }
+
+    // Normal ou Mini
+    var tipo = lucroTab;
+    var html2 = '';
+    for (var b = 0; b < ADMS.length; b++) {
+      var admNome = ADMS[b];
+      var info = getLucroAdm(admNome, tipo);
+      var admKey = admNome.replace(/[^a-zA-Z]/g, '_');
+      html2 += '<div class="adm-card">';
+      html2 += '<div class="adm-card-header"><span class="adm-card-nome">'+esc(admNome)+'</span>';
+      html2 += '<span class="adm-card-diarios">Diários feitos: <strong>'+info.diarios+'</strong></span></div>';
+      html2 += '<div class="adm-display">';
+      html2 += '<span class="adm-display-label">Lucro '+(tipo==='mini'?'Mini':'Normal')+'</span>';
+      html2 += '<span class="adm-display-val">R$ '+info.valor.toFixed(2)+'</span>';
+      html2 += '</div>';
+      html2 += '<div class="adm-input-row">';
+      html2 += '<input type="number" id="lucroInput_'+admKey+'_'+tipo+'" placeholder="Ex: 15.00" min="0" step="0.01">';
+      html2 += '<button class="btn-add-lucro" onclick="addLucro(\''+admNome+'\',\''+tipo+'\')">+ Adicionar</button>';
+      html2 += '</div></div>';
+    }
+    el.innerHTML = html2;
+  }
+
+  window.addLucro = function(adm, tipo) {
+    var admKey = adm.replace(/[^a-zA-Z]/g, '_');
+    var inputEl = document.getElementById('lucroInput_'+admKey+'_'+tipo);
+    if (!inputEl) return;
+    var val = parseFloat(inputEl.value);
+    if (isNaN(val) || val <= 0) { toast('Digite um valor válido!', 'error'); return; }
+    var atual = getLucroAdm(adm, tipo);
+    var novoValor   = atual.valor + val;
+    var novoDiarios = atual.diarios + 1;
+    var upd = {};
+    upd[adm+'/'+tipo+'/valor']   = novoValor;
+    upd[adm+'/'+tipo+'/diarios'] = novoDiarios;
+    refLucro.update(upd, function(err) {
+      if (err) { toast('Erro ao salvar!', 'error'); return; }
+      inputEl.value = '';
+      toast('💰 +R$'+val.toFixed(2)+' para '+adm+' ('+tipo+')!', 'success');
+    });
+  };
+
   /* ===== BADGE SALA ===== */
   function renderBadge(salaData) {
     var badge = document.getElementById('statusBadge');
@@ -876,14 +1223,13 @@
     document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
   }
 
-  /* ===== RENDERIZAR SALA — só exibe pós-inscrição ===== */
+  /* ===== RENDERIZAR SALA ===== */
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
     var section   = document.getElementById('salaSection');
     var bloqueada = document.getElementById('salaBloqueadaDiv');
     var liberada  = document.getElementById('salaLiberadaDiv');
-    // Só mostra a sala se o usuário estiver inscrito
     if (usuarioInscrito) {
       section.style.display = 'block';
       if (aberta && link !== '#') {
@@ -900,14 +1246,18 @@
     if (isAdmin) renderBadge(salaData);
   }
 
-  /* ===== VERIFICAR GRÁTIS NO FORM ===== */
-  function verificarGratisForm() {
+  /* ===== VERIFICAR GRÁTIS/DESCONTO NO FORM ===== */
+  function verificarBeneficioForm() {
     var nome = document.getElementById('inputNome').value.trim();
-    var aviso = document.getElementById('avisoGratisForm');
-    if (nome && temGratis(nome)) {
-      aviso.style.display = 'block';
-    } else {
-      aviso.style.display = 'none';
+    var avisoG = document.getElementById('avisoGratisForm');
+    var avisoD = document.getElementById('avisoDescontoForm');
+    avisoG.style.display = 'none';
+    avisoD.style.display = 'none';
+    if (!nome) return;
+    if (temGratis(nome)) {
+      avisoG.style.display = 'block';
+    } else if (temDesconto(nome)) {
+      avisoD.style.display = 'block';
     }
   }
 
@@ -930,6 +1280,22 @@
     } catch(e) {}
   }
 
+  function mostrarPosInscricao(nome) {
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('avisoGratisForm').style.display = 'none';
+    document.getElementById('avisoDescontoForm').style.display = 'none';
+    document.getElementById('avisoBloqueado').style.display = 'none';
+    document.getElementById('btnCancelarInscricao').style.display = 'block';
+    document.getElementById('inscritoBox').style.display = 'block';
+    var g = temGratis(nome);
+    var d = !g && temDesconto(nome);
+    document.getElementById('avisoGratisPos').style.display   = g ? 'block' : 'none';
+    document.getElementById('avisoDescontoPos').style.display = d ? 'block' : 'none';
+    // Mostrar PIX só se não for grátis
+    document.getElementById('aviso-pix-pos').style.display = g ? 'none' : 'block';
+    renderSala(ultimaSala);
+  }
+
   function verificarSessao() {
     try {
       if (sessionStorage.getItem(SESSION_KEY_INSC) !== '1') return;
@@ -942,12 +1308,7 @@
         });
         if (encontrado) {
           usuarioInscrito = true;
-          document.getElementById('formCard').style.display = 'none';
-          document.getElementById('avisoImportante').style.display = 'block';
-          document.getElementById('inscritoBox').style.display = 'block';
-          document.getElementById('aviso-pix-pos').style.display = 'block';
-          document.getElementById('avisoBloqueado').style.display = 'none';
-          renderSala(ultimaSala);
+          mostrarPosInscricao(nome);
         } else {
           limparSessao();
         }
@@ -1027,25 +1388,20 @@
           } else {
             salvarSessao(nome, brawl, tel);
             usuarioInscrito = true;
-            document.getElementById('formCard').style.display = 'none';
-            document.getElementById('avisoGratisForm').style.display = 'none';
-            document.getElementById('avisoImportante').style.display = 'block';
-            document.getElementById('inscritoBox').style.display = 'block';
-            document.getElementById('aviso-pix-pos').style.display = 'block';
-            renderSala(ultimaSala);
-            if (temGratis(nome)) {
-              toast('🏆 Inscrição com entrada GRÁTIS confirmada!', 'gold');
-            } else {
-              toast('Inscrição confirmada! ✅', 'success');
-            }
+            mostrarPosInscricao(nome);
+            var g = temGratis(nome);
+            var d = !g && temDesconto(nome);
+            if (g) toast('🏆 Inscrição com entrada GRÁTIS confirmada!', 'gold');
+            else if (d) toast('🔥 Inscrição com desconto (R$2)!', 'orange');
+            else toast('Inscrição confirmada! ✅', 'success');
           }
         });
       });
     });
   });
 
-  /* ===== VOLTAR AO FORM ===== */
-  document.getElementById('btnVoltarForm').addEventListener('click', function() {
+  /* ===== CANCELAR INSCRIÇÃO ===== */
+  document.getElementById('btnCancelarInscricao').addEventListener('click', function() {
     if (!confirm('⚠️ Atenção: você PERDERÁ sua inscrição atual. Deseja continuar?')) return;
     var nome  = '';
     var brawl = '';
@@ -1063,9 +1419,11 @@
     });
     limparSessao();
     usuarioInscrito = false;
-    document.getElementById('avisoImportante').style.display = 'none';
+    document.getElementById('btnCancelarInscricao').style.display = 'none';
     document.getElementById('inscritoBox').style.display = 'none';
     document.getElementById('aviso-pix-pos').style.display = 'none';
+    document.getElementById('avisoGratisPos').style.display = 'none';
+    document.getElementById('avisoDescontoPos').style.display = 'none';
     document.getElementById('salaSection').style.display = 'none';
     document.getElementById('formCard').style.display = 'block';
     document.getElementById('inputNome').value = '';
@@ -1075,7 +1433,7 @@
   });
 
   /* ===== INPUT NOME ===== */
-  document.getElementById('inputNome').addEventListener('input', verificarGratisForm);
+  document.getElementById('inputNome').addEventListener('input', verificarBeneficioForm);
 
   /* ===== ADMIN LOGIN ===== */
   document.getElementById('btnToggleLogin').addEventListener('click', function() {
@@ -1096,6 +1454,7 @@
         renderBadge(ultimaSala);
         renderAdminLista(Object.values(ultimosPartic));
         renderAdminVit();
+        renderLucro();
         refInscricoes.once('value', function(snap2) {
           var abertas = snap2.val() !== false;
           var btnBloq = document.getElementById('btnBloquearInscricoes');
@@ -1180,9 +1539,11 @@
         if (err2) { toast('Erro ao fechar sala!', 'error'); return; }
         limparSessao();
         usuarioInscrito = false;
-        document.getElementById('avisoImportante').style.display = 'none';
+        document.getElementById('btnCancelarInscricao').style.display = 'none';
         document.getElementById('inscritoBox').style.display = 'none';
         document.getElementById('aviso-pix-pos').style.display = 'none';
+        document.getElementById('avisoGratisPos').style.display = 'none';
+        document.getElementById('avisoDescontoPos').style.display = 'none';
         document.getElementById('salaSection').style.display = 'none';
         document.getElementById('formCard').style.display = 'block';
         document.getElementById('inputNome').value = '';
