@@ -15,6 +15,10 @@
     --border: #2a2a2a;
     --text: #d8d8d8;
     --muted: #777;
+    --gold: #FFD700;
+    --gold-dark: #B8860B;
+    --gold-bg: #1a1500;
+    --gold-border: #8B6914;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +154,25 @@
   .btn-submit:active:not(:disabled) { transform: translateY(0); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
+  /* Aviso entrada grátis no formulário */
+  .aviso-gratis-form {
+    display: none;
+    background: linear-gradient(135deg, var(--gold-bg), #1f1a00);
+    border: 2px solid var(--gold-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    text-align: center;
+    animation: pulseGold 2.5s ease-in-out infinite;
+  }
+  @keyframes pulseGold {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.15); }
+    50% { box-shadow: 0 0 0 8px rgba(255,215,0,0); }
+  }
+  .aviso-gratis-form .icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .aviso-gratis-form p { font-size: 0.9rem; color: var(--gold); font-weight: 700; }
+  .aviso-gratis-form span { font-size: 0.8rem; color: #aa9900; }
+
   .aviso-importante {
     display: none;
     background: linear-gradient(135deg, #140000, #1a0000);
@@ -173,6 +196,23 @@
   }
   .aviso-importante p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
   .aviso-importante p strong { color: #ff4444; }
+
+  /* Botão voltar ao formulário */
+  .btn-voltar-form {
+    width: 100%;
+    background: #141414;
+    border: 1px solid #333;
+    color: #888;
+    border-radius: 8px;
+    padding: 11px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-voltar-form:hover { color: #cc3333; border-color: #cc3333; }
 
   .inscrito-box {
     display: none;
@@ -261,7 +301,27 @@
   }
   .btn-sala:hover { transform: translateY(-2px); }
 
+  .aviso-bloqueado {
+    display: none;
+    background: linear-gradient(135deg, #1a0a00, #200d00);
+    border: 2px solid #cc6600;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: pulseOrange 2.5s ease-in-out infinite;
+  }
+  @keyframes pulseOrange {
+    0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); }
+  }
+  .aviso-bloqueado .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
+  .aviso-bloqueado h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #cc6600; letter-spacing: 1px; margin-bottom: 6px; }
+  .aviso-bloqueado p  { font-size: 0.92rem; color: #aa8844; }
+
   hr.divider { border: none; border-top: 1px solid #1a1a1a; margin: 6px 0 16px; }
+
+  /* Participante normal */
   .participante-item {
     display: flex;
     gap: 12px;
@@ -276,8 +336,112 @@
   .part-info .name { font-weight: 700; font-size: 0.95rem; }
   .part-info .brawl { font-size: 0.82rem; color: var(--muted); }
   .part-info .phone { font-size: 0.78rem; color: #555; margin-top: 2px; }
+
+  /* Participante com entrada grátis — dourado */
+  .participante-item.gratis {
+    background: linear-gradient(90deg, rgba(26,21,0,0.7) 0%, rgba(10,8,0,0.3) 100%);
+    border-radius: 8px;
+    padding: 12px 10px;
+    border-bottom: 1px solid #3a2e00;
+  }
+  .participante-item.gratis .part-num { color: var(--gold); text-shadow: 0 0 8px rgba(255,215,0,0.5); }
+  .participante-item.gratis .part-info .name { color: var(--gold); }
+  .participante-item.gratis .part-info .brawl { color: #aa9900; }
+  .participante-item.gratis .part-info .phone { color: #7a6a00; }
+  .gratis-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #8B6914, #5a4200);
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    border: 1px solid #aa8800;
+  }
+
   .lista-loading { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
+  /* ====== RANKING VITÓRIAS ====== */
+  .ranking-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 20px;
+  }
+  .ranking-card .card-title { margin-bottom: 10px; }
+
+  .diario-toggle {
+    display: flex;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 16px;
+    gap: 3px;
+  }
+  .diario-toggle button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #555;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    padding: 9px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .diario-toggle button.active {
+    background: linear-gradient(135deg, #cc1111, #8a0a0a);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(180,0,0,0.3);
+  }
+
+  .ranking-list { }
+  .ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+    animation: fadeIn 0.3s ease;
+  }
+  .ranking-item:last-child { border-bottom: none; }
+  .rank-pos { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #555; min-width: 24px; }
+  .rank-pos.ouro  { color: #FFD700; }
+  .rank-pos.prata { color: #aaa; }
+  .rank-pos.bronze{ color: #cd7f32; }
+  .rank-nome { flex: 1; font-weight: 700; font-size: 0.92rem; color: var(--text); }
+  .rank-nome.gratis-nome { color: var(--gold); }
+  .rank-vitorias {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: #cc2222;
+    min-width: 36px;
+    text-align: right;
+  }
+  .rank-estrelas { font-size: 0.7rem; letter-spacing: 1px; }
+  .rank-gratis-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #8B6914, #5a4200);
+    color: var(--gold);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 8px;
+    border: 1px solid #aa8800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .ranking-vazio { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
+
+  /* ====== ADMIN ====== */
   .admin-login-toggle { text-align: center; margin-bottom: 12px; }
   .admin-login-toggle button {
     background: none;
@@ -388,23 +552,6 @@
   .btn-reset:hover:not(:disabled) { color: #cc3333 !important; border-color: #cc3333 !important; }
   .btn-bloquear-inscricoes { background: linear-gradient(135deg, #4a2a00, #2a1500); color: #ffbb66; margin-top: 8px; }
   .btn-liberar-inscricoes  { background: linear-gradient(135deg, #1a4a1a, #0d2a0d); color: #66ff99; margin-top: 8px; }
-  .aviso-bloqueado {
-    display: none;
-    background: linear-gradient(135deg, #1a0a00, #200d00);
-    border: 2px solid #cc6600;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-    text-align: center;
-    animation: pulseOrange 2.5s ease-in-out infinite;
-  }
-  @keyframes pulseOrange {
-    0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); }
-  }
-  .aviso-bloqueado .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
-  .aviso-bloqueado h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #cc6600; letter-spacing: 1px; margin-bottom: 6px; }
-  .aviso-bloqueado p  { font-size: 0.92rem; color: #aa8844; }
 
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
@@ -417,7 +564,7 @@
     margin-bottom: 10px;
   }
   .admin-part-item {
-  display: flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
@@ -427,7 +574,111 @@
   .admin-part-item:last-child { border-bottom: none; }
   .admin-part-item .api { color: #555; }
   .admin-part-item .anome { color: #aaa; font-weight: 600; }
+  .admin-part-item.gratis-admin .anome { color: var(--gold); }
 
+  /* Seção Admin — Vitórias */
+  .admin-vitorias-section { margin-top: 4px; }
+  .admin-vitorias-section h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .diario-toggle-admin {
+    display: flex;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 12px;
+    gap: 3px;
+  }
+  .diario-toggle-admin button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #555;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 8px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .diario-toggle-admin button.active {
+    background: linear-gradient(135deg, #cc1111, #8a0a0a);
+    color: #fff;
+  }
+
+  .vitorias-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .vitorias-input-row input {
+    flex: 1;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .vitorias-input-row input:focus { border-color: var(--red); }
+  .vitorias-input-row input::placeholder { color: #3a3a3a; }
+
+  .btn-add-vit {
+    background: linear-gradient(135deg, #1a8a3a, #0d5c22);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    white-space: nowrap;
+  }
+  .btn-add-vit:hover { transform: translateY(-1px); }
+
+  .btn-rem-vit {
+    background: linear-gradient(135deg, #7a1a1a, #5a0d0d);
+    color: #ffaaaa;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    white-space: nowrap;
+  }
+  .btn-rem-vit:hover { transform: translateY(-1px); }
+
+  .vitorias-lista-admin { margin-top: 10px; }
+  .vit-item-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.82rem;
+  }
+  .vit-item-admin:last-child { border-bottom: none; }
+  .vit-nome-admin { color: #aaa; font-weight: 600; }
+  .vit-nome-admin.gold { color: var(--gold); }
+  .vit-count-admin { color: #cc2222; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
+
+  /* Toast */
   .toast {
     position: fixed;
     bottom: 24px;
@@ -446,6 +697,7 @@
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.success { border-color: #2ecc71; color: #2ecc71; }
   .toast.error { border-color: #cc1111; color: #ff4444; }
+  .toast.gold { border-color: var(--gold); color: var(--gold); }
 </style>
 </head>
 <body>
@@ -467,10 +719,18 @@
     <span id="syncLabel">Conectando...</span>
   </div>
 
+  <!-- Aviso entrada grátis (aparece acima do form se jogador tiver entrada grátis) -->
+  <div class="aviso-gratis-form" id="avisoGratisForm">
+    <span class="icon">🏆</span>
+    <p>Você tem uma entrada grátis disponível!</p>
+    <span>Sua inscrição neste diário é gratuita.</span>
+  </div>
+
   <div class="aviso-importante" id="avisoImportante">
     <span class="aviso-icon">⚠️</span>
     <h3>Aviso Importante!</h3>
     <p><strong>NÃO recarregue esta página!</strong> Se você atualizar ou fechar o navegador, perderá sua inscrição e precisará se inscrever novamente.</p>
+    <button class="btn-voltar-form" id="btnVoltarForm">↩ Cancelar inscrição e voltar</button>
   </div>
 
   <div class="inscrito-box" id="inscritoBox">
@@ -521,12 +781,24 @@
     <button class="btn-submit" id="btnInscrever">Entrar no Diário</button>
   </div>
 
+  <!-- Lista de participantes -->
   <div class="card">
     <div class="card-title">Participantes (<span id="partCount">0</span>/9)</div>
     <hr class="divider">
     <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
   </div>
 
+  <!-- Ranking de vitórias -->
+  <div class="ranking-card">
+    <div class="card-title">🏆 Ranking de Vitórias</div>
+    <div class="diario-toggle">
+      <button id="btnTogNormal" class="active" onclick="setDiarioAtivo('normal')">🎯 Diário Normal</button>
+      <button id="btnTogMini"   onclick="setDiarioAtivo('mini')">⚡ Diário Mini</button>
+    </div>
+    <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
+  </div>
+
+  <!-- Admin login toggle -->
   <div class="admin-login-toggle">
     <button id="btnToggleLogin">⚙️</button>
   </div>
@@ -557,6 +829,23 @@
 
     <hr class="admin-sep">
 
+    <!-- Gerenciar vitórias -->
+    <div class="admin-vitorias-section">
+      <h4>⚔️ Gerenciar Vitórias</h4>
+      <div class="diario-toggle-admin">
+        <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Diário Normal</button>
+        <button id="btnAdmMini"   onclick="setAdminDiario('mini')">⚡ Diário Mini</button>
+      </div>
+      <div class="vitorias-input-row">
+        <input type="text" id="inputVitNome" placeholder="Nome do jogador...">
+        <button class="btn-add-vit" id="btnAddVit">+1 Vitória</button>
+        <button class="btn-rem-vit" id="btnRemVit">-1</button>
+      </div>
+      <div class="vitorias-lista-admin" id="adminVitLista"></div>
+    </div>
+
+    <hr class="admin-sep">
+
     <div class="admin-part-list">
       <h4>📋 Inscritos</h4>
       <div id="adminListaParticipantes"></div>
@@ -564,7 +853,7 @@
 
     <hr class="admin-sep">
     <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
-    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
+    <button class="btn-admin btn-liberar-inscricoes"  id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
     <button class="btn-admin btn-reset" id="btnReset">🗑️ Resetar Todos os Inscritos</button>
   </div>
 
@@ -576,12 +865,23 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 (function () {
-  var TOTAL_VAGAS = 9;
-  var SENHA = "818181";
-  var usuarioInscrito = false;
-  var isAdmin = false;
-  var ultimaSala = null;
-  var ultimosPartic = {};
+  var TOTAL_VAGAS     = 9;
+  var VITORIAS_GRATIS = 5;
+
+  var usuarioInscrito  = false;
+  var isAdmin          = false;
+  var ultimaSala       = null;
+  var ultimosPartic    = {};
+  var vitoriasNormal   = {};
+  var vitoriasMini     = {};
+  var diarioAtivo      = 'normal'; // ranking público
+  var adminDiarioAtivo = 'normal'; // painel admin
+
+  // Chave de sessão para persistência
+  var SESSION_KEY_NOME   = 'dbrawl_nome';
+  var SESSION_KEY_BRAWL  = 'dbrawl_brawl';
+  var SESSION_KEY_TEL    = 'dbrawl_tel';
+  var SESSION_KEY_INSC   = 'dbrawl_inscrito';
 
   firebase.initializeApp({
     apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
@@ -593,37 +893,63 @@
     appId: "1:156307889943:web:1d8b2b37ed08387af1a152"
   });
   var db = firebase.database();
-  var refPartic     = db.ref('participantes');
-  var refSala       = db.ref('sala');
-  var refInscricoes = db.ref('inscricoes');
+  var refPartic      = db.ref('participantes');
+  var refSala        = db.ref('sala');
+  var refInscricoes  = db.ref('inscricoes');
+  var refSenha       = db.ref('senha-admin');
+  var refVitNormal   = db.ref('vitorias-normal');
+  var refVitMini     = db.ref('vitorias-mini');
 
+  /* ===== TOAST ===== */
   var toastTimer;
   function toast(msg, type) {
     var t = document.getElementById('toast');
     t.textContent = msg;
     t.className = 'toast show' + (type ? ' ' + type : '');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3000);
+    toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3500);
   }
 
+  /* ===== SYNC DOT ===== */
   function setSync(state, label) {
     document.getElementById('syncDot').className = 'sync-dot ' + state;
     document.getElementById('syncLabel').textContent = label;
   }
 
+  /* ===== ESCAPE ===== */
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
+  /* ===== VITÓRIAS helpers ===== */
+  function getVit(nome, tipo) {
+    var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
+    if (!obj) return 0;
+    // busca case-insensitive
+    var keys = Object.keys(obj);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === nome.toLowerCase()) return obj[keys[i]] || 0;
+    }
+    return 0;
+  }
+
+  function temGratis(nome) {
+    var vn = getVit(nome, 'normal');
+    var vm = getVit(nome, 'mini');
+    return (vn >= VITORIAS_GRATIS || vm >= VITORIAS_GRATIS);
+  }
+
+  /* ===== RENDERIZAR LISTA DE PARTICIPANTES ===== */
   function renderLista(partic) {
     var arr = partic ? Object.values(partic) : [];
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
-      html += '<div class="participante-item">';
+      var g = temGratis(p.nome);
+      html += '<div class="participante-item' + (g ? ' gratis' : '') + '">';
       html += '<div class="part-num">#'+(i+1)+'</div>';
       html += '<div class="part-info">';
-      html += '<div class="name">'+esc(p.nome)+'</div>';
+      html += '<div class="name">'+esc(p.nome)+(g ? '<span class="gratis-tag">🏆 Entrada Grátis</span>' : '')+'</div>';
       html += '<div class="brawl">🎮 '+esc(p.brawl)+'</div>';
       if (p.telefone) html += '<div class="phone">📱 '+esc(p.telefone)+'</div>';
       html += '</div></div>';
@@ -636,6 +962,101 @@
     if (isAdmin) renderAdminLista(arr);
   }
 
+  /* ===== RENDERIZAR RANKING ===== */
+  window.setDiarioAtivo = function(tipo) {
+    diarioAtivo = tipo;
+    document.getElementById('btnTogNormal').className = tipo === 'normal' ? 'active' : '';
+    document.getElementById('btnTogMini').className   = tipo === 'mini'   ? 'active' : '';
+    renderRanking();
+  };
+
+  function renderRanking() {
+    var obj = diarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var lista = document.getElementById('rankingLista');
+    if (!obj || !Object.keys(obj).length) {
+      lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>';
+      return;
+    }
+    // ordenar por vitórias desc
+    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: obj[k] || 0 }; });
+    arr.sort(function(a,b){ return b.v - a.v; });
+    var html = '';
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+      var posClass = i === 0 ? 'ouro' : i === 1 ? 'prata' : i === 2 ? 'bronze' : '';
+      var g = item.v >= VITORIAS_GRATIS;
+      var estrelas = '';
+      for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '⭐';
+      html += '<div class="ranking-item">';
+      html += '<div class="rank-pos '+posClass+'">'+(i+1)+'°</div>';
+      html += '<div class="rank-nome'+(g?' gratis-nome':'')+'">'+esc(item.nome)+(g?' <span class="rank-gratis-tag">🏆 Grátis</span>':'')+'</div>';
+      html += '<div class="rank-vitorias"><span class="rank-estrelas">'+estrelas+'</span> '+item.v+'v</div>';
+      html += '</div>';
+    }
+    lista.innerHTML = html;
+  }
+
+  /* ===== RENDERIZAR ADMIN LISTA INSCRITOS ===== */
+  function renderAdminLista(arr) {
+    var el = document.getElementById('adminListaParticipantes');
+    if (!el) return;
+    if (!arr || !arr.length) {
+      el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < arr.length; i++) {
+      var p = arr[i];
+      var g = temGratis(p.nome);
+      html += '<div class="admin-part-item'+(g?' gratis-admin':'')+'">';
+      html += '<span class="anome">'+esc(p.nome)+(g?'<span class="gratis-tag" style="margin-left:4px;">🏆</span>':'')+'</span>';
+      html += '<span class="api">🎮 '+esc(p.brawl)+' &nbsp;📱 '+(p.telefone||'—')+'</span>';
+      html += '</div>';
+    }
+    el.innerHTML = html;
+  }
+
+  /* ===== RENDERIZAR VITÓRIAS NO ADMIN ===== */
+  window.setAdminDiario = function(tipo) {
+    adminDiarioAtivo = tipo;
+    document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
+    document.getElementById('btnAdmMini').className   = tipo === 'mini'   ? 'active' : '';
+    renderAdminVit();
+  };
+
+  function renderAdminVit() {
+    var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var el = document.getElementById('adminVitLista');
+    if (!el) return;
+    if (!obj || !Object.keys(obj).length) {
+      el.innerHTML = '<div style="color:#444;font-size:0.8rem;padding:6px 0;">Nenhum jogador ainda.</div>';
+      return;
+    }
+    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: obj[k] || 0 }; });
+    arr.sort(function(a,b){ return b.v - a.v; });
+    var html = '';
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+      var g = item.v >= VITORIAS_GRATIS;
+      html += '<div class="vit-item-admin">';
+      html += '<span class="vit-nome-admin'+(g?' gold':'')+'">'+esc(item.nome)+(g?' 🏆':'')+'</span>';
+      html += '<span class="vit-count-admin">'+item.v+' vitória'+(item.v!==1?'s':'')+'</span>';
+      html += '</div>';
+    }
+    el.innerHTML = html;
+  }
+
+  /* ===== BADGE SALA ===== */
+  function renderBadge(salaData) {
+    var badge = document.getElementById('statusBadge');
+    if (!badge) return;
+    var aberta = salaData && salaData.aberta;
+    badge.textContent = aberta ? '🔓 Sala Liberada' : '🔒 Sala Fechada';
+    badge.className = 'status-badge ' + (aberta ? 'status-liberada' : 'status-bloqueada');
+    document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
+  }
+
+  /* ===== RENDERIZAR SALA ===== */
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
@@ -654,33 +1075,63 @@
     if (isAdmin) renderBadge(salaData);
   }
 
-  function renderAdminLista(arr) {
-    var el = document.getElementById('adminListaParticipantes');
-    if (!el) return;
-    if (!arr || !arr.length) {
-      el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>';
-      return;
+  /* ===== VERIFICAR ENTRADA GRÁTIS NO FORM ===== */
+  function verificarGratisForm() {
+    var nome = document.getElementById('inputNome').value.trim();
+    var aviso = document.getElementById('avisoGratisForm');
+    if (nome && temGratis(nome)) {
+      aviso.style.display = 'block';
+    } else {
+      aviso.style.display = 'none';
     }
-    var html = '';
-    for (var i = 0; i < arr.length; i++) {
-      var p = arr[i];
-      html += '<div class="admin-part-item">';
-      html += '<span class="anome">'+esc(p.nome)+'</span>';
-      html += '<span class="api">🎮 '+esc(p.brawl)+' &nbsp;📱 '+(p.telefone||'—')+'</span>';
-      html += '</div>';
-    }
-    el.innerHTML = html;
   }
 
-  function renderBadge(salaData) {
-    var badge = document.getElementById('statusBadge');
-    if (!badge) return;
-    var aberta = salaData && salaData.aberta;
-    badge.textContent = aberta ? '🔓 Sala Liberada' : '🔒 Sala Fechada';
-    badge.className = 'status-badge ' + (aberta ? 'status-liberada' : 'status-bloqueada');
-    document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
+  /* ===== PERSISTÊNCIA DE SESSÃO ===== */
+  function salvarSessao(nome, brawl, tel) {
+    try {
+      sessionStorage.setItem(SESSION_KEY_NOME,  nome);
+      sessionStorage.setItem(SESSION_KEY_BRAWL, brawl);
+      sessionStorage.setItem(SESSION_KEY_TEL,   tel);
+      sessionStorage.setItem(SESSION_KEY_INSC,  '1');
+    } catch(e) {}
   }
 
+  function limparSessao() {
+    try {
+      sessionStorage.removeItem(SESSION_KEY_NOME);
+      sessionStorage.removeItem(SESSION_KEY_BRAWL);
+      sessionStorage.removeItem(SESSION_KEY_TEL);
+      sessionStorage.removeItem(SESSION_KEY_INSC);
+    } catch(e) {}
+  }
+
+  function verificarSessao() {
+    try {
+      var insc = sessionStorage.getItem(SESSION_KEY_INSC);
+      if (insc !== '1') return;
+      var nome  = sessionStorage.getItem(SESSION_KEY_NOME)  || '';
+      var brawl = sessionStorage.getItem(SESSION_KEY_BRAWL) || '';
+      // Verifica se o participante ainda está na lista do Firebase
+      refPartic.once('value', function(snap) {
+        var partic = snap.val() || {};
+        var arr = Object.values(partic);
+        var encontrado = arr.some(function(p) {
+          return p.nome === nome && p.brawl === brawl;
+        });
+        if (encontrado) {
+          usuarioInscrito = true;
+          document.getElementById('formCard').style.display = 'none';
+          document.getElementById('avisoImportante').style.display = 'block';
+          document.getElementById('inscritoBox').style.display = 'block';
+          document.getElementById('avisoBloqueado').style.display = 'none';
+        } else {
+          limparSessao();
+        }
+      });
+    } catch(e) {}
+  }
+
+  /* ===== LISTENERS FIREBASE ===== */
   refPartic.on('value', function(snap) {
     ultimosPartic = snap.val() || {};
     renderLista(ultimosPartic);
@@ -692,113 +1143,23 @@
     renderSala(ultimaSala);
   });
 
+  refVitNormal.on('value', function(snap) {
+    vitoriasNormal = snap.val() || {};
+    if (diarioAtivo === 'normal') renderRanking();
+    if (isAdmin && adminDiarioAtivo === 'normal') renderAdminVit();
+    renderLista(ultimosPartic); // atualiza tags douradas
+  });
+
+  refVitMini.on('value', function(snap) {
+    vitoriasMini = snap.val() || {};
+    if (diarioAtivo === 'mini') renderRanking();
+    if (isAdmin && adminDiarioAtivo === 'mini') renderAdminVit();
+    renderLista(ultimosPartic);
+  });
+
   db.ref('.info/connected').on('value', function(snap) {
     if (snap.val()) setSync('online', 'Online');
     else setSync('error', 'Sem conexão...');
-  });
-
-  document.getElementById('btnInscrever').addEventListener('click', function() {
-    var nome  = document.getElementById('inputNome').value.trim();
-    var brawl = document.getElementById('inputBrawl').value.trim();
-    var tel   = document.getElementById('inputTelefone').value.trim();
-    if (!nome)  { toast('Insira seu nome!', 'error'); return; }
-    if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
-    if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
-
-    refInscricoes.once('value', function(snapInsc) {
-      if (snapInsc.val() === false) { toast('Inscrições bloqueadas pelo admin!', 'error'); return; }
-    });
-
-    refPartic.once('value', function(snap) {
-      var atual = snap.val() ? Object.keys(snap.val()).length : 0;
-      if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
-      var btn = document.getElementById('btnInscrever');
-      btn.disabled = true;
-      btn.textContent = 'Inscrevendo...';
-      refPartic.push({ nome: nome, brawl: brawl, telefone: tel }, function(err) {
-        if (err) {
-          toast('Erro ao inscrever. Tente novamente.', 'error');
-          btn.disabled = false;
-          btn.textContent = 'Entrar no Diário';
-        } else {
-          document.getElementById('formCard').style.display = 'none';
-          document.getElementById('avisoImportante').style.display = 'block';
-          document.getElementById('inscritoBox').style.display = 'block';
-          usuarioInscrito = true;
-          toast('Inscrição confirmada! ✅', 'success');
-        }
-      });
-    });
-  });
-
-  document.getElementById('btnToggleLogin').addEventListener('click', function() {
-    var box = document.getElementById('adminLoginBox');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-  });
-
-  document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
-    var s = document.getElementById('inputSenha').value;
-    if (s === SENHA) {
-      isAdmin = true;
-      document.getElementById('adminLoginBox').style.display = 'none';
-      document.getElementById('adminPanel').style.display = 'block';
-      document.getElementById('inputSenha').value = '';
-      renderBadge(ultimaSala);
-      renderAdminLista(Object.values(ultimosPartic));
-      refInscricoes.once('value', function(snap) {
-        var abertas = snap.val() !== false;
-        var btnBloq = document.getElementById('btnBloquearInscricoes');
-        var btnLib  = document.getElementById('btnLiberarInscricoes');
-        if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
-        if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
-      });
-    } else {
-      toast('Senha incorreta!', 'error');
-      document.getElementById('inputSenha').value = '';
-    }
-  });
-
-  document.getElementById('inputSenha').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click();
-  });
-
-  document.getElementById('btnSairAdmin').addEventListener('click', function() {
-    isAdmin = false;
-    document.getElementById('adminPanel').style.display = 'none';
-  });
-
-  document.getElementById('btnLiberar').addEventListener('click', function() {
-    var link = document.getElementById('adminLinkSala').value.trim();
-    if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
-    refSala.set({ aberta: true, link: link }, function(err) {
-      if (err) toast('Erro ao liberar sala!', 'error');
-      else toast('✅ Sala liberada para todos!', 'success');
-    });
-  });
-
-  document.getElementById('btnBloquear').addEventListener('click', function() {
-    refSala.update({ aberta: false }, function(err) {
-      if (err) toast('Erro!', 'error');
-      else toast('🔒 Sala fechada!');
-    });
-  });
-
-  document.getElementById('btnReset').addEventListener('click', function() {
-    if (!confirm('Apagar todos os inscritos?')) return;
-    refPartic.remove(function(err) {
-      if (err) { toast('Erro ao resetar!', 'error'); return; }
-      refSala.set({ aberta: false, link: '' }, function(err2) {
-        if (err2) { toast('Erro ao fechar sala!', 'error'); return; }
-        usuarioInscrito = false;
-        document.getElementById('avisoImportante').style.display = 'none';
-        document.getElementById('inscritoBox').style.display = 'none';
-        document.getElementById('formCard').style.display = 'block';
-        document.getElementById('inputNome').value = '';
-        document.getElementById('inputBrawl').value = '';
-        document.getElementById('inputTelefone').value = '';
-        toast('🗑️ Todos os inscritos removidos!');
-      });
-    });
   });
 
   refInscricoes.on('value', function(snap) {
@@ -817,6 +1178,187 @@
     }
   });
 
+  /* ===== BOTÃO INSCREVER ===== */
+  document.getElementById('btnInscrever').addEventListener('click', function() {
+    var nome  = document.getElementById('inputNome').value.trim();
+    var brawl = document.getElementById('inputBrawl').value.trim();
+    var tel   = document.getElementById('inputTelefone').value.trim();
+    if (!nome)  { toast('Insira seu nome!', 'error'); return; }
+    if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
+    if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
+
+    refInscricoes.once('value', function(snapInsc) {
+      if (snapInsc.val() === false) { toast('Inscrições bloqueadas pelo admin!', 'error'); return; }
+
+      refPartic.once('value', function(snap) {
+        var atual = snap.val() ? Object.keys(snap.val()).length : 0;
+        if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
+        var btn = document.getElementById('btnInscrever');
+        btn.disabled = true;
+        btn.textContent = 'Inscrevendo...';
+        refPartic.push({ nome: nome, brawl: brawl, telefone: tel }, function(err) {
+          if (err) {
+            toast('Erro ao inscrever. Tente novamente.', 'error');
+            btn.disabled = false;
+            btn.textContent = 'Entrar no Diário';
+          } else {
+            salvarSessao(nome, brawl, tel);
+            document.getElementById('formCard').style.display = 'none';
+            document.getElementById('avisoGratisForm').style.display = 'none';
+            document.getElementById('avisoImportante').style.display = 'block';
+            document.getElementById('inscritoBox').style.display = 'block';
+            usuarioInscrito = true;
+            if (temGratis(nome)) {
+              toast('🏆 Inscrição com entrada GRÁTIS confirmada!', 'gold');
+            } else {
+              toast('Inscrição confirmada! ✅', 'success');
+            }
+          }
+        });
+      });
+    });
+  });
+
+  /* ===== BOTÃO VOLTAR AO FORMULÁRIO ===== */
+  document.getElementById('btnVoltarForm').addEventListener('click', function() {
+    if (!confirm('⚠️ Atenção: se voltar, você PERDERÁ sua inscrição atual e precisará preencher novamente. Deseja continuar?')) return;
+    // Remove do Firebase
+    var nome  = '';
+    var brawl = '';
+    try {
+      nome  = sessionStorage.getItem(SESSION_KEY_NOME)  || '';
+      brawl = sessionStorage.getItem(SESSION_KEY_BRAWL) || '';
+    } catch(e) {}
+    // Remove participante correspondente
+    refPartic.once('value', function(snap) {
+      var partic = snap.val() || {};
+      Object.keys(partic).forEach(function(key) {
+        if (partic[key].nome === nome && partic[key].brawl === brawl) {
+          refPartic.child(key).remove();
+        }
+      });
+    });
+    limparSessao();
+    usuarioInscrito = false;
+    document.getElementById('avisoImportante').style.display = 'none';
+    document.getElementById('inscritoBox').style.display = 'none';
+    document.getElementById('formCard').style.display = 'block';
+    document.getElementById('avisoGratisForm').style.display = 'none';
+    document.getElementById('inputNome').value = '';
+    document.getElementById('inputBrawl').value = '';
+    document.getElementById('inputTelefone').value = '';
+    toast('Inscrição cancelada.', 'error');
+  });
+
+  /* ===== INPUT NOME — checar grátis em tempo real ===== */
+  document.getElementById('inputNome').addEventListener('input', verificarGratisForm);
+
+  /* ===== ADMIN LOGIN ===== */
+  document.getElementById('btnToggleLogin').addEventListener('click', function() {
+    var box = document.getElementById('adminLoginBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
+    var digitada = document.getElementById('inputSenha').value;
+    if (!digitada) { toast('Digite a senha!', 'error'); return; }
+    // Busca senha do Firebase
+    refSenha.once('value', function(snap) {
+      var senhaCorreta = snap.val();
+      if (digitada === senhaCorreta) {
+        isAdmin = true;
+        document.getElementById('adminLoginBox').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('inputSenha').value = '';
+        renderBadge(ultimaSala);
+        renderAdminLista(Object.values(ultimosPartic));
+        renderAdminVit();
+        refInscricoes.once('value', function(snap2) {
+          var abertas = snap2.val() !== false;
+          var btnBloq = document.getElementById('btnBloquearInscricoes');
+          var btnLib  = document.getElementById('btnLiberarInscricoes');
+          if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
+          if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
+        });
+      } else {
+        toast('Senha incorreta!', 'error');
+        document.getElementById('inputSenha').value = '';
+      }
+    });
+  });
+
+  document.getElementById('inputSenha').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click();
+  });
+
+  document.getElementById('btnSairAdmin').addEventListener('click', function() {
+    isAdmin = false;
+    document.getElementById('adminPanel').style.display = 'none';
+  });
+
+  /* ===== ADMIN — SALA ===== */
+  document.getElementById('btnLiberar').addEventListener('click', function() {
+    var link = document.getElementById('adminLinkSala').value.trim();
+    if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
+    refSala.set({ aberta: true, link: link }, function(err) {
+      if (err) toast('Erro ao liberar sala!', 'error');
+      else toast('✅ Sala liberada para todos!', 'success');
+    });
+  });
+
+  document.getElementById('btnBloquear').addEventListener('click', function() {
+    refSala.update({ aberta: false }, function(err) {
+      if (err) toast('Erro!', 'error');
+      else toast('🔒 Sala fechada!');
+    });
+  });
+
+  /* ===== ADMIN — VITÓRIAS ===== */
+  document.getElementById('btnAddVit').addEventListener('click', function() {
+    var nome = document.getElementById('inputVitNome').value.trim();
+    if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    // busca chave existente (case-insensitive)
+    var chave = null;
+    Object.keys(obj).forEach(function(k) {
+      if (k.toLowerCase() === nome.toLowerCase()) chave = k;
+    });
+    if (!chave) chave = nome;
+    var atual = obj[chave] || 0;
+    var novo  = atual + 1;
+    var upd = {};
+    upd[chave] = novo;
+    ref.update(upd, function(err) {
+      if (err) { toast('Erro!', 'error'); return; }
+      if (novo >= VITORIAS_GRATIS) {
+        toast('🏆 ' + nome + ' atingiu ' + novo + ' vitórias — entrada GRÁTIS!', 'gold');
+      } else {
+        toast('+1 vitória para ' + nome + ' (' + novo + 'v)', 'success');
+      }
+    });
+  });
+
+  document.getElementById('btnRemVit').addEventListener('click', function() {
+    var nome = document.getElementById('inputVitNome').value.trim();
+    if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var chave = null;
+    Object.keys(obj).forEach(function(k) {
+      if (k.toLowerCase() === nome.toLowerCase()) chave = k;
+    });
+    if (!chave || !obj[chave]) { toast('Jogador não encontrado ou sem vitórias!', 'error'); return; }
+    var novo = Math.max(0, (obj[chave] || 0) - 1);
+    var upd = {};
+    upd[chave] = novo;
+    ref.update(upd, function(err) {
+      if (err) { toast('Erro!', 'error'); return; }
+      toast('-1 vitória de ' + chave + ' (' + novo + 'v)');
+    });
+  });
+
+  /* ===== ADMIN — INSCRIÇÕES ===== */
   document.getElementById('btnBloquearInscricoes').addEventListener('click', function() {
     refInscricoes.set(false, function(err) {
       if (err) toast('Erro!', 'error');
@@ -831,7 +1373,31 @@
     });
   });
 
+  /* ===== ADMIN — RESET ===== */
+  document.getElementById('btnReset').addEventListener('click', function() {
+    if (!confirm('Apagar todos os inscritos?')) return;
+    refPartic.remove(function(err) {
+      if (err) { toast('Erro ao resetar!', 'error'); return; }
+      refSala.set({ aberta: false, link: '' }, function(err2) {
+        if (err2) { toast('Erro ao fechar sala!', 'error'); return; }
+        limparSessao();
+        usuarioInscrito = false;
+        document.getElementById('avisoImportante').style.display = 'none';
+        document.getElementById('inscritoBox').style.display = 'none';
+        document.getElementById('formCard').style.display = 'block';
+        document.getElementById('avisoGratisForm').style.display = 'none';
+        document.getElementById('inputNome').value = '';
+        document.getElementById('inputBrawl').value = '';
+        document.getElementById('inputTelefone').value = '';
+        toast('🗑️ Todos os inscritos removidos!');
+      });
+    });
+  });
+
+  /* ===== INIT — verificar sessão ao carregar ===== */
   setSync('syncing', 'Conectando...');
+  verificarSessao();
+
 })();
 </script>
 </body>
