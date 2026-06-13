@@ -20,9 +20,7 @@
     --gold-bg: #1a1500;
     --gold-border: #8B6914;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     background: var(--dark);
     color: var(--text);
@@ -30,123 +28,64 @@
     min-height: 100vh;
     background-image: radial-gradient(ellipse at top center, #1a0000 0%, #0a0a0a 55%);
   }
-
-  .container {
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 24px 16px 60px;
-  }
-
+  .container { max-width: 540px; margin: 0 auto; padding: 24px 16px 60px; }
   .header { text-align: center; margin-bottom: 28px; }
   .header h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.6rem, 9vw, 3.4rem);
-    letter-spacing: 2px;
-    line-height: 1;
+    letter-spacing: 2px; line-height: 1;
     background: linear-gradient(135deg, #ff2222, #cc0000, #888888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .header .emoji-fire { font-size: 2rem; display: block; margin-bottom: 4px; }
   .pix-box {
-    background: #161616;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin: 12px auto 0;
-    display: inline-block;
-    font-size: 0.85rem;
-    color: var(--muted);
+    background: #161616; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 10px 16px; margin: 12px auto 0; display: inline-block;
+    font-size: 0.85rem; color: var(--muted);
   }
   .pix-box strong { color: #cc3333; }
-
   .vagas-bar {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: space-between;
   }
   .vagas-bar .label { font-size: 0.9rem; color: var(--muted); }
   .vagas-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red-bright); }
-
   .sync-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.75rem;
-    color: #444;
-    margin-bottom: 16px;
-    padding-left: 2px;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; color: #444; margin-bottom: 16px; padding-left: 2px;
   }
-  .sync-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: #333;
-    transition: background 0.3s;
-  }
+  .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: #333; transition: background 0.3s; }
   .sync-dot.online { background: #2ecc71; box-shadow: 0 0 6px #2ecc7166; }
   .sync-dot.syncing { background: #f39c12; animation: blink 0.8s infinite; }
   .sync-dot.error { background: #cc1111; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
   .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 20px;
-    margin-bottom: 20px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px 20px; margin-bottom: 20px;
   }
   .card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    color: #cc2222;
-    margin-bottom: 16px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+    letter-spacing: 1px; color: #cc2222; margin-bottom: 16px;
   }
-
   .field { margin-bottom: 14px; }
   .field label {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 6px;
+    display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;
   }
   .field input {
-    width: 100%;
-    background: #141414;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 11px 14px;
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.2s;
-    outline: none;
+    width: 100%; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 11px 14px; color: var(--text); font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem; transition: border-color 0.2s; outline: none;
   }
   .field input:focus { border-color: var(--red); }
   .field input::placeholder { color: #3a3a3a; }
   .field input:disabled { opacity: 0.5; cursor: not-allowed; }
-
   .btn-submit {
-    width: 100%;
-    background: linear-gradient(135deg, #cc1111, #8a0a0a);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    margin-top: 4px;
+    width: 100%; background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff;
+    border: none; border-radius: 8px; padding: 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px;
+    cursor: pointer; margin-top: 4px;
     transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
     box-shadow: 0 4px 16px rgba(180,0,0,0.35);
   }
@@ -154,15 +93,12 @@
   .btn-submit:active:not(:disabled) { transform: translateY(0); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* Aviso entrada grátis no formulário */
+  /* Aviso grátis no form */
   .aviso-gratis-form {
     display: none;
     background: linear-gradient(135deg, var(--gold-bg), #1f1a00);
-    border: 2px solid var(--gold-border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 16px;
-    text-align: center;
+    border: 2px solid var(--gold-border); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 16px; text-align: center;
     animation: pulseGold 2.5s ease-in-out infinite;
   }
   @keyframes pulseGold {
@@ -173,13 +109,12 @@
   .aviso-gratis-form p { font-size: 0.9rem; color: var(--gold); font-weight: 700; }
   .aviso-gratis-form span { font-size: 0.8rem; color: #aa9900; }
 
+  /* Aviso importante pós-inscrição */
   .aviso-importante {
     display: none;
     background: linear-gradient(135deg, #140000, #1a0000);
-    border: 2px solid #cc1111;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
+    border: 2px solid #cc1111; border-radius: 12px;
+    padding: 18px; margin-bottom: 20px;
     animation: pulseRed 2.5s ease-in-out infinite;
   }
   @keyframes pulseRed {
@@ -188,85 +123,81 @@
   }
   .aviso-importante .aviso-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
   .aviso-importante h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #dd3333;
-    margin-bottom: 6px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 1px; color: #dd3333; margin-bottom: 6px;
   }
   .aviso-importante p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
   .aviso-importante p strong { color: #ff4444; }
 
-  /* Botão voltar ao formulário */
-  .btn-voltar-form {
-    width: 100%;
-    background: #141414;
-    border: 1px solid #333;
-    color: #888;
-    border-radius: 8px;
-    padding: 11px;
+  /* Aviso PIX pós-inscrição */
+  .aviso-pix-pos {
+    display: none;
+    background: linear-gradient(135deg, #1a1500, #111000);
+    border: 2px solid var(--gold-border); border-radius: 12px;
+    padding: 20px 18px; margin-bottom: 20px; text-align: center;
+    animation: pulseGold 2.5s ease-in-out infinite;
+  }
+  .aviso-pix-pos .pix-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: color 0.2s, border-color 0.2s;
+    font-size: 1.6rem; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .aviso-pix-pos .pix-sub {
+    font-size: 0.88rem; color: #aa9900; margin-bottom: 14px;
+  }
+  .pix-entry {
+    background: #0d0b00; border: 1px solid #3a2e00;
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; text-align: left;
+  }
+  .pix-entry:last-child { margin-bottom: 0; }
+  .pix-entry .pix-person {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
+    color: var(--gold); letter-spacing: 1px; margin-bottom: 2px;
+  }
+  .pix-entry .pix-key {
+    font-size: 0.88rem; color: #cc9900; word-break: break-all;
+  }
+
+  /* Botão voltar */
+  .btn-voltar-form {
+    width: 100%; background: #141414; border: 1px solid #333; color: #888;
+    border-radius: 8px; padding: 11px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px;
+    cursor: pointer; margin-top: 10px; transition: color 0.2s, border-color 0.2s;
   }
   .btn-voltar-form:hover { color: #cc3333; border-color: #cc3333; }
 
   .inscrito-box {
-    display: none;
-    background: #141414;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
+    display: none; background: #141414; border: 1px solid #333;
+    border-radius: 12px; padding: 18px; margin-bottom: 20px;
   }
   .inscrito-box .check { font-size: 1.6rem; margin-bottom: 6px; display: block; }
   .inscrito-box h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: #aaaaaa;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    color: #aaaaaa; letter-spacing: 1px; margin-bottom: 4px;
   }
   .inscrito-box p { font-size: 0.9rem; color: #666; }
 
+  /* Sala — só aparece pós-inscrição */
   .sala-section {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-bottom: 20px;
-    text-align: center;
+    display: none;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; text-align: center;
   }
   .sala-section h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    color: #cc2222;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem;
+    letter-spacing: 1px; margin-bottom: 14px; color: #cc2222;
   }
   .sala-bloqueada-box {
-    background: #111;
-    border: 2px solid #3a1010;
-    border-radius: 8px;
-    padding: 22px 18px;
-    color: #993333;
-    animation: pulseRed 2.5s ease-in-out infinite;
+    background: #111; border: 2px solid #3a1010; border-radius: 8px;
+    padding: 22px 18px; color: #993333; animation: pulseRed 2.5s ease-in-out infinite;
   }
   .sala-bloqueada-box .lock-icon { font-size: 2.5rem; display: block; margin-bottom: 8px; }
   .sala-bloqueada-box .titulo { font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; }
   .sala-bloqueada-box .sub { font-size: 0.82rem; color: #663333; margin-top: 6px; }
-
   .sala-liberada-box {
-    background: #0d1a0d;
-    border: 2px solid #2ecc71;
-    border-radius: 8px;
-    padding: 22px 18px;
-    text-align: center;
-    animation: pulseGreen 2.5s ease-in-out infinite;
+    background: #0d1a0d; border: 2px solid #2ecc71; border-radius: 8px;
+    padding: 22px 18px; text-align: center; animation: pulseGreen 2.5s ease-in-out infinite;
   }
   @keyframes pulseGreen {
     0%,100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.2); }
@@ -274,26 +205,16 @@
   }
   .sala-liberada-box .unlock-icon { font-size: 2.5rem; display: block; margin-bottom: 8px; }
   .sala-liberada-box .titulo-lib {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: #2ecc71;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    color: #2ecc71; letter-spacing: 1px; margin-bottom: 4px;
   }
   .sala-liberada-box p { font-size: 0.9rem; color: #1aaa55; margin-bottom: 14px; }
   .btn-sala {
-    display: inline-block;
-    background: linear-gradient(135deg, #1a8a3a, #0d5c22);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    padding: 14px 32px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.35rem;
-    letter-spacing: 1.5px;
-    transition: transform 0.15s;
-    box-shadow: 0 4px 20px rgba(46,204,113,0.4);
-    animation: pulseBtn 1.8s ease-in-out infinite;
+    display: inline-block; background: linear-gradient(135deg, #1a8a3a, #0d5c22);
+    color: #fff; text-decoration: none; border-radius: 8px; padding: 14px 32px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 1.5px;
+    transition: transform 0.15s; box-shadow: 0 4px 20px rgba(46,204,113,0.4);
+    animation: pulseBtn 1.8s ease-in-out infinite; margin-top: 14px;
   }
   @keyframes pulseBtn {
     0%,100% { box-shadow: 0 4px 20px rgba(46,204,113,0.4); }
@@ -304,11 +225,8 @@
   .aviso-bloqueado {
     display: none;
     background: linear-gradient(135deg, #1a0a00, #200d00);
-    border: 2px solid #cc6600;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-    text-align: center;
+    border: 2px solid #cc6600; border-radius: 12px;
+    padding: 18px; margin-bottom: 20px; text-align: center;
     animation: pulseOrange 2.5s ease-in-out infinite;
   }
   @keyframes pulseOrange {
@@ -323,12 +241,8 @@
 
   /* Participante normal */
   .participante-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 12px 0;
-    border-bottom: 1px solid #1a1a1a;
-    animation: fadeIn 0.3s ease;
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 0; border-bottom: 1px solid #1a1a1a; animation: fadeIn 0.3s ease;
   }
   @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
   .participante-item:last-child { border-bottom: none; }
@@ -337,80 +251,44 @@
   .part-info .brawl { font-size: 0.82rem; color: var(--muted); }
   .part-info .phone { font-size: 0.78rem; color: #555; margin-top: 2px; }
 
-  /* Participante com entrada grátis — dourado */
+  /* Participante dourado */
   .participante-item.gratis {
     background: linear-gradient(90deg, rgba(26,21,0,0.7) 0%, rgba(10,8,0,0.3) 100%);
-    border-radius: 8px;
-    padding: 12px 10px;
-    border-bottom: 1px solid #3a2e00;
+    border-radius: 8px; padding: 12px 10px; border-bottom: 1px solid #3a2e00;
   }
   .participante-item.gratis .part-num { color: var(--gold); text-shadow: 0 0 8px rgba(255,215,0,0.5); }
   .participante-item.gratis .part-info .name { color: var(--gold); }
   .participante-item.gratis .part-info .brawl { color: #aa9900; }
   .participante-item.gratis .part-info .phone { color: #7a6a00; }
   .gratis-tag {
-    display: inline-block;
-    background: linear-gradient(135deg, #8B6914, #5a4200);
-    color: var(--gold);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    padding: 2px 7px;
-    border-radius: 10px;
-    margin-left: 6px;
-    vertical-align: middle;
-    text-transform: uppercase;
-    border: 1px solid #aa8800;
+    display: inline-block; background: linear-gradient(135deg, #8B6914, #5a4200);
+    color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.8px;
+    padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle;
+    text-transform: uppercase; border: 1px solid #aa8800;
   }
-
   .lista-loading { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
-  /* ====== RANKING VITÓRIAS ====== */
+  /* Ranking público */
   .ranking-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-bottom: 20px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 18px; margin-bottom: 20px;
   }
-  .ranking-card .card-title { margin-bottom: 10px; }
-
   .diario-toggle {
-    display: flex;
-    background: #0d0d0d;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 3px;
-    margin-bottom: 16px;
-    gap: 3px;
+    display: flex; background: #0d0d0d; border: 1px solid #2a2a2a;
+    border-radius: 8px; padding: 3px; margin-bottom: 16px; gap: 3px;
   }
   .diario-toggle button {
-    flex: 1;
-    background: none;
-    border: none;
-    color: #555;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    padding: 9px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    flex: 1; background: none; border: none; color: #555;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 1px;
+    padding: 9px 8px; border-radius: 6px; cursor: pointer; transition: background 0.2s, color 0.2s;
   }
   .diario-toggle button.active {
-    background: linear-gradient(135deg, #cc1111, #8a0a0a);
-    color: #fff;
+    background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff;
     box-shadow: 0 2px 10px rgba(180,0,0,0.3);
   }
-
-  .ranking-list { }
   .ranking-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #1a1a1a;
-    animation: fadeIn 0.3s ease;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid #1a1a1a; animation: fadeIn 0.3s ease;
   }
   .ranking-item:last-child { border-bottom: none; }
   .rank-pos { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #555; min-width: 24px; }
@@ -419,280 +297,151 @@
   .rank-pos.bronze{ color: #cd7f32; }
   .rank-nome { flex: 1; font-weight: 700; font-size: 0.92rem; color: var(--text); }
   .rank-nome.gratis-nome { color: var(--gold); }
-  .rank-vitorias {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    color: #cc2222;
-    min-width: 36px;
-    text-align: right;
-  }
-  .rank-estrelas { font-size: 0.7rem; letter-spacing: 1px; }
+  .rank-vitorias { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #cc2222; min-width: 36px; text-align: right; }
   .rank-gratis-tag {
-    display: inline-block;
-    background: linear-gradient(135deg, #8B6914, #5a4200);
-    color: var(--gold);
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 8px;
-    border: 1px solid #aa8800;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    display: inline-block; background: linear-gradient(135deg, #8B6914, #5a4200);
+    color: var(--gold); font-size: 0.6rem; font-weight: 700;
+    padding: 2px 6px; border-radius: 8px; border: 1px solid #aa8800;
+    text-transform: uppercase; letter-spacing: 0.6px;
   }
   .ranking-vazio { color: #444; font-size: 0.85rem; text-align: center; padding: 16px 0; }
 
-  /* ====== ADMIN ====== */
+  /* Admin */
   .admin-login-toggle { text-align: center; margin-bottom: 12px; }
   .admin-login-toggle button {
-    background: none;
-    border: 1px solid #1a1a1a;
-    color: #2a2a2a;
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-    transition: color 0.2s, border-color 0.2s;
+    background: none; border: 1px solid #1a1a1a; color: #2a2a2a;
+    font-size: 0.7rem; padding: 4px 10px; border-radius: 6px; cursor: pointer;
+    font-family: 'Barlow', sans-serif; transition: color 0.2s, border-color 0.2s;
   }
   .admin-login-toggle button:hover { color: #444; border-color: #333; }
-
   .admin-login-box {
-    display: none;
-    background: #0e0e0e;
-    border: 1px solid #1e1e1e;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
+    display: none; background: #0e0e0e; border: 1px solid #1e1e1e;
+    border-radius: 12px; padding: 18px; margin-bottom: 20px;
   }
   .btn-entrar-admin {
-    width: 100%;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #888;
-    border-radius: 8px;
-    padding: 11px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 4px;
+    width: 100%; background: #1a1a1a; border: 1px solid #333; color: #888;
+    border-radius: 8px; padding: 11px; font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; letter-spacing: 1px; cursor: pointer; margin-top: 4px;
   }
   .btn-entrar-admin:hover { background: #222; color: #aaa; }
-
   .admin-panel {
-    display: none;
-    background: #0e0e0e;
-    border: 1px solid #cc1111;
-    border-radius: 12px;
-    padding: 20px 18px;
-    margin-bottom: 20px;
+    display: none; background: #0e0e0e; border: 1px solid #cc1111;
+    border-radius: 12px; padding: 20px 18px; margin-bottom: 20px;
   }
   .admin-panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
   }
-  .admin-panel-header h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #cc2222;
-  }
+  .admin-panel-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #cc2222; }
   .btn-sair-admin {
-    background: none;
-    border: 1px solid #333;
-    color: #555;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
+    background: none; border: 1px solid #333; color: #555;
+    font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Barlow', sans-serif;
   }
   .btn-sair-admin:hover { color: #888; }
-
   .status-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 16px;
+    display: inline-block; padding: 4px 12px; border-radius: 20px;
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; margin-bottom: 16px;
   }
   .status-bloqueada { background: #2a0a0a; color: #cc3333; border: 1px solid #4a1010; }
   .status-liberada  { background: #1e1e1e; color: #888; border: 1px solid #333; }
-
   .admin-panel .field input { background: #141414; border-color: #2a2a2a; }
-
   .btn-admin {
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    padding: 13px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: transform 0.15s, opacity 0.2s;
+    width: 100%; border: none; border-radius: 8px; padding: 13px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px;
+    cursor: pointer; margin-top: 8px; transition: transform 0.15s, opacity 0.2s;
   }
   .btn-admin:hover:not(:disabled) { transform: translateY(-1px); }
   .btn-admin:active:not(:disabled) { transform: translateY(0); }
   .btn-admin:disabled { opacity: 0.5; cursor: not-allowed; }
   .btn-liberar { background: linear-gradient(135deg, #3a3a3a, #222); color: #ccc; }
   .btn-bloquear { background: linear-gradient(135deg, #7a1a1a, #5a0d0d); color: #ffaaaa; }
-  .btn-reset {
-    background: #111;
-    color: #555;
-    border: 1px solid #2a2a2a;
-    margin-top: 18px;
-  }
+  .btn-reset { background: #111; color: #555; border: 1px solid #2a2a2a; margin-top: 18px; }
   .btn-reset:hover:not(:disabled) { color: #cc3333 !important; border-color: #cc3333 !important; }
   .btn-bloquear-inscricoes { background: linear-gradient(135deg, #4a2a00, #2a1500); color: #ffbb66; margin-top: 8px; }
   .btn-liberar-inscricoes  { background: linear-gradient(135deg, #1a4a1a, #0d2a0d); color: #66ff99; margin-top: 8px; }
-
   .admin-sep { border: none; border-top: 1px solid #1e1e1e; margin: 16px 0 8px; }
 
+  /* Admin lista inscritos */
   .admin-part-list { margin-top: 16px; }
-  .admin-part-list h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    color: #666;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
+  .admin-part-list h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
   .admin-part-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #1a1a1a;
-    font-size: 0.82rem;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.82rem;
   }
   .admin-part-item:last-child { border-bottom: none; }
   .admin-part-item .api { color: #555; }
   .admin-part-item .anome { color: #aaa; font-weight: 600; }
   .admin-part-item.gratis-admin .anome { color: var(--gold); }
 
-  /* Seção Admin — Vitórias */
+  /* Admin vitórias — nova interface */
   .admin-vitorias-section { margin-top: 4px; }
-  .admin-vitorias-section h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    color: #666;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-
+  .admin-vitorias-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #666; letter-spacing: 1px; margin-bottom: 10px; }
   .diario-toggle-admin {
-    display: flex;
-    background: #0d0d0d;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 3px;
-    margin-bottom: 12px;
-    gap: 3px;
+    display: flex; background: #0d0d0d; border: 1px solid #2a2a2a;
+    border-radius: 8px; padding: 3px; margin-bottom: 12px; gap: 3px;
   }
   .diario-toggle-admin button {
-    flex: 1;
-    background: none;
-    border: none;
-    color: #555;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    padding: 8px 6px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    flex: 1; background: none; border: none; color: #555;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 1px;
+    padding: 8px 6px; border-radius: 6px; cursor: pointer; transition: background 0.2s, color 0.2s;
   }
-  .diario-toggle-admin button.active {
-    background: linear-gradient(135deg, #cc1111, #8a0a0a);
-    color: #fff;
-  }
+  .diario-toggle-admin button.active { background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff; }
 
-  .vitorias-input-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 8px;
+  /* Adicionar jogador */
+  .add-jogador-row {
+    display: flex; gap: 8px; align-items: center; margin-bottom: 12px;
   }
-  .vitorias-input-row input {
-    flex: 1;
-    background: #141414;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
+  .add-jogador-row input {
+    flex: 1; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 10px 14px; color: var(--text); font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
   }
-  .vitorias-input-row input:focus { border-color: var(--red); }
-  .vitorias-input-row input::placeholder { color: #3a3a3a; }
+  .add-jogador-row input:focus { border-color: var(--red); }
+  .add-jogador-row input::placeholder { color: #3a3a3a; }
+  .btn-add-jogador {
+    background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff;
+    border: none; border-radius: 8px; padding: 10px 16px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px;
+    cursor: pointer; transition: transform 0.15s; white-space: nowrap;
+  }
+  .btn-add-jogador:hover { transform: translateY(-1px); }
 
-  .btn-add-vit {
-    background: linear-gradient(135deg, #1a8a3a, #0d5c22);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: transform 0.15s;
-    white-space: nowrap;
-  }
-  .btn-add-vit:hover { transform: translateY(-1px); }
-
-  .btn-rem-vit {
-    background: linear-gradient(135deg, #7a1a1a, #5a0d0d);
-    color: #ffaaaa;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 16px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: transform 0.15s;
-    white-space: nowrap;
-  }
-  .btn-rem-vit:hover { transform: translateY(-1px); }
-
-  .vitorias-lista-admin { margin-top: 10px; }
+  /* Lista de jogadores com + e - */
   .vit-item-admin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 0;
-    border-bottom: 1px solid #1a1a1a;
-    font-size: 0.82rem;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 0; border-bottom: 1px solid #1a1a1a;
   }
   .vit-item-admin:last-child { border-bottom: none; }
-  .vit-nome-admin { color: #aaa; font-weight: 600; }
+  .vit-info { flex: 1; }
+  .vit-nome-admin { color: #aaa; font-weight: 600; font-size: 0.88rem; }
   .vit-nome-admin.gold { color: var(--gold); }
-  .vit-count-admin { color: #cc2222; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
+  .vit-controls { display: flex; align-items: center; gap: 8px; }
+  .vit-count-admin { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #cc2222; min-width: 30px; text-align: center; }
+  .btn-vit {
+    width: 30px; height: 30px; border: none; border-radius: 6px;
+    font-size: 1.1rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.1s, opacity 0.2s; line-height: 1;
+  }
+  .btn-vit:hover { transform: scale(1.1); }
+  .btn-vit-add { background: linear-gradient(135deg, #1a8a3a, #0d5c22); color: #fff; }
+  .btn-vit-rem { background: linear-gradient(135deg, #7a1a1a, #5a0d0d); color: #ffaaaa; }
+  .btn-vit-del {
+    width: 26px; height: 26px; border: 1px solid #2a2a2a; border-radius: 6px;
+    background: #111; color: #444; font-size: 0.75rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-vit-del:hover { color: #cc3333; border-color: #cc3333; }
+  .vitorias-lista-admin-empty { color: #444; font-size: 0.82rem; padding: 8px 0; }
 
   /* Toast */
   .toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
+    position: fixed; bottom: 24px; left: 50%;
     transform: translateX(-50%) translateY(80px);
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #ccc;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 0.88rem;
-    z-index: 999;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
+    background: #1a1a1a; border: 1px solid #333; color: #ccc;
+    padding: 12px 20px; border-radius: 8px; font-size: 0.88rem;
+    z-index: 999; transition: transform 0.3s ease; white-space: nowrap;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.success { border-color: #2ecc71; color: #2ecc71; }
@@ -719,13 +468,14 @@
     <span id="syncLabel">Conectando...</span>
   </div>
 
-  <!-- Aviso entrada grátis (aparece acima do form se jogador tiver entrada grátis) -->
+  <!-- Aviso entrada grátis no form -->
   <div class="aviso-gratis-form" id="avisoGratisForm">
     <span class="icon">🏆</span>
     <p>Você tem uma entrada grátis disponível!</p>
     <span>Sua inscrição neste diário é gratuita.</span>
   </div>
 
+  <!-- Aviso pós-inscrição -->
   <div class="aviso-importante" id="avisoImportante">
     <span class="aviso-icon">⚠️</span>
     <h3>Aviso Importante!</h3>
@@ -733,12 +483,32 @@
     <button class="btn-voltar-form" id="btnVoltarForm">↩ Cancelar inscrição e voltar</button>
   </div>
 
+  <!-- Inscrição confirmada -->
   <div class="inscrito-box" id="inscritoBox">
     <span class="check">✅</span>
     <h3>Inscrição Confirmada!</h3>
     <p>Fique nesta página e aguarde a sala ser liberada abaixo.</p>
   </div>
 
+  <!-- Aviso PIX pós-inscrição -->
+  <div class="aviso-pix-pos" id="aviso-pix-pos">
+    <div class="pix-title">📣 Envie o PIX para o ADM!</div>
+    <div class="pix-sub">Envie o pagamento para garantir sua vaga no diário</div>
+    <div class="pix-entry">
+      <div class="pix-person">ARTHUR</div>
+      <div class="pix-key">arthursant792@gmail.com</div>
+    </div>
+    <div class="pix-entry">
+      <div class="pix-person">JOÃO</div>
+      <div class="pix-key">camilasouza123@hotmail.com</div>
+    </div>
+    <div class="pix-entry">
+      <div class="pix-person">ARTURO</div>
+      <div class="pix-key">70736905260</div>
+    </div>
+  </div>
+
+  <!-- Sala — só aparece pós-inscrição -->
   <div class="sala-section" id="salaSection">
     <h3>🤝 Sala Amistosa</h3>
     <div id="salaBloqueadaDiv">
@@ -753,17 +523,19 @@
         <span class="unlock-icon">🔓</span>
         <p class="titulo-lib">SALA ABERTA</p>
         <p>ADM liberou a sala</p>
-        <a href="#" class="btn-sala" id="btnEntrarSala" target="_blank" style="margin-top:14px;display:inline-block;">🤝 Entrar na Sala</a>
+        <a href="#" class="btn-sala" id="btnEntrarSala" target="_blank">🤝 Entrar na Sala</a>
       </div>
     </div>
   </div>
 
+  <!-- Inscrições bloqueadas -->
   <div class="aviso-bloqueado" id="avisoBloqueado" style="display:none;">
     <span class="aviso-icon">🚫</span>
     <h3>Inscrições Bloqueadas</h3>
     <p>O admin bloqueou as inscrições no momento.</p>
   </div>
 
+  <!-- Formulário -->
   <div class="card" id="formCard">
     <div class="card-title">Preencha para garantir sua vaga</div>
     <div class="field">
@@ -781,14 +553,14 @@
     <button class="btn-submit" id="btnInscrever">Entrar no Diário</button>
   </div>
 
-  <!-- Lista de participantes -->
+  <!-- Lista participantes -->
   <div class="card">
     <div class="card-title">Participantes (<span id="partCount">0</span>/9)</div>
     <hr class="divider">
     <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
   </div>
 
-  <!-- Ranking de vitórias -->
+  <!-- Ranking público -->
   <div class="ranking-card">
     <div class="card-title">🏆 Ranking de Vitórias</div>
     <div class="diario-toggle">
@@ -798,7 +570,7 @@
     <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
   </div>
 
-  <!-- Admin login toggle -->
+  <!-- Admin toggle -->
   <div class="admin-login-toggle">
     <button id="btnToggleLogin">⚙️</button>
   </div>
@@ -823,25 +595,23 @@
       <label>Link da Sala Privada</label>
       <input type="text" id="adminLinkSala" placeholder="brawlstars://...">
     </div>
-
     <button class="btn-admin btn-liberar" id="btnLiberar">🔓 Liberar Sala para Participantes</button>
     <button class="btn-admin btn-bloquear" id="btnBloquear">🔒 Bloquear Sala</button>
 
     <hr class="admin-sep">
 
-    <!-- Gerenciar vitórias -->
+    <!-- Vitórias admin -->
     <div class="admin-vitorias-section">
       <h4>⚔️ Gerenciar Vitórias</h4>
       <div class="diario-toggle-admin">
         <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Diário Normal</button>
         <button id="btnAdmMini"   onclick="setAdminDiario('mini')">⚡ Diário Mini</button>
       </div>
-      <div class="vitorias-input-row">
-        <input type="text" id="inputVitNome" placeholder="Nome do jogador...">
-        <button class="btn-add-vit" id="btnAddVit">+1 Vitória</button>
-        <button class="btn-rem-vit" id="btnRemVit">-1</button>
+      <div class="add-jogador-row">
+        <input type="text" id="inputNovoJogador" placeholder="Nome do jogador...">
+        <button class="btn-add-jogador" id="btnAddJogador">+ Adicionar</button>
       </div>
-      <div class="vitorias-lista-admin" id="adminVitLista"></div>
+      <div id="adminVitLista"></div>
     </div>
 
     <hr class="admin-sep">
@@ -858,7 +628,6 @@
   </div>
 
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
@@ -866,7 +635,7 @@
 <script>
 (function () {
   var TOTAL_VAGAS     = 9;
-  var VITORIAS_GRATIS = 5;
+  var VITORIAS_GRATIS = 5; // a cada múltiplo de 5 ganha entrada grátis
 
   var usuarioInscrito  = false;
   var isAdmin          = false;
@@ -874,14 +643,13 @@
   var ultimosPartic    = {};
   var vitoriasNormal   = {};
   var vitoriasMini     = {};
-  var diarioAtivo      = 'normal'; // ranking público
-  var adminDiarioAtivo = 'normal'; // painel admin
+  var diarioAtivo      = 'normal';
+  var adminDiarioAtivo = 'normal';
 
-  // Chave de sessão para persistência
-  var SESSION_KEY_NOME   = 'dbrawl_nome';
-  var SESSION_KEY_BRAWL  = 'dbrawl_brawl';
-  var SESSION_KEY_TEL    = 'dbrawl_tel';
-  var SESSION_KEY_INSC   = 'dbrawl_inscrito';
+  var SESSION_KEY_NOME  = 'dbrawl_nome';
+  var SESSION_KEY_BRAWL = 'dbrawl_brawl';
+  var SESSION_KEY_TEL   = 'dbrawl_tel';
+  var SESSION_KEY_INSC  = 'dbrawl_inscrito';
 
   firebase.initializeApp({
     apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
@@ -892,13 +660,13 @@
     messagingSenderId: "156307889943",
     appId: "1:156307889943:web:1d8b2b37ed08387af1a152"
   });
-  var db = firebase.database();
-  var refPartic      = db.ref('participantes');
-  var refSala        = db.ref('sala');
-  var refInscricoes  = db.ref('inscricoes');
-  var refSenha       = db.ref('senha-admin');
-  var refVitNormal   = db.ref('vitorias-normal');
-  var refVitMini     = db.ref('vitorias-mini');
+  var db            = firebase.database();
+  var refPartic     = db.ref('participantes');
+  var refSala       = db.ref('sala');
+  var refInscricoes = db.ref('inscricoes');
+  var refSenha      = db.ref('senha-admin');
+  var refVitNormal  = db.ref('vitorias-normal');
+  var refVitMini    = db.ref('vitorias-mini');
 
   /* ===== TOAST ===== */
   var toastTimer;
@@ -910,36 +678,34 @@
     toastTimer = setTimeout(function(){ t.className = 'toast'; }, 3500);
   }
 
-  /* ===== SYNC DOT ===== */
   function setSync(state, label) {
     document.getElementById('syncDot').className = 'sync-dot ' + state;
     document.getElementById('syncLabel').textContent = label;
   }
 
-  /* ===== ESCAPE ===== */
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
-  /* ===== VITÓRIAS helpers ===== */
+  /* ===== VITÓRIAS ===== */
   function getVit(nome, tipo) {
     var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
     if (!obj) return 0;
-    // busca case-insensitive
     var keys = Object.keys(obj);
     for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() === nome.toLowerCase()) return obj[keys[i]] || 0;
+      if (keys[i].toLowerCase() === nome.toLowerCase()) return Number(obj[keys[i]]) || 0;
     }
     return 0;
   }
 
+  // Entrada grátis a cada múltiplo de 5 vitórias
   function temGratis(nome) {
     var vn = getVit(nome, 'normal');
     var vm = getVit(nome, 'mini');
-    return (vn >= VITORIAS_GRATIS || vm >= VITORIAS_GRATIS);
+    return (vn > 0 && vn % VITORIAS_GRATIS === 0) || (vm > 0 && vm % VITORIAS_GRATIS === 0);
   }
 
-  /* ===== RENDERIZAR LISTA DE PARTICIPANTES ===== */
+  /* ===== RENDERIZAR PARTICIPANTES ===== */
   function renderLista(partic) {
     var arr = partic ? Object.values(partic) : [];
     var html = '';
@@ -962,7 +728,7 @@
     if (isAdmin) renderAdminLista(arr);
   }
 
-  /* ===== RENDERIZAR RANKING ===== */
+  /* ===== RANKING PÚBLICO ===== */
   window.setDiarioAtivo = function(tipo) {
     diarioAtivo = tipo;
     document.getElementById('btnTogNormal').className = tipo === 'normal' ? 'active' : '';
@@ -977,26 +743,25 @@
       lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>';
       return;
     }
-    // ordenar por vitórias desc
-    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: obj[k] || 0 }; });
+    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: Number(obj[k]) || 0 }; });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       var posClass = i === 0 ? 'ouro' : i === 1 ? 'prata' : i === 2 ? 'bronze' : '';
-      var g = item.v >= VITORIAS_GRATIS;
+      var g = item.v > 0 && item.v % VITORIAS_GRATIS === 0;
       var estrelas = '';
       for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '⭐';
       html += '<div class="ranking-item">';
       html += '<div class="rank-pos '+posClass+'">'+(i+1)+'°</div>';
       html += '<div class="rank-nome'+(g?' gratis-nome':'')+'">'+esc(item.nome)+(g?' <span class="rank-gratis-tag">🏆 Grátis</span>':'')+'</div>';
-      html += '<div class="rank-vitorias"><span class="rank-estrelas">'+estrelas+'</span> '+item.v+'v</div>';
+      html += '<div class="rank-vitorias">'+estrelas+' '+item.v+'v</div>';
       html += '</div>';
     }
     lista.innerHTML = html;
   }
 
-  /* ===== RENDERIZAR ADMIN LISTA INSCRITOS ===== */
+  /* ===== ADMIN LISTA INSCRITOS ===== */
   function renderAdminLista(arr) {
     var el = document.getElementById('adminListaParticipantes');
     if (!el) return;
@@ -1016,7 +781,7 @@
     el.innerHTML = html;
   }
 
-  /* ===== RENDERIZAR VITÓRIAS NO ADMIN ===== */
+  /* ===== ADMIN VITÓRIAS — nova interface ===== */
   window.setAdminDiario = function(tipo) {
     adminDiarioAtivo = tipo;
     document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
@@ -1029,21 +794,76 @@
     var el = document.getElementById('adminVitLista');
     if (!el) return;
     if (!obj || !Object.keys(obj).length) {
-      el.innerHTML = '<div style="color:#444;font-size:0.8rem;padding:6px 0;">Nenhum jogador ainda.</div>';
+      el.innerHTML = '<div class="vitorias-lista-admin-empty">Nenhum jogador ainda. Adicione acima.</div>';
       return;
     }
-    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: obj[k] || 0 }; });
+    var arr = Object.keys(obj).map(function(k){ return { nome: k, v: Number(obj[k]) || 0 }; });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
-      var g = item.v >= VITORIAS_GRATIS;
+      var g = item.v > 0 && item.v % VITORIAS_GRATIS === 0;
+      var nomeEsc = esc(item.nome).replace(/'/g,"&#39;");
       html += '<div class="vit-item-admin">';
-      html += '<span class="vit-nome-admin'+(g?' gold':'')+'">'+esc(item.nome)+(g?' 🏆':'')+'</span>';
-      html += '<span class="vit-count-admin">'+item.v+' vitória'+(item.v!==1?'s':'')+'</span>';
-      html += '</div>';
+      html += '<div class="vit-info"><span class="vit-nome-admin'+(g?' gold':'')+'">'+esc(item.nome)+(g?' 🏆':'')+'</span></div>';
+      html += '<div class="vit-controls">';
+      html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+nomeEsc+'\')">−</button>';
+      html += '<span class="vit-count-admin">'+item.v+'</span>';
+      html += '<button class="btn-vit btn-vit-add" onclick="adminAddVit(\''+nomeEsc+'\')">+</button>';
+      html += '<button class="btn-vit-del" title="Remover jogador" onclick="adminDelJogador(\''+nomeEsc+'\')">🗑</button>';
+      html += '</div></div>';
     }
     el.innerHTML = html;
+  }
+
+  window.adminAddVit = function(nome) {
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var chave = encontrarChave(obj, nome) || nome;
+    var atual = Number(obj[chave]) || 0;
+    var novo  = atual + 1;
+    var upd = {}; upd[chave] = novo;
+    ref.update(upd, function(err) {
+      if (err) { toast('Erro!', 'error'); return; }
+      if (novo > 0 && novo % VITORIAS_GRATIS === 0) {
+        toast('🏆 ' + chave + ' chegou a ' + novo + 'v — ENTRADA GRÁTIS!', 'gold');
+      } else {
+        toast('+1 vitória para ' + chave + ' ('+novo+'v)', 'success');
+      }
+    });
+  };
+
+  window.adminRemVit = function(nome) {
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var chave = encontrarChave(obj, nome);
+    if (!chave) { toast('Jogador não encontrado!', 'error'); return; }
+    var novo = Math.max(0, (Number(obj[chave]) || 0) - 1);
+    var upd = {}; upd[chave] = novo;
+    ref.update(upd, function(err) {
+      if (err) { toast('Erro!', 'error'); return; }
+      toast('-1 vitória de ' + chave + ' ('+novo+'v)');
+    });
+  };
+
+  window.adminDelJogador = function(nome) {
+    if (!confirm('Remover ' + nome + ' do ranking?')) return;
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var chave = encontrarChave(obj, nome);
+    if (!chave) return;
+    ref.child(chave).remove(function(err) {
+      if (err) toast('Erro!', 'error');
+      else toast('Jogador removido do ranking.');
+    });
+  };
+
+  function encontrarChave(obj, nome) {
+    var keys = Object.keys(obj);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === nome.toLowerCase()) return keys[i];
+    }
+    return null;
   }
 
   /* ===== BADGE SALA ===== */
@@ -1056,26 +876,31 @@
     document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
   }
 
-  /* ===== RENDERIZAR SALA ===== */
+  /* ===== RENDERIZAR SALA — só exibe pós-inscrição ===== */
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
     var link   = salaData && salaData.link ? salaData.link : '#';
     var section   = document.getElementById('salaSection');
     var bloqueada = document.getElementById('salaBloqueadaDiv');
     var liberada  = document.getElementById('salaLiberadaDiv');
-    section.style.display = 'block';
-    if (aberta && link !== '#') {
-      bloqueada.style.display = 'none';
-      liberada.style.display  = 'block';
-      document.getElementById('btnEntrarSala').href = link;
+    // Só mostra a sala se o usuário estiver inscrito
+    if (usuarioInscrito) {
+      section.style.display = 'block';
+      if (aberta && link !== '#') {
+        bloqueada.style.display = 'none';
+        liberada.style.display  = 'block';
+        document.getElementById('btnEntrarSala').href = link;
+      } else {
+        bloqueada.style.display = 'block';
+        liberada.style.display  = 'none';
+      }
     } else {
-      bloqueada.style.display = 'block';
-      liberada.style.display  = 'none';
+      section.style.display = 'none';
     }
     if (isAdmin) renderBadge(salaData);
   }
 
-  /* ===== VERIFICAR ENTRADA GRÁTIS NO FORM ===== */
+  /* ===== VERIFICAR GRÁTIS NO FORM ===== */
   function verificarGratisForm() {
     var nome = document.getElementById('inputNome').value.trim();
     var aviso = document.getElementById('avisoGratisForm');
@@ -1086,7 +911,7 @@
     }
   }
 
-  /* ===== PERSISTÊNCIA DE SESSÃO ===== */
+  /* ===== SESSÃO ===== */
   function salvarSessao(nome, brawl, tel) {
     try {
       sessionStorage.setItem(SESSION_KEY_NOME,  nome);
@@ -1107,15 +932,12 @@
 
   function verificarSessao() {
     try {
-      var insc = sessionStorage.getItem(SESSION_KEY_INSC);
-      if (insc !== '1') return;
+      if (sessionStorage.getItem(SESSION_KEY_INSC) !== '1') return;
       var nome  = sessionStorage.getItem(SESSION_KEY_NOME)  || '';
       var brawl = sessionStorage.getItem(SESSION_KEY_BRAWL) || '';
-      // Verifica se o participante ainda está na lista do Firebase
       refPartic.once('value', function(snap) {
         var partic = snap.val() || {};
-        var arr = Object.values(partic);
-        var encontrado = arr.some(function(p) {
+        var encontrado = Object.values(partic).some(function(p) {
           return p.nome === nome && p.brawl === brawl;
         });
         if (encontrado) {
@@ -1123,7 +945,9 @@
           document.getElementById('formCard').style.display = 'none';
           document.getElementById('avisoImportante').style.display = 'block';
           document.getElementById('inscritoBox').style.display = 'block';
+          document.getElementById('aviso-pix-pos').style.display = 'block';
           document.getElementById('avisoBloqueado').style.display = 'none';
+          renderSala(ultimaSala);
         } else {
           limparSessao();
         }
@@ -1147,7 +971,7 @@
     vitoriasNormal = snap.val() || {};
     if (diarioAtivo === 'normal') renderRanking();
     if (isAdmin && adminDiarioAtivo === 'normal') renderAdminVit();
-    renderLista(ultimosPartic); // atualiza tags douradas
+    renderLista(ultimosPartic);
   });
 
   refVitMini.on('value', function(snap) {
@@ -1178,7 +1002,7 @@
     }
   });
 
-  /* ===== BOTÃO INSCREVER ===== */
+  /* ===== INSCREVER ===== */
   document.getElementById('btnInscrever').addEventListener('click', function() {
     var nome  = document.getElementById('inputNome').value.trim();
     var brawl = document.getElementById('inputBrawl').value.trim();
@@ -1189,7 +1013,6 @@
 
     refInscricoes.once('value', function(snapInsc) {
       if (snapInsc.val() === false) { toast('Inscrições bloqueadas pelo admin!', 'error'); return; }
-
       refPartic.once('value', function(snap) {
         var atual = snap.val() ? Object.keys(snap.val()).length : 0;
         if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
@@ -1203,11 +1026,13 @@
             btn.textContent = 'Entrar no Diário';
           } else {
             salvarSessao(nome, brawl, tel);
+            usuarioInscrito = true;
             document.getElementById('formCard').style.display = 'none';
             document.getElementById('avisoGratisForm').style.display = 'none';
             document.getElementById('avisoImportante').style.display = 'block';
             document.getElementById('inscritoBox').style.display = 'block';
-            usuarioInscrito = true;
+            document.getElementById('aviso-pix-pos').style.display = 'block';
+            renderSala(ultimaSala);
             if (temGratis(nome)) {
               toast('🏆 Inscrição com entrada GRÁTIS confirmada!', 'gold');
             } else {
@@ -1219,17 +1044,15 @@
     });
   });
 
-  /* ===== BOTÃO VOLTAR AO FORMULÁRIO ===== */
+  /* ===== VOLTAR AO FORM ===== */
   document.getElementById('btnVoltarForm').addEventListener('click', function() {
-    if (!confirm('⚠️ Atenção: se voltar, você PERDERÁ sua inscrição atual e precisará preencher novamente. Deseja continuar?')) return;
-    // Remove do Firebase
+    if (!confirm('⚠️ Atenção: você PERDERÁ sua inscrição atual. Deseja continuar?')) return;
     var nome  = '';
     var brawl = '';
     try {
       nome  = sessionStorage.getItem(SESSION_KEY_NOME)  || '';
       brawl = sessionStorage.getItem(SESSION_KEY_BRAWL) || '';
     } catch(e) {}
-    // Remove participante correspondente
     refPartic.once('value', function(snap) {
       var partic = snap.val() || {};
       Object.keys(partic).forEach(function(key) {
@@ -1242,15 +1065,16 @@
     usuarioInscrito = false;
     document.getElementById('avisoImportante').style.display = 'none';
     document.getElementById('inscritoBox').style.display = 'none';
+    document.getElementById('aviso-pix-pos').style.display = 'none';
+    document.getElementById('salaSection').style.display = 'none';
     document.getElementById('formCard').style.display = 'block';
-    document.getElementById('avisoGratisForm').style.display = 'none';
     document.getElementById('inputNome').value = '';
     document.getElementById('inputBrawl').value = '';
     document.getElementById('inputTelefone').value = '';
     toast('Inscrição cancelada.', 'error');
   });
 
-  /* ===== INPUT NOME — checar grátis em tempo real ===== */
+  /* ===== INPUT NOME ===== */
   document.getElementById('inputNome').addEventListener('input', verificarGratisForm);
 
   /* ===== ADMIN LOGIN ===== */
@@ -1262,9 +1086,8 @@
   document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
     var digitada = document.getElementById('inputSenha').value;
     if (!digitada) { toast('Digite a senha!', 'error'); return; }
-    // Busca senha do Firebase
     refSenha.once('value', function(snap) {
-      var senhaCorreta = snap.val();
+      var senhaCorreta = String(snap.val());
       if (digitada === senhaCorreta) {
         isAdmin = true;
         document.getElementById('adminLoginBox').style.display = 'none';
@@ -1296,7 +1119,7 @@
     document.getElementById('adminPanel').style.display = 'none';
   });
 
-  /* ===== ADMIN — SALA ===== */
+  /* ===== ADMIN SALA ===== */
   document.getElementById('btnLiberar').addEventListener('click', function() {
     var link = document.getElementById('adminLinkSala').value.trim();
     if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
@@ -1313,52 +1136,27 @@
     });
   });
 
-  /* ===== ADMIN — VITÓRIAS ===== */
-  document.getElementById('btnAddVit').addEventListener('click', function() {
-    var nome = document.getElementById('inputVitNome').value.trim();
+  /* ===== ADICIONAR JOGADOR AO RANKING ===== */
+  document.getElementById('btnAddJogador').addEventListener('click', function() {
+    var nome = document.getElementById('inputNovoJogador').value.trim();
     if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    // busca chave existente (case-insensitive)
-    var chave = null;
-    Object.keys(obj).forEach(function(k) {
-      if (k.toLowerCase() === nome.toLowerCase()) chave = k;
-    });
-    if (!chave) chave = nome;
-    var atual = obj[chave] || 0;
-    var novo  = atual + 1;
-    var upd = {};
-    upd[chave] = novo;
+    var chaveExistente = encontrarChave(obj, nome);
+    if (chaveExistente) { toast('Jogador já está no ranking!', 'error'); return; }
+    var upd = {}; upd[nome] = 0;
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
-      if (novo >= VITORIAS_GRATIS) {
-        toast('🏆 ' + nome + ' atingiu ' + novo + ' vitórias — entrada GRÁTIS!', 'gold');
-      } else {
-        toast('+1 vitória para ' + nome + ' (' + novo + 'v)', 'success');
-      }
+      document.getElementById('inputNovoJogador').value = '';
+      toast('✅ ' + nome + ' adicionado ao ranking!', 'success');
     });
   });
 
-  document.getElementById('btnRemVit').addEventListener('click', function() {
-    var nome = document.getElementById('inputVitNome').value.trim();
-    if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
-    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
-    var obj  = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var chave = null;
-    Object.keys(obj).forEach(function(k) {
-      if (k.toLowerCase() === nome.toLowerCase()) chave = k;
-    });
-    if (!chave || !obj[chave]) { toast('Jogador não encontrado ou sem vitórias!', 'error'); return; }
-    var novo = Math.max(0, (obj[chave] || 0) - 1);
-    var upd = {};
-    upd[chave] = novo;
-    ref.update(upd, function(err) {
-      if (err) { toast('Erro!', 'error'); return; }
-      toast('-1 vitória de ' + chave + ' (' + novo + 'v)');
-    });
+  document.getElementById('inputNovoJogador').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('btnAddJogador').click();
   });
 
-  /* ===== ADMIN — INSCRIÇÕES ===== */
+  /* ===== INSCRIÇÕES BLOQUEAR/LIBERAR ===== */
   document.getElementById('btnBloquearInscricoes').addEventListener('click', function() {
     refInscricoes.set(false, function(err) {
       if (err) toast('Erro!', 'error');
@@ -1373,7 +1171,7 @@
     });
   });
 
-  /* ===== ADMIN — RESET ===== */
+  /* ===== RESET ===== */
   document.getElementById('btnReset').addEventListener('click', function() {
     if (!confirm('Apagar todos os inscritos?')) return;
     refPartic.remove(function(err) {
@@ -1384,8 +1182,9 @@
         usuarioInscrito = false;
         document.getElementById('avisoImportante').style.display = 'none';
         document.getElementById('inscritoBox').style.display = 'none';
+        document.getElementById('aviso-pix-pos').style.display = 'none';
+        document.getElementById('salaSection').style.display = 'none';
         document.getElementById('formCard').style.display = 'block';
-        document.getElementById('avisoGratisForm').style.display = 'none';
         document.getElementById('inputNome').value = '';
         document.getElementById('inputBrawl').value = '';
         document.getElementById('inputTelefone').value = '';
@@ -1394,7 +1193,7 @@
     });
   });
 
-  /* ===== INIT — verificar sessão ao carregar ===== */
+  /* ===== INIT ===== */
   setSync('syncing', 'Conectando...');
   verificarSessao();
 
