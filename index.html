@@ -94,6 +94,7 @@
   .btn-submit:hover:not(:disabled) { transform: translateY(-2px); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
+  /* Avisos form */
   .aviso-gratis-form, .aviso-desconto-form {
     display: none; border-radius: 10px; padding: 14px 16px;
     margin-bottom: 16px; text-align: center;
@@ -132,6 +133,7 @@
   }
   @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
 
+  /* Botão cancelar */
   .btn-cancelar-inscricao {
     display: none; width: 100%;
     background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffaaaa;
@@ -143,6 +145,7 @@
   }
   .btn-cancelar-inscricao:hover { transform: translateY(-2px); opacity: 0.9; }
 
+  /* Inscrição confirmada */
   .inscrito-box {
     display: none; background: #141414; border: 1px solid #333;
     border-radius: 12px; padding: 18px; margin-bottom: 20px;
@@ -154,6 +157,7 @@
   }
   .inscrito-box p { font-size: 0.9rem; color: #666; }
 
+  /* Avisos pós-inscrição */
   .aviso-gratis-pos, .aviso-desconto-pos {
     display: none; border-radius: 12px; padding: 16px 18px;
     margin-bottom: 16px; text-align: center;
@@ -174,6 +178,7 @@
   .aviso-desconto-pos h3 { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; color:var(--orange); margin-bottom:4px; }
   .aviso-desconto-pos p { font-size:0.88rem; color:#aa6600; }
 
+  /* PIX pós-inscrição */
   .aviso-pix-pos {
     display: none;
     background: linear-gradient(135deg, #1a1500, #111000);
@@ -200,6 +205,7 @@
   .pix-entry .pix-person { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--gold); letter-spacing:1px; margin-bottom:2px; }
   .pix-entry .pix-key { font-size:0.88rem; color:#cc9900; word-break:break-all; }
 
+  /* Sala */
   .sala-section {
     display: none; background: var(--card); border: 1px solid var(--border);
     border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; text-align: center;
@@ -245,6 +251,7 @@
 
   hr.divider { border: none; border-top: 1px solid #1a1a1a; margin: 6px 0 16px; }
 
+  /* ===== PARTICIPANTES ===== */
   .participante-item {
     display: flex; gap: 10px; align-items: center;
     padding: 10px; border-bottom: 1px solid #1a1a1a; border-radius: 8px;
@@ -256,8 +263,11 @@
   .part-info .name { font-weight:700; font-size:0.92rem; display:flex; align-items:center; flex-wrap:wrap; gap:4px; }
   .part-info .brawl { font-size:0.8rem; color:var(--muted); }
   .part-info .phone { font-size:0.76rem; color:#555; margin-top:1px; }
-  .part-badge { font-size: 1.8rem; line-height: 1; flex-shrink: 0; }
+  .part-badge {
+    font-size: 1.8rem; line-height: 1; flex-shrink: 0;
+  }
 
+  /* Grátis dourado */
   .participante-item.gratis {
     background: linear-gradient(90deg, rgba(26,21,0,0.8) 0%, rgba(10,8,0,0.4) 100%);
     border: 1px solid #3a2e00;
@@ -267,6 +277,7 @@
   .participante-item.gratis .part-info .brawl { color:#aa9900; }
   .participante-item.gratis .part-info .phone { color:#7a6a00; }
 
+  /* Desconto laranja */
   .participante-item.desconto {
     background: linear-gradient(90deg, rgba(26,14,0,0.8) 0%, rgba(10,5,0,0.4) 100%);
     border: 1px solid #5a3000;
@@ -290,6 +301,7 @@
   }
   .lista-loading { color:#444; font-size:0.85rem; text-align:center; padding:16px 0; }
 
+  /* ===== RANKING ===== */
   .ranking-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 18px; margin-bottom:20px; }
   .diario-toggle {
     display: flex; background: #0d0d0d; border: 1px solid #2a2a2a;
@@ -316,6 +328,7 @@
   .rank-desconto-tag { display:inline-block; background:linear-gradient(135deg,#7a4400,#4a2800); color:var(--orange); font-size:0.6rem; font-weight:700; padding:2px 6px; border-radius:8px; border:1px solid #cc6600; text-transform:uppercase; letter-spacing:0.6px; }
   .ranking-vazio { color:#444; font-size:0.85rem; text-align:center; padding:16px 0; }
 
+  /* ===== ADMIN ===== */
   .admin-login-toggle { text-align:center; margin-bottom:12px; }
   .admin-login-toggle button { background:none; border:1px solid #1a1a1a; color:#2a2a2a; font-size:0.7rem; padding:4px 10px; border-radius:6px; cursor:pointer; font-family:'Barlow',sans-serif; transition:color 0.2s, border-color 0.2s; }
   .admin-login-toggle button:hover { color:#444; border-color:#333; }
@@ -342,6 +355,7 @@
   .btn-liberar-inscricoes  { background:linear-gradient(135deg,#1a4a1a,#0d2a0d); color:#66ff99; margin-top:8px; }
   .admin-sep { border:none; border-top:1px solid #1e1e1e; margin:16px 0 8px; }
 
+  /* Admin inscritos */
   .admin-inscritos-header { display:flex; gap:10px; margin-bottom:14px; }
   .admin-stat-box { flex:1; background:#141414; border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; }
   .admin-stat-box .stat-label { font-size:0.7rem; color:#555; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:2px; }
@@ -368,6 +382,7 @@
   .admin-part-detail span { color:#888; }
   .admin-part-badge { font-size:1.6rem; flex-shrink:0; }
 
+  /* Admin vitórias */
   .admin-vitorias-section { margin-top:4px; }
   .admin-vitorias-section h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#666; letter-spacing:1px; margin-bottom:10px; }
   .diario-toggle-admin {
@@ -396,8 +411,11 @@
   .btn-vit-rem { background:linear-gradient(135deg,#7a1a1a,#5a0d0d); color:#ffaaaa; }
   .btn-vit-del { width:26px; height:26px; border:1px solid #2a2a2a; border-radius:6px; background:#111; color:#444; font-size:0.75rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.2s, border-color 0.2s; }
   .btn-vit-del:hover { color:#cc3333; border-color:#cc3333; }
+  .btn-remover-inscrito { flex-shrink:0; width:30px; height:30px; border:1px solid #2a2a2a; border-radius:6px; background:#1a0a0a; color:#663333; font-size:0.8rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.2s, border-color 0.2s, background 0.2s; }
+  .btn-remover-inscrito:hover { color:#ff4444; border-color:#cc1111; background:#2a0a0a; }
   .vitorias-lista-admin-empty { color:#444; font-size:0.82rem; padding:8px 0; }
 
+  /* ===== LUCRO ===== */
   .lucro-section { margin-top:4px; }
   .lucro-section > h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#666; letter-spacing:1px; margin-bottom:10px; }
   .lucro-toggle {
@@ -422,6 +440,7 @@
   .adm-display-label { font-size:0.72rem; color:#555; text-transform:uppercase; letter-spacing:0.8px; }
   .adm-display-val { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:#2ecc71; }
 
+  /* Input row com + e - */
   .adm-input-row { display:flex; gap:6px; align-items:center; }
   .adm-input-row input {
     flex:1; background:#141414; border:1px solid #2a2a2a; border-radius:8px;
@@ -453,6 +472,7 @@
   .lucro-total-box .tbox-val { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#2ecc71; }
   .lucro-total-box .tbox-sub { font-size:0.72rem; color:#444; margin-top:2px; }
 
+  /* Toast */
   .toast {
     position:fixed; bottom:24px; left:50%;
     transform:translateX(-50%) translateY(80px);
@@ -486,6 +506,7 @@
     <span id="syncLabel">Conectando...</span>
   </div>
 
+  <!-- Avisos form -->
   <div class="aviso-gratis-form" id="avisoGratisForm">
     <span class="icon">🏆</span>
     <p>Você tem uma entrada grátis disponível!</p>
@@ -497,14 +518,17 @@
     <span>Sua inscrição neste diário é R$ 2 (metade do valor).</span>
   </div>
 
+  <!-- Botão cancelar pós-inscrição -->
   <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">↩ CANCELAR INSCRIÇÃO E VOLTAR</button>
 
+  <!-- Inscrição confirmada -->
   <div class="inscrito-box" id="inscritoBox">
     <span class="check">✅</span>
     <h3>Inscrição Confirmada!</h3>
     <p>Fique nesta página e aguarde a sala ser liberada abaixo.</p>
   </div>
 
+  <!-- Avisos pós-inscrição -->
   <div class="aviso-gratis-pos" id="avisoGratisPos">
     <span class="icon">🏆</span>
     <h3>Entrada Grátis!</h3>
@@ -516,6 +540,7 @@
     <p>Você ganhou meia entrada (R$ 2) pelas suas vitórias no Diário Mini!</p>
   </div>
 
+  <!-- PIX pós-inscrição -->
   <div class="aviso-pix-pos" id="aviso-pix-pos">
     <div class="pix-title">📣 Envie o PIX para o ADM!</div>
     <div class="pix-sub">Envie o pagamento para garantir sua vaga no diário</div>
@@ -527,6 +552,7 @@
     <div class="pix-entry"><div class="pix-person">ARTURO</div><div class="pix-key">70736905260</div></div>
   </div>
 
+  <!-- Sala -->
   <div class="sala-section" id="salaSection">
     <h3>🤝 Sala Amistosa</h3>
     <div id="salaBloqueadaDiv">
@@ -546,12 +572,14 @@
     </div>
   </div>
 
+  <!-- Inscrições bloqueadas -->
   <div class="aviso-bloqueado" id="avisoBloqueado" style="display:none;">
     <span class="aviso-icon">🚫</span>
     <h3>Inscrições Bloqueadas</h3>
     <p>O admin bloqueou as inscrições no momento.</p>
   </div>
 
+  <!-- Formulário -->
   <div class="card" id="formCard">
     <div class="card-title">Preencha para garantir sua vaga</div>
     <div class="field"><label>Seu Nome Real</label><input type="text" id="inputNome" placeholder="Ex: João Silva"></div>
@@ -560,12 +588,14 @@
     <button class="btn-submit" id="btnInscrever">Entrar no Diário</button>
   </div>
 
+  <!-- Lista participantes -->
   <div class="card">
     <div class="card-title">Participantes (<span id="partCount">0</span>/9)</div>
     <hr class="divider">
     <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
   </div>
 
+  <!-- Ranking -->
   <div class="ranking-card">
     <div class="card-title">🏆 Ranking de Vitórias</div>
     <div class="diario-toggle">
@@ -575,6 +605,7 @@
     <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
   </div>
 
+  <!-- Admin -->
   <div class="admin-login-toggle"><button id="btnToggleLogin">⚙️</button></div>
 
   <div class="admin-login-box" id="adminLoginBox">
@@ -596,6 +627,7 @@
 
     <hr class="admin-sep">
 
+    <!-- Vitórias -->
     <div class="admin-vitorias-section">
       <h4>⚔️ Gerenciar Vitórias</h4>
       <div class="diario-toggle-admin">
@@ -611,6 +643,7 @@
 
     <hr class="admin-sep">
 
+    <!-- Inscritos -->
     <div class="admin-part-list">
       <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#666;letter-spacing:1px;margin-bottom:10px;">📋 Inscritos</h4>
       <div class="admin-inscritos-header">
@@ -627,6 +660,7 @@
 
     <hr class="admin-sep">
 
+    <!-- Lucro -->
     <div class="lucro-section">
       <h4>💰 Controle de Lucro</h4>
       <div class="lucro-toggle">
@@ -689,6 +723,7 @@
   var refVitMini    = db.ref('vitorias-mini');
   var refLucro      = db.ref('lucro-adm2');
 
+  /* ===== TOAST ===== */
   var toastTimer;
   function toast(msg, type) {
     var t = document.getElementById('toast');
@@ -705,6 +740,7 @@
 
   function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
+  /* ===== VITÓRIAS ===== */
   function getVit(nome, tipo) {
     var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
     if (!obj) return 0;
@@ -736,6 +772,7 @@
     return null;
   }
 
+  /* ===== PARTICIPANTES ===== */
   function renderLista(partic) {
     var arr = partic ? Object.values(partic) : [];
     var html = '';
@@ -766,6 +803,7 @@
     if (isAdmin) renderAdminLista(arr);
   }
 
+  /* ===== RANKING ===== */
   window.setDiarioAtivo = function(tipo) {
     diarioAtivo = tipo;
     document.getElementById('btnTogNormal').className = tipo === 'normal' ? 'active' : '';
@@ -803,6 +841,7 @@
     lista.innerHTML = html;
   }
 
+  /* ===== ADMIN INSCRITOS ===== */
   function renderAdminLista(arr) {
     var el = document.getElementById('adminListaParticipantes');
     var elTotal = document.getElementById('adminTotalInscritos');
@@ -814,12 +853,17 @@
       el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>';
       return;
     }
+    var particObj = ultimosPartic || {};
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
       var g = temGratis(p.nome);
       var d = !g && temDesconto(p.nome);
       var cls = g ? ' gratis-admin' : (d ? ' desconto-admin' : '');
+      var fbKey = '';
+      Object.keys(particObj).forEach(function(k) {
+        if (particObj[k].nome === p.nome && particObj[k].brawl === p.brawl) fbKey = k;
+      });
       html += '<div class="admin-part-item-new'+cls+'">';
       html += '<div class="admin-part-num">'+(i+1<10?'0':'')+(i+1)+'</div>';
       html += '<div class="admin-part-body">';
@@ -833,11 +877,26 @@
       html += '</div></div>';
       if (g) html += '<div class="admin-part-badge">🟡</div>';
       else if (d) html += '<div class="admin-part-badge">🟠</div>';
+      if (fbKey) {
+        var safeKey = fbKey;
+        var safeName = p.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+        html += '<button class="btn-remover-inscrito" onclick="adminRemoverInscrito(\'' + safeKey + '\',\'' + safeName + '\')" title="Remover">🗑️</button>';
+      }
       html += '</div>';
     }
     el.innerHTML = html;
   }
 
+  window.adminRemoverInscrito = function(fbKey, nome) {
+    if (!confirm('Remover ' + nome + ' dos inscritos?')) return;
+    refPartic.child(fbKey).remove(function(err) {
+      if (err) toast('Erro ao remover!', 'error');
+      else toast('🗑️ ' + nome + ' removido.');
+    });
+  };
+
+
+  /* ===== ADMIN VITÓRIAS ===== */
   window.setAdminDiario = function(tipo) {
     adminDiarioAtivo = tipo;
     document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
@@ -929,6 +988,7 @@
     return null;
   }
 
+  /* ===== LUCRO ===== */
   var lucroData = {};
 
   refLucro.on('value', function(snap) {
@@ -998,12 +1058,14 @@
       return;
     }
 
+    // Abas normais (normal, mini, especial, 1v1)
     var tipo = lucroTab;
     var html2 = '';
     for (var b = 0; b < ADMS.length; b++) {
       var admKey2 = ADMS[b];
       var admDisplay2 = ADMS_DISPLAY[admKey2];
       var info2 = getLucroAdm(admKey2, tipo);
+      // id único para o input
       var inputId = 'lucroInput_' + admKey2 + '_' + tipo.replace(/[^a-zA-Z0-9]/g,'_');
       html2 += '<div class="adm-card">';
       html2 += '<div class="adm-card-header">';
@@ -1023,6 +1085,7 @@
     el.innerHTML = html2;
   }
 
+  // op: +1 para adicionar, -1 para subtrair
   window.opLucro = function(admKey, tipo, op) {
     var inputId = 'lucroInput_' + admKey + '_' + tipo.replace(/[^a-zA-Z0-9]/g,'_');
     var inputEl = document.getElementById(inputId);
@@ -1034,6 +1097,7 @@
     var novoValor   = Math.max(0, atual.valor + (op * val));
     var novoDiarios = Math.max(0, atual.diarios + op);
 
+    // Usar set nos subcaminhos para evitar problema com '/' no Firebase
     var admDisplay = ADMS_DISPLAY[admKey] || admKey;
     var refAdmTipo = refLucro.child(admKey).child(tipo);
     refAdmTipo.set({ valor: novoValor, diarios: novoDiarios }, function(err) {
@@ -1044,6 +1108,7 @@
     });
   };
 
+  /* ===== SALA ===== */
   function renderBadge(salaData) {
     var badge = document.getElementById('statusBadge');
     if (!badge) return;
@@ -1073,6 +1138,7 @@
     if (isAdmin) renderBadge(salaData);
   }
 
+  /* ===== FORM BENEFÍCIO ===== */
   function verificarBeneficioForm() {
     var nome = document.getElementById('inputNome').value.trim();
     document.getElementById('avisoGratisForm').style.display   = 'none';
@@ -1082,30 +1148,31 @@
     else if (temDesconto(nome)) document.getElementById('avisoDescontoForm').style.display = 'block';
   }
 
+  /* ===== SESSÃO (localStorage — persiste ao fechar/recarregar) ===== */
   function salvarSessao(nome, brawl, tel) {
     try {
-      sessionStorage.setItem(SESSION_KEY_NOME,  nome);
-      sessionStorage.setItem(SESSION_KEY_BRAWL, brawl);
-      sessionStorage.setItem(SESSION_KEY_TEL,   tel);
-      sessionStorage.setItem(SESSION_KEY_INSC,  '1');
+      localStorage.setItem(SESSION_KEY_NOME,  nome);
+      localStorage.setItem(SESSION_KEY_BRAWL, brawl);
+      localStorage.setItem(SESSION_KEY_TEL,   tel);
+      localStorage.setItem(SESSION_KEY_INSC,  '1');
     } catch(e) {}
   }
   function limparSessao() {
     try {
-      sessionStorage.removeItem(SESSION_KEY_NOME);
-      sessionStorage.removeItem(SESSION_KEY_BRAWL);
-      sessionStorage.removeItem(SESSION_KEY_TEL);
-      sessionStorage.removeItem(SESSION_KEY_INSC);
+      localStorage.removeItem(SESSION_KEY_NOME);
+      localStorage.removeItem(SESSION_KEY_BRAWL);
+      localStorage.removeItem(SESSION_KEY_TEL);
+      localStorage.removeItem(SESSION_KEY_INSC);
     } catch(e) {}
   }
 
   function mostrarPosInscricao(nome) {
-    document.getElementById('formCard').style.display            = 'none';
-    document.getElementById('avisoGratisForm').style.display     = 'none';
-    document.getElementById('avisoDescontoForm').style.display   = 'none';
-    document.getElementById('avisoBloqueado').style.display      = 'none';
+    document.getElementById('formCard').style.display             = 'none';
+    document.getElementById('avisoGratisForm').style.display      = 'none';
+    document.getElementById('avisoDescontoForm').style.display    = 'none';
+    document.getElementById('avisoBloqueado').style.display       = 'none';
     document.getElementById('btnCancelarInscricao').style.display = 'block';
-    document.getElementById('inscritoBox').style.display         = 'block';
+    document.getElementById('inscritoBox').style.display          = 'block';
     var g = temGratis(nome);
     var d = !g && temDesconto(nome);
     document.getElementById('avisoGratisPos').style.display   = g ? 'block' : 'none';
@@ -1114,24 +1181,81 @@
     renderSala(ultimaSala);
   }
 
+  // Tenta recuperar sessão pelo localStorage E confirma no Firebase
   function verificarSessao() {
     try {
-      if (sessionStorage.getItem(SESSION_KEY_INSC) !== '1') return;
-      var nome  = sessionStorage.getItem(SESSION_KEY_NOME)  || '';
-      var brawl = sessionStorage.getItem(SESSION_KEY_BRAWL) || '';
+      if (localStorage.getItem(SESSION_KEY_INSC) !== '1') return;
+      var nome  = localStorage.getItem(SESSION_KEY_NOME)  || '';
+      var brawl = localStorage.getItem(SESSION_KEY_BRAWL) || '';
+      if (!nome || !brawl) { limparSessao(); return; }
+      // Confirma que ainda está inscrito no Firebase
       refPartic.once('value', function(snap) {
         var partic = snap.val() || {};
-        var encontrado = Object.values(partic).some(function(p) { return p.nome === nome && p.brawl === brawl; });
-        if (encontrado) { usuarioInscrito = true; mostrarPosInscricao(nome); }
-        else limparSessao();
+        var encontrado = Object.values(partic).some(function(p) {
+          return p.nome === nome && p.brawl === brawl;
+        });
+        if (encontrado) {
+          usuarioInscrito = true;
+          mostrarPosInscricao(nome);
+        } else {
+          // Admin resetou ou foi removido — limpa local e mostra form
+          limparSessao();
+        }
       });
     } catch(e) {}
   }
 
+  /* ===== LISTENERS FIREBASE ===== */
+  var sessaoVerificada = false;
   refPartic.on('value', function(snap) {
     ultimosPartic = snap.val() || {};
     renderLista(ultimosPartic);
     setSync('online', 'Atualizado');
+
+    // Na primeira carga, verifica sessão agora que os dados chegaram
+    if (!sessaoVerificada) {
+      sessaoVerificada = true;
+      try {
+        if (localStorage.getItem(SESSION_KEY_INSC) === '1') {
+          var nome  = localStorage.getItem(SESSION_KEY_NOME)  || '';
+          var brawl = localStorage.getItem(SESSION_KEY_BRAWL) || '';
+          var partic = snap.val() || {};
+          var encontrado = Object.values(partic).some(function(p) {
+            return p.nome === nome && p.brawl === brawl;
+          });
+          if (encontrado && !usuarioInscrito) {
+            usuarioInscrito = true;
+            mostrarPosInscricao(nome);
+          } else if (!encontrado) {
+            limparSessao();
+          }
+        }
+      } catch(e) {}
+    }
+
+    // Se estava inscrito e foi removido (ex: admin resetou), volta ao form
+    if (usuarioInscrito) {
+      try {
+        var nome2  = localStorage.getItem(SESSION_KEY_NOME)  || '';
+        var brawl2 = localStorage.getItem(SESSION_KEY_BRAWL) || '';
+        var partic2 = snap.val() || {};
+        var aindaInscrito = Object.values(partic2).some(function(p) {
+          return p.nome === nome2 && p.brawl === brawl2;
+        });
+        if (!aindaInscrito) {
+          limparSessao();
+          usuarioInscrito = false;
+          document.getElementById('btnCancelarInscricao').style.display = 'none';
+          document.getElementById('inscritoBox').style.display = 'none';
+          document.getElementById('aviso-pix-pos').style.display = 'none';
+          document.getElementById('avisoGratisPos').style.display = 'none';
+          document.getElementById('avisoDescontoPos').style.display = 'none';
+          document.getElementById('salaSection').style.display = 'none';
+          document.getElementById('formCard').style.display = 'block';
+          toast('Sua inscrição foi cancelada pelo admin.', 'error');
+        }
+      } catch(e) {}
+    }
   });
   refSala.on('value', function(snap) { ultimaSala = snap.val(); renderSala(ultimaSala); });
   refVitNormal.on('value', function(snap) {
@@ -1165,6 +1289,7 @@
     }
   });
 
+  /* ===== INSCREVER ===== */
   document.getElementById('btnInscrever').addEventListener('click', function() {
     var nome  = document.getElementById('inputNome').value.trim();
     var brawl = document.getElementById('inputBrawl').value.trim();
@@ -1198,10 +1323,11 @@
     });
   });
 
+  /* ===== CANCELAR ===== */
   document.getElementById('btnCancelarInscricao').addEventListener('click', function() {
     if (!confirm('⚠️ Você PERDERÁ sua inscrição. Deseja continuar?')) return;
     var nome = '', brawl = '';
-    try { nome = sessionStorage.getItem(SESSION_KEY_NOME)||''; brawl = sessionStorage.getItem(SESSION_KEY_BRAWL)||''; } catch(e){}
+    try { nome = localStorage.getItem(SESSION_KEY_NOME)||''; brawl = localStorage.getItem(SESSION_KEY_BRAWL)||''; } catch(e){}
     refPartic.once('value', function(snap) {
       var partic = snap.val() || {};
       Object.keys(partic).forEach(function(key) {
@@ -1224,6 +1350,7 @@
 
   document.getElementById('inputNome').addEventListener('input', verificarBeneficioForm);
 
+  /* ===== ADMIN LOGIN ===== */
   document.getElementById('btnToggleLogin').addEventListener('click', function() {
     var box = document.getElementById('adminLoginBox');
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
@@ -1261,6 +1388,7 @@
     isAdmin = false; document.getElementById('adminPanel').style.display = 'none';
   });
 
+  /* ===== SALA ===== */
   document.getElementById('btnLiberar').addEventListener('click', function() {
     var link = document.getElementById('adminLinkSala').value.trim();
     if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
@@ -1274,6 +1402,7 @@
     });
   });
 
+  /* ===== ADICIONAR JOGADOR ===== */
   document.getElementById('btnAddJogador').addEventListener('click', function() {
     var nome = document.getElementById('inputNovoJogador').value.trim();
     if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
@@ -1291,6 +1420,7 @@
     if (e.key === 'Enter') document.getElementById('btnAddJogador').click();
   });
 
+  /* ===== INSCRIÇÕES BLOQUEAR/LIBERAR ===== */
   document.getElementById('btnBloquearInscricoes').addEventListener('click', function() {
     refInscricoes.set(false, function(err) {
       if (err) toast('Erro!','error'); else toast('🚫 Inscrições bloqueadas!');
@@ -1302,6 +1432,7 @@
     });
   });
 
+  /* ===== RESET ===== */
   document.getElementById('btnReset').addEventListener('click', function() {
     if (!confirm('Apagar todos os inscritos?')) return;
     refPartic.remove(function(err) {
@@ -1324,6 +1455,7 @@
     });
   });
 
+  /* ===== INIT ===== */
   setSync('syncing', 'Conectando...');
   verificarSessao();
 
