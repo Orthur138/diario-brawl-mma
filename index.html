@@ -133,29 +133,29 @@
   }
   @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
 
-  /* Botão cancelar */
+  /* Barra pós-inscrição: badge + botão cancelar */
+  .pos-inscricao-bar {
+    display: none; flex-direction: row; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .badge-inscrito {
+    display: flex; align-items: center; gap: 6px;
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+    padding: 8px 12px; white-space: nowrap;
+    font-size: 0.78rem; color: #666; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .badge-inscrito .badge-check { font-size: 0.95rem; }
   .btn-cancelar-inscricao {
-    display: none; width: 100%;
-    background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffaaaa;
-    border: 2px solid #cc1111; border-radius: 8px; padding: 14px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px;
-    cursor: pointer; margin-bottom: 16px;
-    transition: transform 0.15s, opacity 0.2s;
-    box-shadow: 0 4px 16px rgba(180,0,0,0.3);
+    flex: 1; background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffbbbb;
+    border: 2px solid #cc1111; border-radius: 8px; padding: 11px 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.2px;
+    cursor: pointer; transition: transform 0.15s, opacity 0.2s;
+    box-shadow: 0 3px 12px rgba(180,0,0,0.3);
   }
-  .btn-cancelar-inscricao:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-cancelar-inscricao:hover { transform: translateY(-1px); opacity: 0.9; }
 
-  /* Inscrição confirmada */
-  .inscrito-box {
-    display: none; background: #141414; border: 1px solid #333;
-    border-radius: 12px; padding: 18px; margin-bottom: 20px;
-  }
-  .inscrito-box .check { font-size: 1.6rem; margin-bottom: 6px; display: block; }
-  .inscrito-box h3 {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    color: #aaaaaa; letter-spacing: 1px; margin-bottom: 4px;
-  }
-  .inscrito-box p { font-size: 0.9rem; color: #666; }
+  /* Inscrição confirmada — agora é só o badge na barra */
+  .inscrito-box { display: none; }
 
   /* Avisos pós-inscrição */
   .aviso-gratis-pos, .aviso-desconto-pos {
@@ -178,32 +178,62 @@
   .aviso-desconto-pos h3 { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; color:var(--orange); margin-bottom:4px; }
   .aviso-desconto-pos p { font-size:0.88rem; color:#aa6600; }
 
-  /* PIX pós-inscrição */
+  /* PIX pos-inscricao */
   .aviso-pix-pos {
     display: none;
-    background: linear-gradient(135deg, #1a1500, #111000);
-    border: 2px solid var(--gold-border); border-radius: 12px;
-    padding: 20px 18px; margin-bottom: 20px; text-align: center;
+    background: linear-gradient(160deg, #1c1600 0%, #110f00 50%, #0d0a00 100%);
+    border: 2px solid var(--gold); border-radius: 16px;
+    padding: 24px 20px; margin-bottom: 20px; text-align: center;
+    box-shadow: 0 0 30px rgba(255,215,0,0.12);
     animation: pulseGold 2.5s ease-in-out infinite;
   }
   .aviso-pix-pos .pix-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
-    letter-spacing: 2px; color: var(--gold); margin-bottom: 4px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
+    letter-spacing: 3px; color: var(--gold); margin-bottom: 4px;
+    text-shadow: 0 0 20px rgba(255,215,0,0.4);
   }
-  .aviso-pix-pos .pix-sub { font-size: 0.88rem; color: #aa9900; margin-bottom: 8px; }
+  .aviso-pix-pos .pix-sub { font-size: 0.95rem; color: #bbaa00; margin-bottom: 12px; font-weight: 600; }
   .aviso-pix-pos .pix-alerta {
-    background: #1a0000; border: 1px solid #4a1010; border-radius: 8px;
-    padding: 10px 14px; margin-bottom: 14px; text-align: left;
-    font-size: 0.82rem; color: #ff6666; line-height: 1.5;
+    background: #1a0000; border: 1px solid #5a1010; border-radius: 10px;
+    padding: 12px 16px; margin-bottom: 16px; text-align: left;
+    font-size: 0.88rem; color: #ff7777; line-height: 1.6; font-weight: 600;
   }
-  .aviso-pix-pos .pix-alerta strong { color: #ff4444; }
+  .aviso-pix-pos .pix-alerta strong { color: #ff3333; }
   .pix-entry {
-    background: #0d0b00; border: 1px solid #3a2e00;
-    border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; text-align: left;
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; text-align: left;
+    position: relative; overflow: hidden;
   }
   .pix-entry:last-child { margin-bottom: 0; }
-  .pix-entry .pix-person { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--gold); letter-spacing:1px; margin-bottom:2px; }
-  .pix-entry .pix-key { font-size:0.88rem; color:#cc9900; word-break:break-all; }
+  /* Cada ADM com cor diferente */
+  .pix-entry.pix-arthur {
+    background: linear-gradient(120deg, #1a1200 0%, #0d0b00 100%);
+    border: 1.5px solid #cc9900;
+  }
+  .pix-entry.pix-joao {
+    background: linear-gradient(120deg, #001a12 0%, #000d0a 100%);
+    border: 1.5px solid #00aa66;
+  }
+  .pix-entry.pix-arturo {
+    background: linear-gradient(120deg, #10001a 0%, #0a000d 100%);
+    border: 1.5px solid #9933cc;
+  }
+  .pix-entry .pix-person {
+    font-family:'Bebas Neue',sans-serif; font-size:1.3rem;
+    letter-spacing:2px; margin-bottom:4px; display:flex; align-items:center; gap:8px;
+  }
+  .pix-entry.pix-arthur .pix-person { color:#FFD700; }
+  .pix-entry.pix-joao .pix-person { color:#00ee88; }
+  .pix-entry.pix-arturo .pix-person { color:#cc77ff; }
+  .pix-entry .pix-label {
+    font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+    color:#555; margin-bottom:6px;
+  }
+  .pix-entry .pix-key {
+    font-size:0.95rem; font-weight:700; word-break:break-all; letter-spacing:0.3px;
+  }
+  .pix-entry.pix-arthur .pix-key { color:#ccaa33; }
+  .pix-entry.pix-joao .pix-key { color:#00bb66; }
+  .pix-entry.pix-arturo .pix-key { color:#aa55dd; }
 
   /* Sala */
   .sala-section {
@@ -254,50 +284,51 @@
   /* ===== PARTICIPANTES ===== */
   .participante-item {
     display: flex; gap: 10px; align-items: center;
-    padding: 10px; border-bottom: 1px solid #1a1a1a; border-radius: 8px;
-    margin-bottom: 4px; animation: fadeIn 0.3s ease;
+    padding: 11px 12px; border-radius: 8px; border: 1px solid #1e1e1e;
+    margin-bottom: 5px; animation: fadeIn 0.3s ease; background: #131313;
   }
-  .participante-item:last-child { border-bottom: none; }
   .part-num { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#bb1111; min-width:26px; }
   .part-info { flex: 1; min-width: 0; }
-  .part-info .name { font-weight:700; font-size:0.92rem; display:flex; align-items:center; flex-wrap:wrap; gap:4px; }
-  .part-info .brawl { font-size:0.8rem; color:var(--muted); }
+  .part-info .name { font-weight:700; font-size:0.93rem; display:flex; align-items:center; flex-wrap:wrap; gap:5px; }
+  .part-info .brawl { font-size:0.8rem; color:var(--muted); margin-top:2px; }
   .part-info .phone { font-size:0.76rem; color:#555; margin-top:1px; }
-  .part-badge {
-    font-size: 1.8rem; line-height: 1; flex-shrink: 0;
-  }
+  .part-badge { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
 
-  /* Grátis dourado */
+  /* Gratis dourado - destaque forte para todos verem */
   .participante-item.gratis {
-    background: linear-gradient(90deg, rgba(26,21,0,0.8) 0%, rgba(10,8,0,0.4) 100%);
-    border: 1px solid #3a2e00;
+    background: linear-gradient(100deg, #1e1800 0%, #141000 60%, #0d0b00 100%);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 14px rgba(255,215,0,0.22), inset 0 0 20px rgba(255,215,0,0.05);
   }
-  .participante-item.gratis .part-num { color:var(--gold); text-shadow:0 0 8px rgba(255,215,0,0.5); }
-  .participante-item.gratis .part-info .name { color:var(--gold); }
-  .participante-item.gratis .part-info .brawl { color:#aa9900; }
+  .participante-item.gratis .part-num { color:var(--gold); text-shadow:0 0 10px rgba(255,215,0,0.8); font-size:1.05rem; }
+  .participante-item.gratis .part-info .name { color:var(--gold); text-shadow:0 0 6px rgba(255,215,0,0.3); }
+  .participante-item.gratis .part-info .brawl { color:#ccaa00; }
   .participante-item.gratis .part-info .phone { color:#7a6a00; }
 
-  /* Desconto laranja */
+  /* Desconto laranja - destaque forte para todos verem */
   .participante-item.desconto {
-    background: linear-gradient(90deg, rgba(26,14,0,0.8) 0%, rgba(10,5,0,0.4) 100%);
-    border: 1px solid #5a3000;
+    background: linear-gradient(100deg, #1e1000 0%, #150b00 60%, #0d0700 100%);
+    border: 2px solid var(--orange);
+    box-shadow: 0 0 14px rgba(255,140,0,0.22), inset 0 0 20px rgba(255,140,0,0.05);
   }
-  .participante-item.desconto .part-num { color:var(--orange); text-shadow:0 0 8px rgba(255,140,0,0.5); }
-  .participante-item.desconto .part-info .name { color:var(--orange); }
-  .participante-item.desconto .part-info .brawl { color:#cc7700; }
+  .participante-item.desconto .part-num { color:var(--orange); text-shadow:0 0 10px rgba(255,140,0,0.8); font-size:1.05rem; }
+  .participante-item.desconto .part-info .name { color:var(--orange); text-shadow:0 0 6px rgba(255,140,0,0.3); }
+  .participante-item.desconto .part-info .brawl { color:#dd8800; }
   .participante-item.desconto .part-info .phone { color:#7a4a00; }
 
   .gratis-tag {
-    display: inline-block; background: linear-gradient(135deg, #8B6914, #5a4200);
-    color: var(--gold); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.8px;
-    padding: 2px 6px; border-radius: 8px; vertical-align: middle;
-    text-transform: uppercase; border: 1px solid #aa8800;
+    display: inline-flex; align-items:center; gap:2px;
+    background: linear-gradient(135deg, #8B6914, #5a4200);
+    color: var(--gold); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px;
+    padding: 2px 7px; border-radius: 8px; vertical-align: middle;
+    text-transform: uppercase; border: 1px solid var(--gold);
   }
   .desconto-tag {
-    display: inline-block; background: linear-gradient(135deg, #7a4400, #4a2800);
-    color: var(--orange); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.8px;
-    padding: 2px 6px; border-radius: 8px; vertical-align: middle;
-    text-transform: uppercase; border: 1px solid #cc6600;
+    display: inline-flex; align-items:center; gap:2px;
+    background: linear-gradient(135deg, #7a4400, #4a2800);
+    color: var(--orange); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px;
+    padding: 2px 7px; border-radius: 8px; vertical-align: middle;
+    text-transform: uppercase; border: 1px solid var(--orange);
   }
   .lista-loading { color:#444; font-size:0.85rem; text-align:center; padding:16px 0; }
 
@@ -518,15 +549,17 @@
     <span>Sua inscrição neste diário é R$ 2 (metade do valor).</span>
   </div>
 
-  <!-- Botão cancelar pós-inscrição -->
-  <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">↩ CANCELAR INSCRIÇÃO E VOLTAR</button>
-
-  <!-- Inscrição confirmada -->
-  <div class="inscrito-box" id="inscritoBox">
-    <span class="check">✅</span>
-    <h3>Inscrição Confirmada!</h3>
-    <p>Fique nesta página e aguarde a sala ser liberada abaixo.</p>
+  <!-- Barra pós-inscrição: badge + botão cancelar -->
+  <div class="pos-inscricao-bar" id="posInscricaoBar">
+    <div class="badge-inscrito">
+      <span class="badge-check">✅</span>
+      INSCRITO
+    </div>
+    <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">↩ CANCELAR</button>
   </div>
+
+  <!-- Inscrição confirmada (oculto, mantido por compatibilidade) -->
+  <div class="inscrito-box" id="inscritoBox"></div>
 
   <!-- Avisos pós-inscrição -->
   <div class="aviso-gratis-pos" id="avisoGratisPos">
@@ -542,14 +575,26 @@
 
   <!-- PIX pós-inscrição -->
   <div class="aviso-pix-pos" id="aviso-pix-pos">
-    <div class="pix-title">📣 Envie o PIX para o ADM!</div>
-    <div class="pix-sub">Envie o pagamento para garantir sua vaga no diário</div>
+    <div class="pix-title">📣 Envie o PIX!</div>
+    <div class="pix-sub">Pague apenas para o ADM que está fazendo a sala agora</div>
     <div class="pix-alerta">
-      ⚠️ <strong>Atenção!</strong> Envie o PIX apenas para o ADM que está <strong>fazendo a sala no momento</strong>. Confira quem é o responsável antes de pagar para não errar!
+      ⚠️ <strong>ATENÇÃO:</strong> Confira quem é o ADM responsável pela sala antes de pagar. <strong>Não envie para o ADM errado!</strong>
     </div>
-    <div class="pix-entry"><div class="pix-person">ARTHUR</div><div class="pix-key">arthursant792@gmail.com</div></div>
-    <div class="pix-entry"><div class="pix-person">JOÃO</div><div class="pix-key">camilasouza123@hotmail.com</div></div>
-    <div class="pix-entry"><div class="pix-person">ARTURO</div><div class="pix-key">70736905260</div></div>
+    <div class="pix-entry pix-arthur">
+      <div class="pix-person">🟡 Arthur Alcântara</div>
+      <div class="pix-label">Chave PIX (e-mail)</div>
+      <div class="pix-key">arthursant792@gmail.com</div>
+    </div>
+    <div class="pix-entry pix-joao">
+      <div class="pix-person">🟢 João</div>
+      <div class="pix-label">Chave PIX (e-mail)</div>
+      <div class="pix-key">camilasouza123@hotmail.com</div>
+    </div>
+    <div class="pix-entry pix-arturo">
+      <div class="pix-person">🟣 Arturo</div>
+      <div class="pix-label">Chave PIX (CPF)</div>
+      <div class="pix-key">70736905260</div>
+    </div>
   </div>
 
   <!-- Sala -->
@@ -1171,8 +1216,8 @@
     document.getElementById('avisoGratisForm').style.display      = 'none';
     document.getElementById('avisoDescontoForm').style.display    = 'none';
     document.getElementById('avisoBloqueado').style.display       = 'none';
-    document.getElementById('btnCancelarInscricao').style.display = 'block';
-    document.getElementById('inscritoBox').style.display          = 'block';
+    document.getElementById('posInscricaoBar').style.display     = 'flex';
+    document.getElementById('inscritoBox').style.display          = 'none';
     var g = temGratis(nome);
     var d = !g && temDesconto(nome);
     document.getElementById('avisoGratisPos').style.display   = g ? 'block' : 'none';
@@ -1245,7 +1290,7 @@
         if (!aindaInscrito) {
           limparSessao();
           usuarioInscrito = false;
-          document.getElementById('btnCancelarInscricao').style.display = 'none';
+          document.getElementById('posInscricaoBar').style.display = 'none';
           document.getElementById('inscritoBox').style.display = 'none';
           document.getElementById('aviso-pix-pos').style.display = 'none';
           document.getElementById('avisoGratisPos').style.display = 'none';
@@ -1335,7 +1380,7 @@
       });
     });
     limparSessao(); usuarioInscrito = false;
-    document.getElementById('btnCancelarInscricao').style.display = 'none';
+    document.getElementById('posInscricaoBar').style.display = 'none';
     document.getElementById('inscritoBox').style.display = 'none';
     document.getElementById('aviso-pix-pos').style.display = 'none';
     document.getElementById('avisoGratisPos').style.display = 'none';
@@ -1440,7 +1485,7 @@
       refSala.set({ aberta: false, link: '' }, function(err2) {
         if (err2) { toast('Erro ao fechar sala!','error'); return; }
         limparSessao(); usuarioInscrito = false;
-        document.getElementById('btnCancelarInscricao').style.display = 'none';
+        document.getElementById('posInscricaoBar').style.display = 'none';
         document.getElementById('inscritoBox').style.display = 'none';
         document.getElementById('aviso-pix-pos').style.display = 'none';
         document.getElementById('avisoGratisPos').style.display = 'none';
