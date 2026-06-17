@@ -262,6 +262,7 @@
   .part-info .phone { font-size:0.76rem; color:#555; margin-top:1px; }
   .part-badge { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
 
+  /* Aura dourada — entrada grátis (vale para inscritos da lista, com destaque forte) */
   .participante-item.gratis {
     background: linear-gradient(100deg, #1e1800 0%, #141000 60%, #0d0b00 100%);
     border: 2px solid var(--gold);
@@ -272,6 +273,7 @@
   .participante-item.gratis .part-info .brawl { color:#ccaa00; }
   .participante-item.gratis .part-info .phone { color:#7a6a00; }
 
+  /* Aura laranja — meia entrada / desconto */
   .participante-item.desconto {
     background: linear-gradient(100deg, #1e1000 0%, #150b00 60%, #0d0700 100%);
     border: 2px solid var(--orange);
@@ -354,7 +356,7 @@
   .admin-stat-box.gold-stat .stat-val { color:var(--gold); }
 
   .admin-part-item-new {
-    display: flex; align-items: center; gap: 10px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     background: #131313; border: 1px solid #222; border-radius: 8px;
     padding: 10px 12px; margin-bottom: 6px;
   }
@@ -372,6 +374,17 @@
   .admin-part-detail { font-size:0.75rem; color:#555; }
   .admin-part-detail span { color:#888; }
   .admin-part-badge { font-size:1.6rem; flex-shrink:0; }
+  .admin-part-actions { display:flex; gap:5px; flex-wrap:wrap; width:100%; margin-top:6px; }
+  .btn-manual-beneficio {
+    flex:1; min-width:80px; border:none; border-radius:6px; padding:6px 8px;
+    font-size:0.65rem; font-weight:700; letter-spacing:0.4px; cursor:pointer;
+    font-family:'Barlow',sans-serif; transition:transform 0.1s, opacity 0.2s; text-transform:uppercase;
+  }
+  .btn-manual-beneficio:hover { transform:translateY(-1px); }
+  .btn-manual-gratis-normal { background:linear-gradient(135deg,#8B6914,#5a4200); color:#FFD700; border:1px solid #aa8800; }
+  .btn-manual-gratis-mini   { background:linear-gradient(135deg,#6a5410,#3a2e00); color:#FFD700; border:1px solid #887000; }
+  .btn-manual-desconto-mini { background:linear-gradient(135deg,#7a4400,#4a2800); color:#FF8C00; border:1px solid #cc6600; }
+  .btn-manual-limpar { background:#1a1a1a; color:#888; border:1px solid #333; flex:0 0 auto; min-width:36px; }
 
   .admin-vitorias-section { margin-top:4px; }
   .admin-vitorias-section h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#666; letter-spacing:1px; margin-bottom:10px; }
@@ -382,7 +395,6 @@
   .diario-toggle-admin button { flex:1; background:none; border:none; color:#555; font-family:'Bebas Neue',sans-serif; font-size:0.9rem; letter-spacing:1px; padding:8px 6px; border-radius:6px; cursor:pointer; transition:background 0.2s, color 0.2s; }
   .diario-toggle-admin button.active { background:linear-gradient(135deg,#cc1111,#8a0a0a); color:#fff; }
 
-  /* Linha de adicionar jogador — agora com 2 inputs */
   .add-jogador-row { display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
   .add-jogador-row input { flex:1; min-width:100px; background:#141414; border:1px solid #2a2a2a; border-radius:8px; padding:10px 14px; color:var(--text); font-family:'Barlow',sans-serif; font-size:0.9rem; outline:none; transition:border-color 0.2s; }
   .add-jogador-row input:focus { border-color:var(--red); }
@@ -502,14 +514,16 @@
   </div>
   <div class="inscrito-box" id="inscritoBox"></div>
 
+  <!-- Aviso dourado: entrada grátis -->
   <div class="aviso-gratis-pos" id="avisoGratisPos">
     <span class="icon">🏆</span>
     <h3>Entrada Grátis!</h3>
     <p>Parabéns! Você ganhou entrada grátis pelas suas vitórias. Não precisa pagar nada desta vez!</p>
   </div>
+  <!-- Aviso laranja: meia entrada / desconto -->
   <div class="aviso-desconto-pos" id="avisoDescontoPos">
     <span class="icon">🔥</span>
-    <h3>Desconto de 50%!</h3>
+    <h3>Entrada pela Metade!</h3>
     <p>Você ganhou meia entrada (R$ 2) pelas suas vitórias no Diário Mini!</p>
   </div>
 
@@ -612,7 +626,7 @@
         <button id="btnAdmMini" onclick="setAdminDiario('mini')">⚡ Diário Mini</button>
       </div>
       <div class="add-jogador-row">
-        <input type="text" id="inputNovoJogador" placeholder="Nome do jogador...">
+        <input type="text" id="inputNovoJogador" placeholder="Nick no Brawl Stars...">
         <input type="tel" id="inputNovoTelefone" placeholder="Telefone (ex: 11999999999)">
         <button class="btn-add-jogador" id="btnAddJogador">+ Adicionar</button>
       </div>
@@ -623,6 +637,7 @@
 
     <div class="admin-part-list">
       <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#666;letter-spacing:1px;margin-bottom:10px;">📋 Inscritos</h4>
+      <p style="font-size:0.72rem;color:#555;margin-bottom:10px;">Use os botões coloridos para forçar manualmente um benefício, caso o sistema automático não detecte (ex: nomes diferentes).</p>
       <div class="admin-inscritos-header">
         <div class="admin-stat-box"><div class="stat-label">Total Inscritos</div><div class="stat-val" id="adminTotalInscritos">0</div></div>
         <div class="admin-stat-box gold-stat"><div class="stat-label">Vagas Disponíveis</div><div class="stat-val" id="adminVagasDisp">9</div></div>
@@ -658,8 +673,9 @@
 <script>
 (function () {
   var TOTAL_VAGAS       = 9;
-  var VITORIAS_GRATIS   = 10;
-  var VITORIAS_DESCONTO = 5;
+  var VITORIAS_GRATIS   = 10;   // Mini: a cada 10v = grátis
+  var VITORIAS_DESCONTO = 5;    // Mini: a cada 5v (não múltiplo de 10) = desconto
+  var VITORIAS_GRATIS_NORMAL = 5; // Normal: a cada 5v = grátis
 
   var usuarioInscrito  = false;
   var isAdmin          = false;
@@ -712,65 +728,110 @@
     document.getElementById('syncLabel').textContent = label;
   }
   function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-  /* Remove tudo que não é dígito — para comparar telefones sem formatação */
   function apenasDigitos(s) { return String(s || '').replace(/\D/g, ''); }
 
-  /* ===== VITÓRIAS — nova estrutura: { vitorias: N, telefone: "..." } ===== */
-  function getVitObj(obj, nome) {
-    /* Busca case-insensitive */
+  /* ===== ESTRUTURA DO RANKING =====
+     vitorias-normal / vitorias-mini agora salvam, por NICK do Brawl Stars:
+     {
+       vitorias: N,
+       telefone: "11999999999",
+       ultimoBeneficioUsado: N   // último múltiplo de vitórias em que o benefício já foi consumido (0 = nenhum)
+     }
+  */
+  function getVitObj(obj, nick) {
     var keys = Object.keys(obj);
     for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() === nome.toLowerCase()) return obj[keys[i]];
+      if (keys[i].toLowerCase() === nick.toLowerCase()) return { chave: keys[i], dados: obj[keys[i]] };
     }
     return null;
   }
 
-  function getVit(nome, tipo) {
+  function normalizarEntry(entry) {
+    if (!entry) return { vitorias: 0, telefone: '', ultimoBeneficioUsado: 0 };
+    if (typeof entry !== 'object') return { vitorias: Number(entry) || 0, telefone: '', ultimoBeneficioUsado: 0 };
+    return {
+      vitorias: Number(entry.vitorias) || 0,
+      telefone: entry.telefone || '',
+      ultimoBeneficioUsado: Number(entry.ultimoBeneficioUsado) || 0
+    };
+  }
+
+  function getRegistro(nick, tipo) {
     var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var entry = getVitObj(obj, nome);
-    if (!entry) return 0;
-    /* Suporta estrutura antiga (número puro) e nova ({ vitorias, telefone }) */
-    if (typeof entry === 'object') return Number(entry.vitorias) || 0;
-    return Number(entry) || 0;
+    var found = getVitObj(obj, nick);
+    if (!found) return null;
+    return { chave: found.chave, dados: normalizarEntry(found.dados) };
   }
 
-  function getTelRanking(nome, tipo) {
-    var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var entry = getVitObj(obj, nome);
-    if (!entry || typeof entry !== 'object') return '';
-    return apenasDigitos(entry.telefone);
+  /* Determina, para um múltiplo de vitórias, se é "grátis" ou "desconto" (apenas mini tem desconto) */
+  function tipoBeneficioNormal(v) {
+    if (v > 0 && v % VITORIAS_GRATIS_NORMAL === 0) return 'gratis';
+    return null;
   }
-
-  /* Verifica benefício cruzando nome + telefone */
-  function temGratis(nome, tel) {
-    var telLimpo = apenasDigitos(tel);
-    /* Diário Normal: a cada 5 vitórias */
-    var vn = getVit(nome, 'normal');
-    var tnRanking = getTelRanking(nome, 'normal');
-    var telOkNormal = !tnRanking || !telLimpo || tnRanking === telLimpo;
-    if (vn > 0 && vn % 5 === 0 && telOkNormal) return true;
-    /* Diário Mini: a cada 10 vitórias */
-    var vm = getVit(nome, 'mini');
-    var tmRanking = getTelRanking(nome, 'mini');
-    var telOkMini = !tmRanking || !telLimpo || tmRanking === telLimpo;
-    if (vm > 0 && vm % VITORIAS_GRATIS === 0 && telOkMini) return true;
-    return false;
-  }
-
-  function temDesconto(nome, tel) {
-    var telLimpo = apenasDigitos(tel);
-    var vm = getVit(nome, 'mini');
-    var tmRanking = getTelRanking(nome, 'mini');
-    var telOk = !tmRanking || !telLimpo || tmRanking === telLimpo;
-    if (vm > 0 && vm % VITORIAS_DESCONTO === 0 && vm % VITORIAS_GRATIS !== 0 && telOk) return true;
-    return false;
-  }
-
-  function getMiniStatus(v) {
+  function tipoBeneficioMini(v) {
     if (v <= 0) return null;
     if (v % VITORIAS_GRATIS === 0) return 'gratis';
     if (v % VITORIAS_DESCONTO === 0) return 'desconto';
+    return null;
+  }
+
+  /* Verifica se o benefício do múltiplo ATUAL ainda não foi usado */
+  function beneficioDisponivel(nick, tel, tipo) {
+    var reg = getRegistro(nick, tipo);
+    if (!reg) return null;
+    var d = reg.dados;
+    var telLimpo = apenasDigitos(tel);
+    var telOk = !d.telefone || !telLimpo || d.telefone === telLimpo;
+    if (!telOk) return null;
+
+    var beneficio = tipo === 'mini' ? tipoBeneficioMini(d.vitorias) : tipoBeneficioNormal(d.vitorias);
+    if (!beneficio) return null;
+    /* Se o múltiplo atual já foi usado, não libera de novo até subir o contador */
+    if (d.ultimoBeneficioUsado >= d.vitorias) return null;
+    return beneficio; // 'gratis' ou 'desconto'
+  }
+
+  function temGratis(nick, tel) {
+    if (beneficioDisponivel(nick, tel, 'normal') === 'gratis') return true;
+    if (beneficioDisponivel(nick, tel, 'mini') === 'gratis') return true;
+    return false;
+  }
+  function temDesconto(nick, tel) {
+    if (temGratis(nick, tel)) return false;
+    if (beneficioDisponivel(nick, tel, 'mini') === 'desconto') return true;
+    return false;
+  }
+
+  /* Marca o múltiplo atual como "usado" no Firebase, para o nick correspondente */
+  function consumirBeneficio(nick, tel, tipo) {
+    var reg = getRegistro(nick, tipo);
+    if (!reg) return;
+    var ref = tipo === 'mini' ? refVitMini : refVitNormal;
+    var upd = {};
+    upd[reg.chave] = {
+      vitorias: reg.dados.vitorias,
+      telefone: reg.dados.telefone,
+      ultimoBeneficioUsado: reg.dados.vitorias
+    };
+    ref.update(upd);
+  }
+
+  /* Ao se inscrever, consome o benefício do(s) ranking(s) que estiver disponível */
+  function consumirBeneficiosAoInscrever(nick, tel) {
+    if (beneficioDisponivel(nick, tel, 'normal') === 'gratis') consumirBeneficio(nick, tel, 'normal');
+    var m = beneficioDisponivel(nick, tel, 'mini');
+    if (m) consumirBeneficio(nick, tel, 'mini');
+  }
+
+  /* ===== BENEFÍCIO MANUAL (forçado pelo admin, ignora o ranking) =====
+     Guardado dentro do próprio registro do participante em /participantes/{key}/beneficioManual = 'gratis' | 'desconto' | null
+  */
+  function beneficioEfetivo(p) {
+    /* Prioridade: manual > automático */
+    if (p.beneficioManual === 'gratis') return 'gratis';
+    if (p.beneficioManual === 'desconto') return 'desconto';
+    if (temGratis(p.brawl, p.telefone)) return 'gratis';
+    if (temDesconto(p.brawl, p.telefone)) return 'desconto';
     return null;
   }
 
@@ -780,8 +841,9 @@
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
-      var g = temGratis(p.nome, p.telefone);
-      var d = !g && temDesconto(p.nome, p.telefone);
+      var ben = beneficioEfetivo(p);
+      var g = ben === 'gratis';
+      var d = ben === 'desconto';
       var cls = g ? ' gratis' : (d ? ' desconto' : '');
       html += '<div class="participante-item' + cls + '">';
       html += '<div class="part-num">#'+(i+1)+'</div>';
@@ -821,18 +883,18 @@
       return;
     }
     var arr = Object.keys(obj).map(function(k) {
-      var entry = obj[k];
-      var v = (typeof entry === 'object') ? (Number(entry.vitorias) || 0) : (Number(entry) || 0);
-      return { nome: k, v: v };
+      var d = normalizarEntry(obj[k]);
+      return { nome: k, v: d.vitorias, usado: d.ultimoBeneficioUsado };
     });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       var posClass = i === 0 ? 'ouro' : i === 1 ? 'prata' : i === 2 ? 'bronze' : '';
-      var statusMini = diarioAtivo === 'mini' ? getMiniStatus(item.v) : null;
-      var isGratis = diarioAtivo === 'normal' ? (item.v > 0 && item.v % 5 === 0) : (statusMini === 'gratis');
-      var isDesc   = statusMini === 'desconto';
+      var beneficio = diarioAtivo === 'mini' ? tipoBeneficioMini(item.v) : tipoBeneficioNormal(item.v);
+      var disponivel = beneficio && item.usado < item.v;
+      var isGratis = disponivel && beneficio === 'gratis';
+      var isDesc   = disponivel && beneficio === 'desconto';
       var estrelas = '';
       for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '⭐';
       html += '<div class="ranking-item">';
@@ -863,8 +925,9 @@
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
-      var g = temGratis(p.nome, p.telefone);
-      var d = !g && temDesconto(p.nome, p.telefone);
+      var ben = beneficioEfetivo(p);
+      var g = ben === 'gratis';
+      var d = ben === 'desconto';
       var cls = g ? ' gratis-admin' : (d ? ' desconto-admin' : '');
       var fbKey = '';
       Object.keys(particObj).forEach(function(k) {
@@ -880,7 +943,16 @@
       html += '<div class="admin-part-row2">';
       html += '<span class="admin-part-detail">🎮 <span>'+esc(p.brawl)+'</span></span>';
       html += '<span class="admin-part-detail">📱 <span>'+(p.telefone||'—')+'</span></span>';
-      html += '</div></div>';
+      html += '</div>';
+      if (fbKey) {
+        html += '<div class="admin-part-actions">';
+        html += '<button class="btn-manual-beneficio btn-manual-gratis-normal" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Grátis Normal</button>';
+        html += '<button class="btn-manual-beneficio btn-manual-gratis-mini" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Grátis Mini</button>';
+        html += '<button class="btn-manual-beneficio btn-manual-desconto-mini" onclick="adminForcarBeneficio(\''+fbKey+'\',\'desconto\')">🔥 R$2 Mini</button>';
+        if (p.beneficioManual) html += '<button class="btn-manual-beneficio btn-manual-limpar" onclick="adminForcarBeneficio(\''+fbKey+'\',null)" title="Remover benefício manual">✕</button>';
+        html += '</div>';
+      }
+      html += '</div>';
       if (g) html += '<div class="admin-part-badge">🟡</div>';
       else if (d) html += '<div class="admin-part-badge">🟠</div>';
       if (fbKey) {
@@ -891,6 +963,16 @@
     }
     el.innerHTML = html;
   }
+
+  /* Admin força manualmente o benefício de um inscrito (independente do ranking) */
+  window.adminForcarBeneficio = function(fbKey, tipo) {
+    refPartic.child(fbKey).child('beneficioManual').set(tipo, function(err) {
+      if (err) { toast('Erro ao aplicar benefício!', 'error'); return; }
+      if (tipo === 'gratis') toast('🏆 Entrada grátis aplicada manualmente!', 'gold');
+      else if (tipo === 'desconto') toast('🔥 Desconto R$2 aplicado manualmente!', 'orange');
+      else toast('Benefício manual removido.');
+    });
+  };
 
   window.adminRemoverInscrito = function(fbKey, nome) {
     if (!confirm('Remover ' + nome + ' dos inscritos?')) return;
@@ -917,18 +999,17 @@
       return;
     }
     var arr = Object.keys(obj).map(function(k) {
-      var entry = obj[k];
-      var v = (typeof entry === 'object') ? (Number(entry.vitorias) || 0) : (Number(entry) || 0);
-      var tel = (typeof entry === 'object') ? (entry.telefone || '') : '';
-      return { nome: k, v: v, tel: tel };
+      var d = normalizarEntry(obj[k]);
+      return { nome: k, v: d.vitorias, tel: d.telefone, usado: d.ultimoBeneficioUsado };
     });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
-      var statusMini = adminDiarioAtivo === 'mini' ? getMiniStatus(item.v) : null;
-      var g = adminDiarioAtivo === 'normal' ? (item.v > 0 && item.v % 5 === 0) : (statusMini === 'gratis');
-      var d = adminDiarioAtivo === 'mini' && statusMini === 'desconto';
+      var beneficio = adminDiarioAtivo === 'mini' ? tipoBeneficioMini(item.v) : tipoBeneficioNormal(item.v);
+      var disponivel = beneficio && item.usado < item.v;
+      var g = disponivel && beneficio === 'gratis';
+      var d = disponivel && beneficio === 'desconto';
       var nomeCls = g ? 'gold' : (d ? 'orange' : '');
       var nomeEsc = esc(item.nome).replace(/'/g,"&#39;");
       html += '<div class="vit-item-admin">';
@@ -960,20 +1041,18 @@
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var chave = encontrarChave(obj, nome) || nome;
-    var entry = obj[chave];
-    var atual = (typeof entry === 'object') ? (Number(entry.vitorias) || 0) : (Number(entry) || 0);
-    var tel   = (typeof entry === 'object') ? (entry.telefone || '') : '';
-    var novo  = atual + 1;
-    var upd = {}; upd[chave] = { vitorias: novo, telefone: tel };
+    var d = normalizarEntry(obj[chave]);
+    var novo = d.vitorias + 1;
+    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: d.ultimoBeneficioUsado };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
       if (adminDiarioAtivo === 'mini') {
-        var st = getMiniStatus(novo);
+        var st = tipoBeneficioMini(novo);
         if (st === 'gratis') toast('🏆 '+chave+' — ENTRADA GRÁTIS! ('+novo+'v)', 'gold');
         else if (st === 'desconto') toast('🔥 '+chave+' — MEIA ENTRADA R$2! ('+novo+'v)', 'orange');
         else toast('+1 vitória para '+chave+' ('+novo+'v)', 'success');
       } else {
-        if (novo > 0 && novo % 5 === 0) toast('🏆 '+chave+' — ENTRADA GRÁTIS! ('+novo+'v)', 'gold');
+        if (tipoBeneficioNormal(novo)) toast('🏆 '+chave+' — ENTRADA GRÁTIS! ('+novo+'v)', 'gold');
         else toast('+1 vitória para '+chave+' ('+novo+'v)', 'success');
       }
     });
@@ -984,11 +1063,10 @@
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var chave = encontrarChave(obj, nome);
     if (!chave) { toast('Jogador não encontrado!', 'error'); return; }
-    var entry = obj[chave];
-    var atual = (typeof entry === 'object') ? (Number(entry.vitorias) || 0) : (Number(entry) || 0);
-    var tel   = (typeof entry === 'object') ? (entry.telefone || '') : '';
-    var novo  = Math.max(0, atual - 1);
-    var upd = {}; upd[chave] = { vitorias: novo, telefone: tel };
+    var d = normalizarEntry(obj[chave]);
+    var novo = Math.max(0, d.vitorias - 1);
+    var usadoAjustado = Math.min(d.ultimoBeneficioUsado, novo);
+    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: usadoAjustado };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
       toast('-1 vitória de '+chave+' ('+novo+'v)');
@@ -1141,15 +1219,15 @@
     if (isAdmin) renderBadge(salaData);
   }
 
-  /* ===== BENEFÍCIO NO FORM ===== */
+  /* ===== BENEFÍCIO NO FORM (verificação ao vivo, antes de inscrever) ===== */
   function verificarBeneficioForm() {
-    var nome = document.getElementById('inputNome').value.trim();
+    var nick = document.getElementById('inputBrawl').value.trim();
     var tel  = document.getElementById('inputTelefone').value.trim();
     document.getElementById('avisoGratisForm').style.display   = 'none';
     document.getElementById('avisoDescontoForm').style.display = 'none';
-    if (!nome) return;
-    if (temGratis(nome, tel)) document.getElementById('avisoGratisForm').style.display = 'block';
-    else if (temDesconto(nome, tel)) document.getElementById('avisoDescontoForm').style.display = 'block';
+    if (!nick) return;
+    if (temGratis(nick, tel)) document.getElementById('avisoGratisForm').style.display = 'block';
+    else if (temDesconto(nick, tel)) document.getElementById('avisoDescontoForm').style.display = 'block';
   }
 
   /* ===== SESSÃO (localStorage) ===== */
@@ -1170,15 +1248,15 @@
     } catch(e) {}
   }
 
-  function mostrarPosInscricao(nome, tel) {
+  function mostrarPosInscricao(nick, tel, beneficioManual) {
     document.getElementById('formCard').style.display          = 'none';
     document.getElementById('avisoGratisForm').style.display   = 'none';
     document.getElementById('avisoDescontoForm').style.display = 'none';
     document.getElementById('avisoBloqueado').style.display    = 'none';
     document.getElementById('posInscricaoBar').style.display   = 'flex';
     document.getElementById('inscritoBox').style.display       = 'none';
-    var g = temGratis(nome, tel);
-    var d = !g && temDesconto(nome, tel);
+    var g = beneficioManual === 'gratis' || temGratis(nick, tel);
+    var d = !g && (beneficioManual === 'desconto' || temDesconto(nick, tel));
     document.getElementById('avisoGratisPos').style.display   = g ? 'block' : 'none';
     document.getElementById('avisoDescontoPos').style.display = d ? 'block' : 'none';
     document.getElementById('aviso-pix-pos').style.display    = g ? 'none'  : 'block';
@@ -1194,11 +1272,16 @@
       if (!nome || !brawl) { limparSessao(); return; }
       refPartic.once('value', function(snap) {
         var partic = snap.val() || {};
-        var encontrado = Object.values(partic).some(function(p) {
-          return p.nome === nome && p.brawl === brawl;
+        var achadoKey = null, achadoObj = null;
+        Object.keys(partic).forEach(function(k) {
+          if (partic[k].nome === nome && partic[k].brawl === brawl) { achadoKey = k; achadoObj = partic[k]; }
         });
-        if (encontrado) { usuarioInscrito = true; mostrarPosInscricao(nome, tel); }
-        else limparSessao();
+        if (achadoKey) {
+          usuarioInscrito = true;
+          mostrarPosInscricao(brawl, tel, achadoObj.beneficioManual);
+        } else {
+          limparSessao();
+        }
       });
     } catch(e) {}
   }
@@ -1218,11 +1301,12 @@
           var brawl = localStorage.getItem(SESSION_KEY_BRAWL) || '';
           var tel   = localStorage.getItem(SESSION_KEY_TEL)   || '';
           var partic = snap.val() || {};
-          var encontrado = Object.values(partic).some(function(p) {
-            return p.nome === nome && p.brawl === brawl;
+          var achadoObj = null;
+          Object.keys(partic).forEach(function(k) {
+            if (partic[k].nome === nome && partic[k].brawl === brawl) achadoObj = partic[k];
           });
-          if (encontrado && !usuarioInscrito) { usuarioInscrito = true; mostrarPosInscricao(nome, tel); }
-          else if (!encontrado) limparSessao();
+          if (achadoObj && !usuarioInscrito) { usuarioInscrito = true; mostrarPosInscricao(brawl, tel, achadoObj.beneficioManual); }
+          else if (!achadoObj) limparSessao();
         }
       } catch(e) {}
     }
@@ -1231,7 +1315,6 @@
       try {
         var nome2  = localStorage.getItem(SESSION_KEY_NOME)  || '';
         var brawl2 = localStorage.getItem(SESSION_KEY_BRAWL) || '';
-        var tel2   = localStorage.getItem(SESSION_KEY_TEL)   || '';
         var partic2 = snap.val() || {};
         var aindaInscrito = Object.values(partic2).some(function(p) {
           return p.nome === nome2 && p.brawl === brawl2;
@@ -1305,11 +1388,13 @@
           } else {
             salvarSessao(nome, brawl, tel);
             usuarioInscrito = true;
-            mostrarPosInscricao(nome, tel);
-            var g = temGratis(nome, tel);
-            var d = !g && temDesconto(nome, tel);
+            var g = temGratis(brawl, tel);
+            var d = !g && temDesconto(brawl, tel);
+            /* Consome o benefício no ranking (marca o múltiplo como usado) */
+            consumirBeneficiosAoInscrever(brawl, tel);
+            mostrarPosInscricao(brawl, tel, null);
             if (g) toast('🏆 Inscrição com entrada GRÁTIS!', 'gold');
-            else if (d) toast('🔥 Inscrição com R$2 (meia entrada)!', 'orange');
+            else if (d) toast('🔥 Inscrição com entrada pela metade (R$2)!', 'orange');
             else toast('Inscrição confirmada! ✅', 'success');
           }
         });
@@ -1342,7 +1427,7 @@
     toast('Inscrição cancelada.', 'error');
   });
 
-  document.getElementById('inputNome').addEventListener('input', verificarBeneficioForm);
+  document.getElementById('inputBrawl').addEventListener('input', verificarBeneficioForm);
   document.getElementById('inputTelefone').addEventListener('input', verificarBeneficioForm);
 
   /* ===== ADMIN LOGIN ===== */
@@ -1397,20 +1482,20 @@
     });
   });
 
-  /* ===== ADICIONAR JOGADOR (agora com telefone) ===== */
+  /* ===== ADICIONAR JOGADOR (por NICK + telefone) ===== */
   document.getElementById('btnAddJogador').addEventListener('click', function() {
-    var nome = document.getElementById('inputNovoJogador').value.trim();
+    var nick = document.getElementById('inputNovoJogador').value.trim();
     var tel  = apenasDigitos(document.getElementById('inputNovoTelefone').value.trim());
-    if (!nome) { toast('Digite o nome do jogador!', 'error'); return; }
+    if (!nick) { toast('Digite o nick do jogador!', 'error'); return; }
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    if (encontrarChave(obj, nome)) { toast('Jogador já no ranking!', 'error'); return; }
-    var upd = {}; upd[nome] = { vitorias: 0, telefone: tel };
+    if (encontrarChave(obj, nick)) { toast('Jogador já no ranking!', 'error'); return; }
+    var upd = {}; upd[nick] = { vitorias: 0, telefone: tel, ultimoBeneficioUsado: 0 };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
       document.getElementById('inputNovoJogador').value = '';
       document.getElementById('inputNovoTelefone').value = '';
-      toast('✅ '+nome+' adicionado!', 'success');
+      toast('✅ '+nick+' adicionado!', 'success');
     });
   });
   document.getElementById('inputNovoJogador').addEventListener('keydown', function(e) {
