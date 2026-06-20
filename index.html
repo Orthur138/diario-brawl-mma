@@ -3,200 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Di�rio Brawl MMA</title>
+<title>Diário Brawl MMA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --red: #cc1111;
-    --red-bright: #e82222;
-    --dark: #080808;
-    --card: #111111;
-    --border: #2a2a2a;
-    --text: #d8d8d8;
-    --muted: #777;
-    --gold: #FFD700;
-    --gold-dark: #B8860B;
-    --gold-bg: #1a1500;
-    --gold-border: #8B6914;
-    --orange: #FF8C00;
-    --orange-dark: #cc6600;
-    --orange-bg: #1a0e00;
-    --orange-border: #7a4400;
+    --red: #cc1111; --red-bright: #e82222; --dark: #080808; --card: #111111;
+    --border: #2a2a2a; --text: #d8d8d8; --muted: #777; --gold: #FFD700;
+    --gold-dark: #B8860B; --gold-bg: #1a1500; --gold-border: #8B6914;
+    --orange: #FF8C00; --orange-dark: #cc6600; --orange-bg: #1a0e00; --orange-border: #7a4400;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--dark); color: var(--text);
-    font-family: 'Barlow', sans-serif; min-height: 100vh;
-    background-image: radial-gradient(ellipse at top center, #1a0000 0%, #0a0a0a 55%);
-  }
+  body { background: var(--dark); color: var(--text); font-family: 'Barlow', sans-serif; min-height: 100vh; background-image: radial-gradient(ellipse at top center, #1a0000 0%, #0a0a0a 55%); }
   .container { max-width: 540px; margin: 0 auto; padding: 24px 16px 60px; }
   .header { text-align: center; margin-bottom: 28px; }
-  .header h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.6rem, 9vw, 3.4rem);
-    letter-spacing: 2px; line-height: 1;
-    background: linear-gradient(135deg, #ff2222, #cc0000, #888888);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
+  .header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 9vw, 3.4rem); letter-spacing: 2px; line-height: 1; background: linear-gradient(135deg, #ff2222, #cc0000, #888888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .header .emoji-fire { font-size: 2rem; display: block; margin-bottom: 4px; }
-  .pix-box {
-    background: #161616; border: 1px solid #2a2a2a; border-radius: 8px;
-    padding: 10px 16px; margin: 12px auto 0; display: inline-block;
-    font-size: 0.85rem; color: var(--muted);
-  }
+  .pix-box { background: #161616; border: 1px solid #2a2a2a; border-radius: 8px; padding: 10px 16px; margin: 12px auto 0; display: inline-block; font-size: 0.85rem; color: var(--muted); }
   .pix-box strong { color: #cc3333; }
-  .vagas-bar {
-    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-    padding: 14px 18px; margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
+  .vagas-bar { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
   .vagas-bar .label { font-size: 0.9rem; color: var(--muted); }
   .vagas-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red-bright); }
-  .sync-status {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 0.75rem; color: #444; margin-bottom: 16px; padding-left: 2px;
-  }
+  .sync-status { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #444; margin-bottom: 16px; padding-left: 2px; }
   .sync-dot { width: 7px; height: 7px; border-radius: 50%; background: #333; transition: background 0.3s; }
   .sync-dot.online { background: #2ecc71; box-shadow: 0 0 6px #2ecc7166; }
   .sync-dot.syncing { background: #f39c12; animation: blink 0.8s infinite; }
   .sync-dot.error { background: #cc1111; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 22px 20px; margin-bottom: 20px;
-  }
-  .card-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
-    letter-spacing: 1px; color: #cc2222; margin-bottom: 16px;
-  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 20px; margin-bottom: 20px; }
+  .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: #cc2222; margin-bottom: 16px; }
   .field { margin-bottom: 14px; }
-  .field label {
-    display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;
-  }
-  .field input {
-    width: 100%; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
-    padding: 11px 14px; color: var(--text); font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem; transition: border-color 0.2s; outline: none;
-  }
+  .field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .field input { width: 100%; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 11px 14px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 0.95rem; transition: border-color 0.2s; outline: none; }
   .field input:focus { border-color: var(--red); }
   .field input::placeholder { color: #3a3a3a; }
   .field input:disabled { opacity: 0.5; cursor: not-allowed; }
-  .btn-submit {
-    width: 100%; background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff;
-    border: none; border-radius: 8px; padding: 14px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px;
-    cursor: pointer; margin-top: 4px;
-    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
-    box-shadow: 0 4px 16px rgba(180,0,0,0.35);
-  }
+  .btn-submit { width: 100%; background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff; border: none; border-radius: 8px; padding: 14px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px; cursor: pointer; margin-top: 4px; transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s; box-shadow: 0 4px 16px rgba(180,0,0,0.35); }
   .btn-submit:hover:not(:disabled) { transform: translateY(-2px); }
   .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .aviso-gratis-form, .aviso-desconto-form {
-    display: none; border-radius: 10px; padding: 14px 16px;
-    margin-bottom: 16px; text-align: center;
-  }
-  .aviso-gratis-form {
-    background: linear-gradient(135deg, var(--gold-bg), #1f1a00);
-    border: 2px solid var(--gold-border);
-    animation: pulseGold 2.5s ease-in-out infinite;
-  }
-  .aviso-desconto-form {
-    background: linear-gradient(135deg, var(--orange-bg), #1f1200);
-    border: 2px solid var(--orange-border);
-    animation: pulseOrange 2.5s ease-in-out infinite;
-  }
-  .aviso-gratis-form .icon, .aviso-desconto-form .icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
-  .aviso-gratis-form p { font-size: 0.9rem; color: var(--gold); font-weight: 700; }
-  .aviso-gratis-form span { font-size: 0.8rem; color: #aa9900; }
-  .aviso-desconto-form p { font-size: 0.9rem; color: var(--orange); font-weight: 700; }
-  .aviso-desconto-form span { font-size: 0.8rem; color: #aa6600; }
-
-  @keyframes pulseGold {
-    0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.15); }
-    50% { box-shadow: 0 0 0 8px rgba(255,215,0,0); }
-  }
-  @keyframes pulseOrange {
-    0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); }
-  }
-  @keyframes pulseRed {
-    0%,100% { box-shadow: 0 0 0 0 rgba(200,0,0,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(200,0,0,0); }
-  }
-  @keyframes pulseGreen {
-    0%,100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(46,204,113,0); }
-  }
+  @keyframes pulseGold { 0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.15); } 50% { box-shadow: 0 0 0 8px rgba(255,215,0,0); } }
+  @keyframes pulseOrange { 0%,100% { box-shadow: 0 0 0 0 rgba(200,100,0,0.2); } 50% { box-shadow: 0 0 0 8px rgba(200,100,0,0); } }
+  @keyframes pulseRed { 0%,100% { box-shadow: 0 0 0 0 rgba(200,0,0,0.2); } 50% { box-shadow: 0 0 0 8px rgba(200,0,0,0); } }
+  @keyframes pulseGreen { 0%,100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.2); } 50% { box-shadow: 0 0 0 8px rgba(46,204,113,0); } }
   @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-
-  .pos-inscricao-bar {
-    display: none; flex-direction: row; align-items: center; gap: 10px;
-    margin-bottom: 16px;
-  }
-  .badge-inscrito {
-    display: flex; align-items: center; gap: 6px;
-    background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
-    padding: 8px 12px; white-space: nowrap;
-    font-size: 0.78rem; color: #666; font-weight: 600; letter-spacing: 0.5px;
-  }
+  .pos-inscricao-bar { display: none; flex-direction: row; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .badge-inscrito { display: flex; align-items: center; gap: 6px; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 8px 12px; white-space: nowrap; font-size: 0.78rem; color: #666; font-weight: 600; letter-spacing: 0.5px; }
   .badge-inscrito .badge-check { font-size: 0.95rem; }
-  .btn-cancelar-inscricao {
-    flex: 1; background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffbbbb;
-    border: 2px solid #cc1111; border-radius: 8px; padding: 11px 14px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.2px;
-    cursor: pointer; transition: transform 0.15s, opacity 0.2s;
-    box-shadow: 0 3px 12px rgba(180,0,0,0.3);
-  }
+  .btn-cancelar-inscricao { flex: 1; background: linear-gradient(135deg, #8a0a0a, #5a0505); color: #ffbbbb; border: 2px solid #cc1111; border-radius: 8px; padding: 11px 14px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.2px; cursor: pointer; transition: transform 0.15s, opacity 0.2s; box-shadow: 0 3px 12px rgba(180,0,0,0.3); }
   .btn-cancelar-inscricao:hover { transform: translateY(-1px); opacity: 0.9; }
   .inscrito-box { display: none; }
-
-  .aviso-gratis-pos, .aviso-desconto-pos {
-    display: none; border-radius: 12px; padding: 16px 18px;
-    margin-bottom: 16px; text-align: center;
-  }
-  .aviso-gratis-pos {
-    background: linear-gradient(135deg, var(--gold-bg), #1f1a00);
-    border: 2px solid var(--gold-border);
-    animation: pulseGold 2.5s ease-in-out infinite;
-  }
-  .aviso-desconto-pos {
-    background: linear-gradient(135deg, var(--orange-bg), #1f1200);
-    border: 2px solid var(--orange-border);
-    animation: pulseOrange 2.5s ease-in-out infinite;
-  }
+  .aviso-gratis-pos, .aviso-desconto-pos { display: none; border-radius: 12px; padding: 16px 18px; margin-bottom: 16px; text-align: center; }
+  .aviso-gratis-pos { background: linear-gradient(135deg, var(--gold-bg), #1f1a00); border: 2px solid var(--gold-border); animation: pulseGold 2.5s ease-in-out infinite; }
+  .aviso-desconto-pos { background: linear-gradient(135deg, var(--orange-bg), #1f1200); border: 2px solid var(--orange-border); animation: pulseOrange 2.5s ease-in-out infinite; }
   .aviso-gratis-pos .icon, .aviso-desconto-pos .icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
   .aviso-gratis-pos h3 { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; color:var(--gold); margin-bottom:4px; }
   .aviso-gratis-pos p { font-size:0.88rem; color:#aa9900; }
   .aviso-desconto-pos h3 { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; color:var(--orange); margin-bottom:4px; }
   .aviso-desconto-pos p { font-size:0.88rem; color:#aa6600; }
-
-  .aviso-pix-pos {
-    display: none;
-    background: linear-gradient(160deg, #1c1600 0%, #110f00 50%, #0d0a00 100%);
-    border: 2px solid var(--gold); border-radius: 16px;
-    padding: 24px 20px; margin-bottom: 20px; text-align: center;
-    box-shadow: 0 0 30px rgba(255,215,0,0.12);
-    animation: pulseGold 2.5s ease-in-out infinite;
-  }
-  .aviso-pix-pos .pix-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
-    letter-spacing: 3px; color: var(--gold); margin-bottom: 4px;
-    text-shadow: 0 0 20px rgba(255,215,0,0.4);
-  }
+  .aviso-pix-pos { display: none; background: linear-gradient(160deg, #1c1600 0%, #110f00 50%, #0d0a00 100%); border: 2px solid var(--gold); border-radius: 16px; padding: 24px 20px; margin-bottom: 20px; text-align: center; box-shadow: 0 0 30px rgba(255,215,0,0.12); animation: pulseGold 2.5s ease-in-out infinite; }
+  .aviso-pix-pos .pix-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 3px; color: var(--gold); margin-bottom: 4px; text-shadow: 0 0 20px rgba(255,215,0,0.4); }
   .aviso-pix-pos .pix-sub { font-size: 0.95rem; color: #bbaa00; margin-bottom: 12px; font-weight: 600; }
-  .aviso-pix-pos .pix-alerta {
-    background: #1a0000; border: 1px solid #5a1010; border-radius: 10px;
-    padding: 12px 16px; margin-bottom: 16px; text-align: left;
-    font-size: 0.88rem; color: #ff7777; line-height: 1.6; font-weight: 600;
-  }
+  .aviso-pix-pos .pix-alerta { background: #1a0000; border: 1px solid #5a1010; border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; text-align: left; font-size: 0.88rem; color: #ff7777; line-height: 1.6; font-weight: 600; }
   .aviso-pix-pos .pix-alerta strong { color: #ff3333; }
-  .pix-entry {
-    border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; text-align: left;
-    position: relative; overflow: hidden;
-  }
+  .pix-entry { border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; text-align: left; position: relative; overflow: hidden; }
   .pix-entry:last-child { margin-bottom: 0; }
   .pix-entry.pix-arthur { background: linear-gradient(120deg, #1a1200 0%, #0d0b00 100%); border: 1.5px solid #cc9900; }
   .pix-entry.pix-joao   { background: linear-gradient(120deg, #001a12 0%, #000d0a 100%); border: 1.5px solid #00aa66; }
@@ -210,11 +79,7 @@
   .pix-entry.pix-arthur .pix-key { color:#ccaa33; }
   .pix-entry.pix-joao   .pix-key { color:#00bb66; }
   .pix-entry.pix-arturo .pix-key { color:#aa55dd; }
-
-  .sala-section {
-    display: none; background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; text-align: center;
-  }
+  .sala-section { display: none; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 18px; margin-bottom: 20px; text-align: center; }
   .sala-section h3 { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1px; margin-bottom:14px; color:#cc2222; }
   .sala-bloqueada-box { background: #111; border: 2px solid #3a1010; border-radius: 8px; padding: 22px 18px; color: #993333; animation: pulseRed 2.5s ease-in-out infinite; }
   .sala-bloqueada-box .lock-icon { font-size:2.5rem; display:block; margin-bottom:8px; }
@@ -224,103 +89,48 @@
   .sala-liberada-box .unlock-icon { font-size:2.5rem; display:block; margin-bottom:8px; }
   .sala-liberada-box .titulo-lib { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; color:#2ecc71; letter-spacing:1px; margin-bottom:4px; }
   .sala-liberada-box p { font-size:0.9rem; color:#1aaa55; margin-bottom:14px; }
-  .btn-sala {
-    display: inline-block; background: linear-gradient(135deg, #1a8a3a, #0d5c22);
-    color: #fff; text-decoration: none; border-radius: 8px; padding: 14px 32px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 1.5px;
-    transition: transform 0.15s; margin-top: 14px;
-    animation: pulseBtn 1.8s ease-in-out infinite;
-  }
-  @keyframes pulseBtn {
-    0%,100% { box-shadow: 0 4px 20px rgba(46,204,113,0.4); }
-    50% { box-shadow: 0 4px 36px rgba(46,204,113,0.85); }
-  }
+  .btn-sala { display: inline-block; background: linear-gradient(135deg, #1a8a3a, #0d5c22); color: #fff; text-decoration: none; border-radius: 8px; padding: 14px 32px; font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 1.5px; transition: transform 0.15s; margin-top: 14px; animation: pulseBtn 1.8s ease-in-out infinite; }
+  @keyframes pulseBtn { 0%,100% { box-shadow: 0 4px 20px rgba(46,204,113,0.4); } 50% { box-shadow: 0 4px 36px rgba(46,204,113,0.85); } }
   .btn-sala:hover { transform: translateY(-2px); }
-
-  .aviso-bloqueado {
-    display: none;
-    background: linear-gradient(135deg, #1a0a00, #200d00);
-    border: 2px solid #cc6600; border-radius: 12px;
-    padding: 18px; margin-bottom: 20px; text-align: center;
-    animation: pulseOrange 2.5s ease-in-out infinite;
-  }
+  .aviso-bloqueado { display: none; background: linear-gradient(135deg, #1a0a00, #200d00); border: 2px solid #cc6600; border-radius: 12px; padding: 18px; margin-bottom: 20px; text-align: center; animation: pulseOrange 2.5s ease-in-out infinite; }
   .aviso-bloqueado .aviso-icon { font-size:1.5rem; margin-bottom:6px; display:block; }
   .aviso-bloqueado h3 { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; color:#cc6600; letter-spacing:1px; margin-bottom:6px; }
   .aviso-bloqueado p { font-size:0.92rem; color:#aa8844; }
-
   hr.divider { border: none; border-top: 1px solid #1a1a1a; margin: 6px 0 16px; }
-
-  .participante-item {
-    display: flex; gap: 10px; align-items: center;
-    padding: 11px 12px; border-radius: 8px; border: 1px solid #1e1e1e;
-    margin-bottom: 5px; animation: fadeIn 0.3s ease; background: #131313;
-  }
+  .participante-item { display: flex; gap: 10px; align-items: center; padding: 11px 12px; border-radius: 8px; border: 1px solid #1e1e1e; margin-bottom: 5px; animation: fadeIn 0.3s ease; background: #131313; }
   .part-num { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#bb1111; min-width:26px; }
   .part-info { flex: 1; min-width: 0; }
   .part-info .name { font-weight:700; font-size:0.93rem; display:flex; align-items:center; flex-wrap:wrap; gap:5px; }
   .part-info .brawl { font-size:0.8rem; color:var(--muted); margin-top:2px; }
   .part-info .phone { font-size:0.76rem; color:#555; margin-top:1px; }
   .part-badge { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
-
-  .participante-item.gratis {
-    background: linear-gradient(100deg, #1e1800 0%, #141000 60%, #0d0b00 100%);
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 14px rgba(255,215,0,0.22), inset 0 0 20px rgba(255,215,0,0.05);
-  }
+  .participante-item.gratis { background: linear-gradient(100deg, #1e1800 0%, #141000 60%, #0d0b00 100%); border: 2px solid var(--gold); box-shadow: 0 0 14px rgba(255,215,0,0.22), inset 0 0 20px rgba(255,215,0,0.05); }
   .participante-item.gratis .part-num { color:var(--gold); text-shadow:0 0 10px rgba(255,215,0,0.8); font-size:1.05rem; }
   .participante-item.gratis .part-info .name { color:var(--gold); text-shadow:0 0 6px rgba(255,215,0,0.3); }
   .participante-item.gratis .part-info .brawl { color:#ccaa00; }
   .participante-item.gratis .part-info .phone { color:#7a6a00; }
-
-  .participante-item.desconto {
-    background: linear-gradient(100deg, #1e1000 0%, #150b00 60%, #0d0700 100%);
-    border: 2px solid var(--orange);
-    box-shadow: 0 0 14px rgba(255,140,0,0.22), inset 0 0 20px rgba(255,140,0,0.05);
-  }
+  .participante-item.desconto { background: linear-gradient(100deg, #1e1000 0%, #150b00 60%, #0d0700 100%); border: 2px solid var(--orange); box-shadow: 0 0 14px rgba(255,140,0,0.22), inset 0 0 20px rgba(255,140,0,0.05); }
   .participante-item.desconto .part-num { color:var(--orange); text-shadow:0 0 10px rgba(255,140,0,0.8); font-size:1.05rem; }
   .participante-item.desconto .part-info .name { color:var(--orange); text-shadow:0 0 6px rgba(255,140,0,0.3); }
   .participante-item.desconto .part-info .brawl { color:#dd8800; }
   .participante-item.desconto .part-info .phone { color:#7a4a00; }
-
-  .gratis-tag {
-    display: inline-flex; align-items:center; gap:2px;
-    background: linear-gradient(135deg, #8B6914, #5a4200);
-    color: var(--gold); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px;
-    padding: 2px 7px; border-radius: 8px; vertical-align: middle;
-    text-transform: uppercase; border: 1px solid var(--gold);
-  }
-  .desconto-tag {
-    display: inline-flex; align-items:center; gap:2px;
-    background: linear-gradient(135deg, #7a4400, #4a2800);
-    color: var(--orange); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px;
-    padding: 2px 7px; border-radius: 8px; vertical-align: middle;
-    text-transform: uppercase; border: 1px solid var(--orange);
-  }
+  .gratis-tag { display: inline-flex; align-items:center; gap:2px; background: linear-gradient(135deg, #8B6914, #5a4200); color: var(--gold); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px; padding: 2px 7px; border-radius: 8px; vertical-align: middle; text-transform: uppercase; border: 1px solid var(--gold); }
+  .desconto-tag { display: inline-flex; align-items:center; gap:2px; background: linear-gradient(135deg, #7a4400, #4a2800); color: var(--orange); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.8px; padding: 2px 7px; border-radius: 8px; vertical-align: middle; text-transform: uppercase; border: 1px solid var(--orange); }
   .lista-loading { color:#444; font-size:0.85rem; text-align:center; padding:16px 0; }
-
   .ranking-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 18px; margin-bottom:20px; }
-  .diario-toggle {
-    display: flex; background: #0d0d0d; border: 1px solid #2a2a2a;
-    border-radius: 8px; padding: 3px; margin-bottom: 16px; gap: 3px;
-  }
-  .diario-toggle button {
-    flex: 1; background: none; border: none; color: #555;
-    font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:1px;
-    padding: 9px 8px; border-radius: 6px; cursor: pointer; transition: background 0.2s, color 0.2s;
-  }
+  .diario-toggle { display: flex; background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; padding: 3px; margin-bottom: 16px; gap: 3px; }
+  .diario-toggle button { flex: 1; background: none; border: none; color: #555; font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:1px; padding: 9px 8px; border-radius: 6px; cursor: pointer; transition: background 0.2s, color 0.2s; }
   .diario-toggle button.active { background: linear-gradient(135deg, #cc1111, #8a0a0a); color: #fff; box-shadow: 0 2px 10px rgba(180,0,0,0.3); }
   .ranking-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1a1a1a; animation: fadeIn 0.3s ease; }
   .ranking-item:last-child { border-bottom: none; }
   .rank-pos { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#555; min-width:24px; }
   .rank-pos.ouro { color:#FFD700; } .rank-pos.prata { color:#aaa; } .rank-pos.bronze { color:#cd7f32; }
   .rank-nome { flex:1; font-weight:700; font-size:0.92rem; color:var(--text); }
-  .rank-nome.gratis-nome { color:var(--gold); }
-  .rank-nome.desconto-nome { color:var(--orange); }
+  .rank-nome.gratis-nome { color:var(--gold); } .rank-nome.desconto-nome { color:var(--orange); }
   .rank-vitorias { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:#cc2222; min-width:36px; text-align:right; }
   .rank-gratis-tag { display:inline-block; background:linear-gradient(135deg,#8B6914,#5a4200); color:var(--gold); font-size:0.6rem; font-weight:700; padding:2px 6px; border-radius:8px; border:1px solid #aa8800; text-transform:uppercase; letter-spacing:0.6px; }
   .rank-desconto-tag { display:inline-block; background:linear-gradient(135deg,#7a4400,#4a2800); color:var(--orange); font-size:0.6rem; font-weight:700; padding:2px 6px; border-radius:8px; border:1px solid #cc6600; text-transform:uppercase; letter-spacing:0.6px; }
   .ranking-vazio { color:#444; font-size:0.85rem; text-align:center; padding:16px 0; }
-
   .admin-login-toggle { text-align:center; margin-bottom:12px; }
   .admin-login-toggle button { background:none; border:1px solid #1a1a1a; color:#2a2a2a; font-size:0.7rem; padding:4px 10px; border-radius:6px; cursor:pointer; font-family:'Barlow',sans-serif; transition:color 0.2s, border-color 0.2s; }
   .admin-login-toggle button:hover { color:#444; border-color:#333; }
@@ -346,18 +156,12 @@
   .btn-bloquear-inscricoes { background:linear-gradient(135deg,#4a2a00,#2a1500); color:#ffbb66; margin-top:8px; }
   .btn-liberar-inscricoes  { background:linear-gradient(135deg,#1a4a1a,#0d2a0d); color:#66ff99; margin-top:8px; }
   .admin-sep { border:none; border-top:1px solid #1e1e1e; margin:16px 0 8px; }
-
   .admin-inscritos-header { display:flex; gap:10px; margin-bottom:14px; }
   .admin-stat-box { flex:1; background:#141414; border:1px solid #2a2a2a; border-radius:8px; padding:10px 12px; }
   .admin-stat-box .stat-label { font-size:0.7rem; color:#555; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:2px; }
   .admin-stat-box .stat-val { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:#cc2222; }
   .admin-stat-box.gold-stat .stat-val { color:var(--gold); }
-
-  .admin-part-item-new {
-    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-    background: #131313; border: 1px solid #222; border-radius: 8px;
-    padding: 10px 12px; margin-bottom: 6px;
-  }
+  .admin-part-item-new { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: #131313; border: 1px solid #222; border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; }
   .admin-part-item-new.gratis-admin { border-color:#3a2e00; background:linear-gradient(90deg,#1a1500 0%,#131313 100%); }
   .admin-part-item-new.desconto-admin { border-color:#3a2200; background:linear-gradient(90deg,#1a0e00 0%,#131313 100%); }
   .admin-part-num { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#cc1111; min-width:26px; }
@@ -373,39 +177,28 @@
   .admin-part-detail span { color:#888; }
   .admin-part-badge { font-size:1.6rem; flex-shrink:0; }
   .admin-part-actions { display:flex; gap:5px; flex-wrap:wrap; width:100%; margin-top:6px; }
-  .btn-manual-beneficio {
-    flex:1; min-width:80px; border:none; border-radius:6px; padding:6px 8px;
-    font-size:0.65rem; font-weight:700; letter-spacing:0.4px; cursor:pointer;
-    font-family:'Barlow',sans-serif; transition:transform 0.1s, opacity 0.2s; text-transform:uppercase;
-  }
+  .btn-manual-beneficio { flex:1; min-width:80px; border:none; border-radius:6px; padding:6px 8px; font-size:0.65rem; font-weight:700; letter-spacing:0.4px; cursor:pointer; font-family:'Barlow',sans-serif; transition:transform 0.1s, opacity 0.2s; text-transform:uppercase; }
   .btn-manual-beneficio:hover { transform:translateY(-1px); }
   .btn-manual-gratis-normal { background:linear-gradient(135deg,#8B6914,#5a4200); color:#FFD700; border:1px solid #aa8800; }
   .btn-manual-gratis-mini   { background:linear-gradient(135deg,#6a5410,#3a2e00); color:#FFD700; border:1px solid #887000; }
   .btn-manual-desconto-mini { background:linear-gradient(135deg,#7a4400,#4a2800); color:#FF8C00; border:1px solid #cc6600; }
   .btn-manual-limpar { background:#1a1a1a; color:#888; border:1px solid #333; flex:0 0 auto; min-width:36px; }
-
   .admin-vitorias-section { margin-top:4px; }
   .admin-vitorias-section h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#666; letter-spacing:1px; margin-bottom:10px; }
-  .diario-toggle-admin {
-    display:flex; background:#0d0d0d; border:1px solid #2a2a2a;
-    border-radius:8px; padding:3px; margin-bottom:12px; gap:3px;
-  }
+  .diario-toggle-admin { display:flex; background:#0d0d0d; border:1px solid #2a2a2a; border-radius:8px; padding:3px; margin-bottom:12px; gap:3px; }
   .diario-toggle-admin button { flex:1; background:none; border:none; color:#555; font-family:'Bebas Neue',sans-serif; font-size:0.9rem; letter-spacing:1px; padding:8px 6px; border-radius:6px; cursor:pointer; transition:background 0.2s, color 0.2s; }
   .diario-toggle-admin button.active { background:linear-gradient(135deg,#cc1111,#8a0a0a); color:#fff; }
-
   .add-jogador-row { display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
   .add-jogador-row input { flex:1; min-width:100px; background:#141414; border:1px solid #2a2a2a; border-radius:8px; padding:10px 14px; color:var(--text); font-family:'Barlow',sans-serif; font-size:0.9rem; outline:none; transition:border-color 0.2s; }
   .add-jogador-row input:focus { border-color:var(--red); }
   .add-jogador-row input::placeholder { color:#3a3a3a; }
   .btn-add-jogador { background:linear-gradient(135deg,#cc1111,#8a0a0a); color:#fff; border:none; border-radius:8px; padding:10px 16px; font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:1px; cursor:pointer; transition:transform 0.15s; white-space:nowrap; }
   .btn-add-jogador:hover { transform:translateY(-1px); }
-
   .vit-item-admin { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid #1a1a1a; }
   .vit-item-admin:last-child { border-bottom:none; }
   .vit-info { flex:1; }
   .vit-nome-admin { color:#aaa; font-weight:600; font-size:0.88rem; }
-  .vit-nome-admin.gold { color:var(--gold); }
-  .vit-nome-admin.orange { color:var(--orange); }
+  .vit-nome-admin.gold { color:var(--gold); } .vit-nome-admin.orange { color:var(--orange); }
   .vit-tel-admin { font-size:0.72rem; color:#555; margin-top:2px; }
   .vit-controls { display:flex; align-items:center; gap:8px; }
   .vit-count-admin { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:#cc2222; min-width:30px; text-align:center; }
@@ -418,22 +211,12 @@
   .btn-remover-inscrito { flex-shrink:0; width:30px; height:30px; border:1px solid #2a2a2a; border-radius:6px; background:#1a0a0a; color:#663333; font-size:0.8rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.2s, border-color 0.2s, background 0.2s; }
   .btn-remover-inscrito:hover { color:#ff4444; border-color:#cc1111; background:#2a0a0a; }
   .vitorias-lista-admin-empty { color:#444; font-size:0.82rem; padding:8px 0; }
-
   .lucro-section { margin-top:4px; }
   .lucro-section > h4 { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#666; letter-spacing:1px; margin-bottom:10px; }
-  .lucro-toggle {
-    display:flex; background:#0d0d0d; border:1px solid #2a2a2a;
-    border-radius:8px; padding:3px; margin-bottom:14px; gap:3px; flex-wrap:wrap;
-  }
-  .lucro-toggle button {
-    flex:1; background:none; border:none; color:#555;
-    font-family:'Bebas Neue',sans-serif; font-size:0.8rem; letter-spacing:0.8px;
-    padding:8px 4px; border-radius:6px; cursor:pointer; transition:background 0.2s, color 0.2s;
-    white-space:nowrap; min-width:0;
-  }
+  .lucro-toggle { display:flex; background:#0d0d0d; border:1px solid #2a2a2a; border-radius:8px; padding:3px; margin-bottom:14px; gap:3px; flex-wrap:wrap; }
+  .lucro-toggle button { flex:1; background:none; border:none; color:#555; font-family:'Bebas Neue',sans-serif; font-size:0.8rem; letter-spacing:0.8px; padding:8px 4px; border-radius:6px; cursor:pointer; transition:background 0.2s, color 0.2s; white-space:nowrap; min-width:0; }
   .lucro-toggle button.active { background:linear-gradient(135deg,#1a5c1a,#0d3a0d); color:#66ff99; }
   .lucro-toggle button.active-total { background:linear-gradient(135deg,#1a1a5c,#0d0d3a); color:#66aaff; }
-
   .adm-card { background:#131313; border:1px solid #222; border-radius:10px; padding:14px; margin-bottom:10px; }
   .adm-card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
   .adm-card-nome { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:#ccc; letter-spacing:1px; }
@@ -450,7 +233,6 @@
   .btn-add-lucro:hover { transform:translateY(-1px); }
   .btn-rem-lucro { background:linear-gradient(135deg,#6a1a1a,#4a0d0d); color:#ff9999; border:none; border-radius:8px; padding:9px 12px; font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:1px; cursor:pointer; white-space:nowrap; transition:transform 0.1s; min-width:38px; }
   .btn-rem-lucro:hover { transform:translateY(-1px); }
-
   .lucro-total-card { background:linear-gradient(135deg,#0d1a0d,#0a1400); border:1px solid #1a4a1a; border-radius:10px; padding:16px; margin-top:4px; }
   .lucro-total-title { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:#2ecc71; letter-spacing:1px; margin-bottom:12px; }
   .lucro-total-grid { display:flex; gap:10px; }
@@ -458,14 +240,7 @@
   .lucro-total-box .tbox-label { font-size:0.7rem; color:#555; text-transform:uppercase; letter-spacing:0.7px; margin-bottom:4px; }
   .lucro-total-box .tbox-val { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#2ecc71; }
   .lucro-total-box .tbox-sub { font-size:0.72rem; color:#444; margin-top:2px; }
-
-  .toast {
-    position:fixed; bottom:24px; left:50%;
-    transform:translateX(-50%) translateY(80px);
-    background:#1a1a1a; border:1px solid #333; color:#ccc;
-    padding:12px 20px; border-radius:8px; font-size:0.88rem;
-    z-index:999; transition:transform 0.3s ease; white-space:nowrap;
-  }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:#1a1a1a; border:1px solid #333; color:#ccc; padding:12px 20px; border-radius:8px; font-size:0.88rem; z-index:999; transition:transform 0.3s ease; white-space:nowrap; }
   .toast.show { transform:translateX(-50%) translateY(0); }
   .toast.success { border-color:#2ecc71; color:#2ecc71; }
   .toast.error { border-color:#cc1111; color:#ff4444; }
@@ -475,79 +250,42 @@
 </head>
 <body>
 <div class="container">
-
   <div class="header">
     <span class="emoji-fire">🔥</span>
-    <h1>Di�rio Brawl MMA</h1>
+    <h1>Diário Brawl MMA</h1>
     <div class="pix-box">PIX: <strong>arthursant792@gmail.com</strong></div>
   </div>
-
   <div class="vagas-bar">
     <span class="label">Vagas restantes</span>
     <span class="vagas-count" id="vagasCount">9</span>
   </div>
-
   <div class="sync-status">
     <div class="sync-dot syncing" id="syncDot"></div>
     <span id="syncLabel">Conectando...</span>
   </div>
-
-  <div class="aviso-gratis-form" id="avisoGratisForm">
-    <span class="icon">🏆</span>
-    <p>Voc� tem uma entrada gr�tis dispon�vel!</p>
-    <span>Sua inscri��o neste di�rio � gratuita.</span>
-  </div>
-  <div class="aviso-desconto-form" id="avisoDescontoForm">
-    <span class="icon">🔥</span>
-    <p>Voc� tem entrada pela metade dispon�vel!</p>
-    <span>Sua inscri��o neste di�rio � R$ 2 (metade do valor).</span>
-  </div>
-
   <div class="pos-inscricao-bar" id="posInscricaoBar">
-    <div class="badge-inscrito">
-      <span class="badge-check">?</span>
-      INSCRITO
-    </div>
-    <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">? CANCELAR</button>
+    <div class="badge-inscrito"><span class="badge-check">✅</span>INSCRITO</div>
+    <button class="btn-cancelar-inscricao" id="btnCancelarInscricao">↩ CANCELAR</button>
   </div>
   <div class="inscrito-box" id="inscritoBox"></div>
-
-  <!-- Aviso dourado: entrada gr�tis -->
   <div class="aviso-gratis-pos" id="avisoGratisPos">
     <span class="icon">🏆</span>
-    <h3>Entrada Gr�tis!</h3>
-    <p>Parab�ns! Voc� ganhou entrada gr�tis pelas suas vit�rias. N�o precisa pagar nada desta vez!</p>
+    <h3>Entrada Grátis!</h3>
+    <p>Parabéns! Você ganhou entrada grátis pelas suas vitórias. Não precisa pagar nada desta vez!</p>
   </div>
-  <!-- Aviso laranja: meia entrada / desconto -->
   <div class="aviso-desconto-pos" id="avisoDescontoPos">
     <span class="icon">🔥</span>
     <h3>Entrada pela Metade!</h3>
-    <p>Voc� ganhou meia entrada (R$ 2) pelas suas vit�rias no Di�rio Mini!</p>
+    <p>Você ganhou meia entrada (R$ 2) pelas suas vitórias no Diário Mini!</p>
   </div>
-
   <div class="aviso-pix-pos" id="aviso-pix-pos">
     <div class="pix-title">📣 Envie o PIX!</div>
-    <div class="pix-sub">Pague apenas para o ADM que est� fazendo a sala agora</div>
-    <div class="pix-alerta">
-      ⚠️ <strong>ATEN��O:</strong> Confira quem � o ADM respons�vel pela sala antes de pagar. <strong>N�o envie para o ADM errado!</strong>
-    </div>
-    <div class="pix-entry pix-arthur">
-      <div class="pix-person">🟡 Arthur Alc�ntara</div>
-      <div class="pix-label">Chave PIX (e-mail)</div>
-      <div class="pix-key">arthursant792@gmail.com</div>
-    </div>
-    <div class="pix-entry pix-joao">
-      <div class="pix-person">🟢 Jo�o</div>
-      <div class="pix-label">Chave PIX (e-mail)</div>
-      <div class="pix-key">camilasouza123@hotmail.com</div>
-    </div>
-    <div class="pix-entry pix-arturo">
-      <div class="pix-person">🟣 Arturo</div>
-      <div class="pix-label">Chave PIX (CPF)</div>
-      <div class="pix-key">70736905260</div>
-    </div>
+    <div class="pix-sub">Pague apenas para o ADM que está fazendo a sala agora</div>
+    <div class="pix-alerta">⚠️ <strong>ATENÇÃO:</strong> Confira quem é o ADM responsável pela sala antes de pagar. <strong>Não envie para o ADM errado!</strong></div>
+    <div class="pix-entry pix-arthur"><div class="pix-person">🟡 Arthur Alcântara</div><div class="pix-label">Chave PIX (e-mail)</div><div class="pix-key">arthursant792@gmail.com</div></div>
+    <div class="pix-entry pix-joao"><div class="pix-person">🟢 João</div><div class="pix-label">Chave PIX (e-mail)</div><div class="pix-key">camilasouza123@hotmail.com</div></div>
+    <div class="pix-entry pix-arturo"><div class="pix-person">🟣 Arturo</div><div class="pix-label">Chave PIX (CPF)</div><div class="pix-key">70736905260</div></div>
   </div>
-
   <div class="sala-section" id="salaSection">
     <h3>🤝 Sala Amistosa</h3>
     <div id="salaBloqueadaDiv">
@@ -559,69 +297,58 @@
     </div>
     <div id="salaLiberadaDiv" style="display:none;">
       <div class="sala-liberada-box">
-        <span class="unlock-icon">🔒</span>
+        <span class="unlock-icon">🔓</span>
         <p class="titulo-lib">SALA ABERTA</p>
         <p>ADM liberou a sala</p>
         <a href="#" class="btn-sala" id="btnEntrarSala" target="_blank">🤝 Entrar na Sala</a>
       </div>
     </div>
   </div>
-
   <div class="aviso-bloqueado" id="avisoBloqueado" style="display:none;">
     <span class="aviso-icon">🚫</span>
-    <h3>Inscri��es Bloqueadas</h3>
-    <p>O admin bloqueou as inscri��es no momento.</p>
+    <h3>Inscrições Bloqueadas</h3>
+    <p>O admin bloqueou as inscrições no momento.</p>
   </div>
-
   <div class="card" id="formCard">
     <div class="card-title">Preencha para garantir sua vaga</div>
-    <div class="field"><label>Seu Nome Real</label><input type="text" id="inputNome" placeholder="Ex: Jo�o Silva"></div>
+    <div class="field"><label>Seu Nome Real</label><input type="text" id="inputNome" placeholder="Ex: João Silva"></div>
     <div class="field"><label>🎮 Nick no Brawl Stars</label><input type="text" id="inputBrawl" placeholder="Ex: ProPlayer#1234"></div>
-    <div class="field"><label>📱 N�mero de Telefone</label><input type="tel" id="inputTelefone" placeholder="Ex: (11) 99999-9999"></div>
-    <button class="btn-submit" id="btnInscrever">Entrar no Di�rio</button>
+    <div class="field"><label>📱 Número de Telefone</label><input type="tel" id="inputTelefone" placeholder="Ex: (11) 99999-9999"></div>
+    <button class="btn-submit" id="btnInscrever">Entrar no Diário</button>
   </div>
-
   <div class="card">
     <div class="card-title">Participantes (<span id="partCount">0</span>/9)</div>
     <hr class="divider">
     <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
   </div>
-
   <div class="ranking-card">
-    <div class="card-title">🏆 Ranking de Vit�rias</div>
+    <div class="card-title">🏆 Ranking de Vitórias</div>
     <div class="diario-toggle">
-      <button id="btnTogNormal" class="active" onclick="setDiarioAtivo('normal')">🎯 Di�rio Normal</button>
-      <button id="btnTogMini" onclick="setDiarioAtivo('mini')">? Di�rio Mini</button>
+      <button id="btnTogNormal" class="active" onclick="setDiarioAtivo('normal')">🎯 Diário Normal</button>
+      <button id="btnTogMini" onclick="setDiarioAtivo('mini')">⚡ Diário Mini</button>
     </div>
     <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
   </div>
-
   <div class="admin-login-toggle"><button id="btnToggleLogin">⚙️</button></div>
-
   <div class="admin-login-box" id="adminLoginBox">
-    <div class="field"><label>Senha do Admin</label><input type="password" id="inputSenha" placeholder="������"></div>
+    <div class="field"><label>Senha do Admin</label><input type="password" id="inputSenha" placeholder="••••••"></div>
     <button class="btn-entrar-admin" id="btnEntrarAdmin">Entrar</button>
   </div>
-
   <div class="admin-panel" id="adminPanel">
     <div class="admin-panel-header">
       <h3>⚙️ Painel Admin</h3>
       <button class="btn-sair-admin" id="btnSairAdmin">Sair</button>
     </div>
-
     <span class="status-badge status-bloqueada" id="statusBadge">🔒 Sala Bloqueada</span>
-
     <div class="field"><label>Link da Sala Privada</label><input type="text" id="adminLinkSala" placeholder="brawlstars://..."></div>
     <button class="btn-admin btn-liberar" id="btnLiberar">🔓 Liberar Sala para Participantes</button>
     <button class="btn-admin btn-bloquear" id="btnBloquear">🔒 Bloquear Sala</button>
-
     <hr class="admin-sep">
-
     <div class="admin-vitorias-section">
-      <h4>⚔️ Gerenciar Vit�rias</h4>
+      <h4>⚔️ Gerenciar Vitórias</h4>
       <div class="diario-toggle-admin">
-        <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Di�rio Normal</button>
-        <button id="btnAdmMini" onclick="setAdminDiario('mini')">? Di�rio Mini</button>
+        <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Diário Normal</button>
+        <button id="btnAdmMini" onclick="setAdminDiario('mini')">⚡ Diário Mini</button>
       </div>
       <div class="add-jogador-row">
         <input type="text" id="inputNovoJogador" placeholder="Nick no Brawl Stars...">
@@ -630,26 +357,21 @@
       </div>
       <div id="adminVitLista"></div>
     </div>
-
     <hr class="admin-sep">
-
     <div class="admin-part-list">
-      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#666;letter-spacing:1px;margin-bottom:10px">📋 Inscritos</h4>
-      <p style="font-size:0.72rem;color:#555;margin-bottom:10px;">Use os bot�es coloridos para for�ar manualmente um benef�cio, caso o sistema autom�tico n�o detecte (ex: nomes diferentes).</p>
+      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#666;letter-spacing:1px;margin-bottom:10px;">📋 Inscritos</h4>
+      <p style="font-size:0.72rem;color:#555;margin-bottom:10px;">Use os botões coloridos para forçar manualmente um benefício caso necessário.</p>
       <div class="admin-inscritos-header">
         <div class="admin-stat-box"><div class="stat-label">Total Inscritos</div><div class="stat-val" id="adminTotalInscritos">0</div></div>
-        <div class="admin-stat-box gold-stat"><div class="stat-label">Vagas Dispon�veis</div><div class="stat-val" id="adminVagasDisp">9</div></div>
+        <div class="admin-stat-box gold-stat"><div class="stat-label">Vagas Disponíveis</div><div class="stat-val" id="adminVagasDisp">9</div></div>
       </div>
       <div id="adminListaParticipantes"></div>
     </div>
-
     <hr class="admin-sep">
-    <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscri��es</button>
-    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">? Liberar Inscri��es</button>
+    <button class="btn-admin btn-bloquear-inscricoes" id="btnBloquearInscricoes">🚫 Bloquear Inscrições</button>
+    <button class="btn-admin btn-liberar-inscricoes" id="btnLiberarInscricoes" style="display:none;">✅ Liberar Inscrições</button>
     <button class="btn-admin btn-reset" id="btnReset">🗑️ Resetar Todos os Inscritos</button>
-
     <hr class="admin-sep">
-
     <div class="lucro-section">
       <h4>💰 Controle de Lucro</h4>
       <div class="lucro-toggle">
@@ -662,18 +384,16 @@
       <div id="lucroConteudo"></div>
     </div>
   </div>
-
 </div>
 <div class="toast" id="toast"></div>
-
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 (function () {
-  var TOTAL_VAGAS       = 9;
-  var VITORIAS_GRATIS   = 10;   // Mini: a cada 10v = gr�tis
-  var VITORIAS_DESCONTO = 5;    // Mini: a cada 5v (n�o m�ltiplo de 10) = desconto
-  var VITORIAS_GRATIS_NORMAL = 5; // Normal: a cada 5v = gr�tis
+  var TOTAL_VAGAS            = 9;
+  var VITORIAS_GRATIS        = 10;  // Mini: 10v = grátis
+  var VITORIAS_DESCONTO      = 5;   // Mini: 5v (não múltiplo de 10) = desconto
+  var VITORIAS_GRATIS_NORMAL = 5;   // Normal: 5v = grátis
 
   var usuarioInscrito  = false;
   var isAdmin          = false;
@@ -692,7 +412,7 @@
 
   var TIPOS_LUCRO  = ['normal', 'mini', 'especial', '1v1'];
   var ADMS         = ['Arthur', 'Joao', 'Arturo'];
-  var ADMS_DISPLAY = { 'Arthur': 'Arthur', 'Joao': 'Jo�o', 'Arturo': 'Arturo' };
+  var ADMS_DISPLAY = { 'Arthur': 'Arthur', 'Joao': 'João', 'Arturo': 'Arturo' };
 
   firebase.initializeApp({
     apiKey: "AIzaSyBNf-tB5gGIqnFRebN-YTV6jhzLy1leEXM",
@@ -729,21 +449,9 @@
   function apenasDigitos(s) { return String(s || '').replace(/\D/g, ''); }
 
   /* ===== ESTRUTURA DO RANKING =====
-     vitorias-normal / vitorias-mini agora salvam, por NICK do Brawl Stars:
-     {
-       vitorias: N,
-       telefone: "11999999999",
-       ultimoBeneficioUsado: N   // �ltimo m�ltiplo de vit�rias em que o benef�cio j� foi consumido (0 = nenhum)
-     }
+     Salvo por NICK do Brawl Stars:
+     { vitorias: N, telefone: "11999999999", ultimoBeneficioUsado: N }
   */
-  function getVitObj(obj, nick) {
-    var keys = Object.keys(obj);
-    for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() === nick.toLowerCase()) return { chave: keys[i], dados: obj[keys[i]] };
-    }
-    return null;
-  }
-
   function normalizarEntry(entry) {
     if (!entry) return { vitorias: 0, telefone: '', ultimoBeneficioUsado: 0 };
     if (typeof entry !== 'object') return { vitorias: Number(entry) || 0, telefone: '', ultimoBeneficioUsado: 0 };
@@ -754,17 +462,16 @@
     };
   }
 
-  function getRegistro(nick, tipo) {
-    var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var found = getVitObj(obj, nick);
-    if (!found) return null;
-    return { chave: found.chave, dados: normalizarEntry(found.dados) };
+  function encontrarChave(obj, nome) {
+    var keys = Object.keys(obj);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === nome.toLowerCase()) return keys[i];
+    }
+    return null;
   }
 
-  /* Determina, para um m�ltiplo de vit�rias, se � "gr�tis" ou "desconto" (apenas mini tem desconto) */
   function tipoBeneficioNormal(v) {
-    if (v > 0 && v % VITORIAS_GRATIS_NORMAL === 0) return 'gratis';
-    return null;
+    return (v > 0 && v % VITORIAS_GRATIS_NORMAL === 0) ? 'gratis' : null;
   }
   function tipoBeneficioMini(v) {
     if (v <= 0) return null;
@@ -773,68 +480,55 @@
     return null;
   }
 
-  /* Verifica se o benef�cio do m�ltiplo ATUAL ainda n�o foi usado - busca por TELEFONE */
-  function beneficioDisponivel(nick, tel, tipo) {
+  /* Detecta benefício APENAS pelo telefone — ignora nick */
+  function beneficioDisponivel(tel, tipo) {
     var telLimpo = apenasDigitos(tel);
     if (!telLimpo) return null;
     var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
     var keys = Object.keys(obj);
     for (var i = 0; i < keys.length; i++) {
       var d = normalizarEntry(obj[keys[i]]);
-      var telReg = apenasDigitos(d.telefone);
-      if (!telReg || telReg !== telLimpo) continue;
-      var beneficio = tipo === 'mini' ? tipoBeneficioMini(d.vitorias) : tipoBeneficioNormal(d.vitorias);
-      if (!beneficio) continue;
-      if (d.ultimoBeneficioUsado >= d.vitorias) continue;
-      return { beneficio: beneficio, chave: keys[i], dados: d };
+      if (d.telefone && apenasDigitos(d.telefone) === telLimpo) {
+        var beneficio = tipo === 'mini' ? tipoBeneficioMini(d.vitorias) : tipoBeneficioNormal(d.vitorias);
+        if (!beneficio) return null;
+        if (d.ultimoBeneficioUsado >= d.vitorias) return null;
+        return { tipo: beneficio, chave: keys[i], dados: d };
+      }
     }
     return null;
   }
 
-  function temGratis(nick, tel) {
-    var r;
-    r = beneficioDisponivel(nick, tel, 'normal');
-    if (r && r.beneficio === 'gratis') return true;
-    r = beneficioDisponivel(nick, tel, 'mini');
-    if (r && r.beneficio === 'gratis') return true;
-    return false;
+  function temGratis(tel) {
+    var n = beneficioDisponivel(tel, 'normal');
+    if (n && n.tipo === 'gratis') return true;
+    var m = beneficioDisponivel(tel, 'mini');
+    return m && m.tipo === 'gratis';
   }
-  function temDesconto(nick, tel) {
-    if (temGratis(nick, tel)) return false;
-    var r = beneficioDisponivel(nick, tel, 'mini');
-    if (r && r.beneficio === 'desconto') return true;
-    return false;
+  function temDesconto(tel) {
+    if (temGratis(tel)) return false;
+    var m = beneficioDisponivel(tel, 'mini');
+    return m && m.tipo === 'desconto';
   }
 
-  /* Marca o m�ltiplo atual como "usado" no Firebase */
-  function consumirBeneficio(nick, tel, tipo) {
-    var result = beneficioDisponivel(nick, tel, tipo);
-    if (!result) return;
+  function consumirBeneficio(tel, tipo) {
+    var b = beneficioDisponivel(tel, tipo);
+    if (!b) return;
     var ref = tipo === 'mini' ? refVitMini : refVitNormal;
     var upd = {};
-    upd[result.chave] = {
-      vitorias: result.dados.vitorias,
-      telefone: result.dados.telefone,
-      ultimoBeneficioUsado: result.dados.vitorias
-    };
+    upd[b.chave] = { vitorias: b.dados.vitorias, telefone: b.dados.telefone, ultimoBeneficioUsado: b.dados.vitorias };
     ref.update(upd);
   }
-
-  /* Ao se inscrever, consome o benef�cio do(s) ranking(s) que estiver dispon�vel */
-  function consumirBeneficiosAoInscrever(nick, tel) {
-    if (beneficioDisponivel(nick, tel, 'normal')) consumirBeneficio(nick, tel, 'normal');
-    if (beneficioDisponivel(nick, tel, 'mini')) consumirBeneficio(nick, tel, 'mini');
+  function consumirBeneficiosAoInscrever(tel) {
+    consumirBeneficio(tel, 'normal');
+    consumirBeneficio(tel, 'mini');
   }
 
-  /* ===== BENEF�CIO MANUAL (for�ado pelo admin, ignora o ranking) =====
-     Guardado dentro do pr�prio registro do participante em /participantes/{key}/beneficioManual = 'gratis' | 'desconto' | null
-  */
+  /* Benefício efetivo de um participante: manual > automático (por telefone) */
   function beneficioEfetivo(p) {
-    /* Prioridade: manual > autom�tico */
-    if (p.beneficioManual === 'gratis') return 'gratis';
+    if (p.beneficioManual === 'gratis')   return 'gratis';
     if (p.beneficioManual === 'desconto') return 'desconto';
-    if (temGratis(p.brawl, p.telefone)) return 'gratis';
-    if (temDesconto(p.brawl, p.telefone)) return 'desconto';
+    if (temGratis(p.telefone))   return 'gratis';
+    if (temDesconto(p.telefone)) return 'desconto';
     return null;
   }
 
@@ -845,14 +539,13 @@
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
       var ben = beneficioEfetivo(p);
-      var g = ben === 'gratis';
-      var d = ben === 'desconto';
+      var g = ben === 'gratis', d = ben === 'desconto';
       var cls = g ? ' gratis' : (d ? ' desconto' : '');
-      html += '<div class="participante-item' + cls + '">';
+      html += '<div class="participante-item'+cls+'">';
       html += '<div class="part-num">#'+(i+1)+'</div>';
       html += '<div class="part-info">';
       html += '<div class="name">'+esc(p.nome);
-      if (g) html += ' <span class="gratis-tag">🏆 Gr�tis</span>';
+      if (g) html += ' <span class="gratis-tag">🏆 Grátis</span>';
       else if (d) html += ' <span class="desconto-tag">🔥 R$2</span>';
       html += '</div>';
       html += '<div class="brawl">🎮 '+esc(p.brawl)+'</div>';
@@ -877,18 +570,11 @@
     document.getElementById('btnTogMini').className   = tipo === 'mini'   ? 'active' : '';
     renderRanking();
   };
-
   function renderRanking() {
     var obj = diarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var lista = document.getElementById('rankingLista');
-    if (!obj || !Object.keys(obj).length) {
-      lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>';
-      return;
-    }
-    var arr = Object.keys(obj).map(function(k) {
-      var d = normalizarEntry(obj[k]);
-      return { nome: k, v: d.vitorias, usado: d.ultimoBeneficioUsado };
-    });
+    if (!obj || !Object.keys(obj).length) { lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>'; return; }
+    var arr = Object.keys(obj).map(function(k) { var d = normalizarEntry(obj[k]); return { nome: k, v: d.vitorias, usado: d.ultimoBeneficioUsado }; });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
@@ -899,11 +585,11 @@
       var isGratis = disponivel && beneficio === 'gratis';
       var isDesc   = disponivel && beneficio === 'desconto';
       var estrelas = '';
-      for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '?';
+      for (var s = 0; s < Math.min(item.v, 10); s++) estrelas += '⭐';
       html += '<div class="ranking-item">';
-      html += '<div class="rank-pos '+posClass+'">'+(i+1)+'�</div>';
+      html += '<div class="rank-pos '+posClass+'">'+(i+1)+'°</div>';
       html += '<div class="rank-nome'+(isGratis?' gratis-nome':(isDesc?' desconto-nome':''))+'">'+esc(item.nome);
-      if (isGratis) html += ' <span class="rank-gratis-tag">🏆 Gr�tis</span>';
+      if (isGratis) html += ' <span class="rank-gratis-tag">🏆 Grátis</span>';
       if (isDesc)   html += ' <span class="rank-desconto-tag">🔥 R$2</span>';
       html += '</div>';
       html += '<div class="rank-vitorias">'+estrelas+' '+item.v+'v</div>';
@@ -920,39 +606,30 @@
     if (elTotal) elTotal.textContent = arr ? arr.length : 0;
     if (elVagas) elVagas.textContent = arr ? Math.max(0, TOTAL_VAGAS - arr.length) : TOTAL_VAGAS;
     if (!el) return;
-    if (!arr || !arr.length) {
-      el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>';
-      return;
-    }
+    if (!arr || !arr.length) { el.innerHTML = '<div style="color:#444;font-size:0.82rem;padding:8px 0;">Nenhum inscrito ainda.</div>'; return; }
     var particObj = ultimosPartic || {};
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var p = arr[i];
       var ben = beneficioEfetivo(p);
-      var g = ben === 'gratis';
-      var d = ben === 'desconto';
+      var g = ben === 'gratis', d = ben === 'desconto';
       var cls = g ? ' gratis-admin' : (d ? ' desconto-admin' : '');
       var fbKey = '';
-      Object.keys(particObj).forEach(function(k) {
-        if (particObj[k].nome === p.nome && particObj[k].brawl === p.brawl) fbKey = k;
-      });
+      Object.keys(particObj).forEach(function(k) { if (particObj[k].nome === p.nome && particObj[k].brawl === p.brawl) fbKey = k; });
       html += '<div class="admin-part-item-new'+cls+'">';
       html += '<div class="admin-part-num">'+(i+1<10?'0':'')+(i+1)+'</div>';
       html += '<div class="admin-part-body">';
       html += '<div class="admin-part-row1"><span class="admin-part-nome">'+esc(p.nome)+'</span>';
-      if (g) html += '<span class="gratis-tag">🏆 Gr�tis</span>';
+      if (g) html += '<span class="gratis-tag">🏆 Grátis</span>';
       else if (d) html += '<span class="desconto-tag">🔥 R$2</span>';
       html += '</div>';
-      html += '<div class="admin-part-row2">';
-      html += '<span class="admin-part-detail">🎮 <span>'+esc(p.brawl)+'</span></span>';
-      html += '<span class="admin-part-detail">📱 <span>'+(p.telefone||'�')+'</span></span>';
-      html += '</div>';
+      html += '<div class="admin-part-row2"><span class="admin-part-detail">🎮 <span>'+esc(p.brawl)+'</span></span><span class="admin-part-detail">📱 <span>'+(p.telefone||'—')+'</span></span></div>';
       if (fbKey) {
         html += '<div class="admin-part-actions">';
-        html += '<button class="btn-manual-beneficio btn-manual-gratis-normal" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Gr�tis Normal</button>';
-        html += '<button class="btn-manual-beneficio btn-manual-gratis-mini" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Gr�tis Mini</button>';
+        html += '<button class="btn-manual-beneficio btn-manual-gratis-normal" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Grátis Normal</button>';
+        html += '<button class="btn-manual-beneficio btn-manual-gratis-mini" onclick="adminForcarBeneficio(\''+fbKey+'\',\'gratis\')">🏆 Grátis Mini</button>';
         html += '<button class="btn-manual-beneficio btn-manual-desconto-mini" onclick="adminForcarBeneficio(\''+fbKey+'\',\'desconto\')">🔥 R$2 Mini</button>';
-        if (p.beneficioManual) html += '<button class="btn-manual-beneficio btn-manual-limpar" onclick="adminForcarBeneficio(\''+fbKey+'\',null)" title="Remover benef�cio manual">?</button>';
+        if (p.beneficioManual) html += '<button class="btn-manual-beneficio btn-manual-limpar" onclick="adminForcarBeneficio(\''+fbKey+'\',null)">✕</button>';
         html += '</div>';
       }
       html += '</div>';
@@ -960,51 +637,41 @@
       else if (d) html += '<div class="admin-part-badge">🟠</div>';
       if (fbKey) {
         var safeName = p.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-        html += '<button class="btn-remover-inscrito" onclick="adminRemoverInscrito(\''+fbKey+'\',\''+safeName+'\')" title="Remover">=�</button>';
+        html += '<button class="btn-remover-inscrito" onclick="adminRemoverInscrito(\''+fbKey+'\',\''+safeName+'\')" title="Remover">🗑️</button>';
       }
       html += '</div>';
     }
     el.innerHTML = html;
   }
 
-  /* Admin for�a manualmente o benef�cio de um inscrito (independente do ranking) */
   window.adminForcarBeneficio = function(fbKey, tipo) {
     refPartic.child(fbKey).child('beneficioManual').set(tipo, function(err) {
-      if (err) { toast('Erro ao aplicar benef�cio!', 'error'); return; }
-      if (tipo === 'gratis') toast('🏆 Entrada gr�tis aplicada manualmente!', 'gold');
-      else if (tipo === 'desconto') toast('🔥 Desconto R$2 aplicado manualmente!', 'orange');
-      else toast('Benef�cio manual removido.');
+      if (err) { toast('Erro!', 'error'); return; }
+      if (tipo === 'gratis') toast('🏆 Entrada grátis aplicada!', 'gold');
+      else if (tipo === 'desconto') toast('🔥 R$2 aplicado!', 'orange');
+      else toast('Benefício removido.');
     });
   };
-
   window.adminRemoverInscrito = function(fbKey, nome) {
     if (!confirm('Remover ' + nome + ' dos inscritos?')) return;
     refPartic.child(fbKey).remove(function(err) {
-      if (err) toast('Erro ao remover!', 'error');
-      else toast('=� ' + nome + ' removido.');
+      if (err) toast('Erro!', 'error'); else toast('🗑️ ' + nome + ' removido.');
     });
   };
 
-  /* ===== ADMIN VIT�RIAS ===== */
+  /* ===== ADMIN VITÓRIAS ===== */
   window.setAdminDiario = function(tipo) {
     adminDiarioAtivo = tipo;
     document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
     document.getElementById('btnAdmMini').className   = tipo === 'mini'   ? 'active' : '';
     renderAdminVit();
   };
-
   function renderAdminVit() {
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var el = document.getElementById('adminVitLista');
     if (!el) return;
-    if (!obj || !Object.keys(obj).length) {
-      el.innerHTML = '<div class="vitorias-lista-admin-empty">Nenhum jogador ainda. Adicione acima.</div>';
-      return;
-    }
-    var arr = Object.keys(obj).map(function(k) {
-      var d = normalizarEntry(obj[k]);
-      return { nome: k, v: d.vitorias, tel: d.telefone, usado: d.ultimoBeneficioUsado };
-    });
+    if (!obj || !Object.keys(obj).length) { el.innerHTML = '<div class="vitorias-lista-admin-empty">Nenhum jogador ainda. Adicione acima.</div>'; return; }
+    var arr = Object.keys(obj).map(function(k) { var d = normalizarEntry(obj[k]); return { nome: k, v: d.vitorias, tel: d.telefone, usado: d.ultimoBeneficioUsado }; });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
@@ -1016,28 +683,19 @@
       var nomeCls = g ? 'gold' : (d ? 'orange' : '');
       var nomeEsc = esc(item.nome).replace(/'/g,"&#39;");
       html += '<div class="vit-item-admin">';
-      html += '<div class="vit-info">';
-      html += '<div class="vit-nome-admin '+nomeCls+'">'+esc(item.nome);
+      html += '<div class="vit-info"><div class="vit-nome-admin '+nomeCls+'">'+esc(item.nome);
       if (g) html += ' 🏆'; if (d) html += ' 🔥';
       html += '</div>';
       if (item.tel) html += '<div class="vit-tel-admin">📱 '+esc(item.tel)+'</div>';
       html += '</div>';
       html += '<div class="vit-controls">';
-      html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+nomeEsc+'\')">-</button>';
+      html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+nomeEsc+'\')">−</button>';
       html += '<span class="vit-count-admin">'+item.v+'</span>';
       html += '<button class="btn-vit btn-vit-add" onclick="adminAddVit(\''+nomeEsc+'\')">+</button>';
-      html += '<button class="btn-vit-del" title="Remover" onclick="adminDelJogador(\''+nomeEsc+'\')">🗑</button>';
+      html += '<button class="btn-vit-del" onclick="adminDelJogador(\''+nomeEsc+'\')">🗑</button>';
       html += '</div></div>';
     }
     el.innerHTML = html;
-  }
-
-  function encontrarChave(obj, nome) {
-    var keys = Object.keys(obj);
-    for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() === nome.toLowerCase()) return keys[i];
-    }
-    return null;
   }
 
   window.adminAddVit = function(nome) {
@@ -1051,232 +709,151 @@
       if (err) { toast('Erro!', 'error'); return; }
       if (adminDiarioAtivo === 'mini') {
         var st = tipoBeneficioMini(novo);
-        if (st === 'gratis') toast('🏆 '+chave+' � ENTRADA GR�TIS! ('+novo+'v)', 'gold');
-        else if (st === 'desconto') toast('🔥 '+chave+' � MEIA ENTRADA R$2! ('+novo+'v)', 'orange');
-        else toast('+1 vit�ria para '+chave+' ('+novo+'v)', 'success');
+        if (st === 'gratis') toast('🏆 '+chave+' — ENTRADA GRÁTIS! ('+novo+'v)', 'gold');
+        else if (st === 'desconto') toast('🔥 '+chave+' — MEIA ENTRADA R$2! ('+novo+'v)', 'orange');
+        else toast('+1 vitória para '+chave+' ('+novo+'v)', 'success');
       } else {
-        if (tipoBeneficioNormal(novo)) toast('🏆 '+chave+' � ENTRADA GR�TIS! ('+novo+'v)', 'gold');
-        else toast('+1 vit�ria para '+chave+' ('+novo+'v)', 'success');
+        if (tipoBeneficioNormal(novo)) toast('🏆 '+chave+' — ENTRADA GRÁTIS! ('+novo+'v)', 'gold');
+        else toast('+1 vitória para '+chave+' ('+novo+'v)', 'success');
       }
     });
   };
-
   window.adminRemVit = function(nome) {
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var chave = encontrarChave(obj, nome);
-    if (!chave) { toast('Jogador n�o encontrado!', 'error'); return; }
+    if (!chave) { toast('Jogador não encontrado!', 'error'); return; }
     var d = normalizarEntry(obj[chave]);
     var novo = Math.max(0, d.vitorias - 1);
-    var usadoAjustado = Math.min(d.ultimoBeneficioUsado, novo);
-    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: usadoAjustado };
-    ref.update(upd, function(err) {
-      if (err) { toast('Erro!', 'error'); return; }
-      toast('-1 vit�ria de '+chave+' ('+novo+'v)');
-    });
+    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: Math.min(d.ultimoBeneficioUsado, novo) };
+    ref.update(upd, function(err) { if (err) toast('Erro!','error'); else toast('-1 vitória de '+chave+' ('+novo+'v)'); });
   };
-
   window.adminDelJogador = function(nome) {
     if (!confirm('Remover '+nome+' do ranking?')) return;
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var chave = encontrarChave(obj, nome);
     if (!chave) return;
-    ref.child(chave).remove(function(err) {
-      if (err) toast('Erro!', 'error'); else toast('Jogador removido.');
-    });
+    ref.child(chave).remove(function(err) { if (err) toast('Erro!','error'); else toast('Jogador removido.'); });
   };
 
   /* ===== LUCRO ===== */
   var lucroData = {};
-  refLucro.on('value', function(snap) {
-    lucroData = snap.val() || {};
-    if (isAdmin) renderLucro();
-  });
-
+  refLucro.on('value', function(snap) { lucroData = snap.val() || {}; if (isAdmin) renderLucro(); });
   window.setLucroTab = function(tab) {
     lucroTab = tab;
     var tabs = { 'normal':'btnLucroNormal','mini':'btnLucroMini','especial':'btnLucroEspecial','1v1':'btnLucro1v1','total':'btnLucroTotal' };
     Object.keys(tabs).forEach(function(t) {
-      var btn = document.getElementById(tabs[t]);
-      if (!btn) return;
-      if (t === tab) btn.className = (t === 'total') ? 'active-total' : 'active';
-      else btn.className = '';
+      var btn = document.getElementById(tabs[t]); if (!btn) return;
+      btn.className = (t === tab) ? ((t === 'total') ? 'active-total' : 'active') : '';
     });
     renderLucro();
   };
-
   function getLucroAdm(admKey, tipo) {
     if (!lucroData[admKey] || !lucroData[admKey][tipo]) return { valor: 0, diarios: 0 };
     var t = lucroData[admKey][tipo];
     return { valor: Number(t.valor) || 0, diarios: Number(t.diarios) || 0 };
   }
-  function getTipoLabel(tipo) {
-    var map = { 'normal':'Normal', 'mini':'Mini', 'especial':'Especial', '1v1':'1v1' };
-    return map[tipo] || tipo;
-  }
-
+  function getTipoLabel(tipo) { return { 'normal':'Normal','mini':'Mini','especial':'Especial','1v1':'1v1' }[tipo] || tipo; }
   function renderLucro() {
-    var el = document.getElementById('lucroConteudo');
-    if (!el) return;
+    var el = document.getElementById('lucroConteudo'); if (!el) return;
     if (lucroTab === 'total') {
       var html = '<div class="lucro-total-card"><div class="lucro-total-title">📊 Resumo Geral</div>';
       var totalGeralValor = 0, totalGeralDiarios = 0;
       for (var a = 0; a < ADMS.length; a++) {
-        var admKey = ADMS[a];
-        var admDisplay = ADMS_DISPLAY[admKey];
-        var vTotalAdm = 0, dTotalAdm = 0;
-        for (var t = 0; t < TIPOS_LUCRO.length; t++) {
-          var info = getLucroAdm(admKey, TIPOS_LUCRO[t]);
-          vTotalAdm += info.valor; dTotalAdm += info.diarios;
-        }
+        var admKey = ADMS[a], admDisplay = ADMS_DISPLAY[admKey], vTotalAdm = 0, dTotalAdm = 0;
+        for (var t = 0; t < TIPOS_LUCRO.length; t++) { var info = getLucroAdm(admKey, TIPOS_LUCRO[t]); vTotalAdm += info.valor; dTotalAdm += info.diarios; }
         totalGeralValor += vTotalAdm; totalGeralDiarios += dTotalAdm;
-        html += '<div class="adm-card" style="margin-bottom:8px;">';
-        html += '<div class="adm-card-header"><span class="adm-card-nome">'+esc(admDisplay)+'</span>';
-        html += '<span class="adm-card-diarios">Total: <strong>'+dTotalAdm+' di�rios</strong></span></div>';
+        html += '<div class="adm-card" style="margin-bottom:8px;"><div class="adm-card-header"><span class="adm-card-nome">'+esc(admDisplay)+'</span><span class="adm-card-diarios">Total: <strong>'+dTotalAdm+' diários</strong></span></div>';
         html += '<div class="lucro-total-grid" style="flex-wrap:wrap;gap:6px;">';
-        for (var t2 = 0; t2 < TIPOS_LUCRO.length; t2++) {
-          var inf = getLucroAdm(admKey, TIPOS_LUCRO[t2]);
-          html += '<div class="lucro-total-box" style="min-width:70px;"><div class="tbox-label">'+getTipoLabel(TIPOS_LUCRO[t2])+'</div>';
-          html += '<div class="tbox-val" style="font-size:1rem;">R$'+inf.valor.toFixed(2)+'</div>';
-          html += '<div class="tbox-sub">'+inf.diarios+'d</div></div>';
-        }
-        html += '<div class="lucro-total-box" style="min-width:70px;"><div class="tbox-label">Total</div>';
-        html += '<div class="tbox-val" style="font-size:1rem;color:#FFD700;">R$'+vTotalAdm.toFixed(2)+'</div>';
-        html += '<div class="tbox-sub">'+dTotalAdm+'d</div></div>';
-        html += '</div></div>';
+        for (var t2 = 0; t2 < TIPOS_LUCRO.length; t2++) { var inf = getLucroAdm(admKey, TIPOS_LUCRO[t2]); html += '<div class="lucro-total-box" style="min-width:70px;"><div class="tbox-label">'+getTipoLabel(TIPOS_LUCRO[t2])+'</div><div class="tbox-val" style="font-size:1rem;">R$'+inf.valor.toFixed(2)+'</div><div class="tbox-sub">'+inf.diarios+'d</div></div>'; }
+        html += '<div class="lucro-total-box" style="min-width:70px;"><div class="tbox-label">Total</div><div class="tbox-val" style="font-size:1rem;color:#FFD700;">R$'+vTotalAdm.toFixed(2)+'</div><div class="tbox-sub">'+dTotalAdm+'d</div></div></div></div>';
       }
-      html += '<div class="lucro-total-grid" style="margin-top:10px;">';
-      html += '<div class="lucro-total-box"><div class="tbox-label">💰 Lucro Total</div><div class="tbox-val">R$'+totalGeralValor.toFixed(2)+'</div></div>';
-      html += '<div class="lucro-total-box"><div class="tbox-label">📅 Total Di�rios</div><div class="tbox-val">'+totalGeralDiarios+'</div></div>';
-      html += '</div></div>';
-      el.innerHTML = html;
-      return;
+      html += '<div class="lucro-total-grid" style="margin-top:10px;"><div class="lucro-total-box"><div class="tbox-label">💰 Lucro Total</div><div class="tbox-val">R$'+totalGeralValor.toFixed(2)+'</div></div><div class="lucro-total-box"><div class="tbox-label">📅 Total Diários</div><div class="tbox-val">'+totalGeralDiarios+'</div></div></div></div>';
+      el.innerHTML = html; return;
     }
-    var tipo = lucroTab;
-    var html2 = '';
+    var tipo = lucroTab, html2 = '';
     for (var b = 0; b < ADMS.length; b++) {
-      var admKey2 = ADMS[b];
-      var admDisplay2 = ADMS_DISPLAY[admKey2];
-      var info2 = getLucroAdm(admKey2, tipo);
+      var admKey2 = ADMS[b], admDisplay2 = ADMS_DISPLAY[admKey2], info2 = getLucroAdm(admKey2, tipo);
       var inputId = 'lucroInput_' + admKey2 + '_' + tipo.replace(/[^a-zA-Z0-9]/g,'_');
-      html2 += '<div class="adm-card">';
-      html2 += '<div class="adm-card-header"><span class="adm-card-nome">'+esc(admDisplay2)+'</span>';
-      html2 += '<span class="adm-card-diarios">Di�rios: <strong>'+info2.diarios+'</strong></span></div>';
-      html2 += '<div class="adm-display"><span class="adm-display-label">Lucro '+getTipoLabel(tipo)+'</span>';
-      html2 += '<span class="adm-display-val">R$ '+info2.valor.toFixed(2)+'</span></div>';
-      html2 += '<div class="adm-input-row">';
-      html2 += '<input type="number" id="'+inputId+'" placeholder="Ex: 15.00" min="0" step="0.01">';
+      html2 += '<div class="adm-card"><div class="adm-card-header"><span class="adm-card-nome">'+esc(admDisplay2)+'</span><span class="adm-card-diarios">Diários: <strong>'+info2.diarios+'</strong></span></div>';
+      html2 += '<div class="adm-display"><span class="adm-display-label">Lucro '+getTipoLabel(tipo)+'</span><span class="adm-display-val">R$ '+info2.valor.toFixed(2)+'</span></div>';
+      html2 += '<div class="adm-input-row"><input type="number" id="'+inputId+'" placeholder="Ex: 15.00" min="0" step="0.01">';
       html2 += '<button class="btn-add-lucro" onclick="opLucro(\''+admKey2+'\',\''+tipo+'\',1)">+</button>';
-      html2 += '<button class="btn-rem-lucro" onclick="opLucro(\''+admKey2+'\',\''+tipo+'\',-1)">-</button>';
-      html2 += '</div></div>';
+      html2 += '<button class="btn-rem-lucro" onclick="opLucro(\''+admKey2+'\',\''+tipo+'\',-1)">−</button></div></div>';
     }
     el.innerHTML = html2;
   }
-
   window.opLucro = function(admKey, tipo, op) {
     var inputId = 'lucroInput_' + admKey + '_' + tipo.replace(/[^a-zA-Z0-9]/g,'_');
     var inputEl = document.getElementById(inputId);
-    if (!inputEl) { toast('Erro: campo n�o encontrado!', 'error'); return; }
+    if (!inputEl) { toast('Erro!', 'error'); return; }
     var val = parseFloat(inputEl.value);
-    if (isNaN(val) || val <= 0) { toast('Digite um valor v�lido!', 'error'); return; }
+    if (isNaN(val) || val <= 0) { toast('Digite um valor válido!', 'error'); return; }
     var atual = getLucroAdm(admKey, tipo);
-    var novoValor   = Math.max(0, atual.valor + (op * val));
+    var novoValor = Math.max(0, atual.valor + (op * val));
     var novoDiarios = Math.max(0, atual.diarios + op);
-    var admDisplay = ADMS_DISPLAY[admKey] || admKey;
     refLucro.child(admKey).child(tipo).set({ valor: novoValor, diarios: novoDiarios }, function(err) {
-      if (err) { toast('Erro ao salvar! '+err.message, 'error'); return; }
+      if (err) { toast('Erro! '+err.message, 'error'); return; }
       inputEl.value = '';
-      if (op > 0) toast('💰 +R$'+val.toFixed(2)+' p/ '+admDisplay+' ('+getTipoLabel(tipo)+')', 'success');
-      else        toast('💸 -R$'+val.toFixed(2)+' de '+admDisplay+' ('+getTipoLabel(tipo)+')', 'error');
+      if (op > 0) toast('💰 +R$'+val.toFixed(2)+' p/ '+(ADMS_DISPLAY[admKey]||admKey)+' ('+getTipoLabel(tipo)+')', 'success');
+      else        toast('💸 -R$'+val.toFixed(2)+' de '+(ADMS_DISPLAY[admKey]||admKey)+' ('+getTipoLabel(tipo)+')', 'error');
     });
   };
 
   /* ===== SALA ===== */
   function renderBadge(salaData) {
-    var badge = document.getElementById('statusBadge');
-    if (!badge) return;
+    var badge = document.getElementById('statusBadge'); if (!badge) return;
     var aberta = salaData && salaData.aberta;
     badge.textContent = aberta ? '🔓 Sala Liberada' : '🔒 Sala Fechada';
     badge.className = 'status-badge ' + (aberta ? 'status-liberada' : 'status-bloqueada');
     document.getElementById('adminLinkSala').value = salaData && salaData.link ? salaData.link : '';
   }
-
   function renderSala(salaData) {
     var aberta = salaData && salaData.aberta;
-    var link   = salaData && salaData.link ? salaData.link : '#';
-    var section   = document.getElementById('salaSection');
+    var link = salaData && salaData.link ? salaData.link : '#';
+    var section = document.getElementById('salaSection');
     var bloqueada = document.getElementById('salaBloqueadaDiv');
     var liberada  = document.getElementById('salaLiberadaDiv');
     if (usuarioInscrito) {
       section.style.display = 'block';
-      if (aberta && link !== '#') {
-        bloqueada.style.display = 'none'; liberada.style.display = 'block';
-        document.getElementById('btnEntrarSala').href = link;
-      } else {
-        bloqueada.style.display = 'block'; liberada.style.display = 'none';
-      }
-    } else {
-      section.style.display = 'none';
-    }
+      if (aberta && link !== '#') { bloqueada.style.display = 'none'; liberada.style.display = 'block'; document.getElementById('btnEntrarSala').href = link; }
+      else { bloqueada.style.display = 'block'; liberada.style.display = 'none'; }
+    } else { section.style.display = 'none'; }
     if (isAdmin) renderBadge(salaData);
   }
 
-  /* Aviso de benef�cio apenas p�s-inscri��o */
-  function verificarBeneficioForm() { /* desativado */ }
-
-  /* ===== SESS�O (localStorage) ===== */
-  function salvarSessao(nome, brawl, tel) {
-    try {
-      localStorage.setItem(SESSION_KEY_NOME,  nome);
-      localStorage.setItem(SESSION_KEY_BRAWL, brawl);
-      localStorage.setItem(SESSION_KEY_TEL,   tel);
-      localStorage.setItem(SESSION_KEY_INSC,  '1');
-    } catch(e) {}
-  }
-  function limparSessao() {
-    try {
-      localStorage.removeItem(SESSION_KEY_NOME);
-      localStorage.removeItem(SESSION_KEY_BRAWL);
-      localStorage.removeItem(SESSION_KEY_TEL);
-      localStorage.removeItem(SESSION_KEY_INSC);
-    } catch(e) {}
-  }
-
-  function mostrarPosInscricao(nick, tel, beneficioManual) {
+  /* ===== PÓS-INSCRIÇÃO ===== */
+  function mostrarPosInscricao(tel, beneficioManual) {
     document.getElementById('formCard').style.display          = 'none';
-    document.getElementById('avisoGratisForm').style.display   = 'none';
-    document.getElementById('avisoDescontoForm').style.display = 'none';
     document.getElementById('avisoBloqueado').style.display    = 'none';
     document.getElementById('posInscricaoBar').style.display   = 'flex';
     document.getElementById('inscritoBox').style.display       = 'none';
-    var g = beneficioManual === 'gratis' || temGratis(nick, tel);
-    var d = !g && (beneficioManual === 'desconto' || temDesconto(nick, tel));
+    var g = beneficioManual === 'gratis'   || temGratis(tel);
+    var d = !g && (beneficioManual === 'desconto' || temDesconto(tel));
     document.getElementById('avisoGratisPos').style.display   = g ? 'block' : 'none';
     document.getElementById('avisoDescontoPos').style.display = d ? 'block' : 'none';
     document.getElementById('aviso-pix-pos').style.display    = g ? 'none'  : 'block';
     renderSala(ultimaSala);
   }
 
+  /* ===== SESSÃO ===== */
+  function salvarSessao(nome, brawl, tel) {
+    try { localStorage.setItem(SESSION_KEY_NOME, nome); localStorage.setItem(SESSION_KEY_BRAWL, brawl); localStorage.setItem(SESSION_KEY_TEL, tel); localStorage.setItem(SESSION_KEY_INSC, '1'); } catch(e) {}
+  }
+  function limparSessao() {
+    try { localStorage.removeItem(SESSION_KEY_NOME); localStorage.removeItem(SESSION_KEY_BRAWL); localStorage.removeItem(SESSION_KEY_TEL); localStorage.removeItem(SESSION_KEY_INSC); } catch(e) {}
+  }
   function verificarSessao() {
     try {
       if (localStorage.getItem(SESSION_KEY_INSC) !== '1') return;
-      var nome  = localStorage.getItem(SESSION_KEY_NOME)  || '';
-      var brawl = localStorage.getItem(SESSION_KEY_BRAWL) || '';
-      var tel   = localStorage.getItem(SESSION_KEY_TEL)   || '';
+      var nome = localStorage.getItem(SESSION_KEY_NOME)||'', brawl = localStorage.getItem(SESSION_KEY_BRAWL)||'', tel = localStorage.getItem(SESSION_KEY_TEL)||'';
       if (!nome || !brawl) { limparSessao(); return; }
       refPartic.once('value', function(snap) {
-        var partic = snap.val() || {};
-        var achadoKey = null, achadoObj = null;
-        Object.keys(partic).forEach(function(k) {
-          if (partic[k].nome === nome && partic[k].brawl === brawl) { achadoKey = k; achadoObj = partic[k]; }
-        });
-        if (achadoKey) {
-          usuarioInscrito = true;
-          mostrarPosInscricao(brawl, tel, achadoObj.beneficioManual);
-        } else {
-          limparSessao();
-        }
+        var partic = snap.val() || {}, achadoObj = null;
+        Object.keys(partic).forEach(function(k) { if (partic[k].nome === nome && partic[k].brawl === brawl) achadoObj = partic[k]; });
+        if (achadoObj) { usuarioInscrito = true; mostrarPosInscricao(tel, achadoObj.beneficioManual); }
+        else limparSessao();
       });
     } catch(e) {}
   }
@@ -1287,75 +864,45 @@
     ultimosPartic = snap.val() || {};
     renderLista(ultimosPartic);
     setSync('online', 'Atualizado');
-
     if (!sessaoVerificada) {
       sessaoVerificada = true;
       try {
         if (localStorage.getItem(SESSION_KEY_INSC) === '1') {
-          var nome  = localStorage.getItem(SESSION_KEY_NOME)  || '';
-          var brawl = localStorage.getItem(SESSION_KEY_BRAWL) || '';
-          var tel   = localStorage.getItem(SESSION_KEY_TEL)   || '';
-          var partic = snap.val() || {};
-          var achadoObj = null;
-          Object.keys(partic).forEach(function(k) {
-            if (partic[k].nome === nome && partic[k].brawl === brawl) achadoObj = partic[k];
-          });
-          if (achadoObj && !usuarioInscrito) { usuarioInscrito = true; mostrarPosInscricao(brawl, tel, achadoObj.beneficioManual); }
+          var nome = localStorage.getItem(SESSION_KEY_NOME)||'', brawl = localStorage.getItem(SESSION_KEY_BRAWL)||'', tel = localStorage.getItem(SESSION_KEY_TEL)||'';
+          var partic = snap.val() || {}, achadoObj = null;
+          Object.keys(partic).forEach(function(k) { if (partic[k].nome === nome && partic[k].brawl === brawl) achadoObj = partic[k]; });
+          if (achadoObj && !usuarioInscrito) { usuarioInscrito = true; mostrarPosInscricao(tel, achadoObj.beneficioManual); }
           else if (!achadoObj) limparSessao();
         }
       } catch(e) {}
     }
-
     if (usuarioInscrito) {
       try {
-        var nome2  = localStorage.getItem(SESSION_KEY_NOME)  || '';
-        var brawl2 = localStorage.getItem(SESSION_KEY_BRAWL) || '';
-        var partic2 = snap.val() || {};
-        var aindaInscrito = Object.values(partic2).some(function(p) {
-          return p.nome === nome2 && p.brawl === brawl2;
-        });
+        var nome2 = localStorage.getItem(SESSION_KEY_NOME)||'', brawl2 = localStorage.getItem(SESSION_KEY_BRAWL)||'';
+        var aindaInscrito = Object.values(snap.val()||{}).some(function(p) { return p.nome === nome2 && p.brawl === brawl2; });
         if (!aindaInscrito) {
           limparSessao(); usuarioInscrito = false;
           document.getElementById('posInscricaoBar').style.display = 'none';
-          document.getElementById('inscritoBox').style.display = 'none';
           document.getElementById('aviso-pix-pos').style.display = 'none';
           document.getElementById('avisoGratisPos').style.display = 'none';
           document.getElementById('avisoDescontoPos').style.display = 'none';
           document.getElementById('salaSection').style.display = 'none';
           document.getElementById('formCard').style.display = 'block';
-          toast('Sua inscri��o foi cancelada pelo admin.', 'error');
+          toast('Sua inscrição foi cancelada pelo admin.', 'error');
         }
       } catch(e) {}
     }
   });
-
   refSala.on('value', function(snap) { ultimaSala = snap.val(); renderSala(ultimaSala); });
-  refVitNormal.on('value', function(snap) {
-    vitoriasNormal = snap.val() || {};
-    if (diarioAtivo === 'normal') renderRanking();
-    if (isAdmin && adminDiarioAtivo === 'normal') renderAdminVit();
-    renderLista(ultimosPartic);
-  });
-  refVitMini.on('value', function(snap) {
-    vitoriasMini = snap.val() || {};
-    if (diarioAtivo === 'mini') renderRanking();
-    if (isAdmin && adminDiarioAtivo === 'mini') renderAdminVit();
-    renderLista(ultimosPartic);
-  });
-  db.ref('.info/connected').on('value', function(snap) {
-    if (snap.val()) setSync('online', 'Online'); else setSync('error', 'Sem conex�o...');
-  });
+  refVitNormal.on('value', function(snap) { vitoriasNormal = snap.val() || {}; if (diarioAtivo === 'normal') renderRanking(); if (isAdmin && adminDiarioAtivo === 'normal') renderAdminVit(); renderLista(ultimosPartic); });
+  refVitMini.on('value', function(snap) { vitoriasMini = snap.val() || {}; if (diarioAtivo === 'mini') renderRanking(); if (isAdmin && adminDiarioAtivo === 'mini') renderAdminVit(); renderLista(ultimosPartic); });
+  db.ref('.info/connected').on('value', function(snap) { if (snap.val()) setSync('online', 'Online'); else setSync('error', 'Sem conexão...'); });
   refInscricoes.on('value', function(snap) {
     var abertas = snap.val() !== false;
-    var aviso = document.getElementById('avisoBloqueado');
-    var form  = document.getElementById('formCard');
-    if (!usuarioInscrito) {
-      if (aviso) aviso.style.display = abertas ? 'none' : 'block';
-      if (form)  form.style.display  = abertas ? 'block' : 'none';
-    }
+    var aviso = document.getElementById('avisoBloqueado'), form = document.getElementById('formCard');
+    if (!usuarioInscrito) { if (aviso) aviso.style.display = abertas ? 'none' : 'block'; if (form) form.style.display = abertas ? 'block' : 'none'; }
     if (isAdmin) {
-      var btnBloq = document.getElementById('btnBloquearInscricoes');
-      var btnLib  = document.getElementById('btnLiberarInscricoes');
+      var btnBloq = document.getElementById('btnBloquearInscricoes'), btnLib = document.getElementById('btnLiberarInscricoes');
       if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
       if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
     }
@@ -1363,35 +910,29 @@
 
   /* ===== INSCREVER ===== */
   document.getElementById('btnInscrever').addEventListener('click', function() {
-    var nome  = document.getElementById('inputNome').value.trim();
+    var nome = document.getElementById('inputNome').value.trim();
     var brawl = document.getElementById('inputBrawl').value.trim();
     var tel   = document.getElementById('inputTelefone').value.trim();
     if (!nome)  { toast('Insira seu nome!', 'error'); return; }
     if (!brawl) { toast('Insira seu nick no Brawl Stars!', 'error'); return; }
-    if (!tel)   { toast('Insira seu n�mero de telefone!', 'error'); return; }
+    if (!tel)   { toast('Insira seu número de telefone!', 'error'); return; }
     refInscricoes.once('value', function(snapInsc) {
-      if (snapInsc.val() === false) { toast('Inscri��es bloqueadas!', 'error'); return; }
+      if (snapInsc.val() === false) { toast('Inscrições bloqueadas!', 'error'); return; }
       refPartic.once('value', function(snap) {
         var atual = snap.val() ? Object.keys(snap.val()).length : 0;
-        if (atual >= TOTAL_VAGAS) { toast('Sem vagas dispon�veis!', 'error'); return; }
+        if (atual >= TOTAL_VAGAS) { toast('Sem vagas disponíveis!', 'error'); return; }
         var btn = document.getElementById('btnInscrever');
         btn.disabled = true; btn.textContent = 'Inscrevendo...';
         refPartic.push({ nome: nome, brawl: brawl, telefone: tel }, function(err) {
-          if (err) {
-            toast('Erro ao inscrever. Tente novamente.', 'error');
-            btn.disabled = false; btn.textContent = 'Entrar no Di�rio';
-          } else {
-            salvarSessao(nome, brawl, tel);
-            usuarioInscrito = true;
-            var g = temGratis(brawl, tel);
-            var d = !g && temDesconto(brawl, tel);
-            /* Consome o benef�cio no ranking (marca o m�ltiplo como usado) */
-            consumirBeneficiosAoInscrever(brawl, tel);
-            mostrarPosInscricao(brawl, tel, null);
-            if (g) toast('🏆 Inscri��o com entrada GR�TIS!', 'gold');
-            else if (d) toast('🔥 Inscri��o com entrada pela metade (R$2)!', 'orange');
-            else toast('Inscri��o confirmada! ?', 'success');
-          }
+          if (err) { toast('Erro ao inscrever.', 'error'); btn.disabled = false; btn.textContent = 'Entrar no Diário'; return; }
+          salvarSessao(nome, brawl, tel);
+          usuarioInscrito = true;
+          var g = temGratis(tel), d = !g && temDesconto(tel);
+          consumirBeneficiosAoInscrever(tel);
+          mostrarPosInscricao(tel, null);
+          if (g) toast('🏆 Inscrição com entrada GRÁTIS!', 'gold');
+          else if (d) toast('🔥 Inscrição com entrada pela metade (R$2)!', 'orange');
+          else toast('Inscrição confirmada! ✅', 'success');
         });
       });
     });
@@ -1399,18 +940,15 @@
 
   /* ===== CANCELAR ===== */
   document.getElementById('btnCancelarInscricao').addEventListener('click', function() {
-    if (!confirm('⚠️ Voc� PERDER� sua inscri��o. Deseja continuar?')) return;
+    if (!confirm('⚠️ Você PERDERÁ sua inscrição. Deseja continuar?')) return;
     var nome = '', brawl = '';
-    try { nome = localStorage.getItem(SESSION_KEY_NOME)||''; brawl = localStorage.getItem(SESSION_KEY_BRAWL)||''; } catch(e){}
+    try { nome = localStorage.getItem(SESSION_KEY_NOME)||''; brawl = localStorage.getItem(SESSION_KEY_BRAWL)||''; } catch(e) {}
     refPartic.once('value', function(snap) {
       var partic = snap.val() || {};
-      Object.keys(partic).forEach(function(key) {
-        if (partic[key].nome === nome && partic[key].brawl === brawl) refPartic.child(key).remove();
-      });
+      Object.keys(partic).forEach(function(key) { if (partic[key].nome === nome && partic[key].brawl === brawl) refPartic.child(key).remove(); });
     });
     limparSessao(); usuarioInscrito = false;
     document.getElementById('posInscricaoBar').style.display = 'none';
-    document.getElementById('inscritoBox').style.display = 'none';
     document.getElementById('aviso-pix-pos').style.display = 'none';
     document.getElementById('avisoGratisPos').style.display = 'none';
     document.getElementById('avisoDescontoPos').style.display = 'none';
@@ -1419,16 +957,11 @@
     document.getElementById('inputNome').value = '';
     document.getElementById('inputBrawl').value = '';
     document.getElementById('inputTelefone').value = '';
-    toast('Inscri��o cancelada.', 'error');
+    toast('Inscrição cancelada.', 'error');
   });
-
-  /* listeners de beneficio no form removidos - aviso apenas pos-inscricao */
 
   /* ===== ADMIN LOGIN ===== */
-  document.getElementById('btnToggleLogin').addEventListener('click', function() {
-    var box = document.getElementById('adminLoginBox');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-  });
+  document.getElementById('btnToggleLogin').addEventListener('click', function() { var box = document.getElementById('adminLoginBox'); box.style.display = box.style.display === 'block' ? 'none' : 'block'; });
   document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
     var digitada = document.getElementById('inputSenha').value;
     if (!digitada) { toast('Digite a senha!', 'error'); return; }
@@ -1438,78 +971,49 @@
         document.getElementById('adminLoginBox').style.display = 'none';
         document.getElementById('adminPanel').style.display = 'block';
         document.getElementById('inputSenha').value = '';
-        renderBadge(ultimaSala);
-        renderAdminLista(Object.values(ultimosPartic));
-        renderAdminVit();
-        setLucroTab('normal');
+        renderBadge(ultimaSala); renderAdminLista(Object.values(ultimosPartic)); renderAdminVit(); setLucroTab('normal');
         refInscricoes.once('value', function(snap2) {
           var abertas = snap2.val() !== false;
-          var btnBloq = document.getElementById('btnBloquearInscricoes');
-          var btnLib  = document.getElementById('btnLiberarInscricoes');
+          var btnBloq = document.getElementById('btnBloquearInscricoes'), btnLib = document.getElementById('btnLiberarInscricoes');
           if (btnBloq) btnBloq.style.display = abertas ? 'inline-block' : 'none';
           if (btnLib)  btnLib.style.display  = abertas ? 'none' : 'inline-block';
         });
-      } else {
-        toast('Senha incorreta!', 'error');
-        document.getElementById('inputSenha').value = '';
-      }
+      } else { toast('Senha incorreta!', 'error'); document.getElementById('inputSenha').value = ''; }
     });
   });
-  document.getElementById('inputSenha').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click();
-  });
-  document.getElementById('btnSairAdmin').addEventListener('click', function() {
-    isAdmin = false; document.getElementById('adminPanel').style.display = 'none';
-  });
+  document.getElementById('inputSenha').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click(); });
+  document.getElementById('btnSairAdmin').addEventListener('click', function() { isAdmin = false; document.getElementById('adminPanel').style.display = 'none'; });
 
   /* ===== SALA ===== */
   document.getElementById('btnLiberar').addEventListener('click', function() {
     var link = document.getElementById('adminLinkSala').value.trim();
-    if (!link) { toast('Cole o link da sala antes de liberar!', 'error'); return; }
-    refSala.set({ aberta: true, link: link }, function(err) {
-      if (err) toast('Erro!', 'error'); else toast('? Sala liberada!', 'success');
-    });
+    if (!link) { toast('Cole o link da sala!', 'error'); return; }
+    refSala.set({ aberta: true, link: link }, function(err) { if (err) toast('Erro!','error'); else toast('✅ Sala liberada!','success'); });
   });
-  document.getElementById('btnBloquear').addEventListener('click', function() {
-    refSala.update({ aberta: false }, function(err) {
-      if (err) toast('Erro!', 'error'); else toast('🔒 Sala fechada!');
-    });
-  });
+  document.getElementById('btnBloquear').addEventListener('click', function() { refSala.update({ aberta: false }, function(err) { if (err) toast('Erro!','error'); else toast('🔒 Sala fechada!'); }); });
 
-  /* ===== ADICIONAR JOGADOR (por NICK + telefone) ===== */
+  /* ===== ADICIONAR JOGADOR ===== */
   document.getElementById('btnAddJogador').addEventListener('click', function() {
     var nick = document.getElementById('inputNovoJogador').value.trim();
     var tel  = apenasDigitos(document.getElementById('inputNovoTelefone').value.trim());
     if (!nick) { toast('Digite o nick do jogador!', 'error'); return; }
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    if (encontrarChave(obj, nick)) { toast('Jogador j� no ranking!', 'error'); return; }
+    if (encontrarChave(obj, nick)) { toast('Jogador já no ranking!', 'error'); return; }
     var upd = {}; upd[nick] = { vitorias: 0, telefone: tel, ultimoBeneficioUsado: 0 };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
       document.getElementById('inputNovoJogador').value = '';
       document.getElementById('inputNovoTelefone').value = '';
-      toast('? '+nick+' adicionado!', 'success');
+      toast('✅ '+nick+' adicionado!', 'success');
     });
   });
-  document.getElementById('inputNovoJogador').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') document.getElementById('inputNovoTelefone').focus();
-  });
-  document.getElementById('inputNovoTelefone').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') document.getElementById('btnAddJogador').click();
-  });
+  document.getElementById('inputNovoJogador').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('inputNovoTelefone').focus(); });
+  document.getElementById('inputNovoTelefone').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('btnAddJogador').click(); });
 
-  /* ===== INSCRI��ES ===== */
-  document.getElementById('btnBloquearInscricoes').addEventListener('click', function() {
-    refInscricoes.set(false, function(err) {
-      if (err) toast('Erro!','error'); else toast('🚫 Inscri��es bloqueadas!');
-    });
-  });
-  document.getElementById('btnLiberarInscricoes').addEventListener('click', function() {
-    refInscricoes.set(true, function(err) {
-      if (err) toast('Erro!','error'); else toast('✅ Inscri��es liberadas!','success');
-    });
-  });
+  /* ===== INSCRIÇÕES ===== */
+  document.getElementById('btnBloquearInscricoes').addEventListener('click', function() { refInscricoes.set(false, function(err) { if (err) toast('Erro!','error'); else toast('🚫 Inscrições bloqueadas!'); }); });
+  document.getElementById('btnLiberarInscricoes').addEventListener('click', function() { refInscricoes.set(true, function(err) { if (err) toast('Erro!','error'); else toast('✅ Inscrições liberadas!','success'); }); });
 
   /* ===== RESET ===== */
   document.getElementById('btnReset').addEventListener('click', function() {
@@ -1520,7 +1024,6 @@
         if (err2) { toast('Erro ao fechar sala!','error'); return; }
         limparSessao(); usuarioInscrito = false;
         document.getElementById('posInscricaoBar').style.display = 'none';
-        document.getElementById('inscritoBox').style.display = 'none';
         document.getElementById('aviso-pix-pos').style.display = 'none';
         document.getElementById('avisoGratisPos').style.display = 'none';
         document.getElementById('avisoDescontoPos').style.display = 'none';
@@ -1537,7 +1040,6 @@
   /* ===== INIT ===== */
   setSync('syncing', 'Conectando...');
   verificarSessao();
-
 })();
 </script>
 </body>
