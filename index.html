@@ -932,6 +932,13 @@
     if (!confirm('Remover ' + nome + ' dos inscritos?')) return;
     refPartic.child(fbKey).remove(function(err) { if (err) toast('Erro!', 'error'); else toast('🗑️ ' + nome + ' removido.'); });
   };
+  window.adminRemoverConta = function(telefoneChave, nome) {
+    if (!confirm('Remover ' + nome + ' das Contas Registradas?\n\nIsso NÃO apaga as vitórias dela no ranking, só remove o registro de login. Se ela logar de novo, a conta volta a ser criada.')) return;
+    refContas.child(telefoneChave).remove(function(err) {
+      if (err) { toast('Erro ao remover conta: ' + err.message, 'error'); return; }
+      toast('🗑️ ' + nome + ' removido das contas.');
+    });
+  };
 
   /* ===== ADMIN CONTAS REGISTRADAS ===== */
   function renderAdminContas() {
@@ -969,6 +976,8 @@
       html += '</div>';
       if (isG) html += '<div class="conta-badge">🟡</div>';
       else if (isD) html += '<div class="conta-badge">🟠</div>';
+      var safeNome = item.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      html += '<button class="btn-remover-inscrito" onclick="adminRemoverConta(\''+item.chave+'\',\''+safeNome+'\')" title="Remover conta">🗑️</button>';
       html += '</div>';
     }
     el.innerHTML = html;
