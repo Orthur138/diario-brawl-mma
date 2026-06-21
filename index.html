@@ -76,14 +76,16 @@
 
   .field { margin-bottom: 16px; }
   .field label { display: block; font-size: 0.74rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 7px; }
-  .field input {
+  .field input, .field select {
     width: 100%; background: #181818; border: 1px solid #2a2a2a; border-radius: 9px;
     padding: 13px 16px; color: var(--text); font-family: 'Barlow', sans-serif;
     font-size: 0.97rem; transition: border-color 0.2s; outline: none;
   }
-  .field input:focus { border-color: var(--red); }
+  .field input:focus, .field select:focus { border-color: var(--red); }
   .field input::placeholder { color: #444; }
-  .field input:disabled { opacity: 0.5; cursor: not-allowed; }
+  .field input:disabled, .field select:disabled { opacity: 0.5; cursor: not-allowed; }
+  .field select { cursor: pointer; }
+  .field .hint-small { font-size: 0.7rem; color: #555; margin-top: 6px; line-height: 1.4; }
 
   .btn-main {
     width: 100%; background: linear-gradient(135deg, #cc1111, #7a0a0a); color: #fff;
@@ -120,7 +122,7 @@
   .btn-cancelar-mini { background: none; border: 1px solid #3a1010; color: #cc4444; font-size: 0.72rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-family: 'Barlow', sans-serif; font-weight: 600; }
   .btn-cancelar-mini:hover { background: #2a0a0a; }
 
-  /* ===== BANNER FIXO DE PROMOÇÃO (substitui os toast de beneficio) ===== */
+  /* ===== BANNER FIXO DE PROMOÇÃO ===== */
   .banner-promocao {
     display: none; border-radius: 12px; padding: 16px 18px; margin-bottom: 16px;
     flex-direction: row; align-items: center; gap: 14px;
@@ -241,9 +243,15 @@
   .ranking-vazio { color: #444; font-size: 0.84rem; text-align: center; padding: 16px 0; }
 
   /* Admin */
-  .admin-login-toggle { text-align: center; margin-bottom: 12px; }
+  .admin-top-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
   .admin-login-toggle button { background: none; border: 1px solid #1a1a1a; color: #2a2a2a; font-size: 0.68rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; }
   .admin-login-toggle button:hover { color: #444; border-color: #333; }
+  .btn-toggle-contas-top {
+    background: none; border: 1px solid #3a2e00; color: #6a5410; font-size: 0.68rem;
+    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Barlow', sans-serif;
+    display: none; align-items: center; gap: 4px;
+  }
+  .btn-toggle-contas-top:hover { color: var(--gold); border-color: var(--gold-border); }
   .admin-login-box { display: none; background: var(--card2); border: 1px solid #1e1e1e; border-radius: 12px; padding: 18px; margin-bottom: 18px; max-width: 360px; margin-left: auto; margin-right: auto; }
   .btn-entrar-admin { width: 100%; background: #1a1a1a; border: 1px solid #333; color: #888; border-radius: 9px; padding: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 1px; cursor: pointer; margin-top: 4px; }
   .btn-entrar-admin:hover { background: #222; color: #aaa; }
@@ -255,7 +263,7 @@
   .status-badge { display: inline-block; padding: 4px 12px; border-radius: 18px; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; }
   .status-bloqueada { background: #2a0a0a; color: #cc3333; border: 1px solid #4a1010; }
   .status-liberada { background: #1e1e1e; color: #888; border: 1px solid #333; }
-  .admin-panel .field input { background: #141414; border-color: #2a2a2a; }
+  .admin-panel .field input, .admin-panel .field select { background: #141414; border-color: #2a2a2a; }
   .btn-admin { width: 100%; border: none; border-radius: 9px; padding: 13px; font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 1px; cursor: pointer; margin-top: 8px; }
   .btn-admin:disabled { opacity: 0.5; cursor: not-allowed; }
   .btn-liberar { background: linear-gradient(135deg, #3a3a3a, #222); color: #ccc; }
@@ -300,8 +308,8 @@
   .diario-toggle-admin { display: flex; background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; padding: 3px; margin-bottom: 10px; gap: 3px; }
   .diario-toggle-admin button { flex: 1; background: none; border: none; color: #555; font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 1px; padding: 7px; border-radius: 6px; cursor: pointer; }
   .diario-toggle-admin button.active { background: linear-gradient(135deg, #cc1111, #7a0a0a); color: #fff; }
-  .add-jogador-row { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
-  .add-jogador-row input { flex: 1; min-width: 90px; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 0.85rem; outline: none; }
+  .add-jogador-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+  .add-jogador-row select { flex: 1; min-width: 140px; background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 0.85rem; outline: none; cursor: pointer; }
   .btn-add-jogador { background: linear-gradient(135deg, #cc1111, #7a0a0a); color: #fff; border: none; border-radius: 8px; padding: 9px 14px; font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 1px; cursor: pointer; white-space: nowrap; }
   .vit-item-admin { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid #1a1a1a; }
   .vit-item-admin:last-child { border-bottom: none; }
@@ -458,7 +466,7 @@
       <button class="btn-cancelar-mini" id="btnCancelarInscricao">✕ Cancelar</button>
     </div>
 
-    <!-- Banner fixo de promoção — substitui toast -->
+    <!-- Banner fixo de promoção -->
     <div class="banner-promocao gold-banner" id="bannerGratis">
       <div class="bp-icon">🏆</div>
       <div class="bp-body">
@@ -510,8 +518,11 @@
     <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
   </div>
 
-  <!-- Admin toggle -->
-  <div class="admin-login-toggle"><button id="btnToggleLogin">⚙️</button></div>
+  <!-- Barra de topo: admin + contas registradas -->
+  <div class="admin-top-bar">
+    <div class="admin-login-toggle"><button id="btnToggleLogin">⚙️</button></div>
+    <button class="btn-toggle-contas-top" id="btnToggleContasTop">👤 Contas registradas</button>
+  </div>
   <div class="admin-login-box" id="adminLoginBox">
     <div class="field"><label>Senha do admin</label><input type="password" id="inputSenha" placeholder="••••••"></div>
     <button class="btn-entrar-admin" id="btnEntrarAdmin">Entrar</button>
@@ -538,14 +549,13 @@
 
     <div class="admin-vitorias-section">
       <h4>⚔️ Gerenciar Vitórias</h4>
-      <p class="hint">Identificação é SOMENTE pelo telefone. O sistema compara o telefone do cadastro com o ranking.</p>
+      <p class="hint">A identificação agora é 100% automática pelo telefone: escolha o jogador na lista (somente quem já fez login no site aparece aqui). Isso elimina erro de digitação de telefone.</p>
       <div class="diario-toggle-admin">
         <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Normal</button>
         <button id="btnAdmMini" onclick="setAdminDiario('mini')">⚡ Mini</button>
       </div>
       <div class="add-jogador-row">
-        <input type="text" id="inputNovoJogador" placeholder="Apelido (exibição)...">
-        <input type="tel" id="inputNovoTelefone" placeholder="Telefone (obrigatório)">
+        <select id="selectNovoJogador"><option value="">Selecione um jogador (já logado)...</option></select>
         <button class="btn-add-jogador" id="btnAddJogador">+ Add</button>
       </div>
       <div id="adminVitLista"></div>
@@ -590,7 +600,7 @@
       <div class="contas-total-badge"><span id="adminContasTotal">0</span> contas</div>
     </div>
     <p style="font-size:0.7rem;color:#555;margin-bottom:12px;line-height:1.5;">
-      Todos os usuários que fizeram login no sistema. 🟡 = próxima entrada grátis · 🟠 = desconto R$2.
+      Todos os usuários que fizeram login no sistema. 🟡 = próxima entrada grátis (por nº de cadastro) · 🟠 = desconto R$2 (por nº de cadastro).
     </p>
     <div id="adminContasLista"><div class="contas-empty">Carregando...</div></div>
   </div>
@@ -616,8 +626,8 @@
   var ultimaSala       = null;
   var ultimosPartic    = {};
   var contasRegistradas = {};
-  var vitoriasNormal   = {};
-  var vitoriasMini     = {};
+  var vitoriasNormal   = {};  // agora indexado por TELEFONE (chave = telefone limpo)
+  var vitoriasMini     = {};  // agora indexado por TELEFONE (chave = telefone limpo)
   var diarioAtivo      = 'normal';
   var adminDiarioAtivo = 'normal';
   var lucroTab         = 'normal';
@@ -686,10 +696,17 @@
     if (!chave) return;
     refContas.child(chave).once('value', function(snap) {
       if (!snap.exists()) {
-        refContas.child(chave).set({ nome: nome, telefone: chave, cadastradoEm: Date.now() });
+        refContas.child(chave).set({ nome: nome, telefone: chave, cadastradoEm: Date.now() }, function(err) {
+          if (err) { toast('Erro ao registrar conta: ' + err.message, 'error'); console.error('Erro refContas.set', err); }
+        });
       } else {
-        refContas.child(chave).update({ nome: nome });
+        refContas.child(chave).update({ nome: nome }, function(err) {
+          if (err) { toast('Erro ao atualizar conta: ' + err.message, 'error'); console.error('Erro refContas.update', err); }
+        });
       }
+    }, function(err) {
+      toast('Erro ao acessar contas: ' + err.message, 'error');
+      console.error('Erro refContas.once', err);
     });
   }
 
@@ -717,20 +734,21 @@
     return tipoBeneficioCadastro(ordem);
   }
 
-  /* ===== RANKING / BENEFÍCIO POR VITÓRIAS ===== */
+  /* ===== RANKING / BENEFÍCIO POR VITÓRIAS =====
+     A partir de agora, vitoriasNormal e vitoriasMini são objetos cuja CHAVE é o
+     telefone (apenas dígitos). Isso elimina qualquer possibilidade de o telefone
+     ficar vazio ou divergente do telefone de login, já que o admin escolhe o
+     jogador de uma lista (que vem de /contas) em vez de digitar.
+     Formato de cada entrada: { vitorias, nome, ultimoBeneficioUsado }
+  */
   function normalizarEntry(entry) {
-    if (!entry) return { vitorias: 0, telefone: '', ultimoBeneficioUsado: 0 };
-    if (typeof entry !== 'object') return { vitorias: Number(entry) || 0, telefone: '', ultimoBeneficioUsado: 0 };
+    if (!entry) return { vitorias: 0, nome: '', ultimoBeneficioUsado: 0 };
+    if (typeof entry !== 'object') return { vitorias: Number(entry) || 0, nome: '', ultimoBeneficioUsado: 0 };
     return {
       vitorias: Number(entry.vitorias) || 0,
-      telefone: entry.telefone || '',
+      nome: entry.nome || '',
       ultimoBeneficioUsado: Number(entry.ultimoBeneficioUsado) || 0
     };
-  }
-  function encontrarChave(obj, nome) {
-    var keys = Object.keys(obj);
-    for (var i = 0; i < keys.length; i++) { if (keys[i].toLowerCase() === nome.toLowerCase()) return keys[i]; }
-    return null;
   }
   function tipoBeneficioNormal(v) { return (v > 0 && v % VITORIAS_GRATIS_NORMAL === 0) ? 'gratis' : null; }
   function tipoBeneficioMini(v) {
@@ -743,22 +761,16 @@
     var telLimpo = apenasDigitos(tel);
     if (!telLimpo) return null;
     var obj = tipo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var keys = Object.keys(obj);
-    for (var i = 0; i < keys.length; i++) {
-      var d = normalizarEntry(obj[keys[i]]);
-      if (d.telefone && apenasDigitos(d.telefone) === telLimpo) {
-        var beneficio = tipo === 'mini' ? tipoBeneficioMini(d.vitorias) : tipoBeneficioNormal(d.vitorias);
-        if (!beneficio) return null;
-        if (d.ultimoBeneficioUsado >= d.vitorias) return null;
-        return { tipo: beneficio, chave: keys[i], dados: d };
-      }
-    }
-    return null;
+    var d = obj[telLimpo] ? normalizarEntry(obj[telLimpo]) : null;
+    if (!d) return null;
+    var beneficio = tipo === 'mini' ? tipoBeneficioMini(d.vitorias) : tipoBeneficioNormal(d.vitorias);
+    if (!beneficio) return null;
+    if (d.ultimoBeneficioUsado >= d.vitorias) return null;
+    return { tipo: beneficio, chave: telLimpo, dados: d };
   }
   function temGratis(tel) {
     var n = beneficioDisponivel(tel, 'normal'); if (n && n.tipo === 'gratis') return true;
     var m = beneficioDisponivel(tel, 'mini'); if (m && m.tipo === 'gratis') return true;
-    // Verificar também por cadastro
     return beneficioCadastro(tel) === 'gratis';
   }
   function temDesconto(tel) {
@@ -769,7 +781,7 @@
   function consumirBeneficio(tel, tipo) {
     var b = beneficioDisponivel(tel, tipo); if (!b) return;
     var ref = tipo === 'mini' ? refVitMini : refVitNormal;
-    var upd = {}; upd[b.chave] = { vitorias: b.dados.vitorias, telefone: b.dados.telefone, ultimoBeneficioUsado: b.dados.vitorias };
+    var upd = {}; upd[b.chave] = { vitorias: b.dados.vitorias, nome: b.dados.nome, ultimoBeneficioUsado: b.dados.vitorias };
     ref.update(upd);
   }
   function consumirBeneficiosAoInscrever(tel) { consumirBeneficio(tel, 'normal'); consumirBeneficio(tel, 'mini'); }
@@ -830,12 +842,20 @@
     document.getElementById('btnTogMini').className   = tipo === 'mini'   ? 'active' : '';
     renderRanking();
   };
+  function nomeExibicaoPorTelefone(tel) {
+    if (contasRegistradas[tel] && contasRegistradas[tel].nome) return contasRegistradas[tel].nome;
+    return tel;
+  }
   function renderRanking() {
     var obj = diarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var lista = document.getElementById('rankingLista');
     if (!obj || !Object.keys(obj).length) { lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>'; return; }
-    var arr = Object.keys(obj).map(function(k) { var d = normalizarEntry(obj[k]); return { nome: k, v: d.vitorias, usado: d.ultimoBeneficioUsado }; });
-    arr.sort(function(a,b){ return b.v - a.v; });
+    var arr = Object.keys(obj).map(function(tel) {
+      var d = normalizarEntry(obj[tel]);
+      var nomeExibicao = d.nome || nomeExibicaoPorTelefone(tel);
+      return { tel: tel, nome: nomeExibicao, v: d.vitorias, usado: d.ultimoBeneficioUsado };
+    });
+    arr.sort(function(a,b) { return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
@@ -954,19 +974,24 @@
     el.innerHTML = html;
   }
 
-  /* ===== ADMIN VITÓRIAS ===== */
+  /* ===== ADMIN VITÓRIAS (telefone como chave) ===== */
   window.setAdminDiario = function(tipo) {
     adminDiarioAtivo = tipo;
     document.getElementById('btnAdmNormal').className = tipo === 'normal' ? 'active' : '';
     document.getElementById('btnAdmMini').className   = tipo === 'mini'   ? 'active' : '';
     renderAdminVit();
+    renderSelectJogadores();
   };
   function renderAdminVit() {
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
     var el = document.getElementById('adminVitLista');
     if (!el) return;
     if (!obj || !Object.keys(obj).length) { el.innerHTML = '<div class="vitorias-lista-admin-empty">Nenhum jogador ainda. Adicione acima.</div>'; return; }
-    var arr = Object.keys(obj).map(function(k) { var d = normalizarEntry(obj[k]); return { nome: k, v: d.vitorias, tel: d.telefone, usado: d.ultimoBeneficioUsado }; });
+    var arr = Object.keys(obj).map(function(tel) {
+      var d = normalizarEntry(obj[tel]);
+      var nomeExibicao = d.nome || nomeExibicaoPorTelefone(tel);
+      return { tel: tel, nome: nomeExibicao, v: d.vitorias, usado: d.ultimoBeneficioUsado };
+    });
     arr.sort(function(a,b){ return b.v - a.v; });
     var html = '';
     for (var i = 0; i < arr.length; i++) {
@@ -976,60 +1001,83 @@
       var g = disponivel && beneficio === 'gratis';
       var d = disponivel && beneficio === 'desconto';
       var nomeCls = g ? 'gold' : (d ? 'orange' : '');
-      var nomeEsc = esc(item.nome).replace(/'/g,"&#39;");
       html += '<div class="vit-item-admin">';
       html += '<div><div class="vit-nome-admin '+nomeCls+'">'+esc(item.nome);
       if (g) html += ' 🏆'; if (d) html += ' 🔥';
       html += '</div>';
-      if (item.tel) html += '<div class="vit-tel-admin">📱 '+esc(item.tel)+'</div>';
+      html += '<div class="vit-tel-admin">📱 '+esc(item.tel)+'</div>';
       html += '</div>';
       html += '<div class="vit-controls">';
-      html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+nomeEsc+'\')">−</button>';
+      html += '<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+item.tel+'\')">−</button>';
       html += '<span class="vit-count-admin">'+item.v+'</span>';
-      html += '<button class="btn-vit btn-vit-add" onclick="adminAddVit(\''+nomeEsc+'\')">+</button>';
-      html += '<button class="btn-vit-del" onclick="adminDelJogador(\''+nomeEsc+'\')">🗑</button>';
+      html += '<button class="btn-vit btn-vit-add" onclick="adminAddVit(\''+item.tel+'\')">+</button>';
+      html += '<button class="btn-vit-del" onclick="adminDelJogador(\''+item.tel+'\')">🗑</button>';
       html += '</div></div>';
     }
     el.innerHTML = html;
   }
-  window.adminAddVit = function(nome) {
+  window.adminAddVit = function(tel) {
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var chave = encontrarChave(obj, nome) || nome;
-    var d = normalizarEntry(obj[chave]);
+    var d = normalizarEntry(obj[tel]);
+    var nomeExibicao = d.nome || nomeExibicaoPorTelefone(tel);
     var novo = d.vitorias + 1;
-    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: d.ultimoBeneficioUsado };
+    var upd = {}; upd[tel] = { vitorias: novo, nome: nomeExibicao, ultimoBeneficioUsado: d.ultimoBeneficioUsado };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
       if (adminDiarioAtivo === 'mini') {
         var st = tipoBeneficioMini(novo);
-        if (st === 'gratis') toast('🏆 '+chave+' — GRÁTIS! ('+novo+'v)', 'gold');
-        else if (st === 'desconto') toast('🔥 '+chave+' — R$2! ('+novo+'v)', 'orange');
-        else toast('+1 vitória '+chave+' ('+novo+'v)', 'success');
+        if (st === 'gratis') toast('🏆 '+nomeExibicao+' — GRÁTIS! ('+novo+'v)', 'gold');
+        else if (st === 'desconto') toast('🔥 '+nomeExibicao+' — R$2! ('+novo+'v)', 'orange');
+        else toast('+1 vitória '+nomeExibicao+' ('+novo+'v)', 'success');
       } else {
-        if (tipoBeneficioNormal(novo)) toast('🏆 '+chave+' — GRÁTIS! ('+novo+'v)', 'gold');
-        else toast('+1 vitória '+chave+' ('+novo+'v)', 'success');
+        if (tipoBeneficioNormal(novo)) toast('🏆 '+nomeExibicao+' — GRÁTIS! ('+novo+'v)', 'gold');
+        else toast('+1 vitória '+nomeExibicao+' ('+novo+'v)', 'success');
       }
     });
   };
-  window.adminRemVit = function(nome) {
+  window.adminRemVit = function(tel) {
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var chave = encontrarChave(obj, nome);
-    if (!chave) { toast('Jogador não encontrado!', 'error'); return; }
-    var d = normalizarEntry(obj[chave]);
+    if (!obj[tel]) { toast('Jogador não encontrado!', 'error'); return; }
+    var d = normalizarEntry(obj[tel]);
+    var nomeExibicao = d.nome || nomeExibicaoPorTelefone(tel);
     var novo = Math.max(0, d.vitorias - 1);
-    var upd = {}; upd[chave] = { vitorias: novo, telefone: d.telefone, ultimoBeneficioUsado: Math.min(d.ultimoBeneficioUsado, novo) };
-    ref.update(upd, function(err) { if (err) toast('Erro!','error'); else toast('-1 de '+chave+' ('+novo+'v)'); });
+    var upd = {}; upd[tel] = { vitorias: novo, nome: nomeExibicao, ultimoBeneficioUsado: Math.min(d.ultimoBeneficioUsado, novo) };
+    ref.update(upd, function(err) { if (err) toast('Erro!','error'); else toast('-1 de '+nomeExibicao+' ('+novo+'v)'); });
   };
-  window.adminDelJogador = function(nome) {
-    if (!confirm('Remover '+nome+' do ranking?')) return;
-    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+  window.adminDelJogador = function(tel) {
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    var chave = encontrarChave(obj, nome);
-    if (!chave) return;
-    ref.child(chave).remove(function(err) { if (err) toast('Erro!','error'); else toast('Jogador removido.'); });
+    var nomeExibicao = obj[tel] ? (normalizarEntry(obj[tel]).nome || nomeExibicaoPorTelefone(tel)) : tel;
+    if (!confirm('Remover '+nomeExibicao+' do ranking?')) return;
+    var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
+    ref.child(tel).remove(function(err) { if (err) toast('Erro!','error'); else toast('Jogador removido.'); });
   };
+
+  /* ===== SELECT DE JOGADORES (a partir de /contas) ===== */
+  function renderSelectJogadores() {
+    var sel = document.getElementById('selectNovoJogador');
+    if (!sel) return;
+    var valorAtual = sel.value;
+    var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
+    var contasArr = Object.keys(contasRegistradas).map(function(tel) {
+      return { tel: tel, nome: contasRegistradas[tel].nome || tel, ts: contasRegistradas[tel].cadastradoEm || 0 };
+    });
+    contasArr.sort(function(a,b) { return a.nome.localeCompare(b.nome, 'pt-BR'); });
+    var html = '<option value="">Selecione um jogador (já logado)...</option>';
+    if (!contasArr.length) {
+      html = '<option value="">Nenhuma conta registrada ainda</option>';
+    } else {
+      for (var i = 0; i < contasArr.length; i++) {
+        var c = contasArr[i];
+        var jaNoRanking = !!obj[c.tel];
+        var label = c.nome + ' — 📱 ' + c.tel + (jaNoRanking ? ' (já no ranking)' : '');
+        html += '<option value="'+esc(c.tel)+'">'+esc(label)+'</option>';
+      }
+    }
+    sel.innerHTML = html;
+    if (valorAtual && contasRegistradas[valorAtual]) sel.value = valorAtual;
+  }
 
   /* ===== LUCRO ===== */
   var lucroData = {};
@@ -1120,6 +1168,7 @@
     document.getElementById('loginCard').style.display = 'block';
     document.getElementById('vagaCard').style.display = 'none';
     document.getElementById('posCard').style.display = 'none';
+    document.getElementById('btnToggleContasTop').style.display = 'none';
   }
   function mostrarTelaGarantirVaga() {
     document.getElementById('logadoBar').style.display = 'flex';
@@ -1127,6 +1176,7 @@
     document.getElementById('loginCard').style.display = 'none';
     document.getElementById('vagaCard').style.display = 'block';
     document.getElementById('posCard').style.display = 'none';
+    document.getElementById('btnToggleContasTop').style.display = 'inline-flex';
   }
   function mostrarTelaPos() {
     document.getElementById('logadoBar').style.display = 'flex';
@@ -1134,12 +1184,12 @@
     document.getElementById('loginCard').style.display = 'none';
     document.getElementById('vagaCard').style.display = 'none';
     document.getElementById('posCard').style.display = 'block';
+    document.getElementById('btnToggleContasTop').style.display = 'inline-flex';
 
     var tel = getContaTel();
     var g = temGratis(tel);
     var d = !g && temDesconto(tel);
 
-    // Banner fixo — substitui toast de promoção
     var bannerG = document.getElementById('bannerGratis');
     var bannerD = document.getElementById('bannerDesconto');
     bannerG.className = 'banner-promocao gold-banner'   + (g ? ' show' : '');
@@ -1195,25 +1245,28 @@
   refVitNormal.on('value', function(snap) {
     vitoriasNormal = snap.val() || {};
     if (diarioAtivo === 'normal') renderRanking();
-    if (isAdmin && adminDiarioAtivo === 'normal') renderAdminVit();
+    if (isAdmin && adminDiarioAtivo === 'normal') { renderAdminVit(); renderSelectJogadores(); }
     renderLista(ultimosPartic);
     if (usuarioInscrito) mostrarTelaPos();
   });
   refVitMini.on('value', function(snap) {
     vitoriasMini = snap.val() || {};
     if (diarioAtivo === 'mini') renderRanking();
-    if (isAdmin && adminDiarioAtivo === 'mini') renderAdminVit();
+    if (isAdmin && adminDiarioAtivo === 'mini') { renderAdminVit(); renderSelectJogadores(); }
     renderLista(ultimosPartic);
     if (usuarioInscrito) mostrarTelaPos();
   });
 
-  /* Contas — apenas admin visualiza, listener carrega os dados */
+  /* Contas — listener carrega os dados sempre (necessário para benefício automático) */
   refContas.on('value', function(snap) {
     contasRegistradas = snap.val() || {};
-    if (isAdmin) renderAdminContas();
-    // Re-renderiza tela pos caso beneficio por cadastro mude
+    if (isAdmin) { renderAdminContas(); renderSelectJogadores(); }
     if (usuarioInscrito) mostrarTelaPos();
     renderLista(ultimosPartic);
+    renderRanking();
+  }, function(err) {
+    console.error('Erro ao ler /contas', err);
+    toast('Erro ao carregar contas: ' + err.message, 'error');
   });
 
   db.ref('.info/connected').on('value', function(snap) { if (snap.val()) setSync('online', 'Online'); else setSync('error', 'Sem conexão...'); });
@@ -1223,15 +1276,12 @@
     var abertas = snap.val() !== false;
     var aviso = document.getElementById('avisoBloqueado');
     if (!usuarioInscrito) {
-      // Aviso aparece SOMENTE se tem conta E inscrições bloqueadas
       aviso.style.display = (!abertas && temConta()) ? 'block' : 'none';
-      // loginCard sempre visível se não tem conta (login NUNCA é bloqueado)
       if (!temConta()) {
         document.getElementById('loginCard').style.display = 'block';
         document.getElementById('vagaCard').style.display = 'none';
       } else {
         document.getElementById('loginCard').style.display = 'none';
-        // vagaCard aparece só se inscrições estão abertas
         document.getElementById('vagaCard').style.display = abertas ? 'block' : 'none';
       }
     }
@@ -1249,7 +1299,7 @@
     if (!nome) { toast('Insira seu nome!', 'error'); return; }
     if (!tel)  { toast('Insira seu celular!', 'error'); return; }
     salvarConta(nome, tel);
-    registrarContaFirebase(nome, tel); // salva no Firebase /contas
+    registrarContaFirebase(nome, tel);
     document.getElementById('inputLoginNome').value = '';
     document.getElementById('inputLoginTel').value = '';
     verificarInscricaoAtual();
@@ -1325,6 +1375,7 @@
         renderAdminLista(Object.values(ultimosPartic));
         renderAdminVit();
         renderAdminContas();
+        renderSelectJogadores();
         setLucroTab('normal');
         document.getElementById('adminContasPanel').style.display = 'block';
         refInscricoes.once('value', function(snap2) {
@@ -1343,6 +1394,17 @@
     document.getElementById('adminContasPanel').style.display = 'none';
   });
 
+  /* ===== BOTÃO "CONTAS REGISTRADAS" NO TOPO (para usuário comum) ===== */
+  document.getElementById('btnToggleContasTop').addEventListener('click', function() {
+    if (isAdmin) {
+      // Se já é admin, apenas alterna a visibilidade do painel de contas
+      var painel = document.getElementById('adminContasPanel');
+      painel.style.display = painel.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+    toast('Faça login como admin (⚙️) para ver as contas registradas.', 'error');
+  });
+
   /* ===== SALA ===== */
   document.getElementById('btnLiberar').addEventListener('click', function() {
     var link = document.getElementById('adminLinkSala').value.trim();
@@ -1351,25 +1413,21 @@
   });
   document.getElementById('btnBloquear').addEventListener('click', function() { refSala.update({ aberta: false }, function(err) { if (err) toast('Erro!','error'); else toast('🔒 Sala fechada!'); }); });
 
-  /* ===== ADICIONAR JOGADOR ===== */
+  /* ===== ADICIONAR JOGADOR (a partir do select de contas registradas) ===== */
   document.getElementById('btnAddJogador').addEventListener('click', function() {
-    var nick = document.getElementById('inputNovoJogador').value.trim();
-    var tel  = apenasDigitos(document.getElementById('inputNovoTelefone').value.trim());
-    if (!nick) { toast('Digite o apelido!', 'error'); return; }
-    if (!tel) { toast('Telefone é obrigatório!', 'error'); return; }
+    var tel = document.getElementById('selectNovoJogador').value;
+    if (!tel) { toast('Selecione um jogador da lista!', 'error'); return; }
     var ref = adminDiarioAtivo === 'mini' ? refVitMini : refVitNormal;
     var obj = adminDiarioAtivo === 'mini' ? vitoriasMini : vitoriasNormal;
-    if (encontrarChave(obj, nick)) { toast('Jogador já no ranking!', 'error'); return; }
-    var upd = {}; upd[nick] = { vitorias: 0, telefone: tel, ultimoBeneficioUsado: 0 };
+    if (obj[tel]) { toast('Jogador já está no ranking!', 'error'); return; }
+    var nomeExibicao = (contasRegistradas[tel] && contasRegistradas[tel].nome) || tel;
+    var upd = {}; upd[tel] = { vitorias: 0, nome: nomeExibicao, ultimoBeneficioUsado: 0 };
     ref.update(upd, function(err) {
       if (err) { toast('Erro!', 'error'); return; }
-      document.getElementById('inputNovoJogador').value = '';
-      document.getElementById('inputNovoTelefone').value = '';
-      toast('✅ '+nick+' adicionado!', 'success');
+      document.getElementById('selectNovoJogador').value = '';
+      toast('✅ '+nomeExibicao+' adicionado!', 'success');
     });
   });
-  document.getElementById('inputNovoJogador').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('inputNovoTelefone').focus(); });
-  document.getElementById('inputNovoTelefone').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('btnAddJogador').click(); });
 
   /* ===== INSCRIÇÕES ===== */
   document.getElementById('btnBloquearInscricoes').addEventListener('click', function() { refInscricoes.set(false, function(err) { if (err) toast('Erro!','error'); else toast('🚫 Bloqueadas!'); }); });
