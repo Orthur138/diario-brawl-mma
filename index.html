@@ -23,6 +23,7 @@
   .admin-layout { display: flex; gap: 16px; align-items: flex-start; }
   .admin-layout .admin-panel { flex: 1; min-width: 0; margin-bottom: 0; }
   .admin-layout .admin-contas-panel { flex: 1; min-width: 0; }
+  .admin-layout.contas-only .admin-contas-panel { max-width: 540px; margin: 0 auto; }
   @media (max-width: 900px) {
     .admin-layout { flex-direction: column; }
     .admin-layout .admin-panel,
@@ -34,12 +35,12 @@
 
   .header { text-align: center; margin-bottom: 24px; }
   .header h1 {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 9vw, 3.4rem);
-    letter-spacing: 2px; line-height: 1;
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 10vw, 3.7rem);
+    letter-spacing: 2px; line-height: 1.05;
     background: linear-gradient(135deg, #ff2222, #cc0000, #999999);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .header .sub { font-size: 0.78rem; color: var(--muted); letter-spacing: 1px; margin-top: 6px; text-transform: uppercase; }
+  .header .sub { font-size: 0.8rem; color: var(--muted); letter-spacing: 1.5px; margin-top: 8px; text-transform: uppercase; font-weight: 700; }
 
   .sync-status { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.72rem; color: #444; margin-bottom: 20px; }
   .sync-dot { width: 6px; height: 6px; border-radius: 50%; background: #333; }
@@ -48,15 +49,26 @@
   .sync-dot.error { background: #cc1111; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
-  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 8px; text-align: center; }
-  .stat-box .stat-icon { font-size: 1rem; margin-bottom: 4px; display: block; opacity: 0.75; }
-  .stat-box .stat-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
-  .stat-box .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--text); }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 8px; text-align: center; }
+  .stat-box .stat-icon { font-size: 1.9rem; margin-bottom: 8px; display: block; }
+  .stat-box .stat-label { font-size: 0.66rem; color: var(--red-bright); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .stat-box .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--text); }
 
-  .progress-bar-wrap { background: #1c1c1c; border-radius: 20px; height: 8px; overflow: hidden; margin-bottom: 6px; }
+  .progress-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 16px; }
+  .progress-top-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .progress-icon-wrap { width: 38px; height: 38px; border-radius: 10px; background: #1c0a0a; border: 1px solid #3a1010; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .progress-info { flex: 1; }
+  .progress-info .pi-label { font-size: 0.85rem; color: var(--text); font-weight: 700; }
+  .progress-info .pi-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  .progress-people { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
+  .progress-people .pp-icon { font-size: 1.05rem; color: #2a2a2a; }
+  .progress-people .pp-icon.filled { color: var(--red-bright); }
+  .progress-bar-wrap { background: #1c1c1c; border-radius: 20px; height: 10px; overflow: hidden; margin-bottom: 6px; flex: 1; }
   .progress-bar-fill { background: linear-gradient(90deg, var(--red), var(--red-bright)); height: 100%; transition: width 0.4s ease; }
-  .progress-label { text-align: center; font-size: 0.72rem; color: var(--muted); margin-bottom: 16px; }
+  .progress-bar-row { display: flex; align-items: center; gap: 10px; }
+  .progress-pct { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--red-bright); min-width: 42px; text-align: right; }
+  .progress-label { text-align: center; font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
 
   .ultima-vaga-banner {
     display: none; background: linear-gradient(135deg, #2a0a0a, #1a0505); border: 1px solid #cc1111;
@@ -73,6 +85,7 @@
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; margin-bottom: 18px; }
   .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; color: #e23030; margin-bottom: 4px; display:flex; align-items:center; gap:8px; }
   .card-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
+  .card-warn { font-size: 0.78rem; color: #ff5555; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 6px; background: #1a0707; border: 1px solid #3a1010; border-radius: 8px; padding: 9px 12px; }
 
   .field { margin-bottom: 16px; }
   .field label { display: block; font-size: 0.74rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 7px; }
@@ -107,7 +120,7 @@
   .logado-info .av { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #cc1111, #5a0505); display:flex; align-items:center; justify-content:center; font-size:0.95rem; flex-shrink:0; }
   .logado-info .txt .lbl { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
   .logado-info .txt .nm { font-weight: 700; color: var(--text); font-size: 0.92rem; }
-  .btn-sair-mini { background: none; border: 1px solid #3a1010; color: #cc5555; font-size: 0.72rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-family: 'Barlow', sans-serif; font-weight:600; white-space: nowrap; }
+  .btn-sair-mini { background: none; border: 1px solid #3a1010; color: #cc5555; font-size: 0.74rem; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-family: 'Barlow', sans-serif; font-weight:700; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
   .btn-sair-mini:hover { background: #2a0a0a; }
 
   @keyframes pulseGold { 0%,100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.15); } 50% { box-shadow: 0 0 0 8px rgba(255,215,0,0); } }
@@ -181,9 +194,14 @@
   .aviso-bloqueado strong { color: #cc6600; font-size: 0.97rem; display:block; margin-bottom:4px; }
   .aviso-bloqueado p { font-size: 0.84rem; color: #aa8844; }
 
+  /* ===== DUAS COLUNAS: INSCRITOS + RANKING ===== */
+  .duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  @media (max-width: 640px) { .duas-colunas { grid-template-columns: 1fr; } }
+  .duas-colunas .card { margin-bottom: 0; }
+
   /* ===== PARTICIPANTES — Grid moderno ===== */
   .part-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 8px;
   }
   .participante-item {
@@ -242,19 +260,27 @@
   .rank-vitorias { font-family: 'Bebas Neue', sans-serif; font-size: 1.07rem; color: #cc2222; min-width: 36px; text-align: right; }
   .ranking-vazio { color: #444; font-size: 0.84rem; text-align: center; padding: 16px 0; }
 
-  /* Admin */
-  .admin-top-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-  .admin-login-toggle button { background: none; border: 1px solid #1a1a1a; color: #2a2a2a; font-size: 0.68rem; padding: 4px 10px; border-radius: 6px; cursor: pointer; }
-  .admin-login-toggle button:hover { color: #444; border-color: #333; }
-  .btn-toggle-contas-top {
-    background: none; border: 1px solid #3a2e00; color: #6a5410; font-size: 0.68rem;
-    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Barlow', sans-serif;
-    display: none; align-items: center; gap: 4px;
+  /* Rodapé com dois botões */
+  .footer-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .btn-footer-action {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--border); color: #888;
+    font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.84rem;
+    padding: 14px 10px; border-radius: 12px; cursor: pointer; transition: border-color 0.2s, color 0.2s;
   }
-  .btn-toggle-contas-top:hover { color: var(--gold); border-color: var(--gold-border); }
+  .btn-footer-action:hover { color: #ccc; border-color: #444; }
+  .btn-footer-action.contas-btn { color: #aa8800; border-color: #3a2e00; }
+  .btn-footer-action.contas-btn:hover { color: var(--gold); border-color: var(--gold-border); }
+  .btn-footer-action.contas-btn.ativo { background: linear-gradient(135deg, #2a2200, #1a1500); color: var(--gold); border-color: var(--gold); }
+  .btn-footer-action.config-btn.ativo { background: linear-gradient(135deg, #2a0a0a, #1a0505); color: #ff6666; border-color: var(--red); }
+
+  /* Admin */
   .admin-login-box { display: none; background: var(--card2); border: 1px solid #1e1e1e; border-radius: 12px; padding: 18px; margin-bottom: 18px; max-width: 360px; margin-left: auto; margin-right: auto; }
+  .admin-login-box .field label { color: #888; }
   .btn-entrar-admin { width: 100%; background: #1a1a1a; border: 1px solid #333; color: #888; border-radius: 9px; padding: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 1px; cursor: pointer; margin-top: 4px; }
   .btn-entrar-admin:hover { background: #222; color: #aaa; }
+  .btn-entrar-admin.gold-variant { color: var(--gold); border-color: var(--gold-border); }
+  .btn-entrar-admin.gold-variant:hover { background: #1e1800; }
 
   .admin-panel { display: none; background: var(--card2); border: 1px solid var(--red); border-radius: 14px; padding: 20px 18px; }
   .admin-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
@@ -399,7 +425,7 @@
 
   <div class="header">
     <h1>🔥 Diário Brawl MMA</h1>
-    <div class="sub">Cadastro • Pagamento PIX • Sala liberada pelo ADM</div>
+    <div class="sub">Competição • Premiação • Vitórias</div>
   </div>
 
   <div class="sync-status">
@@ -408,12 +434,26 @@
   </div>
 
   <div class="stats-grid">
-    <div class="stat-box"><span class="stat-icon">🎯</span><div class="stat-label">Vagas totais</div><div class="stat-val" id="statTotal">9</div></div>
-    <div class="stat-box"><span class="stat-icon">👤</span><div class="stat-label">Inscritos</div><div class="stat-val" id="statInscritos">0</div></div>
-    <div class="stat-box"><span class="stat-icon">⏳</span><div class="stat-label">Restantes</div><div class="stat-val" id="statRestantes">9</div></div>
+    <div class="stat-box"><span class="stat-icon">🎯</span><div class="stat-label">Disponíveis</div><div class="stat-val" id="statTotal">9</div></div>
+    <div class="stat-box"><span class="stat-icon">👥</span><div class="stat-label">Já Inscritos</div><div class="stat-val" id="statInscritos">0</div></div>
+    <div class="stat-box"><span class="stat-icon">⏳</span><div class="stat-label">Vagas Livres</div><div class="stat-val" id="statRestantes">9</div></div>
   </div>
-  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
-  <div class="progress-label" id="progressLabel">0/9 vagas preenchidas</div>
+
+  <div class="progress-card">
+    <div class="progress-top-row">
+      <div class="progress-icon-wrap">👥</div>
+      <div class="progress-info">
+        <div class="pi-label" id="progressLabel">0/9 vagas preenchidas</div>
+        <div class="pi-sub">Preenchimento do diário</div>
+      </div>
+    </div>
+    <div class="progress-people" id="progressPeople"></div>
+    <div class="progress-bar-row">
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+  </div>
+
   <div class="ultima-vaga-banner" id="ultimaVagaBanner">🔥 Última vaga disponível!</div>
   <div class="sem-vagas-banner" id="semVagasBanner">🚫 Vagas esgotadas para este diário</div>
 
@@ -430,7 +470,7 @@
       <div class="av">👤</div>
       <div class="txt"><div class="lbl">Logado como</div><div class="nm" id="logadoNome">—</div></div>
     </div>
-    <button class="btn-sair-mini" id="btnSairConta">↩ Sair</button>
+    <button class="btn-sair-mini" id="btnSairConta">↪ Sair</button>
   </div>
 
   <!-- TELA 1: LOGIN — SEMPRE DISPONÍVEL -->
@@ -450,8 +490,9 @@
 
   <!-- TELA 2: GARANTIR VAGA -->
   <div class="card" id="vagaCard" style="display:none;">
-    <div class="card-title">🎮 Garantir vaga</div>
-    <div class="card-sub">Informe seu nick no jogo para confirmar a inscrição. Após isso, a chave PIX será exibida.</div>
+    <div class="card-title">🎮 Garantir minha vaga</div>
+    <div class="card-sub">Informe seu nick no jogo para confirmar a inscrição.</div>
+    <div class="card-warn">⚠️ Após isso, a chave PIX será exibida.</div>
     <div class="field">
       <label>Nick no jogo</label>
       <input type="text" id="inputVagaNick" placeholder="Ex: ProPlayer123">
@@ -502,30 +543,37 @@
     </div>
   </div>
 
-  <!-- Participantes -->
-  <div class="card">
-    <div class="card-title">👥 Jogadores inscritos</div>
-    <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
-  </div>
-
-  <!-- Ranking -->
-  <div class="card">
-    <div class="card-title">🏆 Ranking de vitórias</div>
-    <div class="diario-toggle">
-      <button id="btnTogNormal" class="active" onclick="setDiarioAtivo('normal')">🎯 Normal</button>
-      <button id="btnTogMini" onclick="setDiarioAtivo('mini')">⚡ Mini</button>
+  <!-- Inscritos + Ranking lado a lado -->
+  <div class="duas-colunas">
+    <div class="card">
+      <div class="card-title">👥 Jogadores inscritos</div>
+      <div id="listaParticipantes"><div class="lista-loading">Carregando...</div></div>
     </div>
-    <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
+
+    <div class="card">
+      <div class="card-title">🏆 Ranking de vitórias</div>
+      <div class="diario-toggle">
+        <button id="btnTogNormal" class="active" onclick="setDiarioAtivo('normal')">🎯 Normal</button>
+        <button id="btnTogMini" onclick="setDiarioAtivo('mini')">⚡ Mini</button>
+      </div>
+      <div id="rankingLista"><div class="ranking-vazio">Carregando...</div></div>
+    </div>
   </div>
 
-  <!-- Barra de topo: admin + contas registradas -->
-  <div class="admin-top-bar">
-    <div class="admin-login-toggle"><button id="btnToggleLogin">⚙️</button></div>
-    <button class="btn-toggle-contas-top" id="btnToggleContasTop">👤 Contas registradas</button>
+  <!-- Rodapé: Configurações + Contas registradas -->
+  <div class="footer-actions">
+    <button class="btn-footer-action config-btn" id="btnToggleLogin">⚙️ Configurações</button>
+    <button class="btn-footer-action contas-btn" id="btnToggleContasTop">👥 Contas Registradas</button>
   </div>
+
   <div class="admin-login-box" id="adminLoginBox">
     <div class="field"><label>Senha do admin</label><input type="password" id="inputSenha" placeholder="••••••"></div>
     <button class="btn-entrar-admin" id="btnEntrarAdmin">Entrar</button>
+  </div>
+
+  <div class="admin-login-box" id="contasLoginBox">
+    <div class="field"><label>Senha de contas registradas</label><input type="password" id="inputSenhaContas" placeholder="••••••"></div>
+    <button class="btn-entrar-admin gold-variant" id="btnEntrarContas">Ver contas</button>
   </div>
 
 </div><!-- /user-container -->
@@ -620,9 +668,11 @@
   var VITORIAS_GRATIS_NORMAL = 5;
   var CADASTROS_POR_DESCONTO = 5;
   var CADASTROS_POR_GRATIS   = 10;
+  var SENHA_CONTAS           = '888111';
 
   var usuarioInscrito  = false;
   var isAdmin          = false;
+  var contasOnly       = false;
   var ultimaSala       = null;
   var ultimosPartic    = {};
   var contasRegistradas = {};
@@ -750,6 +800,18 @@
       ultimoBeneficioUsado: Number(entry.ultimoBeneficioUsado) || 0
     };
   }
+  /* Busca o nick do Brawl de um jogador a partir do telefone, olhando os
+     participantes mais recentes; usado para exibir o NICK (e não o nome real)
+     no ranking público. Faz fallback para o nome da conta se não achar nick. */
+  function nickPorTelefone(tel) {
+    var telLimpo = apenasDigitos(tel);
+    if (!telLimpo) return '';
+    var achados = Object.values(ultimosPartic || {}).filter(function(p) {
+      return apenasDigitos(p.telefone) === telLimpo && p.brawl;
+    });
+    if (achados.length) return achados[achados.length - 1].brawl;
+    return nomeExibicaoPorTelefone(tel);
+  }
   function tipoBeneficioNormal(v) { return (v > 0 && v % VITORIAS_GRATIS_NORMAL === 0) ? 'gratis' : null; }
   function tipoBeneficioMini(v) {
     if (v <= 0) return null;
@@ -785,9 +847,18 @@
     ref.update(upd);
   }
   function consumirBeneficiosAoInscrever(tel) { consumirBeneficio(tel, 'normal'); consumirBeneficio(tel, 'mini'); }
+  /* beneficioEfetivo agora prioriza o campo "beneficio" gravado NO MOMENTO DA
+     INSCRIÇÃO (snapshot do benefício elegível naquele instante). Isso corrige
+     a detecção: antes, o benefício era recalculado em tempo real a partir das
+     vitórias atuais, então, assim que o benefício era consumido (ultimoBeneficioUsado
+     = vitorias), o banner/selo desaparecia mesmo para quem já tinha garantido a
+     vaga com aquele benefício. Agora o benefício concedido fica fixo no registro
+     do participante e só é recalculado em tempo real se nada foi gravado ainda. */
   function beneficioEfetivo(p) {
     if (p.beneficioManual === 'gratis')   return 'gratis';
     if (p.beneficioManual === 'desconto') return 'desconto';
+    if (p.beneficio === 'gratis')   return 'gratis';
+    if (p.beneficio === 'desconto') return 'desconto';
     if (temGratis(p.telefone))   return 'gratis';
     if (temDesconto(p.telefone)) return 'desconto';
     return null;
@@ -800,7 +871,14 @@
     document.getElementById('statRestantes').textContent = restantes;
     var pct = Math.min(100, Math.round((totalInscritos / TOTAL_VAGAS) * 100));
     document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
     document.getElementById('progressLabel').textContent = totalInscritos + '/' + TOTAL_VAGAS + ' vagas preenchidas';
+    var peopleEl = document.getElementById('progressPeople');
+    if (peopleEl) {
+      var html = '';
+      for (var i = 0; i < TOTAL_VAGAS; i++) html += '<span class="pp-icon' + (i < totalInscritos ? ' filled' : '') + '">👤</span>';
+      peopleEl.innerHTML = html;
+    }
     document.getElementById('ultimaVagaBanner').style.display = (restantes === 1) ? 'block' : 'none';
     document.getElementById('semVagasBanner').style.display   = (restantes === 0) ? 'block' : 'none';
   }
@@ -852,7 +930,7 @@
     if (!obj || !Object.keys(obj).length) { lista.innerHTML = '<div class="ranking-vazio">Nenhum jogador no ranking ainda.</div>'; return; }
     var arr = Object.keys(obj).map(function(tel) {
       var d = normalizarEntry(obj[tel]);
-      var nomeExibicao = d.nome || nomeExibicaoPorTelefone(tel);
+      var nomeExibicao = nickPorTelefone(tel); // ranking público mostra o NICK do Brawl
       return { tel: tel, nome: nomeExibicao, v: d.vitorias, usado: d.ultimoBeneficioUsado };
     });
     arr.sort(function(a,b) { return b.v - a.v; });
@@ -976,8 +1054,10 @@
       html += '</div>';
       if (isG) html += '<div class="conta-badge">🟡</div>';
       else if (isD) html += '<div class="conta-badge">🟠</div>';
-      var safeNome = item.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-      html += '<button class="btn-remover-inscrito" onclick="adminRemoverConta(\''+item.chave+'\',\''+safeNome+'\')" title="Remover conta">🗑️</button>';
+      if (isAdmin) {
+        var safeNome = item.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+        html += '<button class="btn-remover-inscrito" onclick="adminRemoverConta(\''+item.chave+'\',\''+safeNome+'\')" title="Remover conta">🗑️</button>';
+      }
       html += '</div>';
     }
     el.innerHTML = html;
@@ -1177,7 +1257,6 @@
     document.getElementById('loginCard').style.display = 'block';
     document.getElementById('vagaCard').style.display = 'none';
     document.getElementById('posCard').style.display = 'none';
-    document.getElementById('btnToggleContasTop').style.display = 'none';
   }
   function mostrarTelaGarantirVaga() {
     document.getElementById('logadoBar').style.display = 'flex';
@@ -1185,7 +1264,16 @@
     document.getElementById('loginCard').style.display = 'none';
     document.getElementById('vagaCard').style.display = 'block';
     document.getElementById('posCard').style.display = 'none';
-    document.getElementById('btnToggleContasTop').style.display = 'inline-flex';
+  }
+  /* Procura o registro do participante (telefone+nome) atualmente logado */
+  function getMeuParticipante() {
+    var nome = getContaNome(), tel = getContaTel();
+    var achado = null;
+    Object.keys(ultimosPartic).forEach(function(k) {
+      var p = ultimosPartic[k];
+      if (p.nome === nome && apenasDigitos(p.telefone) === apenasDigitos(tel)) achado = p;
+    });
+    return achado;
   }
   function mostrarTelaPos() {
     document.getElementById('logadoBar').style.display = 'flex';
@@ -1193,11 +1281,11 @@
     document.getElementById('loginCard').style.display = 'none';
     document.getElementById('vagaCard').style.display = 'none';
     document.getElementById('posCard').style.display = 'block';
-    document.getElementById('btnToggleContasTop').style.display = 'inline-flex';
 
-    var tel = getContaTel();
-    var g = temGratis(tel);
-    var d = !g && temDesconto(tel);
+    var meuP = getMeuParticipante();
+    var ben = meuP ? beneficioEfetivo(meuP) : null;
+    var g = ben === 'gratis';
+    var d = ben === 'desconto';
 
     var bannerG = document.getElementById('bannerGratis');
     var bannerD = document.getElementById('bannerDesconto');
@@ -1256,21 +1344,19 @@
     if (diarioAtivo === 'normal') renderRanking();
     if (isAdmin && adminDiarioAtivo === 'normal') { renderAdminVit(); renderSelectJogadores(); }
     renderLista(ultimosPartic);
-    if (usuarioInscrito) mostrarTelaPos();
   });
   refVitMini.on('value', function(snap) {
     vitoriasMini = snap.val() || {};
     if (diarioAtivo === 'mini') renderRanking();
     if (isAdmin && adminDiarioAtivo === 'mini') { renderAdminVit(); renderSelectJogadores(); }
     renderLista(ultimosPartic);
-    if (usuarioInscrito) mostrarTelaPos();
   });
 
   /* Contas — listener carrega os dados sempre (necessário para benefício automático) */
   refContas.on('value', function(snap) {
     contasRegistradas = snap.val() || {};
-    if (isAdmin) { renderAdminContas(); renderSelectJogadores(); }
-    if (usuarioInscrito) mostrarTelaPos();
+    if (isAdmin || contasOnly) { renderAdminContas(); }
+    if (isAdmin) renderSelectJogadores();
     renderLista(ultimosPartic);
     renderRanking();
   }, function(err) {
@@ -1337,16 +1423,22 @@
         if (jaInscrito) { toast('Você já está inscrito!', 'error'); usuarioInscrito = true; mostrarTelaPos(); return; }
         var btn = document.getElementById('btnGarantirVaga');
         btn.disabled = true; btn.textContent = 'Inscrevendo...';
-        refPartic.push({ nome: nome, brawl: nick, telefone: tel }, function(err) {
+        /* Captura o benefício elegível ANTES de consumi-lo, e grava esse
+           "snapshot" junto com o participante. Assim o banner/selo do
+           participante fica estável mesmo depois do benefício ser marcado
+           como usado no ranking (corrige o bug de detecção do benefício). */
+        var gAntes = temGratis(tel);
+        var dAntes = !gAntes && temDesconto(tel);
+        var beneficioConcedido = gAntes ? 'gratis' : (dAntes ? 'desconto' : null);
+        refPartic.push({ nome: nome, brawl: nick, telefone: tel, beneficio: beneficioConcedido }, function(err) {
           btn.disabled = false; btn.textContent = '✓ Garantir minha vaga';
           if (err) { toast('Erro ao inscrever.', 'error'); return; }
           document.getElementById('inputVagaNick').value = '';
           usuarioInscrito = true;
           consumirBeneficiosAoInscrever(tel);
           mostrarTelaPos();
-          var g = temGratis(tel), d = !g && temDesconto(tel);
-          if (g) toast('🏆 Inscrição com entrada GRÁTIS!', 'gold');
-          else if (d) toast('🔥 Entrada pela metade (R$2)!', 'orange');
+          if (gAntes) toast('🏆 Inscrição com entrada GRÁTIS!', 'gold');
+          else if (dAntes) toast('🔥 Entrada pela metade (R$2)!', 'orange');
           else toast('Inscrição confirmada! ✅', 'success');
         });
       });
@@ -1370,16 +1462,30 @@
   });
 
   /* ===== ADMIN LOGIN ===== */
-  document.getElementById('btnToggleLogin').addEventListener('click', function() { var box = document.getElementById('adminLoginBox'); box.style.display = box.style.display === 'block' ? 'none' : 'block'; });
+  document.getElementById('btnToggleLogin').addEventListener('click', function() {
+    // Fechar caixa de contas se estiver aberta, para não exibir as duas juntas
+    document.getElementById('contasLoginBox').style.display = 'none';
+    if (isAdmin) {
+      // já é admin: alterna visibilidade do painel admin completo
+      document.getElementById('adminLayout').style.display = document.getElementById('adminLayout').style.display === 'none' ? 'flex' : 'none';
+      return;
+    }
+    var box = document.getElementById('adminLoginBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  });
   document.getElementById('btnEntrarAdmin').addEventListener('click', function() {
     var digitada = document.getElementById('inputSenha').value;
     if (!digitada) { toast('Digite a senha!', 'error'); return; }
     refSenha.once('value', function(snap) {
       if (digitada === String(snap.val())) {
         isAdmin = true;
+        contasOnly = false;
         document.getElementById('adminLoginBox').style.display = 'none';
+        document.getElementById('adminLayout').className = 'admin-layout';
         document.getElementById('adminLayout').style.display = 'flex';
+        document.getElementById('adminPanel').style.display = 'block';
         document.getElementById('inputSenha').value = '';
+        document.getElementById('btnToggleLogin').className = 'btn-footer-action config-btn ativo';
         renderBadge(ultimaSala);
         renderAdminLista(Object.values(ultimosPartic));
         renderAdminVit();
@@ -1399,20 +1505,48 @@
   document.getElementById('inputSenha').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('btnEntrarAdmin').click(); });
   document.getElementById('btnSairAdmin').addEventListener('click', function() {
     isAdmin = false;
+    contasOnly = false;
     document.getElementById('adminLayout').style.display = 'none';
     document.getElementById('adminContasPanel').style.display = 'none';
+    document.getElementById('btnToggleLogin').className = 'btn-footer-action config-btn';
+    document.getElementById('btnToggleContasTop').className = 'btn-footer-action contas-btn';
   });
 
-  /* ===== BOTÃO "CONTAS REGISTRADAS" NO TOPO (para usuário comum) ===== */
+  /* ===== BOTÃO "CONTAS REGISTRADAS" — senha própria (888111), abre só esse painel ===== */
   document.getElementById('btnToggleContasTop').addEventListener('click', function() {
+    document.getElementById('adminLoginBox').style.display = 'none';
     if (isAdmin) {
-      // Se já é admin, apenas alterna a visibilidade do painel de contas
+      // Se já é admin completo, apenas alterna a visibilidade do painel de contas
       var painel = document.getElementById('adminContasPanel');
       painel.style.display = painel.style.display === 'none' ? 'block' : 'none';
       return;
     }
-    toast('Faça login como admin (⚙️) para ver as contas registradas.', 'error');
+    if (contasOnly) {
+      // já está vendo só as contas: sair desse modo
+      contasOnly = false;
+      document.getElementById('adminLayout').style.display = 'none';
+      document.getElementById('btnToggleContasTop').className = 'btn-footer-action contas-btn';
+      return;
+    }
+    var box = document.getElementById('contasLoginBox');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
   });
+  document.getElementById('btnEntrarContas').addEventListener('click', function() {
+    var digitada = document.getElementById('inputSenhaContas').value;
+    if (!digitada) { toast('Digite a senha!', 'error'); return; }
+    if (digitada !== SENHA_CONTAS) { toast('Senha incorreta!', 'error'); document.getElementById('inputSenhaContas').value = ''; return; }
+    contasOnly = true;
+    document.getElementById('inputSenhaContas').value = '';
+    document.getElementById('contasLoginBox').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'none';
+    document.getElementById('adminContasPanel').style.display = 'block';
+    document.getElementById('adminLayout').className = 'admin-layout contas-only';
+    document.getElementById('adminLayout').style.display = 'flex';
+    document.getElementById('btnToggleContasTop').className = 'btn-footer-action contas-btn ativo';
+    renderAdminContas();
+    toast('👤 Visualizando contas registradas', 'gold');
+  });
+  document.getElementById('inputSenhaContas').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('btnEntrarContas').click(); });
 
   /* ===== SALA ===== */
   document.getElementById('btnLiberar').addEventListener('click', function() {
