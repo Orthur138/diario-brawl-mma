@@ -19,11 +19,9 @@
 body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;
   background-image:radial-gradient(ellipse 120% 40% at 50% 0%, #2a0000 0%, #080808 60%);}
 
-/* ===== LAYOUT ===== */
 .page{max-width:480px;margin:0 auto;padding:0 0 80px;}
 .admin-wrap{max-width:1000px;margin:0 auto;padding:0 16px 60px;}
 
-/* ===== HEADER ===== */
 .site-header{text-align:center;padding:32px 20px 20px;position:relative;}
 .site-header .fire{font-size:2.8rem;display:block;margin-bottom:4px;filter:drop-shadow(0 0 16px #ff4400);}
 .site-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,12vw,4.2rem);
@@ -37,7 +35,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:10px;}
 .site-header .tagline span{color:#cc1111;}
 
-/* ===== SYNC ===== */
 .sync-bar{display:flex;align-items:center;justify-content:center;gap:6px;
   font-size:0.68rem;color:#444;padding:6px 0 16px;letter-spacing:0.5px;}
 .sync-dot{width:7px;height:7px;border-radius:50%;background:#333;}
@@ -46,7 +43,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .sync-dot.error{background:var(--red);}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ===== STATS ===== */
 .stats-section{padding:0 16px 16px;}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
 .stat-card{background:var(--card);border:1px solid var(--border2);border-radius:14px;
@@ -59,7 +55,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .stat-card .sc-label{font-size:0.58rem;color:var(--muted);text-transform:uppercase;
   letter-spacing:1px;margin-top:4px;display:block;}
 
-/* Progress */
 .progress-section{background:var(--card);border:1px solid var(--border2);border-radius:14px;
   padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;gap:14px;}
 .progress-left{flex-shrink:0;}
@@ -85,7 +80,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .banner-alerta.esgotado{background:#120303;border:1px solid #5a1010;color:#aa4444;}
 @keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(200,0,0,.2)}50%{box-shadow:0 0 0 6px rgba(200,0,0,0)}}
 
-/* ===== LOGADO BAR ===== */
 .logado-bar{display:none;align-items:center;justify-content:space-between;gap:10px;
   background:var(--card);border:1px solid var(--border2);border-radius:14px;
   padding:12px 16px;margin:0 16px 12px;}
@@ -102,14 +96,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .btn-sair:hover{background:#1a0505;}
 .btn-sair::before{content:'→';}
 
-/* ===== AVISO BLOQUEADO ===== */
 .aviso-bloqueado{display:none;background:#120900;border:1px solid #7a4400;
   border-radius:12px;padding:14px 16px;margin:0 16px 12px;text-align:center;}
 .aviso-bloqueado .icon{font-size:1.2rem;margin-bottom:4px;display:block;}
 .aviso-bloqueado strong{color:#cc6600;font-size:.9rem;display:block;margin-bottom:3px;}
 .aviso-bloqueado p{font-size:.78rem;color:#aa8844;}
 
-/* ===== CARDS ===== */
 .mma-card{background:var(--card);border:1px solid var(--border2);border-radius:16px;
   padding:20px 18px;margin:0 16px 12px;position:relative;overflow:hidden;}
 .mma-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -140,7 +132,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .btn-main:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 28px rgba(180,0,0,.55);}
 .btn-main:disabled{opacity:.5;cursor:not-allowed;}
 
-/* ===== BANNER PROMOÇÃO ===== */
 .banner-promo{display:none;border-radius:12px;padding:14px 16px;margin-bottom:14px;
   flex-direction:row;align-items:center;gap:12px;}
 .banner-promo.show{display:flex;}
@@ -158,7 +149,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .gold .bp-sub{color:#aa9900;}
 .orange .bp-sub{color:#aa6600;}
 
-/* PIX */
 .pix-box{background:linear-gradient(160deg,#1c1600,#110f00);border:1.5px solid var(--gold-border);
   border-radius:12px;padding:14px 16px;margin-bottom:12px;}
 .pix-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1.5px;
@@ -169,7 +159,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .pix-nome{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:1px;color:var(--gold);}
 .pix-key{font-size:.74rem;color:#aa8800;word-break:break-all;text-align:right;max-width:65%;}
 
-/* Sala */
 .sala-box{background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;}
 .sm-fechada{text-align:center;padding:6px 0;}
 .sm-lock{font-size:1.5rem;display:block;margin-bottom:4px;}
@@ -183,7 +172,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   animation:pulseBtn 1.8s ease-in-out infinite;}
 @keyframes pulseBtn{0%,100%{box-shadow:0 4px 16px rgba(46,204,113,.4)}50%{box-shadow:0 4px 28px rgba(46,204,113,.85)}}
 
-/* ===== GRID INFERIOR (inscritos + ranking) ===== */
 .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;margin-bottom:12px;}
 @media(max-width:420px){.bottom-grid{grid-template-columns:1fr;}}
 
@@ -197,7 +185,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .bc-count{background:var(--red-deep);color:#ffaaaa;font-family:'Bebas Neue',sans-serif;
   font-size:.82rem;padding:2px 8px;border-radius:12px;border:1px solid var(--red);}
 
-/* Inscritos grid */
 .inscritos-grid{display:flex;flex-direction:column;gap:5px;}
 .inscrito-item{background:#0d0d0d;border-left:3px solid var(--red);border-radius:6px;
   padding:7px 10px;font-size:.78rem;font-weight:600;color:var(--text);
@@ -212,7 +199,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .inscritos-empty{color:#444;font-size:.76rem;text-align:center;padding:12px 0;}
 .inscritos-msg{color:#555;font-size:.7rem;text-align:center;padding:8px 0;}
 
-/* Ranking */
 .rank-toggle{display:flex;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:8px;
   padding:3px;gap:3px;margin-bottom:10px;}
 .rank-toggle button{flex:1;background:none;border:none;color:#444;
@@ -229,7 +215,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .rank-vit{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--red);min-width:28px;text-align:right;}
 .rank-empty{color:#444;font-size:.76rem;text-align:center;padding:12px 0;}
 
-/* ===== RODAPÉ DE AÇÃO ===== */
 .footer-actions{display:flex;gap:8px;padding:0 16px;margin-bottom:12px;}
 .btn-footer{flex:1;background:var(--card);border:1px solid var(--border2);color:var(--muted);
   border-radius:12px;padding:14px 10px;font-family:'Barlow Condensed',sans-serif;
@@ -240,13 +225,11 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .btn-footer.contas-btn{border-color:#3a2e00;color:#6a5410;}
 .btn-footer.contas-btn:hover{background:#1a1500;border-color:var(--gold-border);color:var(--gold);}
 
-/* ===== LOGIN DE CONTAS (modal-like) ===== */
 .contas-login-box{display:none;background:var(--card2);border:1px solid #3a2e00;
   border-radius:12px;padding:18px;margin:0 16px 12px;max-width:400px;margin-left:auto;margin-right:auto;}
 .contas-login-box .cl-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
   letter-spacing:1px;color:var(--gold);margin-bottom:12px;text-align:center;}
 
-/* ===== ADMIN ===== */
 .admin-login-box{display:none;background:var(--card2);border:1px solid #1e1e1e;
   border-radius:12px;padding:18px;margin:0 16px 12px;max-width:360px;
   margin-left:auto;margin-right:auto;}
@@ -260,7 +243,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   letter-spacing:1px;cursor:pointer;margin-top:4px;}
 .btn-entrar-contas:hover{background:linear-gradient(135deg,#3a2800,#2a1a00);}
 
-/* Admin layout */
 .admin-layout{display:flex;gap:16px;align-items:flex-start;}
 .admin-layout .admin-panel{flex:1;min-width:0;}
 .admin-layout .admin-contas-panel{flex:1;min-width:0;}
@@ -383,7 +365,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .lucro-total-box .tbox-val{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--green);}
 .lucro-total-box .tbox-sub{font-size:.68rem;color:#444;margin-top:1px;}
 
-/* Contas admin panel */
 .admin-contas-panel{display:none;background:var(--card2);border:1px solid #3a2a00;border-radius:14px;padding:20px 18px;}
 .admin-contas-header-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 .admin-contas-header-bar h3{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:var(--gold);}
@@ -406,7 +387,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .conta-badge{font-size:1.2rem;flex-shrink:0;}
 .contas-empty{color:#444;font-size:.82rem;text-align:center;padding:16px 0;}
 
-/* ===== NAVEGAÇÃO POR ABAS ===== */
 .nav-tabs{display:flex;background:#0a0a0a;border-bottom:1px solid var(--border2);
   position:sticky;top:0;z-index:100;padding:0 8px;}
 .nav-tab{flex:1;background:none;border:none;border-bottom:2px solid transparent;
@@ -418,7 +398,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .tab-page{display:none;}
 .tab-page.active{display:block;}
 
-/* ===== PERFIL ===== */
 .perfil-card{background:var(--card);border:1px solid var(--border2);border-radius:16px;
   padding:20px 18px;margin:12px 16px;position:relative;overflow:hidden;}
 .perfil-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -441,14 +420,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .cargo-participante{background:#1a1a1a;color:#666;border:1px solid #2a2a2a;}
 .cargo-adm{background:#001a0a;color:#00cc66;border:1px solid #005522;}
 
-/* Editar perfil */
 .btn-editar-perfil{width:100%;margin-top:14px;background:#1a1a1a;border:1px solid #2a2a2a;
   color:#666;border-radius:10px;padding:11px;font-family:'Barlow Condensed',sans-serif;
   font-size:.88rem;font-weight:700;letter-spacing:.8px;cursor:pointer;text-transform:uppercase;}
 .btn-editar-perfil:hover{background:#222;color:#aaa;}
 .edit-nick-box{display:none;margin-top:12px;}
 
-/* ===== CARTEIRA ===== */
 .saldo-hero{background:linear-gradient(135deg,#0a1a0a,#051005);
   border:1px solid #1a4a1a;border-radius:16px;padding:24px 20px;margin:12px 16px;text-align:center;}
 .saldo-label{font-size:.7rem;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
@@ -497,7 +474,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .hist-status.recusado{background:#1a0505;color:#cc3333;border:1px solid #5a1010;}
 .hist-empty{color:#444;font-size:.8rem;text-align:center;padding:20px 0;}
 
-/* ===== SALAS ===== */
 .salas-list{padding:0 16px;}
 .sala-card{background:var(--card);border:1px solid var(--border2);border-radius:14px;
   padding:16px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;
@@ -517,7 +493,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 .sala-preco{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--green);margin-left:auto;}
 .salas-empty{color:#444;font-size:.84rem;text-align:center;padding:30px 0;}
 
-/* Modal sala */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);
   z-index:200;align-items:flex-end;justify-content:center;}
 .modal-overlay.show{display:flex;}
@@ -550,20 +525,16 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 </head>
 <body>
 
-<!-- ===== ÁREA DO USUÁRIO ===== -->
 <div class="page">
 
-  <!-- Navegação por abas -->
   <nav class="nav-tabs" id="navTabs" style="display:none;">
     <button class="nav-tab active" onclick="setTab('salas')" id="tabBtnSalas">🏠 Salas</button>
     <button class="nav-tab" onclick="setTab('carteira')" id="tabBtnCarteira">💰 Carteira</button>
     <button class="nav-tab" onclick="setTab('perfil')" id="tabBtnPerfil">👤 Perfil</button>
   </nav>
 
-  <!-- ===== ABA: SALAS (conteúdo principal) ===== -->
   <div class="tab-page active" id="tabSalas">
 
-  <!-- Header -->
   <div class="site-header">
     <span class="fire">🔥</span>
     <h1><span>Diário</span>Brawl MMA</h1>
@@ -575,7 +546,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     <span id="syncLabel">Conectando...</span>
   </div>
 
-  <!-- Stats -->
   <div class="stats-section">
     <div class="stats-grid">
       <div class="stat-card">
@@ -612,14 +582,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   <div class="banner-alerta ultima" id="ultimaVagaBanner">🔥 Última vaga disponível!</div>
   <div class="banner-alerta esgotado" id="semVagasBanner">🚫 Vagas esgotadas para este diário</div>
 
-  <!-- Aviso bloqueado -->
   <div class="aviso-bloqueado" id="avisoBloqueado">
     <span class="icon">🚫</span>
     <strong>Inscrições Bloqueadas</strong>
     <p>O admin bloqueou as inscrições. Você pode fazer login, mas não pode garantir vaga agora.</p>
   </div>
 
-  <!-- Logado bar -->
   <div class="logado-bar" id="logadoBar">
     <div class="logado-info">
       <div class="logado-av">👤</div>
@@ -637,16 +605,16 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     <div class="card-sub">Use seu nome e celular para acessar o campeonato.</div>
     <div class="field"><label>Nome completo</label><input type="text" id="inputLoginNome" placeholder="Ex: Arthur Alcântara"></div>
     <div class="field"><label>Celular (só números)</label><input type="tel" id="inputLoginTel" placeholder="Ex: 77999998888"></div>
-    <div class="field"><label>Nick no Brawl</label><input type="text" id="inputLoginNick" placeholder="Ex: ProPlayer123"></div>
     <button class="btn-main" id="btnLogin">➜ Entrar</button>
   </div>
 
-  <!-- Tela 2: Garantir vaga -->
+  <!-- Tela 2: Garantir vaga — CORRIGIDO: campo nick adicionado aqui -->
   <div class="mma-card" id="vagaCard" style="display:none;">
     <div class="card-head"><span class="ch-icon">🎮</span><h2>Garantir minha vaga</h2></div>
     <div class="card-sub">Confirme sua inscrição no diário atual. <span class="alerta">⚠️ Após isso, a chave PIX será exibida.</span></div>
     <div id="vagaSaldoAviso" style="display:none;" class="modal-saldo-aviso">💰 Seu saldo será descontado automaticamente ao se inscrever.</div>
     <div id="vagaSaldoInsuf" style="display:none;" class="modal-saldo-insuf">⚠️ Saldo insuficiente. Deposite na Carteira antes de se inscrever.</div>
+    <div class="field"><label>Nick no Brawl Stars</label><input type="text" id="inputVagaNick" placeholder="Ex: ProPlayer123"></div>
     <button class="btn-main" id="btnGarantirVaga">✓ Garantir minha vaga</button>
   </div>
 
@@ -679,7 +647,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     </div>
   </div>
 
-  <!-- Grid inferior: inscritos + ranking -->
   <div class="bottom-grid">
     <div class="bottom-card">
       <div class="bc-head">
@@ -698,19 +665,18 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     </div>
   </div>
 
-  <!-- Rodapé de ação -->
   <div class="footer-actions">
     <button class="btn-footer" id="btnToggleLogin">⚙️ Configurações</button>
     <button class="btn-footer contas-btn" id="btnToggleContas">👥 Contas Registradas</button>
   </div>
 
-  <!-- Login admin (configurações) -->
+  <!-- Login admin (senha fixa 888111) -->
   <div class="admin-login-box" id="adminLoginBox">
     <div class="field"><label>Senha do admin</label><input type="password" id="inputSenha" placeholder="••••••"></div>
     <button class="btn-entrar-admin" id="btnEntrarAdmin">Entrar como Admin</button>
   </div>
 
-  <!-- Login contas registradas (senha própria) -->
+  <!-- Login contas registradas -->
   <div class="contas-login-box" id="contasLoginBox">
     <div class="cl-title">👥 Contas Registradas</div>
     <div class="field"><label>Senha</label><input type="password" id="inputSenhaContas" placeholder="••••••"></div>
@@ -719,7 +685,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 
   </div><!-- /tabSalas -->
 
-  <!-- ===== ABA: CARTEIRA ===== -->
+  <!-- ABA: CARTEIRA -->
   <div class="tab-page" id="tabCarteira">
     <div class="saldo-hero">
       <div class="saldo-label">Saldo Disponível</div>
@@ -732,7 +698,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       <button class="carteira-tab" onclick="setCarteiraTab('historico')" id="ctabHist">Histórico</button>
     </div>
 
-    <!-- Depositar -->
     <div class="carteira-section active" id="csecDep">
       <div class="dep-box">
         <div class="dep-box-title">📣 Chave PIX para depósito</div>
@@ -751,7 +716,6 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       <div id="meusDepositos"><div class="hist-empty">Nenhum pedido ainda.</div></div>
     </div>
 
-    <!-- Sacar -->
     <div class="carteira-section" id="csecSac">
       <div class="dep-box">
         <div class="dep-box-title">💸 Solicitar saque</div>
@@ -762,13 +726,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       </div>
     </div>
 
-    <!-- Histórico -->
     <div class="carteira-section" id="csecHist">
       <div id="historicoLista"><div class="hist-empty">Carregando...</div></div>
     </div>
-  </div><!-- /tabCarteira -->
+  </div>
 
-  <!-- ===== ABA: PERFIL ===== -->
+  <!-- ABA: PERFIL -->
   <div class="tab-page" id="tabPerfil">
     <div class="perfil-card">
       <div class="perfil-avatar">👤</div>
@@ -783,11 +746,11 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
         <button class="btn-main" id="btnSalvarNick" style="margin-top:4px;">Salvar</button>
       </div>
     </div>
-  </div><!-- /tabPerfil -->
+  </div>
 
 </div><!-- /page -->
 
-<!-- Modal confirmação de inscrição na sala -->
+<!-- Modal sala -->
 <div class="modal-overlay" id="modalSala">
   <div class="modal-box">
     <div class="modal-titulo" id="modalSalaNome">—</div>
@@ -801,7 +764,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   </div>
 </div>
 
-<!-- ===== PAINEL ADMIN ===== -->
+<!-- PAINEL ADMIN -->
 <div class="admin-wrap">
 <div class="admin-layout" id="adminLayout" style="display:none;">
 
@@ -817,7 +780,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     <hr class="admin-sep">
     <div class="admin-vitorias-section">
       <h4>⚔️ Gerenciar Vitórias</h4>
-      <p class="hint">Selecione o jogador na lista — apenas quem já fez login no site aparece aqui, garantindo que o telefone seja sempre correto e o benefício automático funcione.</p>
+      <p class="hint">Selecione o jogador na lista — apenas quem já fez login no site aparece aqui.</p>
       <div class="diario-toggle-admin">
         <button id="btnAdmNormal" class="active" onclick="setAdminDiario('normal')">🎯 Normal</button>
         <button id="btnAdmMini" onclick="setAdminDiario('mini')">⚡ Mini</button>
@@ -885,22 +848,21 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     </div>
   </div>
 
-  <!-- Painel contas (admin) -->
   <div class="admin-contas-panel" id="adminContasPanel">
     <div class="admin-contas-header-bar">
       <h3>👤 Contas Registradas</h3>
       <div class="contas-total-badge"><span id="adminContasTotal">0</span> contas</div>
     </div>
     <p style="font-size:.7rem;color:#555;margin-bottom:12px;line-height:1.5;">
-      Todos os usuários que fizeram login. 🟡 = próxima entrada grátis (por cadastro) · 🟠 = desconto R$2 (por cadastro).
+      Todos os usuários que fizeram login. 🟢 = ADM Salas.
     </p>
     <div id="adminContasLista"><div class="contas-empty">Carregando...</div></div>
   </div>
 
 </div>
-</div><!-- /admin-wrap -->
+</div>
 
-<!-- Painel contas standalone (sem admin) -->
+<!-- Painel contas standalone -->
 <div class="admin-wrap">
 <div id="contasPanelStandalone" style="display:none;">
   <div class="admin-contas-panel" id="adminContasPanelStandalone" style="display:block;max-width:500px;margin:0 auto;">
@@ -912,7 +874,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       </div>
     </div>
     <p style="font-size:.7rem;color:#555;margin-bottom:12px;line-height:1.5;">
-      Todos os usuários que fizeram login. 🟡 = grátis (por cadastro) · 🟠 = desconto R$2 (por cadastro).
+      Todos os usuários que fizeram login. 🟢 = ADM Salas.
     </p>
     <div id="adminContasListaStandalone"><div class="contas-empty">Carregando...</div></div>
   </div>
@@ -925,12 +887,17 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 (function(){
-  var TOTAL_VAGAS=9,VITORIAS_GRATIS_MINI=8,VITORIAS_GRATIS_NORMAL=5;
-  var usuarioInscrito=false,isAdmin=false,isContasOpen=false;
-  var ultimaSala=null,ultimosPartic={},contasRegistradas={};
-  var vitoriasNormal={},vitoriasMini={};
-  var diarioAtivo='normal',adminDiarioAtivo='normal',lucroTab='normal';
-  var CONTA_NOME='dbrawl_conta_nome',CONTA_TEL='dbrawl_conta_tel';
+  // ============================================================
+  // SENHA FIXA — apenas 888111, sem consulta Firebase
+  // ============================================================
+  var SENHA_ADMIN = '888111';
+
+  var TOTAL_VAGAS=9, VITORIAS_GRATIS_MINI=8, VITORIAS_GRATIS_NORMAL=5;
+  var usuarioInscrito=false, isAdmin=false, isContasOpen=false;
+  var ultimaSala=null, ultimosPartic={}, contasRegistradas={};
+  var vitoriasNormal={}, vitoriasMini={};
+  var diarioAtivo='normal', adminDiarioAtivo='normal', lucroTab='normal';
+  var CONTA_NOME='dbrawl_conta_nome', CONTA_TEL='dbrawl_conta_tel', CONTA_NICK='dbrawl_conta_nick';
   var TIPOS_LUCRO=['normal','mini','especial','1v1'];
   var ADMS=['Arthur','Joao','Arturo'];
   var ADMS_DISPLAY={'Arthur':'Arthur','Joao':'João','Arturo':'Arturo'};
@@ -945,19 +912,26 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     appId:"1:156307889943:web:1d8b2b37ed08387af1a152"
   });
   var db=firebase.database();
-  var refPartic=db.ref('participantes'),refSala=db.ref('sala');
-  var refInscricoes=db.ref('inscricoes'),refSenha=db.ref('senha-admin');
-  var refVitNormal=db.ref('vitorias-normal'),refVitMini=db.ref('vitorias-mini');
-  var refLucro=db.ref('lucro-adm2'),refContas=db.ref('contas');
+  var refPartic=db.ref('participantes'), refSala=db.ref('sala');
+  var refInscricoes=db.ref('inscricoes');
+  var refVitNormal=db.ref('vitorias-normal'), refVitMini=db.ref('vitorias-mini');
+  var refLucro=db.ref('lucro-adm2'), refContas=db.ref('contas');
+  var refCarteiras=db.ref('carteiras');
+  var refDepositos=db.ref('depositos');
+  var refSaques=db.ref('saques');
+  var refSalas=db.ref('salas-dinamicas');
 
   /* UTILS */
   var toastTimer;
   function toast(msg,type){
     var t=document.getElementById('toast');
-    t.textContent=msg;t.className='toast show'+(type?' '+type:'');
-    clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.className='toast';},3500);
+    t.textContent=msg; t.className='toast show'+(type?' '+type:'');
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){t.className='toast';},3500);
   }
-  function setSync(s,l){document.getElementById('syncDot').className='sync-dot '+s;document.getElementById('syncLabel').textContent=l;}
+  function setSync(s,l){
+    document.getElementById('syncDot').className='sync-dot '+s;
+    document.getElementById('syncLabel').textContent=l;
+  }
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function dig(s){return String(s||'').replace(/\D/g,'');}
 
@@ -967,24 +941,22 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   function getTel(){try{return localStorage.getItem(CONTA_TEL)||'';}catch(e){return '';}}
   function temConta(){return !!(getNome()&&getTel());}
   function sairConta(){try{localStorage.removeItem(CONTA_NOME);localStorage.removeItem(CONTA_TEL);}catch(e){}}
+  function getNick(){try{return localStorage.getItem(CONTA_NICK)||'';}catch(e){return '';}}
+  function salvarNick(n){try{localStorage.setItem(CONTA_NICK,n);}catch(e){}}
 
   /* FIREBASE CONTAS */
   function registrarContaFirebase(nome,tel){
     var chave=dig(tel); if(!chave)return;
     refContas.child(chave).once('value',function(snap){
       if(!snap.exists()){
-        refContas.child(chave).set({nome:nome,telefone:chave,cadastradoEm:Date.now()},function(err){
-          if(err)console.error('Erro ao registrar conta:',err);
-        });
+        refContas.child(chave).set({nome:nome,telefone:chave,cadastradoEm:Date.now()});
       } else {
-        refContas.child(chave).update({nome:nome},function(err){
-          if(err)console.error('Erro ao atualizar conta:',err);
-        });
+        refContas.child(chave).update({nome:nome});
       }
-    },function(err){console.error('Erro ao ler contas:',err);});
+    });
   }
 
-  /* BENEFÍCIO POR VITÓRIAS — chave = telefone. Cadastro NÃO dá benefício. */
+  /* BENEFÍCIOS */
   function normEntry(e){
     if(!e)return{vitorias:0,nome:'',ultimoBeneficioUsado:0};
     if(typeof e!=='object')return{vitorias:Number(e)||0,nome:'',ultimoBeneficioUsado:0};
@@ -1006,8 +978,8 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     return{tipo:ben,chave:telL,dados:d};
   }
   function temGratis(tel){
-    var n=beneficioDisponivel(tel,'normal');if(n&&n.tipo==='gratis')return true;
-    var m=beneficioDisponivel(tel,'mini');if(m&&m.tipo==='gratis')return true;
+    var n=beneficioDisponivel(tel,'normal'); if(n&&n.tipo==='gratis')return true;
+    var m=beneficioDisponivel(tel,'mini'); if(m&&m.tipo==='gratis')return true;
     return false;
   }
   function temDesconto(tel){
@@ -1015,9 +987,9 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     return false;
   }
   function consumirBeneficio(tel,tipo){
-    var b=beneficioDisponivel(tel,tipo);if(!b)return;
+    var b=beneficioDisponivel(tel,tipo); if(!b)return;
     var ref=tipo==='mini'?refVitMini:refVitNormal;
-    var upd={};upd[b.chave]={vitorias:b.dados.vitorias,nome:b.dados.nome,ultimoBeneficioUsado:b.dados.vitorias};
+    var upd={}; upd[b.chave]={vitorias:b.dados.vitorias,nome:b.dados.nome,ultimoBeneficioUsado:b.dados.vitorias};
     ref.update(upd);
   }
   function consumirBeneficiosAoInscrever(tel){consumirBeneficio(tel,'normal');consumirBeneficio(tel,'mini');}
@@ -1046,7 +1018,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     document.getElementById('semVagasBanner').style.display=(rest===0)?'block':'none';
   }
 
-  /* PARTICIPANTES — mostra NICK DO BRAWL */
+  /* LISTA DE PARTICIPANTES */
   function renderLista(partic){
     var arr=partic?Object.values(partic):[];
     var html='';
@@ -1054,7 +1026,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       for(var i=0;i<arr.length;i++){
         var p=arr[i];
         var ben=beneficioEfetivo(p);
-        var g=ben==='gratis',d=ben==='desconto';
+        var g=ben==='gratis', d=ben==='desconto';
         var cls=g?' gratis':(d?' desconto':'');
         html+='<div class="inscrito-item'+cls+'">';
         html+='<span class="in-num">'+(i+1)+'°</span>';
@@ -1071,15 +1043,13 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     if(isAdmin)renderAdminLista(arr);
   }
 
-  /* NOME PARA EXIBIÇÃO NO RANKING = NICK DO BRAWL se inscrito, senão nome da conta */
+  /* NOME NO RANKING */
   function nomeRankingPorTel(tel){
     var telL=dig(tel);
-    // Verifica se está inscrito no diário atual — usa o nick do brawl
     var partic=Object.values(ultimosPartic);
     for(var i=0;i<partic.length;i++){
       if(dig(partic[i].telefone)===telL&&partic[i].brawl)return partic[i].brawl;
     }
-    // Senão usa o nome salvo no ranking, ou da conta
     var obj=diarioAtivo==='mini'?vitoriasMini:vitoriasNormal;
     var d=obj[telL]?normEntry(obj[telL]):null;
     if(d&&d.nome)return d.nome;
@@ -1117,11 +1087,11 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       var posClass=i===0?'ouro':i===1?'prata':i===2?'bronze':'';
       var ben=diarioAtivo==='mini'?tipoBenMini(item.v):tipoBenNormal(item.v);
       var disp=ben&&item.usado<item.v;
-      var isG=disp&&ben==='gratis',isD=disp&&ben==='desconto';
+      var isG=disp&&ben==='gratis', isD=disp&&ben==='desconto';
       html+='<div class="rank-item">';
       html+='<div class="rank-pos '+posClass+'">'+(i+1)+'°</div>';
       html+='<div class="rank-nome'+(isG?' gratis-nome':(isD?' desconto-nome':''))+'">'+esc(item.nome);
-      if(isG)html+=' 🏆';if(isD)html+=' 🔥';
+      if(isG)html+=' 🏆'; if(isD)html+=' 🔥';
       html+='</div>';
       html+='<div class="rank-vit">'+item.v+'v</div>';
       html+='</div>';
@@ -1141,14 +1111,14 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     for(var i=0;i<arr.length;i++){
       var p=arr[i];
       var ben=beneficioEfetivo(p);
-      var g=ben==='gratis',d=ben==='desconto';
+      var g=ben==='gratis', d=ben==='desconto';
       var cls=g?' gratis-admin':(d?' desconto-admin':'');
       var fbKey='';
       Object.keys(particObj).forEach(function(k){if(particObj[k].nome===p.nome&&particObj[k].brawl===p.brawl)fbKey=k;});
       html+='<div class="admin-part-item-new'+cls+'">';
       html+='<div class="admin-part-num">'+(i+1<10?'0':'')+(i+1)+'</div>';
       html+='<div class="admin-part-body">';
-      html+='<div class="admin-part-row1"><span class="admin-part-nome">'+esc(p.nome)+'</span><span class="admin-part-nick">🎮 '+esc(p.brawl)+'</span>';
+      html+='<div class="admin-part-row1"><span class="admin-part-nome">'+esc(p.nome)+'</span><span class="admin-part-nick">🎮 '+esc(p.brawl||'—')+'</span>';
       if(g)html+='<span class="gratis-tag">🏆 Grátis</span>';
       else if(d)html+='<span class="desconto-tag">🔥 R$2</span>';
       html+='</div>';
@@ -1185,7 +1155,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   };
 
   /* ADMIN CONTAS */
-  function buildContasHTML(obj,totalElId,listaElId,standalone){
+  function buildContasHTML(obj,totalElId,listaElId){
     var el=document.getElementById(listaElId);
     var elTotal=document.getElementById(totalElId);
     if(!el)return;
@@ -1211,26 +1181,28 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       html+='<div class="conta-nome">'+esc(item.nome);
       if(isAdmSalas)html+=' <span class="gratis-tag">⚙️ ADM Salas</span>';
       html+='</div>';
-      html+='<div class="conta-tel">📱 '+esc(item.tel)+'<span class="conta-data">'+data+'</span></div>';
+      html+='<div class="conta-tel">📱 '+esc(item.tel)+'<span class="conta-data"> · '+data+'</span></div>';
       html+='</div>';
       if(isAdmSalas)html+='<div class="conta-badge">🟢</div>';
       var safeNome=item.nome.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-      if(isAdmSalas){
-        html+='<button class="btn-remover-inscrito" style="background:#1a2a00;border-color:#2a4a00;color:#66aa00;" onclick="adminToggleCargo(\''+item.chave+'\',\''+safeNome+'\',false)" title="Remover ADM Salas">✕</button>';
-      } else {
-        html+='<button class="btn-remover-inscrito" style="background:#001a2a;border-color:#002a4a;color:#0088cc;font-size:.6rem;width:36px;" onclick="adminToggleCargo(\''+item.chave+'\',\''+safeNome+'\',true)" title="Tornar ADM Salas">ADM</button>';
+      if(isAdmin){
+        if(isAdmSalas){
+          html+='<button class="btn-remover-inscrito" style="background:#1a2a00;border-color:#2a4a00;color:#66aa00;" onclick="adminToggleCargo(\''+item.chave+'\',\''+safeNome+'\',false)" title="Remover ADM Salas">✕</button>';
+        } else {
+          html+='<button class="btn-remover-inscrito" style="background:#001a2a;border-color:#002a4a;color:#0088cc;font-size:.6rem;width:36px;" onclick="adminToggleCargo(\''+item.chave+'\',\''+safeNome+'\',true)" title="Tornar ADM Salas">ADM</button>';
+        }
+        html+='<button class="btn-remover-inscrito" onclick="adminRemoverConta(\''+item.chave+'\',\''+safeNome+'\')" title="Remover">🗑️</button>';
       }
-      html+='<button class="btn-remover-inscrito" onclick="adminRemoverConta(\''+item.chave+'\',\''+safeNome+'\')" title="Remover">🗑️</button>';
       html+='</div>';
     }
     el.innerHTML=html;
   }
   function renderAdminContas(){
-    buildContasHTML(contasRegistradas,'adminContasTotal','adminContasLista',false);
-    buildContasHTML(contasRegistradas,'adminContasTotalStandalone','adminContasListaStandalone',true);
+    buildContasHTML(contasRegistradas,'adminContasTotal','adminContasLista');
+    buildContasHTML(contasRegistradas,'adminContasTotalStandalone','adminContasListaStandalone');
   }
   window.adminRemoverConta=function(chave,nome){
-    if(!confirm('Remover '+nome+' das Contas Registradas?\n\nIsso NÃO apaga as vitórias dela. Se ela logar de novo, a conta volta.'))return;
+    if(!confirm('Remover '+nome+' das Contas Registradas?'))return;
     refContas.child(chave).remove(function(err){
       if(err){toast('Erro ao remover conta: '+err.message,'error');return;}
       toast('🗑️ '+nome+' removido das contas.');
@@ -1257,12 +1229,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     adminDiarioAtivo=tipo;
     document.getElementById('btnAdmNormal').className=tipo==='normal'?'active':'';
     document.getElementById('btnAdmMini').className=tipo==='mini'?'active':'';
-    renderAdminVit();renderSelectJogadores();
+    renderAdminVit(); renderSelectJogadores();
   };
   function renderAdminVit(){
     var obj=adminDiarioAtivo==='mini'?vitoriasMini:vitoriasNormal;
-    var el=document.getElementById('adminVitLista');if(!el)return;
-    if(!obj||!Object.keys(obj).length){el.innerHTML='<div class="vitorias-lista-admin-empty">Nenhum jogador ainda. Adicione acima.</div>';return;}
+    var el=document.getElementById('adminVitLista'); if(!el)return;
+    if(!obj||!Object.keys(obj).length){el.innerHTML='<div class="vitorias-lista-admin-empty">Nenhum jogador ainda.</div>';return;}
     var arr=Object.keys(obj).map(function(tel){
       var d=normEntry(obj[tel]);return{tel:tel,nome:nomeRankingAdminPorTel(tel),v:d.vitorias,usado:d.ultimoBeneficioUsado};
     });
@@ -1272,10 +1244,10 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       var item=arr[i];
       var ben=adminDiarioAtivo==='mini'?tipoBenMini(item.v):tipoBenNormal(item.v);
       var disp=ben&&item.usado<item.v;
-      var g=disp&&ben==='gratis',d=disp&&ben==='desconto';
+      var g=disp&&ben==='gratis', d2=disp&&ben==='desconto';
       html+='<div class="vit-item-admin"><div>';
-      html+='<div class="vit-nome-admin '+(g?'gold':d?'orange':'')+'">'+esc(item.nome);
-      if(g)html+=' 🏆';if(d)html+=' 🔥';
+      html+='<div class="vit-nome-admin '+(g?'gold':d2?'orange':'')+'">'+esc(item.nome);
+      if(g)html+=' 🏆'; if(d2)html+=' 🔥';
       html+='</div><div class="vit-tel-admin">📱 '+esc(item.tel)+'</div></div>';
       html+='<div class="vit-controls">';
       html+='<button class="btn-vit btn-vit-rem" onclick="adminRemVit(\''+item.tel+'\')">−</button>';
@@ -1292,7 +1264,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     var d=normEntry(obj[tel]);
     var nome=nomeRankingAdminPorTel(tel);
     var novo=d.vitorias+1;
-    var upd={};upd[tel]={vitorias:novo,nome:nome,ultimoBeneficioUsado:d.ultimoBeneficioUsado};
+    var upd={}; upd[tel]={vitorias:novo,nome:nome,ultimoBeneficioUsado:d.ultimoBeneficioUsado};
     ref.update(upd,function(err){
       if(err){toast('Erro!','error');return;}
       if(adminDiarioAtivo==='mini'){
@@ -1310,9 +1282,9 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     var ref=adminDiarioAtivo==='mini'?refVitMini:refVitNormal;
     var obj=adminDiarioAtivo==='mini'?vitoriasMini:vitoriasNormal;
     if(!obj[tel]){toast('Jogador não encontrado!','error');return;}
-    var d=normEntry(obj[tel]),nome=nomeRankingAdminPorTel(tel);
+    var d=normEntry(obj[tel]), nome=nomeRankingAdminPorTel(tel);
     var novo=Math.max(0,d.vitorias-1);
-    var upd={};upd[tel]={vitorias:novo,nome:nome,ultimoBeneficioUsado:Math.min(d.ultimoBeneficioUsado,novo)};
+    var upd={}; upd[tel]={vitorias:novo,nome:nome,ultimoBeneficioUsado:Math.min(d.ultimoBeneficioUsado,novo)};
     ref.update(upd,function(err){if(err)toast('Erro!','error');else toast('-1 de '+nome+' ('+novo+'v)');});
   };
   window.adminDelJogador=function(tel){
@@ -1325,7 +1297,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 
   /* SELECT JOGADORES */
   function renderSelectJogadores(){
-    var sel=document.getElementById('selectNovoJogador');if(!sel)return;
+    var sel=document.getElementById('selectNovoJogador'); if(!sel)return;
     var obj=adminDiarioAtivo==='mini'?vitoriasMini:vitoriasNormal;
     var arr=Object.keys(contasRegistradas).map(function(tel){
       return{tel:tel,nome:contasRegistradas[tel].nome||tel,ts:contasRegistradas[tel].cadastradoEm||0};
@@ -1335,7 +1307,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     if(!arr.length){html='<option value="">Nenhuma conta registrada ainda</option>';}
     else{
       for(var i=0;i<arr.length;i++){
-        var c=arr[i],jaNoRanking=!!obj[c.tel];
+        var c=arr[i], jaNoRanking=!!obj[c.tel];
         html+='<option value="'+esc(c.tel)+'">'+esc(c.nome)+' — 📱 '+c.tel+(jaNoRanking?' (já no ranking)':'')+'</option>';
       }
     }
@@ -1348,7 +1320,10 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   window.setLucroTab=function(tab){
     lucroTab=tab;
     var tabs={'normal':'btnLucroNormal','mini':'btnLucroMini','especial':'btnLucroEspecial','1v1':'btnLucro1v1','total':'btnLucroTotal'};
-    Object.keys(tabs).forEach(function(t){var btn=document.getElementById(tabs[t]);if(!btn)return;btn.className=(t===tab)?((t==='total')?'active-total':'active'):'';});
+    Object.keys(tabs).forEach(function(t){
+      var btn=document.getElementById(tabs[t]); if(!btn)return;
+      btn.className=(t===tab)?((t==='total')?'active-total':'active'):'';
+    });
     renderLucro();
   };
   function getLucroAdm(admKey,tipo){
@@ -1357,25 +1332,25 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
   function getTipoLabel(tipo){return{'normal':'Normal','mini':'Mini','especial':'Especial','1v1':'1v1'}[tipo]||tipo;}
   function renderLucro(){
-    var el=document.getElementById('lucroConteudo');if(!el)return;
+    var el=document.getElementById('lucroConteudo'); if(!el)return;
     if(lucroTab==='total'){
       var html='<div class="lucro-total-card"><div class="lucro-total-title">📊 Resumo Geral</div>';
-      var totalV=0,totalD=0;
+      var totalV=0, totalD=0;
       for(var a=0;a<ADMS.length;a++){
-        var admKey=ADMS[a],admD=ADMS_DISPLAY[admKey],vA=0,dA=0;
+        var admKey=ADMS[a], admD=ADMS_DISPLAY[admKey], vA=0, dA=0;
         for(var t=0;t<TIPOS_LUCRO.length;t++){var info=getLucroAdm(admKey,TIPOS_LUCRO[t]);vA+=info.valor;dA+=info.diarios;}
-        totalV+=vA;totalD+=dA;
+        totalV+=vA; totalD+=dA;
         html+='<div class="adm-card" style="margin-bottom:8px;"><div class="adm-card-header"><span class="adm-card-nome">'+esc(admD)+'</span><span class="adm-card-diarios">Total: <strong>'+dA+' diários</strong></span></div>';
         html+='<div class="lucro-total-grid" style="flex-wrap:wrap;gap:6px;">';
         for(var t2=0;t2<TIPOS_LUCRO.length;t2++){var inf=getLucroAdm(admKey,TIPOS_LUCRO[t2]);html+='<div class="lucro-total-box" style="min-width:65px;"><div class="tbox-label">'+getTipoLabel(TIPOS_LUCRO[t2])+'</div><div class="tbox-val" style="font-size:.95rem;">R$'+inf.valor.toFixed(2)+'</div><div class="tbox-sub">'+inf.diarios+'d</div></div>';}
         html+='<div class="lucro-total-box" style="min-width:65px;"><div class="tbox-label">Total</div><div class="tbox-val" style="font-size:.95rem;color:#FFD700;">R$'+vA.toFixed(2)+'</div><div class="tbox-sub">'+dA+'d</div></div></div></div>';
       }
       html+='<div class="lucro-total-grid" style="margin-top:10px;"><div class="lucro-total-box"><div class="tbox-label">💰 Total</div><div class="tbox-val">R$'+totalV.toFixed(2)+'</div></div><div class="lucro-total-box"><div class="tbox-label">📅 Diários</div><div class="tbox-val">'+totalD+'</div></div></div></div>';
-      el.innerHTML=html;return;
+      el.innerHTML=html; return;
     }
-    var tipo=lucroTab,html2='';
+    var tipo=lucroTab, html2='';
     for(var b=0;b<ADMS.length;b++){
-      var aK=ADMS[b],aN=ADMS_DISPLAY[aK],i2=getLucroAdm(aK,tipo);
+      var aK=ADMS[b], aN=ADMS_DISPLAY[aK], i2=getLucroAdm(aK,tipo);
       var iid='lucroInput_'+aK+'_'+tipo.replace(/[^a-zA-Z0-9]/g,'_');
       html2+='<div class="adm-card"><div class="adm-card-header"><span class="adm-card-nome">'+esc(aN)+'</span><span class="adm-card-diarios">Diários: <strong>'+i2.diarios+'</strong></span></div>';
       html2+='<div class="adm-display"><span class="adm-display-label">Lucro '+getTipoLabel(tipo)+'</span><span class="adm-display-val">R$ '+i2.valor.toFixed(2)+'</span></div>';
@@ -1387,11 +1362,11 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
   window.opLucro=function(admKey,tipo,op){
     var iid='lucroInput_'+admKey+'_'+tipo.replace(/[^a-zA-Z0-9]/g,'_');
-    var inputEl=document.getElementById(iid);if(!inputEl){toast('Erro!','error');return;}
+    var inputEl=document.getElementById(iid); if(!inputEl){toast('Erro!','error');return;}
     var val=parseFloat(inputEl.value);
     if(isNaN(val)||val<=0){toast('Digite um valor válido!','error');return;}
     var atual=getLucroAdm(admKey,tipo);
-    var novoV=Math.max(0,atual.valor+(op*val)),novoD=Math.max(0,atual.diarios+op);
+    var novoV=Math.max(0,atual.valor+(op*val)), novoD=Math.max(0,atual.diarios+op);
     refLucro.child(admKey).child(tipo).set({valor:novoV,diarios:novoD},function(err){
       if(err){toast('Erro! '+err.message,'error');return;}
       inputEl.value='';
@@ -1402,7 +1377,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
 
   /* SALA */
   function renderBadge(salaData){
-    var badge=document.getElementById('statusBadge');if(!badge)return;
+    var badge=document.getElementById('statusBadge'); if(!badge)return;
     var aberta=salaData&&salaData.aberta;
     badge.textContent=aberta?'🔓 Sala Liberada':'🔒 Sala Fechada';
     badge.className='status-badge '+(aberta?'status-liberada':'status-bloqueada');
@@ -1413,10 +1388,29 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     var link=salaData&&salaData.link?salaData.link:'#';
     var fechada=document.getElementById('salaMiniFechada');
     var abertaBox=document.getElementById('salaMiniAberta');
-    if(aberta&&link!=='#'){fechada.style.display='none';abertaBox.style.display='block';document.getElementById('btnEntrarSalaMini').href=link;}
-    else{fechada.style.display='block';abertaBox.style.display='none';}
+    if(aberta&&link!=='#'){
+      fechada.style.display='none'; abertaBox.style.display='block';
+      document.getElementById('btnEntrarSalaMini').href=link;
+    } else {
+      fechada.style.display='block'; abertaBox.style.display='none';
+    }
     if(isAdmin)renderBadge(salaData);
   }
+
+  /* NAV TABS */
+  function mostrarNavTabs(show){
+    document.getElementById('navTabs').style.display=show?'flex':'none';
+  }
+  window.setTab=function(tab){
+    ['salas','carteira','perfil'].forEach(function(t){
+      var pg=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
+      var btn=document.getElementById('tabBtn'+t.charAt(0).toUpperCase()+t.slice(1));
+      if(pg)pg.className='tab-page'+(t===tab?' active':'');
+      if(btn)btn.className='nav-tab'+(t===tab?' active':'');
+    });
+    if(tab==='carteira')renderCarteira();
+    if(tab==='perfil')renderPerfil();
+  };
 
   /* TELAS */
   function mostrarLogin(){
@@ -1425,6 +1419,8 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     document.getElementById('vagaCard').style.display='none';
     document.getElementById('posCard').style.display='none';
     document.getElementById('avisoBloqueado').style.display='none';
+    mostrarNavTabs(false);
+    setTab('salas');
   }
   function mostrarGarantirVaga(){
     document.getElementById('logadoBar').style.display='flex';
@@ -1432,6 +1428,14 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     document.getElementById('loginCard').style.display='none';
     document.getElementById('vagaCard').style.display='block';
     document.getElementById('posCard').style.display='none';
+    mostrarNavTabs(true);
+    // Checar saldo
+    var tel=getTel();
+    getSaldo(function(s){
+      var temBen=temGratis(tel);
+      document.getElementById('vagaSaldoAviso').style.display=(!temBen&&s>=5)?'block':'none';
+      document.getElementById('vagaSaldoInsuf').style.display=(!temBen&&s<5)?'block':'none';
+    });
   }
   function mostrarPos(){
     document.getElementById('logadoBar').style.display='flex';
@@ -1439,8 +1443,9 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     document.getElementById('loginCard').style.display='none';
     document.getElementById('vagaCard').style.display='none';
     document.getElementById('posCard').style.display='block';
+    mostrarNavTabs(true);
     var tel=getTel();
-    var g=temGratis(tel),d=!g&&temDesconto(tel);
+    var g=temGratis(tel), d=!g&&temDesconto(tel);
     document.getElementById('bannerGratis').className='banner-promo gold'+(g?' show':'');
     document.getElementById('bannerDesconto').className='banner-promo orange'+(d?' show':'');
     document.getElementById('pixMiniBox').style.display=g?'none':'block';
@@ -1453,20 +1458,20 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
   function verificarInscricaoAtual(){
     if(!temConta()){mostrarLogin();return;}
-    var nome=getNome(),tel=getTel();
+    var nome=getNome(), tel=getTel();
     refPartic.once('value',function(snap){
       var partic=snap.val()||{};
       var achado=Object.values(partic).some(function(p){return p.nome===nome&&dig(p.telefone)===dig(tel);});
-      usuarioInscrito=achado;atualizarTela();
+      usuarioInscrito=achado; atualizarTela();
     });
   }
 
   /* FIREBASE LISTENERS */
   refPartic.on('value',function(snap){
     ultimosPartic=snap.val()||{};
-    renderLista(ultimosPartic);setSync('online','Atualizado');
+    renderLista(ultimosPartic); setSync('online','Atualizado');
     if(temConta()){
-      var nome=getNome(),tel=getTel();
+      var nome=getNome(), tel=getTel();
       var ainda=Object.values(ultimosPartic).some(function(p){return p.nome===nome&&dig(p.telefone)===dig(tel);});
       if(usuarioInscrito&&!ainda){usuarioInscrito=false;toast('Sua inscrição foi cancelada.','error');atualizarTela();}
       else if(!usuarioInscrito&&ainda){usuarioInscrito=true;atualizarTela();}
@@ -1494,13 +1499,18 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   });
   refContas.on('value',function(snap){
     contasRegistradas=snap.val()||{};
+    var tel=getTel();
+    if(tel&&contasRegistradas[tel]&&contasRegistradas[tel].nick){
+      salvarNick(contasRegistradas[tel].nick);
+    }
     if(isAdmin||isContasOpen)renderAdminContas();
     if(usuarioInscrito)mostrarPos();
-    renderLista(ultimosPartic);renderRanking();
-    if(isAdmin)renderSelectJogadores();
+    renderLista(ultimosPartic); renderRanking();
+    if(isAdmin){renderSelectJogadores();renderSelectPremio();}
   },function(err){console.error('Erro /contas',err);});
-  db.ref('.info/connected').on('value',function(snap){if(snap.val())setSync('online','Online');else setSync('error','Sem conexão...');});
-
+  db.ref('.info/connected').on('value',function(snap){
+    if(snap.val())setSync('online','Online');else setSync('error','Sem conexão...');
+  });
   refInscricoes.on('value',function(snap){
     var abertas=snap.val()!==false;
     if(!usuarioInscrito){
@@ -1514,35 +1524,42 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       }
     }
     if(isAdmin){
-      var bB=document.getElementById('btnBloquearInscricoes'),bL=document.getElementById('btnLiberarInscricoes');
+      var bB=document.getElementById('btnBloquearInscricoes'), bL=document.getElementById('btnLiberarInscricoes');
       if(bB)bB.style.display=abertas?'inline-block':'none';
       if(bL)bL.style.display=abertas?'none':'inline-block';
     }
   });
 
-  /* EVENTOS */
+  /* ===== EVENTOS ===== */
+
+  /* Login */
   document.getElementById('btnLogin').addEventListener('click',function(){
     var nome=document.getElementById('inputLoginNome').value.trim();
     var tel=dig(document.getElementById('inputLoginTel').value.trim());
     if(!nome){toast('Insira seu nome!','error');return;}
     if(!tel){toast('Insira seu celular!','error');return;}
-    salvarConta(nome,tel);registrarContaFirebase(nome,tel);
-    document.getElementById('inputLoginNome').value='';document.getElementById('inputLoginTel').value='';
+    salvarConta(nome,tel);
+    registrarContaFirebase(nome,tel);
+    document.getElementById('inputLoginNome').value='';
+    document.getElementById('inputLoginTel').value='';
     verificarInscricaoAtual();
   });
   document.getElementById('inputLoginNome').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('inputLoginTel').focus();});
   document.getElementById('inputLoginTel').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btnLogin').click();});
 
+  /* Sair conta */
   document.getElementById('btnSairConta').addEventListener('click',function(){
     if(!confirm('Sair da conta?'))return;
-    sairConta();usuarioInscrito=false;atualizarTela();
+    sairConta(); usuarioInscrito=false; atualizarTela();
   });
 
+  /* Garantir vaga — VERSÃO CORRIGIDA (usa inputVagaNick que agora existe no HTML) */
   document.getElementById('btnGarantirVaga').addEventListener('click',function(){
-    var nick=document.getElementById('inputVagaNick').value.trim();
-    if(!nick){toast('Digite seu nick no jogo!','error');return;}
-    var nome=getNome(),tel=getTel();
+    var nome=getNome(), tel=getTel();
+    var nickInput=document.getElementById('inputVagaNick');
+    var nick=nickInput?nickInput.value.trim():'';
     if(!nome||!tel){toast('Sessão inválida, faça login.','error');mostrarLogin();return;}
+    if(!nick){toast('Digite seu nick no Brawl Stars!','error');return;}
     refInscricoes.once('value',function(snapInsc){
       if(snapInsc.val()===false){toast('Inscrições bloqueadas!','error');return;}
       refPartic.once('value',function(snap){
@@ -1550,98 +1567,142 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
         if(Object.keys(partic).length>=TOTAL_VAGAS){toast('Sem vagas disponíveis!','error');return;}
         var jaInscrito=Object.values(partic).some(function(p){return p.nome===nome&&dig(p.telefone)===dig(tel);});
         if(jaInscrito){toast('Você já está inscrito!','error');usuarioInscrito=true;mostrarPos();return;}
-        var btn=document.getElementById('btnGarantirVaga');
-        btn.disabled=true;btn.textContent='Inscrevendo...';
-        refPartic.push({nome:nome,brawl:nick,telefone:tel},function(err){
-          btn.disabled=false;btn.textContent='✓ Garantir minha vaga';
-          if(err){toast('Erro ao inscrever.','error');return;}
-          document.getElementById('inputVagaNick').value='';
-          usuarioInscrito=true;consumirBeneficiosAoInscrever(tel);mostrarPos();
-          var g=temGratis(tel),d=!g&&temDesconto(tel);
-          if(g)toast('🏆 Inscrição com entrada GRÁTIS!','gold');
-          else if(d)toast('🔥 Entrada pela metade (R$2)!','orange');
-          else toast('Inscrição confirmada! ✅','success');
-        });
+        var temBen=temGratis(tel);
+        if(temBen){
+          inscreverJogador(nome,tel,nick,0);
+        } else {
+          getSaldo(function(saldo){
+            if(saldo<5){toast('Saldo insuficiente! Deposite R$5 na Carteira.','error');return;}
+            inscreverJogador(nome,tel,nick,5);
+          });
+        }
       });
     });
   });
   document.getElementById('inputVagaNick').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btnGarantirVaga').click();});
 
+  function inscreverJogador(nome,tel,brawl,custo){
+    var btn=document.getElementById('btnGarantirVaga');
+    btn.disabled=true; btn.textContent='Inscrevendo...';
+    refPartic.push({nome:nome,brawl:brawl,telefone:tel},function(err){
+      btn.disabled=false; btn.textContent='✓ Garantir minha vaga';
+      if(err){toast('Erro ao inscrever.','error');return;}
+      usuarioInscrito=true;
+      consumirBeneficiosAoInscrever(tel);
+      if(custo>0){
+        refCarteiras.child(tel).once('value',function(snap){
+          var saldoAtual=snap.exists()?(Number(snap.val().saldo)||0):0;
+          var novoSaldo=Math.max(0,saldoAtual-custo);
+          var updates={};
+          updates['carteiras/'+tel+'/saldo']=novoSaldo;
+          var histKey='carteiras/'+tel+'/historico/'+Date.now();
+          updates[histKey]={tipo:'saida',desc:'Inscrição no diário',valor:custo,ts:Date.now()};
+          db.ref().update(updates);
+        });
+      }
+      mostrarPos();
+      var g=temGratis(tel);
+      if(g)toast('🏆 Inscrição com entrada GRÁTIS!','gold');
+      else if(custo>0)toast('✅ Inscrição confirmada! R$'+custo+',00 debitado.','success');
+      else toast('✅ Inscrição confirmada!','success');
+    });
+  }
+
+  /* Cancelar inscrição */
   document.getElementById('btnCancelarInscricao').addEventListener('click',function(){
     if(!confirm('⚠️ Você PERDERÁ sua inscrição. Continuar?'))return;
-    var nome=getNome(),tel=getTel();
+    var nome=getNome(), tel=getTel();
     refPartic.once('value',function(snap){
       var partic=snap.val()||{};
-      Object.keys(partic).forEach(function(key){if(partic[key].nome===nome&&dig(partic[key].telefone)===dig(tel))refPartic.child(key).remove();});
+      Object.keys(partic).forEach(function(key){
+        if(partic[key].nome===nome&&dig(partic[key].telefone)===dig(tel))refPartic.child(key).remove();
+      });
     });
-    usuarioInscrito=false;mostrarGarantirVaga();toast('Inscrição cancelada.','error');
+    usuarioInscrito=false; mostrarGarantirVaga(); toast('Inscrição cancelada.','error');
   });
 
-  /* ADMIN LOGIN */
+  /* ===== CONFIGURAÇÕES (admin) — CORRIGIDO: toggle limpo ===== */
   document.getElementById('btnToggleLogin').addEventListener('click',function(){
     var box=document.getElementById('adminLoginBox');
     var contasBox=document.getElementById('contasLoginBox');
-    box.style.display=box.style.display==='block'?'none':'block';
+    // Fechar contas se aberto
     contasBox.style.display='none';
+    // Alternar admin
+    box.style.display=(box.style.display==='block')?'none':'block';
   });
+
+  /* ===== ENTRAR ADMIN — senha fixa 888111, UMA TENTATIVA ===== */
   document.getElementById('btnEntrarAdmin').addEventListener('click',function(){
     var digitada=document.getElementById('inputSenha').value;
     if(!digitada){toast('Digite a senha!','error');return;}
-    refSenha.once('value',function(snap){
-      if(digitada===String(snap.val())){
-        isAdmin=true;
-        document.getElementById('adminLoginBox').style.display='none';
-        document.getElementById('adminLayout').style.display='flex';
-        document.getElementById('inputSenha').value='';
-        // Fecha painel standalone se estiver aberto
-        document.getElementById('contasPanelStandalone').style.display='none';
-        isContasOpen=false;
-        renderBadge(ultimaSala);renderAdminLista(Object.values(ultimosPartic));
-        renderAdminVit();renderAdminContas();renderSelectJogadores();setLucroTab('normal');
-        document.getElementById('adminContasPanel').style.display='block';
-        refInscricoes.once('value',function(snap2){
-          var abertas=snap2.val()!==false;
-          var bB=document.getElementById('btnBloquearInscricoes'),bL=document.getElementById('btnLiberarInscricoes');
-          if(bB)bB.style.display=abertas?'inline-block':'none';
-          if(bL)bL.style.display=abertas?'none':'inline-block';
-        });
-      } else {toast('Senha incorreta!','error');document.getElementById('inputSenha').value='';}
-    });
+    if(digitada===SENHA_ADMIN){
+      isAdmin=true;
+      document.getElementById('adminLoginBox').style.display='none';
+      document.getElementById('inputSenha').value='';
+      document.getElementById('adminLayout').style.display='flex';
+      document.getElementById('contasPanelStandalone').style.display='none';
+      isContasOpen=false;
+      renderBadge(ultimaSala);
+      renderAdminLista(Object.values(ultimosPartic));
+      renderAdminVit(); renderAdminContas(); renderSelectJogadores(); renderSelectPremio();
+      setLucroTab('normal');
+      document.getElementById('adminContasPanel').style.display='block';
+      renderDepositosPendentes();
+      refInscricoes.once('value',function(snap2){
+        var abertas=snap2.val()!==false;
+        var bB=document.getElementById('btnBloquearInscricoes'), bL=document.getElementById('btnLiberarInscricoes');
+        if(bB)bB.style.display=abertas?'inline-block':'none';
+        if(bL)bL.style.display=abertas?'none':'inline-block';
+      });
+      toast('✅ Admin logado!','success');
+    } else {
+      toast('Senha incorreta!','error');
+      document.getElementById('inputSenha').value='';
+    }
   });
   document.getElementById('inputSenha').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btnEntrarAdmin').click();});
+
+  /* Sair admin */
   document.getElementById('btnSairAdmin').addEventListener('click',function(){
     isAdmin=false;
     document.getElementById('adminLayout').style.display='none';
     document.getElementById('adminContasPanel').style.display='none';
   });
 
-  /* CONTAS REGISTRADAS — senha própria, painel standalone */
+  /* ===== CONTAS REGISTRADAS — CORRIGIDO: toggle limpo ===== */
   document.getElementById('btnToggleContas').addEventListener('click',function(){
     if(isAdmin){
-      // Admin já logado: só alterna visibilidade do painel embutido
       var p=document.getElementById('adminContasPanel');
-      p.style.display=p.style.display==='none'?'block':'none';
+      p.style.display=(p.style.display==='none')?'block':'none';
       return;
     }
     var box=document.getElementById('contasLoginBox');
     var adminBox=document.getElementById('adminLoginBox');
-    box.style.display=box.style.display==='block'?'none':'block';
+    // Fechar admin se aberto
     adminBox.style.display='none';
+    // Alternar contas
+    box.style.display=(box.style.display==='block')?'none':'block';
   });
+
+  /* Entrar contas — mesma senha fixa */
   document.getElementById('btnEntrarContas').addEventListener('click',function(){
     var digitada=document.getElementById('inputSenhaContas').value;
     if(!digitada){toast('Digite a senha!','error');return;}
-    refSenha.once('value',function(snap){
-      if(digitada===String(snap.val())){
-        document.getElementById('contasLoginBox').style.display='none';
-        document.getElementById('inputSenhaContas').value='';
-        isContasOpen=true;
-        document.getElementById('contasPanelStandalone').style.display='block';
-        renderAdminContas();
-      } else {toast('Senha incorreta!','error');document.getElementById('inputSenhaContas').value='';}
-    });
+    if(digitada===SENHA_ADMIN){
+      document.getElementById('contasLoginBox').style.display='none';
+      document.getElementById('inputSenhaContas').value='';
+      isContasOpen=true;
+      document.getElementById('contasPanelStandalone').style.display='block';
+      renderAdminContas();
+      toast('✅ Contas carregadas!','success');
+    } else {
+      toast('Senha incorreta!','error');
+      document.getElementById('inputSenhaContas').value='';
+    }
   });
   document.getElementById('inputSenhaContas').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('btnEntrarContas').click();});
+
+  /* Fechar contas standalone */
   document.getElementById('btnFecharContas').addEventListener('click',function(){
     document.getElementById('contasPanelStandalone').style.display='none';
     isContasOpen=false;
@@ -1657,7 +1718,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     refSala.update({aberta:false},function(err){if(err)toast('Erro!','error');else toast('🔒 Sala fechada!');});
   });
 
-  /* ADD JOGADOR */
+  /* ADD JOGADOR AO RANKING */
   document.getElementById('btnAddJogador').addEventListener('click',function(){
     var tel=document.getElementById('selectNovoJogador').value;
     if(!tel){toast('Selecione um jogador da lista!','error');return;}
@@ -1665,7 +1726,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     var obj=adminDiarioAtivo==='mini'?vitoriasMini:vitoriasNormal;
     if(obj[tel]){toast('Jogador já está no ranking!','error');return;}
     var nome=(contasRegistradas[tel]&&contasRegistradas[tel].nome)||tel;
-    var upd={};upd[tel]={vitorias:0,nome:nome,ultimoBeneficioUsado:0};
+    var upd={}; upd[tel]={vitorias:0,nome:nome,ultimoBeneficioUsado:0};
     ref.update(upd,function(err){
       if(err){toast('Erro!','error');return;}
       document.getElementById('selectNovoJogador').value='';
@@ -1674,8 +1735,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   });
 
   /* INSCRIÇÕES */
-  document.getElementById('btnBloquearInscricoes').addEventListener('click',function(){refInscricoes.set(false,function(err){if(err)toast('Erro!','error');else toast('🚫 Bloqueadas!');});});
-  document.getElementById('btnLiberarInscricoes').addEventListener('click',function(){refInscricoes.set(true,function(err){if(err)toast('Erro!','error');else toast('✅ Liberadas!','success');});});
+  document.getElementById('btnBloquearInscricoes').addEventListener('click',function(){
+    refInscricoes.set(false,function(err){if(err)toast('Erro!','error');else toast('🚫 Inscrições bloqueadas!');});
+  });
+  document.getElementById('btnLiberarInscricoes').addEventListener('click',function(){
+    refInscricoes.set(true,function(err){if(err)toast('Erro!','error');else toast('✅ Inscrições liberadas!','success');});
+  });
 
   /* RESET */
   document.getElementById('btnReset').addEventListener('click',function(){
@@ -1684,55 +1749,30 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       if(err){toast('Erro!','error');return;}
       refSala.set({aberta:false,link:''},function(err2){
         if(err2){toast('Erro ao fechar sala!','error');return;}
-        usuarioInscrito=false;atualizarTela();toast('🗑️ Todos removidos!');
+        usuarioInscrito=false; atualizarTela(); toast('🗑️ Todos removidos!');
       });
     });
   });
 
-  /* ===== NICK NO LOGIN ===== */
-  var CONTA_NICK='dbrawl_conta_nick';
-  function getNick(){try{return localStorage.getItem(CONTA_NICK)||'';}catch(e){return '';}}
-  function salvarNick(n){try{localStorage.setItem(CONTA_NICK,n);}catch(e){}}
-
-  /* ===== ABAS DE NAVEGAÇÃO ===== */
-  var tabAtual='salas';
-  window.setTab=function(tab){
-    tabAtual=tab;
-    ['salas','carteira','perfil'].forEach(function(t){
-      var pg=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
-      var btn=document.getElementById('tabBtn'+t.charAt(0).toUpperCase()+t.slice(1));
-      if(pg)pg.className='tab-page'+(t===tab?' active':'');
-      if(btn)btn.className='nav-tab'+(t===tab?' active':'');
-    });
-    if(tab==='carteira')renderCarteira();
-    if(tab==='perfil')renderPerfil();
-  };
-
   /* ===== CARTEIRA ===== */
-  var refCarteiras=db.ref('carteiras');
-  var refDepositos=db.ref('depositos');
-  var refSaques=db.ref('saques');
-  var refSalas=db.ref('salas-dinamicas');
-
   function getSaldo(cb){
-    var tel=getTel();if(!tel){cb(0);return;}
+    var tel=getTel(); if(!tel){cb(0);return;}
     refCarteiras.child(tel).once('value',function(s){cb(s.exists()?(Number(s.val().saldo)||0):0);});
   }
   function formatBRL(v){return'R$ '+Number(v||0).toFixed(2).replace('.',',');}
 
   window.setCarteiraTab=function(t){
-    ['Dep','Sac','Hist'].forEach(function(x){
-      var sec={'Dep':'csecDep','Sac':'csecSac','Hist':'csecHist'}[x];
-      var btn={'Dep':'ctabDep','Sac':'ctabSac','Hist':'ctabHist'}[x];
-      var match=(t==='depositar'&&x==='Dep')||(t==='sacar'&&x==='Sac')||(t==='historico'&&x==='Hist');
-      document.getElementById(sec).className='carteira-section'+(match?' active':'');
-      document.getElementById(btn).className='carteira-tab'+(match?' active':'');
+    var map={depositar:['csecDep','ctabDep'],sacar:['csecSac','ctabSac'],historico:['csecHist','ctabHist']};
+    Object.keys(map).forEach(function(k){
+      var match=(k===t);
+      document.getElementById(map[k][0]).className='carteira-section'+(match?' active':'');
+      document.getElementById(map[k][1]).className='carteira-tab'+(match?' active':'');
     });
     if(t==='historico')renderHistorico();
   };
 
   function renderCarteira(){
-    var tel=getTel();if(!tel)return;
+    var tel=getTel(); if(!tel)return;
     getSaldo(function(s){
       document.getElementById('saldoVal').textContent=formatBRL(s);
       document.getElementById('perfilSaldo').textContent=formatBRL(s);
@@ -1741,7 +1781,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
 
   function renderMeusDepositos(){
-    var tel=getTel();if(!tel)return;
+    var tel=getTel(); if(!tel)return;
     refDepositos.orderByChild('telefone').equalTo(tel).once('value',function(snap){
       var el=document.getElementById('meusDepositos');
       var data=snap.val();
@@ -1763,7 +1803,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
 
   function renderHistorico(){
-    var tel=getTel();if(!tel)return;
+    var tel=getTel(); if(!tel)return;
     var el=document.getElementById('historicoLista');
     el.innerHTML='<div class="hist-empty">Carregando...</div>';
     refCarteiras.child(tel).child('historico').once('value',function(snap){
@@ -1790,19 +1830,19 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   };
 
   document.getElementById('btnEnviarDep').addEventListener('click',function(){
-    var tel=getTel(),nome=getNome();
+    var tel=getTel(), nome=getNome();
     if(!tel){toast('Faça login primeiro!','error');return;}
     var val=parseFloat(document.getElementById('inputDepValor').value);
     var nomeTrans=document.getElementById('inputDepNome').value.trim();
     if(isNaN(val)||val<1){toast('Digite um valor válido (mín. R$1)!','error');return;}
     if(!nomeTrans){toast('Digite o nome do titular do PIX!','error');return;}
     var btn=document.getElementById('btnEnviarDep');
-    btn.disabled=true;btn.textContent='Enviando...';
+    btn.disabled=true; btn.textContent='Enviando...';
     refDepositos.push({
       telefone:tel,nomeJogador:nome,nomeTransferencia:nomeTrans,
       valor:val,status:'pendente',criadoEm:Date.now()
     },function(err){
-      btn.disabled=false;btn.textContent='✓ Enviar pedido de depósito';
+      btn.disabled=false; btn.textContent='✓ Enviar pedido de depósito';
       if(err){toast('Erro ao enviar pedido!','error');return;}
       document.getElementById('inputDepValor').value='';
       document.getElementById('inputDepNome').value='';
@@ -1813,7 +1853,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   });
 
   document.getElementById('btnEnviarSac').addEventListener('click',function(){
-    var tel=getTel(),nome=getNome();
+    var tel=getTel(), nome=getNome();
     if(!tel){toast('Faça login primeiro!','error');return;}
     var val=parseFloat(document.getElementById('inputSacValor').value);
     var chave=document.getElementById('inputSacChave').value.trim();
@@ -1837,20 +1877,11 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     });
   });
 
-  /* ===== ADMIN: DEPÓSITOS ===== */
+  /* ADMIN: DEPÓSITOS */
   function renderDepositosPendentes(){
-    var el=document.getElementById('adminDepositosPendentes');if(!el)return;
+    var el=document.getElementById('adminDepositosPendentes'); if(!el)return;
     refDepositos.orderByChild('status').equalTo('pendente').once('value',function(snap){
-      var data=snap.val();
-      if(!data||!Object.keys(data).length){
-        // Checar também saques pendentes
-        refSaques.orderByChild('status').equalTo('pendente').once('value',function(s2){
-          var d2=s2.val();
-          if(!d2||!Object.keys(d2).length){el.innerHTML='<div class="vitorias-lista-admin-empty">Nenhum depósito ou saque pendente.</div>';return;}
-          renderDepSaques(el,{},d2);
-        });
-        return;
-      }
+      var data=snap.val()||{};
       refSaques.orderByChild('status').equalTo('pendente').once('value',function(s2){
         renderDepSaques(el,data,s2.val()||{});
       });
@@ -1932,13 +1963,13 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     if(!confirm('Recusar saque de '+nome+'?'))return;
     refSaques.child(key).update({status:'recusado'},function(err){
       if(err){toast('Erro!','error');return;}
-      toast('Saque de '+nome+' recusado.');renderDepositosPendentes();
+      toast('Saque de '+nome+' recusado.'); renderDepositosPendentes();
     });
   };
 
-  /* ===== ADMIN: PRÊMIOS ===== */
+  /* ADMIN: PRÊMIOS */
   function renderSelectPremio(){
-    var sel=document.getElementById('selectPremioJogador');if(!sel)return;
+    var sel=document.getElementById('selectPremioJogador'); if(!sel)return;
     var arr=Object.keys(contasRegistradas).map(function(k){
       return{tel:k,nome:contasRegistradas[k].nome||k};
     });
@@ -1968,14 +1999,13 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     });
   });
 
-  /* ===== ADMIN: SALAS DINÂMICAS ===== */
-  var salaAtualId=null,salaAtualDados=null;
+  /* ADMIN: SALAS DINÂMICAS */
   refSalas.on('value',function(snap){
     var data=snap.val()||{};
     if(isAdmin)renderAdminSalas(data);
   });
   function renderAdminSalas(data){
-    var el=document.getElementById('adminSalasList');if(!el)return;
+    var el=document.getElementById('adminSalasList'); if(!el)return;
     if(!data||!Object.keys(data).length){el.innerHTML='<div class="vitorias-lista-admin-empty">Nenhuma sala criada.</div>';return;}
     var html='';
     Object.keys(data).forEach(function(k){
@@ -1986,11 +2016,8 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
       var aberta=s.status==='aberta';
       html+='<span class="sala-badge '+(aberta?'aberta':'fechada')+'">'+(aberta?'Aberta':'Fechada')+'</span>';
       html+='<div style="display:flex;gap:5px;width:100%;margin-top:4px;">';
-      if(aberta){
-        html+='<button class="btn-add-jogador" style="flex:1;background:#1a1a1a;color:#888;font-size:.75rem;" onclick="adminFecharSala(\''+k+'\')">🔒 Fechar</button>';
-      } else {
-        html+='<button class="btn-add-jogador" style="flex:1;font-size:.75rem;" onclick="adminAbrirSala(\''+k+'\')">🔓 Abrir</button>';
-      }
+      if(aberta){html+='<button class="btn-add-jogador" style="flex:1;background:#1a1a1a;color:#888;font-size:.75rem;" onclick="adminFecharSala(\''+k+'\')">🔒 Fechar</button>';}
+      else{html+='<button class="btn-add-jogador" style="flex:1;font-size:.75rem;" onclick="adminAbrirSala(\''+k+'\')">🔓 Abrir</button>';}
       html+='<button class="btn-add-jogador" style="flex:0 0 auto;background:#1a0505;color:#cc4444;font-size:.75rem;" onclick="adminExcluirSala(\''+k+'\',\''+esc(s.nome||'?')+'\')">🗑️</button>';
       html+='</div></div>';
     });
@@ -2013,13 +2040,13 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   window.adminFecharSala=function(k){refSalas.child(k).update({status:'fechada'});};
   window.adminAbrirSala=function(k){refSalas.child(k).update({status:'aberta'});};
   window.adminExcluirSala=function(k,nome){
-    if(!confirm('Excluir sala "'+nome+'"? Isso não devolve saldo dos inscritos.'))return;
+    if(!confirm('Excluir sala "'+nome+'"?'))return;
     refSalas.child(k).remove(function(err){if(err)toast('Erro!','error');else toast('Sala excluída.');});
   };
 
-  /* ===== PERFIL ===== */
+  /* PERFIL */
   function renderPerfil(){
-    var nome=getNome(),tel=getTel(),nick=getNick();
+    var nome=getNome(), tel=getTel(), nick=getNick();
     document.getElementById('perfilNome').textContent=nome||'—';
     document.getElementById('perfilTel').textContent=tel||'—';
     document.getElementById('perfilNick').textContent=nick||'—';
@@ -2032,7 +2059,7 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
   }
   document.getElementById('btnEditarNick').addEventListener('click',function(){
     var box=document.getElementById('editNickBox');
-    box.style.display=box.style.display==='block'?'none':'block';
+    box.style.display=(box.style.display==='block')?'none':'block';
     if(box.style.display==='block')document.getElementById('inputNovoNick').value=getNick();
   });
   document.getElementById('btnSalvarNick').addEventListener('click',function(){
@@ -2046,99 +2073,12 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;mi
     toast('✅ Nick atualizado!','success');
   });
 
-  /* ===== ATUALIZAR LOGIN para salvar nick ===== */
-  /* Listener de contas atualiza nick do localStorage se mudou no Firebase */
-  refContas.on('value',function(snap){
-    contasRegistradas=snap.val()||{};
-    var tel=getTel();
-    if(tel&&contasRegistradas[tel]&&contasRegistradas[tel].nick){
-      salvarNick(contasRegistradas[tel].nick);
-    }
-    if(isAdmin||isContasOpen)renderAdminContas();
-    if(usuarioInscrito)mostrarPos();
-    renderLista(ultimosPartic);renderRanking();
-    if(isAdmin){renderSelectJogadores();renderSelectPremio();}
-  },function(err){console.error('Erro /contas',err);});
-
-  /* ===== MOSTRAR ABAS APÓS LOGIN ===== */
-  function mostrarNavTabs(show){
-    document.getElementById('navTabs').style.display=show?'flex':'none';
-  }
-
-  /* Substituir mostrarLogin para esconder nav */
-  var _origMostrarLogin=mostrarLogin;
-  mostrarLogin=function(){
-    _origMostrarLogin();mostrarNavTabs(false);setTab('salas');
-  };
-  var _origMostrarGarantirVaga=mostrarGarantirVaga;
-  mostrarGarantirVaga=function(){
-    _origMostrarGarantirVaga();mostrarNavTabs(true);
-    // Checar saldo e mostrar aviso
-    var tel=getTel();
-    getSaldo(function(s){
-      var temBen=temGratis(tel);
-      document.getElementById('vagaSaldoAviso').style.display=(!temBen&&s>=5)?'block':'none';
-      document.getElementById('vagaSaldoInsuf').style.display=(!temBen&&s<5)?'block':'none';
-    });
-  };
-  var _origMostrarPos=mostrarPos;
-  mostrarPos=function(){_origMostrarPos();mostrarNavTabs(true);};
-
-  /* ===== DESCONTAR SALDO AO SE INSCREVER ===== */
-  /* Substituir listener do btnGarantirVaga para incluir desconto de saldo */
-  document.getElementById('btnGarantirVaga').removeEventListener('click',arguments.callee);
-  /* Reimplementar clique do botão garantir vaga com lógica de saldo */
-  document.getElementById('btnGarantirVaga').onclick=function(){
-    var nome=getNome(),tel=getTel(),nick=getNick();
-    if(!nome||!tel){toast('Sessão inválida, faça login.','error');mostrarLogin();return;}
-    refInscricoes.once('value',function(snapInsc){
-      if(snapInsc.val()===false){toast('Inscrições bloqueadas!','error');return;}
-      refPartic.once('value',function(snap){
-        var partic=snap.val()||{};
-        if(Object.keys(partic).length>=TOTAL_VAGAS){toast('Sem vagas disponíveis!','error');return;}
-        var jaInscrito=Object.values(partic).some(function(p){return p.nome===nome&&dig(p.telefone)===dig(tel);});
-        if(jaInscrito){toast('Você já está inscrito!','error');usuarioInscrito=true;mostrarPos();return;}
-        var temBen=temGratis(tel);
-        if(temBen){
-          // Grátis — não desconta saldo
-          inscreverJogador(nome,tel,nick||nome);
-        } else {
-          // Verificar saldo
-          getSaldo(function(saldo){
-            if(saldo<5){toast('Saldo insuficiente! Deposite R$5 na Carteira.','error');return;}
-            inscreverJogador(nome,tel,nick||nome,5);
-          });
-        }
-      });
-    });
+  /* MODAL SALA (fecharModalSala global) */
+  window.fecharModalSala=function(){
+    document.getElementById('modalSala').className='modal-overlay';
   };
 
-  function inscreverJogador(nome,tel,brawl,custo){
-    var btn=document.getElementById('btnGarantirVaga');
-    btn.disabled=true;btn.textContent='Inscrevendo...';
-    refPartic.push({nome:nome,brawl:brawl,telefone:tel},function(err){
-      btn.disabled=false;btn.textContent='✓ Garantir minha vaga';
-      if(err){toast('Erro ao inscrever.','error');return;}
-      usuarioInscrito=true;consumirBeneficiosAoInscrever(tel);
-      if(custo&&custo>0){
-        // Descontar saldo
-        refCarteiras.child(tel).once('value',function(snap){
-          var saldoAtual=snap.exists()?(Number(snap.val().saldo)||0):0;
-          var novoSaldo=Math.max(0,saldoAtual-custo);
-          var updates={};
-          updates['carteiras/'+tel+'/saldo']=novoSaldo;
-          var histKey='carteiras/'+tel+'/historico/'+Date.now();
-          updates[histKey]={tipo:'saida',desc:'Inscrição no diário',valor:custo,ts:Date.now()};
-          db.ref().update(updates);
-        });
-      }
-      mostrarPos();
-      var g=temGratis(tel);
-      if(g)toast('🏆 Inscrição com entrada GRÁTIS!','gold');
-      else toast('✅ Inscrição confirmada! R$'+custo+',00 debitado.','success');
-    });
-  }
-
+  /* INIT */
   setSync('syncing','Conectando...');
   verificarInscricaoAtual();
 })();
